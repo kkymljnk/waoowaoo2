@@ -5,7 +5,7 @@ import LRUCache from 'lru-cache'
 /**
  * 🔥 图片下载缓存系统
  * 
- * 解决问题：批量生成分镜时，每个请求都重复下载相同的参考图片
+ * 解决问题：批量生成Storyboard时，每个请求都重复下载相同的Reference Image片
  * 
  * 实现方式：
  * - 使用 LRU 缓存正在进行的下载 Promise
@@ -60,7 +60,7 @@ export async function getImageBase64Cached(
 
     let fullUrl = imageUrl
     if (!imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
-        throw new Error(`无效的图片 URL: ${imageUrl.substring(0, 50)}...`)
+        throw new Error(`N/A效的图片 URL: ${imageUrl.substring(0, 50)}...`)
     }
     fullUrl = toFetchableUrl(fullUrl)
 
@@ -137,7 +137,7 @@ async function downloadImageAsBase64(imageUrl: string, logPrefix: string): Promi
                 ? error.message
                 : (typeof error === 'object' && error !== null && typeof (error as { message?: unknown }).message === 'string')
                     ? (error as { message: string }).message
-                    : '未知错误'
+                    : 'Unknown错误'
         _ulogError(`${logPrefix} ❌ 下载失败 (${duration}ms): ${message}`)
         throw error
     }

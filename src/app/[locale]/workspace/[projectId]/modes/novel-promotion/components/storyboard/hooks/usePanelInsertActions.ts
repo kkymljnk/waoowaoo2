@@ -33,7 +33,7 @@ export function usePanelInsertActions({
       const result = (data || {}) as InsertPanelMutationResult
       if (result.async && result.taskId) {
         const taskId = result.taskId
-        _ulogInfo(`[Insert Panel] 占位分镜已创建: #${result.panelNumber}，后台生成内容...`)
+        _ulogInfo(`[Insert Panel] 占位Storyboard已创建: #${result.panelNumber}，后台生成内容...`)
         setInsertingAfterPanelId(null)
         await onRefresh()
 
@@ -60,7 +60,7 @@ export function usePanelInsertActions({
         _ulogInfo('请求被中断（可能是页面刷新）')
         return
       }
-      _ulogError('插入分镜失败:', error)
+      _ulogError('Insert storyboard panel失败:', error)
       alert(
         t('messages.insertPanelFailed', {
           error: getErrorMessage(error, t('common.unknownError')),

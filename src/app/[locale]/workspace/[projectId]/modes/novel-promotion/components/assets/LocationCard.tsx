@@ -2,8 +2,8 @@
 
 import { useTranslations } from 'next-intl'
 /**
- * 场景卡片组件 - 支持多图片选择
- * 布局：上面名字+描述，下面三张图片
+ * Scene卡片组件 - 支持多图片选择
+ * 布局：上面名字+Description，下面三张图片
  */
 
 import { useState, useRef } from 'react'

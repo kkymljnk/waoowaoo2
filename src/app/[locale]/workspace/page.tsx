@@ -140,7 +140,7 @@ export default function WorkspacePage() {
         },
         body: JSON.stringify({
           ...formData,
-          mode: 'novel-promotion' // 固定为 novel-promotion
+          mode: 'novel-promotion' // Fixed为 novel-promotion
         })
       })
 
@@ -377,7 +377,7 @@ export default function WorkspacePage() {
                     {project.name}
                   </h3>
 
-                  {/* 描述：优先用户描述，fallback 到第一集故事 */}
+                  {/* Description：优先用户Description，fallback 到第一集故事 */}
                   {(project.description || project.stats?.firstEpisodePreview) && (
                     <div className="flex items-start gap-2 mb-4">
                       <AppIcon name="fileText" className="w-4 h-4 text-[var(--glass-text-tertiary)] mt-0.5 flex-shrink-0" />
@@ -514,7 +514,7 @@ export default function WorkspacePage() {
         )}
       </main>
 
-      {/* Create Project Modal - 简化版，只有名称和描述 */}
+      {/* Create Project Modal - 简化版，只有名称和Description */}
       {showCreateModal && (
         <div className="fixed inset-0 glass-overlay flex items-center justify-center z-50 backdrop-blur-sm">
           <div className="glass-surface-modal p-6 w-full max-w-md mx-4">

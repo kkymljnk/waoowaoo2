@@ -205,7 +205,7 @@ export const DELETE = apiHandler(async (
 
 /**
  * PATCH /api/novel-promotion/[projectId]/panel
- * 更新单个 Panel 的属性（视频提示词等）
+ * 更新单个 Panel 的属性（视频Prompt等）
  * 支持两种更新方式：
  * 1. 通过 panelId 直接更新（推荐，用于清除错误等操作）
  * 2. 通过 storyboardId + panelIndex 更新（兼容旧接口）
@@ -304,7 +304,7 @@ export const PATCH = apiHandler(async (
 
 /**
  * PUT /api/novel-promotion/[projectId]/panel
- * 完整更新单个 Panel 的所有属性（用于文字分镜编辑）
+ * 完整更新单个 Panel 的所有属性（用于文字Storyboard编辑）
  */
 export const PUT = apiHandler(async (
   request: NextRequest,
@@ -332,7 +332,7 @@ export const PUT = apiHandler(async (
     videoPrompt,
     firstLastFramePrompt,
     actingNotes,  // 演技指导数据
-    photographyRules,  // 单镜头摄影规则
+    photographyRules,  // 单Shot摄影规则
   } = body
 
   if (!storyboardId || panelIndex === undefined) {

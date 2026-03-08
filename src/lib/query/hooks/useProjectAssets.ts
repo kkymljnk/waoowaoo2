@@ -23,7 +23,7 @@ function isRunningPhase(phase: string | null | undefined) {
 // ============ 查询 Hooks ============
 
 /**
- * 获取项目资产（角色 + 场景）
+ * 获取项目Asset（Character + Scene）
  */
 export function useProjectAssets(projectId: string | null) {
     const assetsQuery = useQuery({
@@ -140,7 +140,7 @@ export function useProjectAssets(projectId: string | null) {
 }
 
 /**
- * 获取项目角色
+ * 获取项目Character
  */
 export function useProjectCharacters(projectId: string | null) {
     return useQuery({
@@ -157,7 +157,7 @@ export function useProjectCharacters(projectId: string | null) {
 }
 
 /**
- * 获取项目场景
+ * 获取项目Scene
  */
 export function useProjectLocations(projectId: string | null) {
     return useQuery({
@@ -174,7 +174,7 @@ export function useProjectLocations(projectId: string | null) {
 }
 
 /**
- * 刷新项目资产
+ * 刷新项目Asset
  * 🔥 同时刷新 projectAssets 和 projectData 两个缓存
  *    - projectAssets: 用于直接订阅 useProjectAssets 的组件
  *    - projectData: 用于 NovelPromotionWorkspace（通过 useProjectData 获取 characters/locations）
@@ -184,7 +184,7 @@ export function useRefreshProjectAssets(projectId: string | null) {
 
     return () => {
         if (projectId) {
-            _ulogInfo('[刷新资产] 同时刷新 projectAssets / projectData / tasks 缓存')
+            _ulogInfo('[刷新Asset] 同时刷新 projectAssets / projectData / tasks 缓存')
             queryClient.invalidateQueries({ queryKey: queryKeys.projectAssets.all(projectId) })
             queryClient.invalidateQueries({ queryKey: queryKeys.projectData(projectId) })
             queryClient.invalidateQueries({ queryKey: queryKeys.tasks.all(projectId), exact: false })

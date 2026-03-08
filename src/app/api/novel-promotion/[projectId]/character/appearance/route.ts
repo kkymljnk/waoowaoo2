@@ -8,7 +8,7 @@ import { requireProjectAuthLight, isErrorResponse } from '@/lib/api-auth'
 import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
- * POST - 为现有角色添加子形象
+ * POST - 为现有Character添加子Appearance
  * Body: { characterId, changeReason, description }
  */
 export const POST = apiHandler(async (
@@ -28,7 +28,7 @@ export const POST = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 验证角色存在
+  // 验证Character存在
   const character = await prisma.novelPromotionCharacter.findUnique({
     where: { id: characterId },
     include: {
@@ -41,7 +41,7 @@ export const POST = apiHandler(async (
     throw new ApiError('NOT_FOUND')
   }
 
-  // 验证角色属于当前项目
+  // 验证Character属于当前项目
   if (character.novelPromotionProject.projectId !== projectId) {
     throw new ApiError('INVALID_PARAMS')
   }
@@ -53,7 +53,7 @@ export const POST = apiHandler(async (
   )
   const newIndex = maxIndex + 1
 
-  // 创建子形象
+  // 创建子Appearance
   const newAppearance = await prisma.characterAppearance.create({
     data: {
       characterId,
@@ -65,7 +65,7 @@ export const POST = apiHandler(async (
       previousImageUrls: encodeImageUrls([])}
   })
 
-  _ulogInfo(`✓ 添加子形象: ${character.name} - ${changeReason} (index: ${newIndex})`)
+  _ulogInfo(`✓ 添加子Appearance: ${character.name} - ${changeReason} (index: ${newIndex})`)
 
   return NextResponse.json({
     success: true,
@@ -74,7 +74,7 @@ export const POST = apiHandler(async (
 })
 
 /**
- * PATCH - 更新角色形象描述
+ * PATCH - 更新CharacterAppearanceDescription
  * Body: { characterId, appearanceId, description, descriptionIndex }
  */
 export const PATCH = apiHandler(async (
@@ -94,7 +94,7 @@ export const PATCH = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 验证形象存在
+  // 验证Appearance存在
   const appearance = await prisma.characterAppearance.findUnique({
     where: { id: appearanceId },
     include: { character: { include: { novelPromotionProject: true } } }
@@ -108,12 +108,12 @@ export const PATCH = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 验证角色属于当前项目
+  // 验证Character属于当前项目
   if (appearance.character.novelPromotionProject.projectId !== projectId) {
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 更新描述
+  // 更新Description
   const trimmedDesc = description.trim()
 
   // 更新 descriptions 数组
@@ -140,7 +140,7 @@ export const PATCH = apiHandler(async (
     }
   })
 
-  _ulogInfo(`✓ 更新形象描述: ${appearance.character.name} - ${appearance.changeReason || '形象' + appearance.appearanceIndex}`)
+  _ulogInfo(`✓ 更新AppearanceDescription: ${appearance.character.name} - ${appearance.changeReason || 'Appearance' + appearance.appearanceIndex}`)
 
   return NextResponse.json({
     success: true
@@ -148,7 +148,7 @@ export const PATCH = apiHandler(async (
 })
 
 /**
- * DELETE - 删除单个角色形象
+ * DELETE - 删除单个CharacterAppearance
  * Query params: characterId, appearanceId
  */
 export const DELETE = apiHandler(async (
@@ -169,7 +169,7 @@ export const DELETE = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 获取形象记录
+  // 获取Appearance记录
   const appearance = await prisma.characterAppearance.findUnique({
     where: { id: appearanceId },
     include: { character: true }
@@ -183,7 +183,7 @@ export const DELETE = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 检查是否是最后一个形象
+  // 检查是否是最后一个Appearance
   const appearanceCount = await prisma.characterAppearance.count({
     where: { characterId }
   })
@@ -233,7 +233,7 @@ export const DELETE = apiHandler(async (
     where: { id: appearanceId }
   })
 
-  // 重新排序剩余形象的 appearanceIndex
+  // 重新排序剩余Appearance的 appearanceIndex
   const remainingAppearances = await prisma.characterAppearance.findMany({
     where: { characterId },
     orderBy: { appearanceIndex: 'asc' }
@@ -248,7 +248,7 @@ export const DELETE = apiHandler(async (
     }
   }
 
-  _ulogInfo(`✓ 删除形象: ${appearance.character.name} - ${appearance.changeReason || '形象' + appearance.appearanceIndex}`)
+  _ulogInfo(`✓ 删除Appearance: ${appearance.character.name} - ${appearance.changeReason || 'Appearance' + appearance.appearanceIndex}`)
   _ulogInfo(`✓ 删除了 ${deletedImages.length} 张 COS 图片`)
 
   return NextResponse.json({

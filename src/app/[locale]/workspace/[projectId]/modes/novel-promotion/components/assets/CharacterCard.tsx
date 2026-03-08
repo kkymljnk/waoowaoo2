@@ -3,8 +3,8 @@ import { logInfo as _ulogInfo } from '@/lib/logging/core'
 
 import { useTranslations } from 'next-intl'
 /**
- * 角色卡片组件 - 支持多图片选择和音色设置
- * 布局：上面名字+描述，下面三张图片（每张图片有独立的编辑和重新生成按钮）
+ * Character卡片组件 - 支持多图片选择和VoiceSettings
+ * 布局：上面名字+Description，下面三张图片（每张图片有独立的编辑和重新生成按钮）
  */
 
 import { useState, useRef } from 'react'
@@ -24,13 +24,13 @@ interface CharacterCardProps {
   appearance: CharacterAppearance
   onEdit: () => void
   onDelete: () => void
-  onDeleteAppearance?: () => void  // 删除单个形象
+  onDeleteAppearance?: () => void  // 删除单个Appearance
   onRegenerate: () => void
   onGenerate: () => void
   onUndo?: () => void  // 撤回到上一版本
   onImageClick: (imageUrl: string) => void
   showDeleteButton: boolean
-  appearanceCount?: number  // 该角色的形象数量
+  appearanceCount?: number  // 该Character的Appearance数量
   onSelectImage?: (characterId: string, appearanceId: string, imageIndex: number | null) => void
   activeTaskKeys?: Set<string>
   onClearTaskKey?: (key: string) => void
@@ -39,10 +39,10 @@ interface CharacterCardProps {
   primaryAppearanceSelected?: boolean
   projectId: string
   onConfirmSelection?: (characterId: string, appearanceId: string) => void  // 确认选择
-  // 音色相关
+  // Voice相关
   onVoiceChange?: (characterId: string, customVoiceUrl?: string) => void
-  onVoiceDesign?: (characterId: string, characterName: string) => void  // AI 声音设计
-  onVoiceSelectFromHub?: (characterId: string) => void  // 从资产中心选择音色
+  onVoiceDesign?: (characterId: string, characterName: string) => void  // AI Sound设计
+  onVoiceSelectFromHub?: (characterId: string) => void  // 从Asset中心选择Voice
 }
 
 export default function CharacterCard({
@@ -79,10 +79,10 @@ export default function CharacterCard({
   // 处理删除按钮点击
   const handleDeleteClick = () => {
     if (appearanceCount <= 1) {
-      // 只有一个形象，直接删除角色
+      // 只有一个Appearance，直接删除Character
       onDelete()
     } else {
-      // 多个形象，显示菜单
+      // 多个Appearance，显示菜单
       setShowDeleteMenu(!showDeleteMenu)
     }
   }
@@ -127,7 +127,7 @@ export default function CharacterCard({
     )
   }
 
-  // 音色设置由 VoiceSettings 组件处理
+  // VoiceSettings由 VoiceSettings 组件处理
 
   // 获取图片数组（已经是数组，不需要 JSON 解析）
   const rawImageUrls = appearance.imageUrls || []
@@ -206,7 +206,7 @@ export default function CharacterCard({
 
   // 注意：不再使用 editingItems，生成/编辑状态统一由任务态 + 实体态提供
 
-  // 选择模式：显示名字+描述在上，三张图片在下
+  // 选择模式：显示名字+Description在上，三张图片在下
   if (showSelectionMode) {
     const selectionActions = (
       <>

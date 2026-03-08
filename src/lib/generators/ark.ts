@@ -2,11 +2,11 @@ import { logInfo as _ulogInfo, logError as _ulogError } from '@/lib/logging/core
 /**
  * 火山引擎 ARK 生成器（统一图像 + 视频）
  * 
- * 图像模型：
+ * 图像Model：
  * - Seedream 4.5 (doubao-seedream-4-5-251128)
  * - Seedream 4.0
  * 
- * 视频模型：
+ * 视频Model：
  * - Seedance 1.0 Pro (doubao-seedance-1-0-pro-250528)
  * - Seedance 1.0 Lite (doubao-seedance-1-0-lite-i2v-250428)
  * - Seedance 1.5 Pro (doubao-seedance-1-5-pro-251215)
@@ -179,16 +179,16 @@ export class ArkImageGenerator extends BaseImageGenerator {
             }
         }
 
-        _ulogInfo(`[ARK Image] 模型=${modelId}, aspectRatio=${aspectRatio || '(none)'}, size=${size || '(未传)'}`)
+        _ulogInfo(`[ARK Image] Model=${modelId}, aspectRatio=${aspectRatio || '(none)'}, size=${size || '(未传)'}`)
 
-        // 转换参考图片为 Base64
+        // 转换Reference Image片为 Base64
         const base64Images: string[] = []
         for (const imageUrl of referenceImages) {
             try {
                 const base64 = await imageUrlToBase64(imageUrl)
                 base64Images.push(base64)
             } catch {
-                _ulogInfo(`[ARK Image] 参考图片转换失败: ${imageUrl}`)
+                _ulogInfo(`[ARK Image] Reference Image片转换失败: ${imageUrl}`)
             }
         }
 
@@ -366,7 +366,7 @@ export class ArkVideoGenerator extends BaseVideoGenerator {
             }
         }
 
-        _ulogInfo(`[ARK Video] 模型: ${realModel}, 批量: ${isBatchMode}, 分辨率: ${resolution || '(默认)'}, 时长: ${duration ?? '(默认)'}`)
+        _ulogInfo(`[ARK Video] Model: ${realModel}, 批量: ${isBatchMode}, 分辨率: ${resolution || '(Default)'}, 时长: ${duration ?? '(Default)'}`)
 
         // 转换图片为 base64
         const imageBase64 = await imageUrlToBase64(imageUrl)
@@ -487,7 +487,7 @@ export class ArkVideoGenerator extends BaseVideoGenerator {
                 externalId: `ARK:VIDEO:${taskId}`  // 🔥 标准格式
             }
         } catch (error: unknown) {
-            const message = error instanceof Error ? error.message : '未知错误'
+            const message = error instanceof Error ? error.message : 'Unknown错误'
             _ulogError(`[ARK Video] 创建任务失败:`, message)
             throw new Error(`ARK 视频任务创建失败: ${message}`)
         }

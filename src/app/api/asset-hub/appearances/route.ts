@@ -35,7 +35,7 @@ interface AssetHubAppearancesDb {
 
 /**
  * POST /api/asset-hub/appearances
- * 添加子形象
+ * 添加子Appearance
  */
 export const POST = apiHandler(async (request: NextRequest) => {
     const db = prisma as unknown as AssetHubAppearancesDb
@@ -78,7 +78,7 @@ export const POST = apiHandler(async (request: NextRequest) => {
 
 /**
  * PATCH /api/asset-hub/appearances
- * 更新子形象描述
+ * 更新子AppearanceDescription
  */
 export const PATCH = apiHandler(async (request: NextRequest) => {
     const db = prisma as unknown as AssetHubAppearancesDb
@@ -127,7 +127,7 @@ export const PATCH = apiHandler(async (request: NextRequest) => {
 
 /**
  * DELETE /api/asset-hub/appearances
- * 删除子形象
+ * 删除子Appearance
  */
 export const DELETE = apiHandler(async (request: NextRequest) => {
     const db = prisma as unknown as AssetHubAppearancesDb

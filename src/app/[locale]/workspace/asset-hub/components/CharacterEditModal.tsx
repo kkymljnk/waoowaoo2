@@ -2,8 +2,8 @@
 import { logError as _ulogError } from '@/lib/logging/core'
 
 /**
- * 资产中心 - 角色形象编辑弹窗
- * 与项目级资产库的 CharacterEditModal 保持一致
+ * Asset中心 - CharacterAppearance编辑弹窗
+ * 与项目级Asset Library的 CharacterEditModal 保持一致
  */
 
 import { useState } from 'react'
@@ -67,7 +67,7 @@ export function CharacterEditModal({
         })
         : null
 
-    // AI 修改描述
+    // AI 修改Description
     const handleAiModify = async () => {
         if (!aiModifyInstruction.trim()) return
 
@@ -117,7 +117,7 @@ export function CharacterEditModal({
                 await updateName.mutateAsync({ characterId, name: editingName.trim() })
             }
 
-            // 保存描述
+            // 保存Description
             await updateAppearanceDescription.mutateAsync({
                 characterId,
                 appearanceIndex,
@@ -151,7 +151,7 @@ export function CharacterEditModal({
                         await updateName.mutateAsync({ characterId, name: nameToSave })
                     }
 
-                    // 保存描述
+                    // 保存Description
                     await updateAppearanceDescription.mutateAsync({
                         characterId,
                         appearanceIndex,
@@ -184,7 +184,7 @@ export function CharacterEditModal({
                         </button>
                     </div>
 
-                    {/* 角色名字编辑 */}
+                    {/* Character名字编辑 */}
                     <div className="space-y-2">
                         <label className="glass-field-label block">
                             {t('character.name')}
@@ -209,7 +209,7 @@ export function CharacterEditModal({
                         </div>
                     </div>
 
-                    {/* 形象标识 */}
+                    {/* Appearance标识 */}
                     <div className="text-sm text-[var(--glass-text-secondary)]">
                         {t('character.appearance')}: <span className="font-medium text-[var(--glass-text-primary)]">{changeReason}</span>
                     </div>
@@ -255,7 +255,7 @@ export function CharacterEditModal({
                         </p>
                     </div>
 
-                    {/* 描述编辑 */}
+                    {/* Description编辑 */}
                     <div className="space-y-2">
                         <label className="glass-field-label block">
                             {t('modal.appearancePrompt')}

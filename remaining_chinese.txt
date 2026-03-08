@@ -1,0 +1,1021 @@
+﻿Found 747 Chinese strings in 136 files:
+
+--- app\api\asset-hub\characters\route.ts (2 strings) ---
+  L99: ${name.trim()} τÜäCharacterΦ«╛σ«Ü
+  L139: [Characters API] σÉÄσÅ░τöƒµêÉΣ╗╗σèíΦºªσÅæσñ▒Φ┤Ñ:
+
+--- app\api\asset-hub\characters\[characterId]\appearances\[appearanceIndex]\route.ts (1 strings) ---
+  L105: AppearanceσÅÿσîû
+
+--- app\api\asset-hub\locations\route.ts (1 strings) ---
+  L113: [Locations API] σÉÄσÅ░τöƒµêÉΣ╗╗σèíΦºªσÅæσñ▒Φ┤Ñ:
+
+--- app\api\asset-hub\undo-image\route.ts (2 strings) ---
+  L103: σ╖▓µÆñσ¢₧σê░Σ╕èΣ╕Çτëêµ£¼∩╝êσ¢╛τëçσÆîDescriptionΦ»ì∩╝ë
+  L131: σ╖▓µÆñσ¢₧σê░Σ╕èΣ╕Çτëêµ£¼∩╝êσ¢╛τëçσÆîDescriptionΦ»ì∩╝ë
+
+--- app\api\asset-hub\update-asset-label\route.ts (1 strings) ---
+  L123: N/Aµ│òσ╜ÆΣ╕Çσîûσ¬ÆΣ╜ô key: ${imageUrl}
+
+--- app\api\auth\register\route.ts (1 strings) ---
+  L63: µ│¿σåîµêÉσèƒ
+
+--- app\api\files\[...path]\route.ts (2 strings) ---
+  L53: [Files API] Φ╖»σ╛äΘÇâΘÇ╕σ░¥Φ»ò: ${decodedPath}
+  L79: [Files API] Φ»╗σÅûµûçΣ╗╢σñ▒Φ┤Ñ:
+
+--- app\api\novel-promotion\[projectId]\character\appearance\route.ts (4 strings) ---
+  L68: Γ£ô µ╖╗σèáσ¡ÉAppearance: ${character.name} - ${changeReason} (index: ${newIndex})
+  L143: Γ£ô µ¢┤µû░AppearanceDescription: ${appearance.character.name} - ${appearance.changeRea
+  L251: Γ£ô σêáΘÖñAppearance: ${appearance.character.name} - ${appearance.changeReason ||
+  L252: Γ£ô σêáΘÖñΣ║å ${deletedImages.length} σ╝á COS σ¢╛τëç
+
+--- app\api\novel-promotion\[projectId]\character\confirm-selection\route.ts (4 strings) ---
+  L58: σ╖▓τí«Φ«ñΘÇëµï⌐
+  L107: Γ£ô τí«Φ«ñΘÇëµï⌐: ${appearance.character.name} - ${appearance.changeReason}
+  L108: Γ£ô σêáΘÖñΣ║å ${deletedImages.length} σ╝áµ£¬ΘÇëΣ╕¡τÜäσ¢╛τëç
+  L112: σ╖▓τí«Φ«ñΘÇëµï⌐∩╝îσà╢Σ╗ûσÇÖΘÇëσ¢╛τëçσ╖▓σêáΘÖñ
+
+--- app\api\novel-promotion\[projectId]\character\route.ts (3 strings) ---
+  L125: ${name.trim()} τÜäCharacterΦ«╛σ«Ü
+  L162: [Character API] Reference ImageσÉÄσÅ░τöƒµêÉΣ╗╗σèíΦºªσÅæσñ▒Φ┤Ñ:
+  L186: [Character API] σÉÄσÅ░σ¢╛τëçτöƒµêÉΣ╗╗σèíΦºªσÅæσñ▒Φ┤Ñ:
+
+--- app\api\novel-promotion\[projectId]\copy-from-global\route.ts (12 strings) ---
+  L99: [Copy from Global] σñìσê╢Character: global=${globalCharacterId} -> project=${targetI
+  L126: [Copy from Global] σêáΘÖñΣ║å ${projectCharacter.appearances.length} Σ╕¬µùºAppearance
+  L130: [Copy from Global] µ¢┤µû░Θ╗æΦ╛╣µáçτ¡╛: ${globalCharacter.name} -> ${projectCharacter.name}
+  L163: [Copy from Global] σñìσê╢Σ║å ${copiedAppearances.length} Σ╕¬Appearance∩╝êσ╖▓µ¢┤µû░µáçτ¡╛∩╝ë
+  L180: [Copy from Global] Characterσñìσê╢σ«îµêÉ: ${projectCharacter.name}
+  L193: [Copy from Global] σñìσê╢Scene: global=${globalLocationId} -> project=${targetId}
+  L220: [Copy from Global] σêáΘÖñΣ║å ${projectLocation.images.length} Σ╕¬µùºσ¢╛τëç
+  L224: [Copy from Global] µ¢┤µû░Θ╗æΦ╛╣µáçτ¡╛: ${globalLocation.name} -> ${projectLocation.name}
+  L250: [Copy from Global] σñìσê╢Σ║å ${copiedImages.length} Σ╕¬σ¢╛τëç∩╝êσ╖▓µ¢┤µû░µáçτ¡╛∩╝ë
+  L271: [Copy from Global] Sceneσñìσê╢σ«îµêÉ: ${projectLocation.name}
+  L284: [Copy from Global] σñìσê╢Voice: global=${globalVoiceId} -> project character=${targe
+  L314: [Copy from Global] Voiceσñìσê╢σ«îµêÉ: ${projectCharacter.name} <- ${globalVoice.name}
+
+--- app\api\novel-promotion\[projectId]\episodes\batch\route.ts (1 strings) ---
+  L58: σ╖▓µ╕àτ⌐║Episode
+
+--- app\api\novel-promotion\[projectId]\episodes\split-by-markers\route.ts (2 strings) ---
+  L18: [Split-By-Markers API] ========== σ╝ÇσºïσñäτÉåΦ»╖µ▒é ==========
+  L66: µáçΦ»åτ¼ªEpisode Splitσ«îµêÉ - ${episodes.length} Θ¢å∩╝îµáçΦ«░τ▒╗σ₧ï: ${markerResult.markerType}
+
+--- app\api\novel-promotion\[projectId]\episodes\[episodeId]\route.ts (1 strings) ---
+  L54: µ¢┤µû░ lastEpisodeId σñ▒Φ┤Ñ:
+
+--- app\api\novel-promotion\[projectId]\generate-character-image\route.ts (5 strings) ---
+  L61: τ╛Äσ╝Åµ╝½τö╗ΘúÄµá╝
+  L62: τ▓╛Φç┤σ¢╜µ╝½ΘúÄµá╝
+  L63: µùÑτ│╗σè¿µ╝½ΘúÄµá╝
+  L64: τ£ƒΣ║║τàºτëçσåÖσ«₧ΘúÄµá╝
+  L101: [Generate Character Image] σñ▒Φ┤Ñ:
+
+--- app\api\novel-promotion\[projectId]\location\confirm-selection\route.ts (4 strings) ---
+  L51: σ╖▓τí«Φ«ñΘÇëµï⌐
+  L104: Γ£ô Sceneτí«Φ«ñΘÇëµï⌐: ${location.name}
+  L105: Γ£ô σêáΘÖñΣ║å ${deletedImages.length} σ╝áµ£¬ΘÇëΣ╕¡τÜäσ¢╛τëç
+  L109: σ╖▓τí«Φ«ñΘÇëµï⌐∩╝îσà╢Σ╗ûσÇÖΘÇëσ¢╛τëçσ╖▓σêáΘÖñ
+
+--- app\api\novel-promotion\[projectId]\location\route.ts (5 strings) ---
+  L65: τ╛Äσ╝Åµ╝½τö╗ΘúÄµá╝
+  L66: τ▓╛Φç┤σ¢╜µ╝½ΘúÄµá╝
+  L67: µùÑτ│╗σè¿µ╝½ΘúÄµá╝
+  L68: τ£ƒΣ║║τàºτëçσåÖσ«₧ΘúÄµá╝
+  L118: [Location API] σÉÄσÅ░σ¢╛τëçτöƒµêÉΣ╗╗σèíΦºªσÅæσñ▒Φ┤Ñ:
+
+--- app\api\novel-promotion\[projectId]\panel\select-candidate\route.ts (3 strings) ---
+  L65: σ╖▓σÅûµ╢êΘÇëµï⌐
+  L93: [select-candidate] ΘÇëµï⌐σñ▒Φ┤Ñ: selectedCosKey=${selectedCosKey}, candidateKeys=${JSON.
+  L133: σ╖▓ΘÇëµï⌐σ¢╛τëç
+
+--- app\api\novel-promotion\[projectId]\photography-plan\route.ts (1 strings) ---
+  L45: [PUT /photography-plan] µ¢┤µû░µêÉσèƒ, storyboardId:
+
+--- app\api\novel-promotion\[projectId]\select-character-image\route.ts (2 strings) ---
+  L61: Γ£ô Character ${appearance.character.name} Appearance ${appearanceId}: ΘÇëµï⌐Σ║åτ┤óσ╝ò ${sel
+  L63: Γ£ô Character ${appearance.character.name} Appearance ${appearanceId}: σÅûµ╢êΘÇëµï⌐
+
+--- app\api\novel-promotion\[projectId]\select-location-image\route.ts (2 strings) ---
+  L64: Γ£ô Scene ${location.name}: ΘÇëµï⌐Σ║åτ┤óσ╝ò ${selectedIndex}
+  L70: Γ£ô Scene ${location.name}: σÅûµ╢êΘÇëµï⌐
+
+--- app\api\novel-promotion\[projectId]\storyboard-group\route.ts (5 strings) ---
+  L71: µëïσè¿µ╖╗σèáτÜäStoryboardτ╗ä
+  L96: µû░ShotDescription
+  L104: [µ╖╗σèáStoryboardτ╗ä] episodeId=${episodeId}, clipId=${result.clip.id}, storyboardId=$
+  L190: [τº╗σè¿Storyboardτ╗ä] clipId=${clipId}, direction=${direction}, ${currentIndex} -> ${t
+  L249: [σêáΘÖñStoryboardτ╗ä] storyboardId=${storyboardId}, clipId=${storyboard.clipId}, panel
+
+--- app\api\novel-promotion\[projectId]\undo-regenerate\route.ts (4 strings) ---
+  L96: [undo-regenerate] µö╢σê░N/AµòêτÜä appearanceId: ${appearanceId} (τ▒╗σ₧ï: ${typeof appearance
+  L162: σ╖▓µÆñσ¢₧σê░Σ╕èΣ╕Çτëêµ£¼∩╝êσ¢╛τëçσÆîDescriptionΦ»ì∩╝ë
+  L211: σ╖▓µÆñσ¢₧σê░Σ╕èΣ╕Çτëêµ£¼∩╝êσ¢╛τëçσÆîDescriptionΦ»ì∩╝ë
+  L253: Shotσ¢╛τëçσ╖▓µÆñσ¢₧σê░Σ╕èΣ╕Çτëêµ£¼
+
+--- app\api\novel-promotion\[projectId]\update-asset-label\route.ts (1 strings) ---
+  L146: N/Aµ│òσ╜ÆΣ╕Çσîûσ¬ÆΣ╜ô key: ${imageUrl}
+
+--- app\api\novel-promotion\[projectId]\video-proxy\route.ts (1 strings) ---
+  L35: [ΦºåΘóæΣ╗úτÉå] Σ╕ïΦ╜╜: ${fetchUrl.substring(0, 100)}...
+
+--- app\api\projects\[projectId]\data\route.ts (1 strings) ---
+  L41: µ¢┤µû░Φ«┐Θù«µù╢Θù┤σñ▒Φ┤Ñ:
+
+--- app\api\projects\[projectId]\route.ts (6 strings) ---
+  L41: µ¢┤µû░Φ«┐Θù«µù╢Θù┤σñ▒Φ┤Ñ:
+  L180: [Project ${projectId}] µö╢Θ¢åσê░ ${keys.length} Σ╕¬ COS µûçΣ╗╢σ╛àσêáΘÖñ
+  L209: [DELETE] σ╝ÇσºïσêáΘÖñΘí╣τ¢«: ${project.name} (${projectId})
+  L215: [DELETE] µ¡úσ£¿σêáΘÖñ ${cosKeys.length} Σ╕¬ COS µûçΣ╗╢...
+  L237: [DELETE] Θí╣τ¢«σêáΘÖñσ«îµêÉ: ${project.name}
+  L238: [DELETE] COS µûçΣ╗╢: µêÉσèƒ ${cosResult.success}, σñ▒Φ┤Ñ ${cosResult.failed}
+
+--- app\api\tasks\[taskId]\route.ts (1 strings) ---
+  L76: Σ╗╗σèíσ╖▓σÅûµ╢ê
+
+--- app\api\user\costs\route.ts (1 strings) ---
+  L35: UnknownΘí╣τ¢«
+
+--- app\[locale]\profile\components\api-config\hooks.ts (2 strings) ---
+  L270: ΦÄ╖σÅûΘàìτ╜«σñ▒Φ┤Ñ:
+  L327: Σ┐¥σ¡ÿσñ▒Φ┤Ñ:
+
+--- app\[locale]\profile\components\api-config\types.ts (4 strings) ---
+  L111: Seedance 2.0∩╝êσ╛àΣ╕èτ║┐∩╝ë
+  L173: τü½σ▒▒σ╝òµôÄ Ark
+  L174: µ╡╖Φ₧║ MiniMax
+  L175: τöƒµò░τºæµèÇ Vidu
+
+--- app\[locale]\profile\page.tsx (3 strings) ---
+  L214: ΦÄ╖σÅûΣ║ñµÿôΦ«░σ╜òσñ▒Φ┤Ñ:
+  L242: ΦÄ╖σÅûµò░µì«σñ▒Φ┤Ñ:
+  L284: ΦÄ╖σÅûΘí╣τ¢«Φ┤╣τö¿σñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\asset-hub\components\AddLocationModal.tsx (2 strings) ---
+  L66: AIΦ«╛Φ«íσñ▒Φ┤Ñ:
+  L83: σê¢σ╗║Sceneσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\asset-hub\components\CharacterCard.tsx (2 strings) ---
+  L241: [CharacterCard] σñÜσ¢╛µ¿íσ╝Å - Θçìµû░τöƒµêÉµîëΘÆ«τé╣σç╗, characterId:
+  L255: [CharacterCard] σñÜσ¢╛µ¿íσ╝Å - σêáΘÖñµîëΘÆ«τé╣σç╗, characterId:
+
+--- app\[locale]\workspace\asset-hub\components\CharacterEditModal.tsx (1 strings) ---
+  L165: Σ┐¥σ¡ÿσ╣╢τöƒµêÉσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\asset-hub\components\LocationEditModal.tsx (1 strings) ---
+  L156: Σ┐¥σ¡ÿσ╣╢τöƒµêÉσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\asset-hub\components\VoicePickerDialog.tsx (1 strings) ---
+  L54: σèáΦ╜╜Voiceσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\asset-hub\page.tsx (7 strings) ---
+  L107: σê¢σ╗║µûçΣ╗╢σñ╣σñ▒Φ┤Ñ:
+  L125: µ¢┤µû░µûçΣ╗╢σñ╣σñ▒Φ┤Ñ:
+  L144: σêáΘÖñµûçΣ╗╢σñ╣σñ▒Φ┤Ñ:
+  L223: Σ┐¥σ¡ÿSoundσñ▒Φ┤Ñ:
+  L276: ΦºªσÅæτöƒµêÉσñ▒Φ┤Ñ:
+  L295: ΦºªσÅæτöƒµêÉσñ▒Φ┤Ñ:
+  L325: τ╗æσ«ÜVoiceσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\page.tsx (2 strings) ---
+  L106: ΦÄ╖σÅûΘí╣τ¢«σñ▒Φ┤Ñ:
+  L160: σê¢σ╗║Θí╣τ¢«σñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\components\Sidebar.tsx (3 strings) ---
+  L94: σê¢σ╗║Episodeσñ▒Φ┤Ñ:
+  L106: Θçìσæ╜σÉìσñ▒Φ┤Ñ:
+  L116: σêáΘÖñσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\assets\AddLocationModal.tsx (1 strings) ---
+  L93: AIΦ«╛Φ«íσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\assets\CharacterCard.tsx (1 strings) ---
+  L149: [CharacterCardΦ░âΦ»ò] ${character.name}-${appearance.changeReason}:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\assets\CharacterSection.tsx (3 strings) ---
+  L236: [CharacterSection] Θçìµû░τöƒµêÉσêñµû¡:
+  L247: [CharacterSection] Φ░âτö¿σìòσ╝áΘçìµû░τöƒµêÉ, imageIndex:
+  L252: [CharacterSection] Φ░âτö¿µò┤τ╗äΘçìµû░τöƒµêÉ
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\assets\hooks\useAssetsGlobalActions.ts (1 strings) ---
+  L79: [AssetsStage] ΘÇÜΦ┐ç props ΦºªσÅæσà¿σ▒ÇAnalysis
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\assets\hooks\useAssetsImageEdit.ts (6 strings) ---
+  L118: [Sceneτ╝ûΦ╛æ] σ╝Çσºïτ╝ûΦ╛æ ${locationName}, locationId=${locationId}, imageIndex=${imageInde
+  L125: [Sceneτ╝ûΦ╛æ] Γ£à σ«îµêÉ: ${locationName}
+  L130: [Sceneτ╝ûΦ╛æ] Γ¥î σñ▒Φ┤Ñ: ${locationName}
+  L144: [Characterτ╝ûΦ╛æ] σ╝Çσºïτ╝ûΦ╛æ ${characterName}, characterId=${characterId}, appearanceId=${
+  L151: [Characterτ╝ûΦ╛æ] Γ£à σ«îµêÉ: ${characterName}
+  L156: [Characterτ╝ûΦ╛æ] Γ¥î σñ▒Φ┤Ñ: ${characterName}
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\assets\hooks\useCharacterActions.ts (3 strings) ---
+  L108: Φ»╖µ▒éΦó½Σ╕¡µû¡∩╝êσÅ»Φâ╜µÿ»Θí╡Θ¥óσê╖µû░∩╝ë∩╝îσÉÄτ½»Σ╗ìσ£¿µëºΦíî
+  L122: Φ»╖µ▒éΦó½Σ╕¡µû¡∩╝êσÅ»Φâ╜µÿ»Θí╡Θ¥óσê╖µû░∩╝ë∩╝îσÉÄτ½»Σ╗ìσ£¿µëºΦíî
+  L178: µ¢┤µû░Descriptionσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\assets\hooks\useLocationActions.ts (3 strings) ---
+  L77: Φ»╖µ▒éΦó½Σ╕¡µû¡∩╝êσÅ»Φâ╜µÿ»Θí╡Θ¥óσê╖µû░∩╝ë∩╝îσÉÄτ½»Σ╗ìσ£¿µëºΦíî
+  L91: Φ»╖µ▒éΦó½Σ╕¡µû¡∩╝êσÅ»Φâ╜µÿ»Θí╡Θ¥óσê╖µû░∩╝ë∩╝îσÉÄτ½»Σ╗ìσ£¿µëºΦíî
+  L139: µ¢┤µû░Descriptionσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\assets\hooks\useTTSGeneration.ts (1 strings) ---
+  L67: µ¢┤µû░Voiceσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\assets\LocationSection.tsx (3 strings) ---
+  L93: [LocationSection] Θçìµû░τöƒµêÉσêñµû¡:
+  L103: [LocationSection] Φ░âτö¿σìòσ╝áΘçìµû░τöƒµêÉ, imageIndex:
+  L108: [LocationSection] Φ░âτö¿µò┤τ╗äΘçìµû░τöƒµêÉ
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\script-view\ScriptViewScriptPanel.tsx (1 strings) ---
+  L46: Φºúµ₧ÉScriptJSONσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\smart-import\hooks\useWizardState.ts (12 strings) ---
+  L57: [SmartImport] σèáΦ╜╜σ╖▓Σ┐¥σ¡ÿEpisodeσñ▒Φ┤Ñ:
+  L73: [SmartImport] σ╝ÇσºïΦ░âτö¿ split API...
+  L91: [SmartImport] Φç¬σè¿Σ┐¥σ¡ÿσñ▒Φ┤Ñ∩╝îτ╗ºτ╗¡µÿ╛τñ║ΘóäΦºê
+  L94: [SmartImport] Episodeσ╖▓Φç¬σè¿Σ┐¥σ¡ÿσê░µò░µì«σ║ô∩╝îτè╢µÇü∩╝Üpending
+  L106: [SmartImport] handleAnalyze Φó½Φ░âτö¿
+  L107: [SmartImport] rawContent Θò┐σ║ª:
+  L116: [SmartImport] µáçΦ«░µúÇµ╡ïτ╗ôµ₧£:
+  L130: [SmartImport] µ£¬µúÇµ╡ïσê░µáçΦ«░∩╝îσ░åΣ╜┐τö¿ AI Analysis
+  L159: [SmartImport] µáçΦ«░σêåσë▓Σ┐¥σ¡ÿσñ▒Φ┤Ñ∩╝îτ╗ºτ╗¡µÿ╛τñ║ΘóäΦºê
+  L162: [SmartImport] µáçΦ«░σêåσë▓Episodeσ╖▓Σ┐¥σ¡ÿ
+  L244: [SmartImport] Episodeσ╖▓Σ┐¥σ¡ÿσê░µò░µì«σ║ô∩╝îτè╢µÇü∩╝Ücompleted, ΦºªσÅæσà¿σ▒ÇAnalysis:
+  L247: [SmartImport] Σ┐¥σ¡ÿσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\storyboard\hooks\usePanelCandidates.ts (5 strings) ---
+  L63: [confirmPanelCandidate] ≡ƒÄ» σ╝Çσºïτí«Φ«ñσÇÖΘÇëσ¢╛τëç
+  L75: [confirmPanelCandidate] Γ£à σ╖▓µ╕àΘÖñµ£¼σ£░σÇÖΘÇëτè╢µÇü
+  L91: [confirmPanelCandidate] Γ£à µò░µì«σê╖µû░σ«îµêÉ
+  L93: [confirmPanelCandidate] Γ¥î τí«Φ«ñσñ▒Φ┤Ñ:
+  L130: σÅûµ╢êΘÇëµï⌐σñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\storyboard\hooks\usePanelCrudActions.ts (4 strings) ---
+  L101: Σ┐¥σ¡ÿσñ▒Φ┤Ñ:
+  L140: Σ┐¥σ¡ÿσñ▒Φ┤Ñ:
+  L212: µ╖╗σèáStoryboardσñ▒Φ┤Ñ:
+  L239: Φ»╖µ▒éΦó½Σ╕¡µû¡∩╝êσÅ»Φâ╜µÿ»Θí╡Θ¥óσê╖µû░∩╝ë∩╝îσÉÄτ½»Σ╗ìσ£¿µëºΦíî
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\storyboard\hooks\usePanelImageModification.ts (2 strings) ---
+  L78: [Modify Panel] σ╝éµ¡ÑΣ╗╗σèíσ╖▓µÅÉΣ║ñ: ${panelId}
+  L95: Φ»╖µ▒éΦó½Σ╕¡µû¡∩╝êσÅ»Φâ╜µÿ»Θí╡Θ¥óσê╖µû░∩╝ë∩╝îσÉÄτ½»Σ╗ìσ£¿µëºΦíî
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\storyboard\hooks\usePanelInsertActions.ts (5 strings) ---
+  L36: [Insert Panel] σìáΣ╜ìStoryboardσ╖▓σê¢σ╗║: #${result.panelNumber}∩╝îσÉÄσÅ░τöƒµêÉσåàσ«╣...
+  L46: [Insert Panel] AIσåàσ«╣+σ¢╛τëçτöƒµêÉσ«îµêÉ∩╝îσê╖µû░µò░µì«
+  L48: [Insert Panel] Σ╗╗σèíτ╗êµ¡ó: ${getErrorMessage(error, t(
+  L60: Φ»╖µ▒éΦó½Σ╕¡µû¡∩╝êσÅ»Φâ╜µÿ»Θí╡Θ¥óσê╖µû░∩╝ë
+  L63: Insert storyboard panelσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\storyboard\hooks\usePanelVariant.ts (3 strings) ---
+  L127: [usePanelVariant] ≡ƒÄ» Σ╣ÉΦºéµ¢┤µû░∩╝ÜµÅÆσàÑΣ╕┤µù╢σìáΣ╜ì panel
+  L151: [usePanelVariant] Γ£à API µêÉσèƒ∩╝îrealPanelId:
+  L174: [usePanelVariant] τöƒµêÉVariantσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\storyboard\hooks\useStoryboardAiDataRuntime.ts (2 strings) ---
+  L124: Σ┐¥σ¡ÿµæäσ╜▒ΦºäσêÖσñ▒Φ┤Ñ:
+  L140: Σ┐¥σ¡ÿµ╝öµèÇµîçσ»╝σñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\storyboard\hooks\useStoryboardBatchPanelGeneration.ts (7 strings) ---
+  L62: [µë╣ΘçÅτöƒµêÉ] µ▓íµ£ëΘ£ÇΦªüτöƒµêÉτÜäStoryboardσ¢╛τëç
+  L66: [µë╣ΘçÅτöƒµêÉ] σ╝ÇσºïτöƒµêÉ ${panelsToGenerate.length} Σ╕¬Storyboardσ¢╛τëç
+  L74: [µë╣ΘçÅτöƒµêÉ] σñäτÉåτ¼¼ ${currentBatch}/${totalBatches} µë╣ (${batch.length} Σ╕¬)
+  L82: [µë╣ΘçÅτöƒµêÉ] σ╖▓σ«îµêÉ ${completed}/${panelsToGenerate.length}
+  L87: [µë╣ΘçÅτöƒµêÉ] σ«îµêÉ: µêÉσèƒ ${succeeded}, σñ▒Φ┤Ñ ${failed}
+  L103: [µë╣ΘçÅτöƒµêÉ] σà¿Θâ¿µêÉσèƒτöƒµêÉ ${succeeded} Σ╕¬Storyboardσ¢╛τëç
+  L106: [µë╣ΘçÅτöƒµêÉ] σÅæτöƒµäÅσñûΘöÖΦ»»:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\storyboard\hooks\useStoryboardGroupActions.ts (6 strings) ---
+  L44: σêáΘÖñStoryboardτ╗äσñ▒Φ┤Ñ:
+  L63: [Θçìµû░τöƒµêÉStoryboard] Σ╗╗σèíσ«îµêÉ
+  L67: Φ»╖µ▒éΦó½Σ╕¡µû¡∩╝êσÅ»Φâ╜µÿ»Θí╡Θ¥óσê╖µû░∩╝ë∩╝îσÉÄτ½»Σ╗ìσ£¿µëºΦíî
+  L70: Θçìµû░τöƒµêÉStoryboardσñ▒Φ┤Ñ:
+  L92: µ╖╗σèáStoryboardτ╗äσñ▒Φ┤Ñ:
+  L110: τº╗σè¿Storyboardτ╗äσñ▒Φ┤Ñ:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\storyboard\ImageSectionActionButtons.tsx (2 strings) ---
+  L42: [ImageSection] ≡ƒöä σ╖ªΣ╕ïΦºÆΘçìµû░τöƒµêÉµîëΘÆ«Φó½τé╣σç╗
+  L44: [ImageSection] σ░åΣ╝áΘÇÆ force:
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\storyboard\ImageSectionCandidateMode.tsx (6 strings) ---
+  L109: [ImageSection] ≡ƒÄ» τí«Φ«ñµîëΘÆ«Φó½τé╣σç╗
+  L111: [ImageSection] ΘÇëΣ╕¡τÜäσ¢╛τëçτ┤óσ╝ò:
+  L112: [ImageSection] ΘÇëΣ╕¡τÜäσ¢╛τëç URL:
+  L116: [ImageSection] Γ£à τí«Φ«ñµôìΣ╜£σ«îµêÉ
+  L118: [ImageSection] Γ¥î τí«Φ«ñµôìΣ╜£σñ▒Φ┤Ñ:
+  L120: [ImageSection] isConfirming τè╢µÇüσ╖▓Θçìτ╜«Σ╕║ false (σñ▒Φ┤ÑΘçìΦ»ò)
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\components\storyboard\StoryboardGroup.tsx (1 strings) ---
+  L143: Φ¡ªσæè ${t(
+
+--- app\[locale]\workspace\[projectId]\modes\novel-promotion\hooks\useNovelPromotionWorkspaceController.ts (1 strings) ---
+  L53: [NovelPromotionWorkspace] project prop µ¢┤µû░, characters:
+
+--- app\[locale]\workspace\[projectId]\page.tsx (7 strings) ---
+  L155: [Page] handleSmartImportComplete Φó½Φ░âτö¿∩╝îtriggerGlobalAnalysis:
+  L166: [Page] ΦÄ╖σÅûσê░µû░Episode:
+  L166: Σ╕¬
+  L172: [Page] ΦºªσÅæσà¿σ▒ÇAnalysis∩╝îΦ╖│Φ╜¼σê░ assets Θÿ╢µ«╡∩╝îσ╕ª globalAnalyze=1 σÅéµò░
+  L179: [Page] Φ╖│Φ╜¼σê░:
+  L182: [Page] Σ╕ìΦºªσÅæσà¿σ▒ÇAnalysis∩╝îσÅ¬µ¢┤µû░ episode σÅéµò░
+  L187: σê╖µû░σñ▒Φ┤Ñ:
+
+--- components\llm-console\LLMStageStreamCard.tsx (2 strings) ---
+  L40: πÇÉµÇ¥ΦÇâΦ┐çτ¿ïπÇæ
+  L41: πÇÉµ£Çτ╗êτ╗ôµ₧£πÇæ
+
+--- components\shared\assets\LocationCreationModal.tsx (1 strings) ---
+  L116: AIΦ«╛Φ«íσñ▒Φ┤Ñ:
+
+--- lib\ark-api.ts (16 strings) ---
+  L54: µêûσà╖Σ╜ôσâÅτ┤áσÇ╝σªé
+  L297: ${logPrefix} τ¼¼ ${attempt}/${maxRetries} µ¼íσ░¥Φ»òΦ»╖µ▒é
+  L304: ${logPrefix} τ¼¼ ${attempt} µ¼íσ░¥Φ»òµêÉσèƒ
+  L340: ${logPrefix} τ¼¼ ${attempt}/${maxRetries} µ¼íσ░¥Φ»òσñ▒Φ┤Ñ:
+  L346: ${logPrefix} τ¡ëσ╛à ${delayMs / 1000} τºÆσÉÄΘçìΦ»ò...
+  L352: ${logPrefix} µëÇµ£ë ${maxRetries} µ¼íΘçìΦ»òΘâ╜σñ▒Φ┤Ñ
+  L368: Φ»╖Θàìτ╜«τü½σ▒▒σ╝òµôÄ API Key
+  L380: ${logPrefix} σ╝Çσºïσ¢╛τëçτöƒµêÉΦ»╖µ▒é, Model: ${request.model}
+  L381: ${logPrefix} Φ»╖µ▒éσÅéµò░:
+  L411: ${logPrefix} σ¢╛τëçτöƒµêÉµêÉσèƒ
+  L428: Φ»╖Θàìτ╜«τü½σ▒▒σ╝òµôÄ API Key
+  L441: ${logPrefix} σê¢σ╗║ΦºåΘóæΣ╗╗σèí, Model: ${request.model}
+  L460: ${logPrefix} σê¢σ╗║ΦºåΘóæΣ╗╗σèíσñ▒Φ┤Ñ: ${response.status} - ${errorText}
+  L465: ${logPrefix} ΦºåΘóæΣ╗╗σèíσê¢σ╗║µêÉσèƒ, taskId: ${taskId}
+  L482: Φ»╖Θàìτ╜«τü½σ▒▒σ╝òµôÄ API Key
+  L509: ${logPrefix} µƒÑΦ»óΦºåΘóæΣ╗╗σèíσñ▒Φ┤Ñ: ${response.status} - ${errorText}
+
+--- lib\ark-llm.ts (2 strings) ---
+  L107: Φ»╖Θàìτ╜«τü½σ▒▒σ╝òµôÄ API Key
+  L132: Ark Responses Φ░âτö¿σñ▒Φ┤Ñ: ${response.status} - ${errorText}
+
+--- lib\asset-utils\ai-design.ts (12 strings) ---
+  L50: Φ»╖Φ╛ôσàÑΣ║║τë⌐Φ«╛Φ«íΘ£Çµ▒é
+  L50: Φ»╖Φ╛ôσàÑSceneΦ«╛Φ«íΘ£Çµ▒é
+  L73: [AI Design] PromptσèáΦ╜╜σñ▒Φ┤Ñ
+  L74: τ│╗τ╗ƒΘàìτ╜«ΘöÖΦ»»
+  L91: CharacterΦ«╛Φ«í
+  L91: SceneΦ«╛Φ«í
+  L110: AIΦ┐öσ¢₧σåàσ«╣Σ╕║τ⌐║
+  L123: [AI Design] AI σôìσ║öΦºúµ₧Éσñ▒Φ┤Ñ:
+  L124: AIΦ┐öσ¢₧µá╝σ╝ÅΘöÖΦ»»
+  L127: [AI Design] AI σôìσ║öΦºúµ₧Éσñ▒Φ┤Ñ:
+  L128: AIΦ┐öσ¢₧µá╝σ╝ÅΘöÖΦ»»
+  L133: AIΦ┐öσ¢₧missingpromptσ¡ùµ«╡
+
+--- lib\async-poll.ts (56 strings) ---
+  L38: µƒÑΦ»óσ╝éσ╕╕
+  L57: N/Aµòê FAL externalId:
+  L57: ∩╝îσ║öΣ╕║ FAL:TYPE:endpoint:requestId
+  L62: N/Aµòê FAL externalId:
+  L62: ∩╝îmissing endpoint µêû requestId
+  L71: N/Aµòê FAL externalId:
+  L71: ∩╝îTYPE Σ╗àµö»µîü VIDEO/IMAGE
+  L79: N/Aµòê ARK externalId:
+  L79: ∩╝îσ║öΣ╕║ ARK:TYPE:requestId
+  L93: N/Aµòê GEMINI externalId:
+  L93: ∩╝îσ║öΣ╕║ GEMINI:BATCH:batchName
+  L107: N/Aµòê GOOGLE externalId:
+  L107: ∩╝îσ║öΣ╕║ GOOGLE:VIDEO:operationName
+  L121: N/Aµòê MINIMAX externalId:
+  L121: ∩╝îσ║öΣ╕║ MINIMAX:TYPE:taskId
+  L135: N/Aµòê VIDU externalId:
+  L135: ∩╝îσ║öΣ╕║ VIDU:TYPE:taskId
+  L150: N/Aµòê OPENAI externalId:
+  L150: ∩╝îσ║öΣ╕║ OPENAI:VIDEO:providerToken:videoId
+  L161: N/Aµ│òΦ»åσê½τÜä externalId µá╝σ╝Å:
+  L162: µö»µîüτÜäµá╝σ╝Å: FAL:TYPE:endpoint:requestId, ARK:TYPE:requestId, GEMINI:BATCH:batchName, 
+  L175: missingτö¿µê╖ID∩╝îN/Aµ│òΦÄ╖σÅû API Key
+  L179: [Poll] Φºúµ₧É ${externalId.slice(0, 30)}... ΓåÆ provider=${parsed.provider}, type=${pa
+  L198: UnknownτÜä Provider: ${parsed.provider}
+  L392: ${logPrefix} µƒÑΦ»óσñ▒Φ┤Ñ:
+  L395: µƒÑΦ»óσñ▒Φ┤Ñ: ${response.status}
+  L403: UnknownΘöÖΦ»»
+  L404: ${logPrefix} task_id=${taskId} ΘöÖΦ»»:
+  L416: ${logPrefix} task_id=${taskId} µêÉσèƒΣ╜åN/Afile_id
+  L419: Σ╗╗σèíσ«îµêÉΣ╜åµ£¬Φ┐öσ¢₧ΦºåΘóæ
+  L424: ${logPrefix} task_id=${taskId} σ«îµêÉ∩╝îµ¡úσ£¿ΦÄ╖σÅûΣ╕ïΦ╜╜URL...
+  L434: ${logPrefix} µûçΣ╗╢µúÇτ┤óσñ▒Φ┤Ñ:
+  L437: µûçΣ╗╢µúÇτ┤óσñ▒Φ┤Ñ: ${fileResponse.status}
+  L445: ${logPrefix} µûçΣ╗╢µúÇτ┤óµêÉσèƒΣ╜åN/Adownload_url:
+  L448: N/Aµ│òΦÄ╖σÅûΦºåΘóæΣ╕ïΦ╜╜Θô╛µÄÑ
+  L452: ${logPrefix} ΦÄ╖σÅûΣ╕ïΦ╜╜URLµêÉσèƒ: ${downloadUrl.substring(0, 80)}...
+  L459: ${logPrefix} µûçΣ╗╢µúÇτ┤óσ╝éσ╕╕:
+  L462: µûçΣ╗╢µúÇτ┤óσñ▒Φ┤Ñ: ${errorMessage}
+  L466: τöƒµêÉσñ▒Φ┤Ñ
+  L467: ${logPrefix} task_id=${taskId} σñ▒Φ┤Ñ:
+  L480: ${logPrefix} task_id=${taskId} σ╝éσ╕╕:
+  L495: [Poll Vidu] σ╝ÇσºïΦ╜«Φ»ó task_id=${taskId}, userId=${userId}
+  L498: [Poll Vidu] API Key Θò┐σ║ª: ${apiKey?.length || 0}
+  L501: [Poll Vidu] µƒÑΦ»óτ╗ôµ₧£:
+  L521: ${logPrefix} µƒÑΦ»óΣ╗╗σèí task_id=${taskId}
+  L530: ${logPrefix} HTTPτè╢µÇü: ${response.status}
+  L534: ${logPrefix} µƒÑΦ»óσñ▒Φ┤Ñ:
+  L537: Vidu: µƒÑΦ»óσñ▒Φ┤Ñ ${response.status}
+  L542: ${logPrefix} σôìσ║öµò░µì«:
+  L551: ${logPrefix} task_id=${taskId} µêÉσèƒΣ╜åN/AτöƒµêÉτë⌐
+  L554: Vidu: Σ╗╗σèíσ«îµêÉΣ╜åµ£¬Φ┐öσ¢₧ΦºåΘóæ
+  L560: ${logPrefix} task_id=${taskId} µêÉσèƒΣ╜åτöƒµêÉτë⌐N/AURL
+  L563: Vidu: Σ╗╗σèíσ«îµêÉΣ╜åµ£¬Φ┐öσ¢₧ΦºåΘóæURL
+  L567: ${logPrefix} task_id=${taskId} σ«îµêÉ∩╝îΦºåΘóæURL: ${videoUrl.substring(0, 80)}...
+  L575: ${logPrefix} task_id=${taskId} σñ▒Φ┤Ñ: ${errCode}
+  L588: ${logPrefix} task_id=${taskId} σ╝éσ╕╕:
+
+--- lib\async-submit.ts (22 strings) ---
+  L24: Φ»╖Θàìτ╜« FAL API Key
+  L38: FALµÅÉΣ║ñσñ▒Φ┤Ñ (${response.status}): ${errorText}
+  L45: FALµ£¬Φ┐öσ¢₧request_id
+  L48: [FAL Queue] Σ╗╗σèíσ╖▓µÅÉΣ║ñ: ${requestId}
+  L83: Φ»╖Θàìτ╜« FAL API Key
+  L93: [FAL Status] Φºúµ₧Éτ½»τé╣ ${endpoint} -> ${baseEndpoint} (σ┐╜τòÑΦ╖»σ╛ä: ${parsed.path})
+  L118: [FAL Status] requestId=${requestId.slice(0, 16)}... τè╢µÇü=${status}
+  L126: [FAL Status] Σ╗╗σèíσ╖▓σ«îµêÉ∩╝îΦÄ╖σÅûτ╗ôµ₧£: ${resultUrl}
+  L144: [FAL Status] ΦÄ╖σÅûτ╗ôµ₧£µêÉσèƒ: video=${!!videoUrl}, audio=${!!audioUrl}, image=${!!imageUr
+  L155: [FAL Status] ΦÄ╖σÅûτ╗ôµ₧£σñ▒Φ┤Ñ (${resultResponse.status}): ${errorText.slice(0, 300)}
+  L160: N/Aµ│òΦÄ╖σÅûτ╗ôµ₧£
+  L165: ΓÜá∩╕Å σåàσ«╣σ«íµá╕µ£¬ΘÇÜΦ┐ç∩╝ÜτöƒµêÉτ╗ôµ₧£Φó½µïªµê¬
+  L167: FAL ΘöÖΦ»»: ${errorType}
+  L171: [FAL Status] 422 ΘöÖΦ»»: ${errorMessage}
+  L183: Σ╕ïµ╕╕µ£ìσèíΘöÖΦ»»
+  L187: FAL Σ╕ïµ╕╕µ£ìσèíΘöÖΦ»»∩╝ÜΣ╕èµ╕╕ModelσñäτÉåσñ▒Φ┤Ñ
+  L191: [FAL Status] 500 ΘöÖΦ»»∩╝îµáçΦ«░Σ╗╗σèíΣ╕║σñ▒Φ┤Ñ: ${errorDetail}
+  L214: Σ╗╗σèíσñ▒Φ┤Ñ
+  L240: Φ»╖Θàìτ╜«τü½σ▒▒σ╝òµôÄ API Key
+  L275: Σ╗╗σèíσñ▒Φ┤Ñ
+  L279: ΦºåΘóæτöƒµêÉσñ▒Φ┤Ñ∩╝Üσåàσ«╣σ«íµá╕µ£¬ΘÇÜΦ┐ç
+  L281: ΦºåΘóæτöƒµêÉσñ▒Φ┤Ñ∩╝ÜΦ╛ôσàÑσ¢╛τëçσ«íµá╕µ£¬ΘÇÜΦ┐ç
+
+--- lib\async-task-utils.ts (19 strings) ---
+  L49: Φ»╖Θàìτ╜« FAL API Key
+  L107: Φ»╖Θàìτ╜« Google AI API Key
+  L120: µƒÑΦ»óτè╢µÇü: ${batchName} -> ${state}
+  L144: Γ£à ΦÄ╖σÅûσê░σ¢╛τëç∩╝îMIME τ▒╗σ₧ï: ${mimeType}
+  L176: Φ»╖Θàìτ╜« Google AI API Key
+  L189: ${logPrefix} σÄƒσºïσôìσ║ö
+  L209: Veo Σ╗╗σèíσñ▒Φ┤Ñ
+  L210: ${logPrefix} µôìΣ╜£τ║ºΘöÖΦ»»
+  L216: ${logPrefix} done=true Σ╜å response Σ╕║τ⌐║
+  L217: Veo Σ╗╗σèíσ«îµêÉΣ╜åσôìσ║öΣ╜ôΣ╕║τ⌐║
+  L228: UnknownσÄƒσ¢á
+  L229: ${logPrefix} ΦºåΘóæΦó½ RAI σ«ëσà¿τ¡ûτòÑΦ┐çµ╗ñ
+  L236: Veo ΦºåΘóæΦó½σ«ëσà¿τ¡ûτòÑΦ┐çµ╗ñ (${raiFilteredCount} Σ╕¬ΦºåΘóæΦó½Φ┐çµ╗ñ, σÄƒσ¢á: ${reasons})
+  L247: ${logPrefix} µêÉσèƒΦÄ╖σÅûΦºåΘóæ
+  L255: ${logPrefix} generatedVideos[0] σ¡ÿσ£¿Σ╜åN/A video.uri
+  L259: Veo ΦºåΘóæσ»╣Φ▒íσ¡ÿσ£¿Σ╜åmissing URI
+  L270: Veo Σ╗╗σèíσ«îµêÉΣ╜åµ£¬Φ┐öσ¢₧ΦºåΘóæ (generatedVideos Σ╕║τ⌐║)
+  L273: ${logPrefix} µƒÑΦ»óσ╝éσ╕╕
+  L285: Φ»╖Θàìτ╜«τü½σ▒▒σ╝òµôÄ API Key
+
+--- lib\billing\errors.ts (1 strings) ---
+  L6: Σ╜ÖΘó¥Σ╕ìΦ╢│∩╝îΘ£ÇΦªü ┬Ñ${required.toFixed(4)}∩╝îσ╜ôσëìσÅ»τö¿ ┬Ñ${available.toFixed(4)}
+
+--- lib\billing\reporting.ts (5 strings) ---
+  L116: [Φ«íΦ┤╣] Φ╖│Φ┐ç UsageCost Φ«░σ╜ò (projectId=${params.projectId})∩╝îΣ╗àΦ«░σ╜òµ╡üµ░┤
+  L135: [Φ«íΦ┤╣] ${params.action} - ${params.model} - ┬Ñ${params.cost.toFixed(4)} (σ╖▓Φ«░σ╜ò${hasPr
+  L135: ∩╝îN/AΘí╣τ¢«σ╜Æσ▒₧
+  L146: [Φ«íΦ┤╣] µƒÑΦ»óΘí╣τ¢«µÇ╗Φ┤╣τö¿σñ▒Φ┤Ñ:
+  L224: [Φ«íΦ┤╣] µƒÑΦ»óτö¿µê╖Φ┤╣τö¿µ▒çµÇ╗σñ▒Φ┤Ñ:
+
+--- lib\config-service.ts (7 strings) ---
+  L224: Characterσ¢╛σâÅModel
+  L225: Sceneσ¢╛σâÅModel
+  L226: Storyboardσ¢╛σâÅModel
+  L227: Σ┐«σ¢╛/τ╝ûΦ╛æModel
+  L228: ΦºåΘóæModel
+  L246: Φ»╖σàêσ£¿Θí╣τ¢«SettingsΣ╕¡Θàìτ╜«
+  L248: Φ»╖σàêσ£¿Θí╣τ¢«SettingsΣ╕¡Θàìτ╜«Σ╗ÑΣ╕ïModel∩╝Ü${missingFields.join(
+
+--- lib\constants.ts (20 strings) ---
+  L50: Banana (Google Batch) τ£ü50%
+  L69: Seedance 1.0 Pro Fast (µë╣ΘçÅ) τ£ü50%
+  L71: Seedance 1.0 Lite (µë╣ΘçÅ) τ£ü50%
+  L73: Seedance 1.5 Pro (µë╣ΘçÅ) τ£ü50%
+  L75: Seedance 1.0 Pro (µë╣ΘçÅ) τ£ü50%
+  L97: Seedance 1.5 Pro (Θªûσ░╛σ╕º)
+  L98: Seedance 1.5 Pro (Θªûσ░╛σ╕º/µë╣ΘçÅ) τ£ü50%
+  L99: Seedance 1.0 Pro (Θªûσ░╛σ╕º)
+  L100: Seedance 1.0 Pro (Θªûσ░╛σ╕º/µë╣ΘçÅ) τ£ü50%
+  L101: Seedance 1.0 Lite (Θªûσ░╛σ╕º)
+  L102: Seedance 1.0 Lite (Θªûσ░╛σ╕º/µë╣ΘçÅ) τ£ü50%
+  L103: Veo 3.1 (Θªûσ░╛σ╕º)
+  L104: Veo 3.1 Fast (Θªûσ░╛σ╕º)
+  L131: µùÑσ╝Åσè¿µ╝½ΘúÄµá╝
+  L138: τÄ░Σ╗úΘ½ÿΦ┤¿ΘçÅµ╝½τö╗ΘúÄµá╝∩╝îσè¿µ╝½ΘúÄµá╝∩╝îτ╗åΦèéΣ╕░σ»îτ▓╛Φç┤∩╝îτ║┐µ¥íΘöÉσê⌐σ╣▓σçÇ∩╝îΦ┤¿µäƒΘÑ▒µ╗í∩╝îΦ╢àµ╕à∩╝îσ╣▓σçÇτÜäτö╗Θ¥óΘúÄµá╝∩╝î2DΘúÄµá╝∩╝îσè¿µ╝½ΘúÄµá╝πÇé
+  L145: τÄ░Σ╗úµùÑτ│╗σè¿µ╝½ΘúÄµá╝∩╝îΦ╡¢τÆÉτÆÉΣ╕èΦë▓∩╝îµ╕àµÖ░σ╣▓σçÇτÜäτ║┐µ¥í∩╝îΦºåΦºëσ░ÅΦ»┤CGµäƒπÇéΘ½ÿΦ┤¿ΘçÅ2DΘúÄµá╝
+  L152: τ£ƒσ«₧τö╡σ╜▒τ║ºτö╗Θ¥óΦ┤¿µäƒ∩╝îτ£ƒσ«₧τÄ░σ«₧Scene∩╝îΦë▓σ╜⌐ΘÑ▒µ╗íΘÇÜΘÇÅ∩╝îτö╗Θ¥óσ╣▓σçÇτ▓╛Φç┤∩╝îτ£ƒσ«₧µäƒ
+  L175: CharacterΦ«╛σ«Üσ¢╛∩╝îτö╗Θ¥óσêåΣ╕║σ╖ªσÅ│Σ╕ñΣ╕¬σî║σƒƒ∩╝ÜπÇÉσ╖ªΣ╛ºσî║σƒƒπÇæσìáτ║ª1/3σ«╜σ║ª∩╝îµÿ»CharacterτÜäµ¡úΘ¥óτë╣σåÖ∩╝êσªéµ₧£µÿ»Σ║║τ▒╗σêÖσ▒òτñ║σ«îµò┤µ¡úΦä╕∩╝îσªéµ₧£µÿ»σè¿τë⌐/τöƒτë⌐σêÖσ▒òτñ║µ£Çσà╖
+  L228: µÜéNo charactersΣ╗ïτ╗ì
+  L234: µÜéNo charactersΣ╗ïτ╗ì
+
+--- lib\cos.ts (38 strings) ---
+  L25: [Storage] Σ╜┐τö¿µ£¼σ£░σ¡ÿσé¿µ¿íσ╝Å∩╝îτ¢«σ╜ò: ${UPLOAD_DIR}
+  L27: [Storage] Σ╜┐τö¿COSΣ║æσ¡ÿσé¿µ¿íσ╝Å
+  L148: µ£¼σ£░σ¡ÿσé¿µ¿íσ╝ÅΣ╕ïΣ╕ìµö»µîüΦÄ╖σÅûCOSσ«óµê╖τ½»
+  L167: [LocalΣ╕èΣ╝á] µêÉσèƒ: ${key}
+  L171: [LocalΣ╕èΣ╝á] σñ▒Φ┤Ñ: ${key}
+  L172: µ£¼σ£░σ¡ÿσé¿Σ╕èΣ╝áσñ▒Φ┤Ñ: ${key}
+  L182: [COSΣ╕èΣ╝á] τ¼¼ ${attempt}/${maxRetries} µ¼íσ░¥Φ»òΣ╕èΣ╝á: ${key}
+  L206: [COSΣ╕èΣ╝á] τ¼¼ ${attempt} µ¼íσ░¥Φ»òµêÉσèƒ: ${key}
+  L223: [COSΣ╕èΣ╝á] τ¼¼ ${attempt}/${maxRetries} µ¼íσ░¥Φ»òσñ▒Φ┤Ñ:
+  L228: [COSΣ╕èΣ╝á] τ¡ëσ╛à ${delayMs / 1000} τºÆσÉÄΘçìΦ»ò...
+  L235: [COSΣ╕èΣ╝á] µëÇµ£ë ${maxRetries} µ¼íΘçìΦ»òΘâ╜σñ▒Φ┤Ñ: ${key}
+  L236: COSΣ╕èΣ╝áσñ▒Φ┤Ñ: ${key}
+  L249: [LocalσêáΘÖñ] µêÉσèƒ: ${key}
+  L254: [LocalσêáΘÖñ] σñ▒Φ┤Ñ: ${key}
+  L294: [Local] σçåσñçσêáΘÖñ ${validKeys.length} Σ╕¬µûçΣ╗╢
+  L313: [Local] σêáΘÖñσ«îµêÉ: µêÉσèƒ ${success}, σñ▒Φ┤Ñ ${failed}
+  L318: [COS] σçåσñçσêáΘÖñ ${validKeys.length} Σ╕¬µûçΣ╗╢
+  L338: [COS] µë╣ΘçÅσêáΘÖñΘöÖΦ»»:
+  L349: [COS] Θâ¿σêåµûçΣ╗╢σêáΘÖñσñ▒Φ┤Ñ:
+  L357: [COS] µë╣ΘçÅσêáΘÖñσ╝éσ╕╕:
+  L362: [COS] σêáΘÖñσ«îµêÉ: µêÉσèƒ ${success}, σñ▒Φ┤Ñ ${failed}
+  L407: [σ¢╛τëçΣ╕ïΦ╜╜Σ╕èΣ╝á] τ¼¼ ${attempt}/${maxRetries} µ¼íσ░¥Φ»ò: ${imageUrl.substring(0, 80)}...
+  L443: σ¢╛τëçσñºσ░Å ${(processedBuffer.length / 1024 / 1024).toFixed(2)}MB Φ╢àΦ┐ç ${maxSizeMB}MB∩╝îΘÖìΣ╜Ä
+  L449: µ£Çτ╗êσ¢╛τëçσñºσ░Å: ${(processedBuffer.length / 1024 / 1024).toFixed(2)}MB, Φ┤¿ΘçÅ: ${quality}%
+  L472: [σ¢╛τëçΣ╕ïΦ╜╜Σ╕èΣ╝á] τ¼¼ ${attempt}/${maxRetries} µ¼íσ░¥Φ»òσñ▒Φ┤Ñ:
+  L477: [σ¢╛τëçΣ╕ïΦ╜╜Σ╕èΣ╝á] τ¡ëσ╛à ${delayMs / 1000} τºÆσÉÄΘçìΦ»ò...
+  L484: [σ¢╛τëçΣ╕ïΦ╜╜Σ╕èΣ╝á] µëÇµ£ë ${maxRetries} µ¼íΘçìΦ»òΘâ╜σñ▒Φ┤Ñ
+  L506: [ΦºåΘóæΣ╕ïΦ╜╜] τ¼¼ ${attempt}/${maxRetries} µ¼íσ░¥Φ»òΣ╕ïΦ╜╜: ${videoUrl.substring(0, 100)}...
+  L528: [ΦºåΘóæΣ╕ïΦ╜╜] σôìσ║öτè╢µÇü: ${response.status}, σåàσ«╣σñºσ░Å: ${contentLength ? (parseInt(contentLength
+  L533: [ΦºåΘóæΣ╕ïΦ╜╜] Σ╕ïΦ╜╜σ«îµêÉ∩╝îΦºåΘóæσñºσ░Å: ${(buffer.length / 1024 / 1024).toFixed(2)}MB
+  L537: [ΦºåΘóæΣ╕èΣ╝á] Σ╕èΣ╝áσê░COSµêÉσèƒ: ${cosKey}
+  L559: [ΦºåΘóæΣ╕ïΦ╜╜] τ¼¼ ${attempt}/${maxRetries} µ¼íσ░¥Φ»òσñ▒Φ┤Ñ:
+  L563: [ΦºåΘóæΣ╕ïΦ╜╜] σ╖▓Φ╛╛σê░µ£ÇσñºΘçìΦ»òµ¼íµò░ ${maxRetries}∩╝îµö╛σ╝âΣ╕ïΦ╜╜
+  L569: [ΦºåΘóæΣ╕ïΦ╜╜] τ¡ëσ╛à ${delayMs / 1000} τºÆσÉÄΘçìΦ»ò...
+  L577: ΦºåΘóæΣ╕ïΦ╜╜σñ▒Φ┤Ñ (ΘçìΦ»ò${maxRetries}µ¼íσÉÄ): ${lastErrorInfo.name ||
+  L577: (σÄƒσ¢á: ${lastErrorInfo.cause})
+  L578: ΦºåΘóæΣ╕ïΦ╜╜σñ▒Φ┤Ñ (ΘçìΦ»ò${maxRetries}µ¼íσÉÄ): UnknownΘöÖΦ»»
+  L662: [τ¡╛σÉìURL] Φºúµ₧Édescriptionsσñ▒Φ┤Ñ:
+
+--- lib\crypto-utils.ts (6 strings) ---
+  L32: API_ENCRYPTION_KEY µêû NEXTAUTH_SECRET µ£¬Θàìτ╜«∩╝îN/Aµ│òσèáσ»å API Key
+  L52: API Key Σ╕ìΦâ╜Σ╕║τ⌐║
+  L87: σèáσ»åµò░µì«Σ╕ìΦâ╜Σ╕║τ⌐║
+  L92: σèáσ»åµò░µì«µá╝σ╝ÅΘöÖΦ»»
+  L178: Φºúσ»å ${provider}.${key} σñ▒Φ┤Ñ:
+  L191: Φºúσ»å API Key σ»╣Φ▒íσñ▒Φ┤Ñ:
+
+--- lib\episode-marker-detector.ts (37 strings) ---
+  L34: Θ¢╢
+  L35: Σ╕Ç
+  L35: σú╣
+  L36: Σ║î
+  L36: Φ┤░
+  L36: Σ╕ñ
+  L37: Σ╕ë
+  L37: σÅü
+  L38: σ¢¢
+  L38: Φéå
+  L39: Σ║ö
+  L39: Σ╝ì
+  L40: σà¡
+  L40: ΘÖå
+  L41: Σ╕â
+  L41: µƒÆ
+  L42: σà½
+  L42: µìî
+  L43: Σ╣¥
+  L43: τÄû
+  L44: σìü
+  L44: µï╛
+  L45: τÖ╛
+  L45: Σ╜░
+  L46: σìâ
+  L46: Σ╗ƒ
+  L98: τ¼¼XΘ¢å
+  L106: τ¼¼Xτ½á
+  L114: τ¼¼Xσ╣ò
+  L130: µò░σ¡ùτ╝ûσÅ╖
+  L138: µò░σ¡ùτ╝ûσÅ╖(Φ╜¼Σ╣ë)
+  L146: µò░σ¡ù+Σ╕¡µûç
+  L171: **µò░σ¡ù**
+  L179: τ║»µò░σ¡ù
+  L270: τ¼¼ ${i} Θ¢å
+  L292: τ¼¼ ${match.episodeNumber} Θ¢å
+  L336: τ¼¼ ${split.number} Θ¢å
+
+--- lib\error-utils.ts (1 strings) ---
+  L66: [Info] Φ»╖µ▒éΦó½Σ╕¡µ¡ó∩╝êσÅ»Φâ╜µÿ»Θí╡Θ¥óσê╖µû░∩╝ë:
+
+--- lib\errors\normalize.ts (8 strings) ---
+  L67: Σ╗╗σèíσ╖▓σÅûµ╢ê
+  L70: Σ╕ìσ¡ÿσ£¿
+  L73: Σ╜ÖΘó¥Σ╕ìΦ╢│
+  L73: Σ╜ÖΘó¥Σ╕ìσñƒ
+  L73: Φ»╖σààσÇ╝
+  L74: µòÅµäƒ
+  L74: Φ┐¥Φºä
+  L74: Σ╕ìσ╜ô
+
+--- lib\errors\user-messages.ts (19 strings) ---
+  L4: Φ»╖σàêτÖ╗σ╜òσÉÄσåìΦ»òπÇé
+  L5: Σ╜áµ▓íµ£ëµ¥âΘÖÉµëºΦíîµ¡ñµôìΣ╜£πÇé
+  L6: µ▓íµ£ëµë╛σê░σ»╣σ║öτÜäµò░µì«πÇé
+  L7: Φ»╖µ▒éσÅéµò░Σ╕ìµ¡úτí«∩╝îΦ»╖µúÇµƒÑσÉÄΘçìΦ»òπÇé
+  L8: τ│╗τ╗ƒΘàìτ╜«Σ╕ìσ«îµò┤∩╝îΦ»╖Φüöτ│╗τ«íτÉåσæÿπÇé
+  L9: σ╜ôσëìτè╢µÇüσå▓τ¬ü∩╝îΦ»╖σê╖µû░σÉÄΘçìΦ»òπÇé
+  L10: Σ╗╗σèíΦ┐ÿσ£¿σñäτÉåΣ╕¡∩╝îΦ»╖τ¿ìσÉÄπÇé
+  L11: Σ╗╗σèíσ╖▓σ«îµêÉ∩╝îΣ╜åµ▓íµ£ëσÅ»τö¿τ╗ôµ₧£πÇé
+  L12: Φ»╖µ▒éΦ┐çΣ║ÄΘóæτ╣ü∩╝îΦ»╖τ¿ìσÉÄΘçìΦ»òπÇé
+  L13: Θó¥σ║ªσ╖▓τö¿σ░╜∩╝îΦ»╖τ¿ìσÉÄσåìΦ»òπÇé
+  L14: σñûΘâ¿µ£ìσèíµÜéµù╢Σ╕ìσÅ»τö¿∩╝îΦ»╖τ¿ìσÉÄΘçìΦ»òπÇé
+  L15: τ╜æτ╗£σ╝éσ╕╕∩╝îΦ»╖τ¿ìσÉÄΘçìΦ»òπÇé
+  L16: Σ╜ÖΘó¥Σ╕ìΦ╢│∩╝îΦ»╖σàêσààσÇ╝πÇé
+  L17: σåàσ«╣σÅ»Φâ╜µ╢ëσÅèµòÅµäƒΣ┐íµü»∩╝îΦ»╖Σ┐«µö╣σÉÄΘçìΦ»òπÇé
+  L18: τöƒµêÉΦ╢àµù╢∩╝îΦ»╖ΘçìΦ»òπÇé
+  L19: τöƒµêÉσñ▒Φ┤Ñ∩╝îΦ»╖τ¿ìσÉÄΘçìΦ»òπÇé
+  L20: Σ╗╗σèíµëºΦíîΦ╢àµù╢∩╝îτ│╗τ╗ƒσ╖▓τ╗êµ¡óΦ»ÑΣ╗╗σèíπÇé
+  L21: Σ╗╗σèíµëºΦíîσñ▒Φ┤Ñ∩╝îΦ»╖τ¿ìσÉÄΘçìΦ»òπÇé
+  L22: τ│╗τ╗ƒσåàΘâ¿ΘöÖΦ»»∩╝îΦ»╖τ¿ìσÉÄΘçìΦ»òπÇé
+
+--- lib\gemini-batch-utils.ts (13 strings) ---
+  L64: Φ»╖Θàìτ╜« Google AI API Key
+  L103: Σ╕ïΦ╜╜Reference Imageτëç ${i + 1} σñ▒Φ┤Ñ
+  L149: µ£¬Φ┐öσ¢₧ batch name
+  L152: Γ£à Σ╗╗σèíσ╖▓µÅÉΣ║ñ: ${batchName}
+  L157: µÅÉΣ║ñσ╝éσ╕╕
+  L158: µÅÉΣ║ñσ╝éσ╕╕: ${message}
+  L179: Φ»╖Θàìτ╜« Google AI API Key
+  L191: µƒÑΦ»óτè╢µÇü: ${batchName} -> ${state}
+  L223: Γ£à ΦÄ╖σÅûσê░σ¢╛τëç∩╝îMIME τ▒╗σ₧ï: ${mimeType}
+  L240: Σ╗╗σèíσ«îµêÉΣ╜åµ£¬µë╛σê░σ¢╛τëç∩╝êσÅ»Φâ╜Φó½σåàσ«╣σ«ëσà¿τ¡ûτòÑΦ┐çµ╗ñ∩╝ë
+  L249: Σ╗╗σèíσñ▒Φ┤Ñ: ${state}
+  L258: µƒÑΦ»óσ╝éσ╕╕
+  L259: µƒÑΦ»óσ╝éσ╕╕: ${message}
+
+--- lib\generators\ark.ts (12 strings) ---
+  L182: (µ£¬Σ╝á)
+  L191: [ARK Image] Reference ImageτëçΦ╜¼µìóσñ▒Φ┤Ñ: ${imageUrl}
+  L231: ARK µ£¬Φ┐öσ¢₧σ¢╛τëç URL
+  L369: [ARK Video] Model: ${realModel}, µë╣ΘçÅ: ${isBatchMode}, σêåΦ╛¿τÄç: ${resolution ||
+  L369: }, µù╢Θò┐: ${duration ??
+  L393: [ARK Video] Θªûσ░╛σ╕ºµ¿íσ╝Å
+  L461: [ARK Video] µë╣ΘçÅµ¿íσ╝Å: service_tier=flex
+  L478: ARK µ£¬Φ┐öσ¢₧ task_id
+  L481: [ARK Video] Σ╗╗σèíσ╖▓σê¢σ╗║: ${taskId}
+  L490: UnknownΘöÖΦ»»
+  L491: [ARK Video] σê¢σ╗║Σ╗╗σèíσñ▒Φ┤Ñ:
+  L492: ARK ΦºåΘóæΣ╗╗σèíσê¢σ╗║σñ▒Φ┤Ñ: ${message}
+
+--- lib\generators\audio\qwen.ts (2 strings) ---
+  L35: Qwen TTS σñ▒Φ┤Ñ (${response.status}): ${errorText}
+  L42: Qwen µ£¬Φ┐öσ¢₧Θƒ│Θóæ URL
+
+--- lib\generators\base.ts (5 strings) ---
+  L107: [Generator] σ░¥Φ»ò ${attempt}/${maxRetries} σñ▒Φ┤Ñ: ${message}
+  L121: τöƒµêÉσñ▒Φ┤Ñ
+  L142: [Video Generator] σ░¥Φ»ò ${attempt}/${maxRetries} σñ▒Φ┤Ñ: ${message}
+  L150: ΦºåΘóæτöƒµêÉσñ▒Φ┤Ñ
+  L164: Φ»¡Θƒ│τöƒµêÉσñ▒Φ┤Ñ
+
+--- lib\generators\fal.ts (5 strings) ---
+  L171: FAL µÅÉΣ║ñσñ▒Φ┤Ñ (${submitResponse.status}): ${errorText}
+  L178: FAL µ£¬Φ┐öσ¢₧ request_id
+  L302: UnknownΘöÖΦ»»
+  L303: [FAL Video] µÅÉΣ║ñσñ▒Φ┤Ñ:
+  L304: FAL ΦºåΘóæΣ╗╗σèíµÅÉΣ║ñσñ▒Φ┤Ñ: ${message}
+
+--- lib\generators\image\gemini-compatible.ts (24 strings) ---
+  L28: UnknownΘöÖΦ»»
+  L110: Σ╕ïΦ╜╜Reference Imageτëç ${i + 1} σñ▒Φ┤Ñ:
+  L133: [GeminiCompatible] ≡ƒöì Σ╜┐τö¿Model: ${this.modelId}, baseUrl: ${config.baseUrl}
+  L138: σ¢╛${i + 1}: ${p.inlineData.mimeType}, ${Math.round(p.inlineData.data.length / 102
+  L142: [GeminiCompatible] ≡ƒöì Φ»╖µ▒éσÅéµò░:
+  L181: [GeminiCompatible] µêÉσèƒτöƒµêÉσ¢╛τëç
+  L194: σåàσ«╣σ¢áσ«ëσà¿τ¡ûτòÑΦó½Φ┐çµ╗ñ
+  L200: [GeminiCompatible] Σ╗úτÉåΦ┐öσ¢₧Σ║åµûçµ£¼ΦÇîΘ¥₧σ¢╛τëç: ${textParts[0].text?.substring(0, 100)}...
+  L201: Σ╗úτÉåµ£ìσèíΦ┐öσ¢₧Σ║åµûçµ£¼ΦÇîΘ¥₧σ¢╛τëç∩╝îΦ»╖µúÇµƒÑModelΘàìτ╜«
+  L205: [GeminiCompatible] Γ¥î σôìσ║öµ£¬σîàσÉ½σ¢╛τëç∩╝îΦ░âΦ»òΣ┐íµü»:
+  L206: - candidates µò░ΘçÅ: ${response.candidates?.length || 0}
+  L207: - parts µò░ΘçÅ: ${parts.length}
+  L209: - parts τ▒╗σ₧ï: ${parts.map((part) => getPartKeys(part)).join(
+  L210: - σ«îµò┤σôìσ║ö: ${JSON.stringify(response, null, 2)}
+  L212: Gemini σà╝σ«╣µ£ìσèíµ£¬Φ┐öσ¢₧σ¢╛τëç
+  L225: [GeminiCompatible] τöƒµêÉσñ▒Φ┤Ñ:
+  L247: σ¢╛τëçσåàσ«╣σÅ»Φâ╜µ╢ëσÅèµòÅµäƒΣ┐íµü»∩╝îΦ»╖Σ┐«µö╣DescriptionσÉÄΘçìΦ»ò
+  L253: API Σ╜ÖΘó¥Σ╕ìΦ╢│∩╝îΦ»╖σààσÇ╝σÉÄΘçìΦ»ò
+  L258: API Key N/Aµòê∩╝îΦ»╖µúÇµƒÑΘàìτ╜«
+  L263: Model ${this.modelId} Σ╕ìσ¡ÿσ£¿Σ║Äµ£ìσèíτ½»
+  L269: τ╜æτ╗£Φ»╖µ▒éσñ▒Φ┤Ñ∩╝îΦ»╖µúÇµƒÑτ╜æτ╗£Φ┐₧µÄÑµêûτ¿ìσÉÄΘçìΦ»ò
+  L275: Gemini µ£¬Φ┐öσ¢₧µ£ëµòêσ¢╛τëç∩╝îσåàσ«╣σÅ»Φâ╜Φó½Φ┐çµ╗ñµêûτöƒµêÉσñ▒Φ┤Ñ∩╝îΦ»╖Σ┐«µö╣DescriptionσÉÄΘçìΦ»ò
+  L280: API Φ»╖µ▒éΘóæτÄçΦ╢àΘÖÉ∩╝îΦ»╖τ¿ìσÉÄΘçìΦ»ò
+  L285: API ΘàìΘó¥Σ╕ìΦ╢│
+
+--- lib\generators\image\google.ts (8 strings) ---
+  L32: UnknownΘöÖΦ»»
+  L106: Σ╕ïΦ╜╜Reference Imageτëç ${i + 1} σñ▒Φ┤Ñ:
+  L166: σåàσ«╣σ¢áσ«ëσà¿τ¡ûτòÑΦó½Φ┐çµ╗ñ
+  L169: Gemini µ£¬Φ┐öσ¢₧σ¢╛τëç
+  L221: Imagen µ£¬Φ┐öσ¢₧σ¢╛τëç
+  L226: σåàσ«╣σ¢áσ«ëσà¿τ¡ûτòÑΦó½Φ┐çµ╗ñ
+  L267: Gemini Batch µÅÉΣ║ñσñ▒Φ┤Ñ
+  L272: [Gemini Batch Generator] Γ£à σ╝éµ¡ÑΣ╗╗σèíσ╖▓µÅÉΣ║ñ: ${result.batchName}
+
+--- lib\generators\minimax.ts (10 strings) ---
+  L265: ${logPrefix} Σ╜┐τö¿Θªûσ░╛σ╕ºσ¢╛τëç (σ╖▓Φ╜¼Data URL)
+  L267: ${logPrefix} Σ╜┐τö¿Θªûσ╕ºσ¢╛τëç (σ╖▓Φ╜¼Data URL)
+  L272: ${logPrefix} µÅÉΣ║ñΣ╗╗σèí∩╝îmode=${generationMode}∩╝îduration=${duration ??
+  L287: ${logPrefix} APIΦ»╖µ▒éσñ▒Φ┤Ñ:
+  L295: UnknownΘöÖΦ»»
+  L296: ${logPrefix} Σ╗╗σèíµÅÉΣ║ñσñ▒Φ┤Ñ:
+  L302: ${logPrefix} σôìσ║öΣ╕¡missing task_id:
+  L303: MiniMaxµ£¬Φ┐öσ¢₧task_id
+  L306: ${logPrefix} Σ╗╗σèíσ╖▓µÅÉΣ║ñ∩╝îtask_id=${taskId}
+  L315: ${logPrefix} τöƒµêÉσñ▒Φ┤Ñ:
+
+--- lib\generators\resolution-adapter.ts (2 strings) ---
+  L128: [σêåΦ╛¿τÄçΘÇéΘàì] Unknownprovider: ${provider}∩╝îΣ╜┐τö¿σÄƒσºïσÇ╝: ${inputResolution}
+  L133: [σêåΦ╛¿τÄçΘÇéΘàì] provider=${provider}, Φ╛ôσàÑ=${inputResolution} ΓåÆ ΘÇéΘàì=${adapted}
+
+--- lib\generators\video\google.ts (1 strings) ---
+  L126: Veo µ£¬Φ┐öσ¢₧ operation name
+
+--- lib\generators\vidu.ts (9 strings) ---
+  L629: ${logPrefix} µÅÉΣ║ñΣ╗╗σèí
+  L635: ${logPrefix} - σ«îµò┤Φ»╖µ▒éΣ╜ô:
+  L649: ${logPrefix} APIΦ»╖µ▒éσñ▒Φ┤Ñ:
+  L657: ${logPrefix} σôìσ║öΣ╕¡missing task_id:
+  L658: Viduµ£¬Φ┐öσ¢₧task_id
+  L663: ${logPrefix} Σ╗╗σèíµÅÉΣ║ñσñ▒Φ┤Ñ:
+  L664: Vidu: Σ╗╗σèíµÅÉΣ║ñσñ▒Φ┤Ñ
+  L667: ${logPrefix} Σ╗╗σèíσ╖▓µÅÉΣ║ñ∩╝îtask_id=${taskId}, state=${state}
+  L676: ${logPrefix} τöƒµêÉσñ▒Φ┤Ñ:
+
+--- lib\image-cache.ts (12 strings) ---
+  L54: [σ¢╛τëçτ╝ôσ¡ÿ]
+  L63: N/AµòêτÜäσ¢╛τëç URL: ${imageUrl.substring(0, 50)}...
+  L74: ${logPrefix} Γ£à τ╝ôσ¡ÿσæ╜Σ╕¡ (${cacheHits}/${cacheHits + cacheMisses})
+  L109: ${logPrefix} σ╝ÇσºïΣ╕ïΦ╜╜: ${imageUrl.substring(0, 80)}...
+  L130: ${logPrefix} Γ£à Σ╕ïΦ╜╜σ«îµêÉ: ${sizeKB}KB, ${duration}ms
+  L140: UnknownΘöÖΦ»»
+  L141: ${logPrefix} Γ¥î Σ╕ïΦ╜╜σñ▒Φ┤Ñ (${duration}ms): ${message}
+  L160: [µë╣ΘçÅΘóäσèáΦ╜╜]
+  L169: ${logPrefix} σ╝ÇσºïΘóäσèáΦ╜╜ ${uniqueUrls.length} σ╝áσö»Σ╕Çσ¢╛τëç (σÄƒσºï: ${imageUrls.length} σ╝á)
+  L191: ${logPrefix} ΘóäσèáΦ╜╜σ«îµêÉ: ${successCount}/${uniqueUrls.length} µêÉσèƒ, ${duration}ms
+  L210: [σ¢╛τëçτ╝ôσ¡ÿ] µ╕àτÉå ${cleaned} Σ╕¬Φ┐çµ£ƒµ¥íτ¢«∩╝îσë⌐Σ╜Ö ${imageCache.size} Σ╕¬
+  L250: [σ¢╛τëçτ╝ôσ¡ÿ] σ╖▓µ╕àτ⌐║
+
+--- lib\image-label.ts (1 strings) ---
+  L35: N/Aµ│òσ╜ÆΣ╕Çσîûσ¬ÆΣ╜ô key: ${imageUrl}
+
+--- lib\kling.ts (8 strings) ---
+  L46: [LipSync Async] σ╝ÇσºïµÅÉΣ║ñσÅúσ₧ïσÉîµ¡ÑΣ╗╗σèí
+  L64: [LipSync Async] FAL σàÑσÅéσ╖▓Φ╜¼µìóΣ╕║ Data URL
+  L73: [LipSync Async] FAL Σ╗╗σèíσ╖▓µÅÉΣ║ñ: ${requestId}
+  L110: [LipSync Async] Vidu Σ╗╗σèíσ╖▓µÅÉΣ║ñ: ${taskId}
+  L125: [LipSync Async] ΘöÖΦ»»:
+  L127: UnknownΘöÖΦ»»
+  L132: [LipSync Async] ΘöÖΦ»»Φ»ªµâà:
+  L139: σÅúσ₧ïσÉîµ¡ÑΣ╗╗σèíµÅÉΣ║ñσñ▒Φ┤Ñ: ${errorDetails}
+
+--- lib\llm\chat-completion.ts (6 strings) ---
+  L67: [LLM] Modelµ£¬Θàìτ╜«∩╝îΦ░âτö¿µáê:
+  L367: [LLM] Γ¥î σåàσ«╣σ«ëσà¿µúÇµ╡ïσñ▒Φ┤Ñ - Google AI Studio µïÆτ╗¥σñäτÉåµ¡ñσåàσ«╣
+  L368: SENSITIVE_CONTENT: σåàσ«╣σîàσÉ½µòÅµäƒΣ┐íµü»,N/Aµ│òσñäτÉåπÇéΦ»╖Σ┐«µö╣σåàσ«╣σÉÄΘçìΦ»ò
+  L373: [LLM] Google Φ┐öσ¢₧τ⌐║σôìσ║ö∩╝îσ░åΘçìΦ»ò (${attempt}/${maxRetries + 1}): ${errorMessage(error)}
+  L380: [LLM] Φ░âτö¿σñ▒Φ┤Ñ (${attempt}/${maxRetries + 1}): ${errorMessage(error)}
+  L388: LLM Φ░âτö¿σñ▒Φ┤Ñ
+
+--- lib\llm\chat-stream.ts (3 strings) ---
+  L567: [LLM] AI SDK µ╡üσ╝ÅΦ┐öσ¢₧τ⌐║σåàσ«╣
+  L598: LLM_EMPTY_RESPONSE: ${providerName}::${resolvedModelId} Φ┐öσ¢₧τ⌐║σåàσ«╣
+  L761: SENSITIVE_CONTENT: σåàσ«╣σîàσÉ½µòÅµäƒΣ┐íµü»,N/Aµ│òσñäτÉåπÇéΦ»╖Σ┐«µö╣σåàσ«╣σÉÄΘçìΦ»ò
+
+--- lib\llm\completion-parts.ts (4 strings) ---
+  L15: [LLM] Γ¥î Φ┐öσ¢₧N/Aµòêσôìσ║ö - σ«îµò┤σ»╣Φ▒í:
+  L18: LLM Φ┐öσ¢₧N/Aµòêσôìσ║ö
+  L24: [LLM] Γ¥î σôìσ║öΣ╕¡µ▓íµ£ëµ╢êµü»σåàσ«╣ - choices[0]:
+  L27: LLM σôìσ║öΣ╕¡µ▓íµ£ëµ╢êµü»σåàσ«╣
+
+--- lib\llm\providers\google.ts (1 strings) ---
+  L45: Google Gemini Φ┐öσ¢₧Σ║åτ⌐║µûçµ£¼σôìσ║ö${reason}∩╝îΦ»╖ΘçìΦ»ò
+
+--- lib\llm\vision.ts (9 strings) ---
+  L66: [LLM Vision] Modelµ£¬Θàìτ╜«∩╝îΦ░âτö¿µáê:
+  L98: [LLM Vision] Google σ¢╛τëçΦ╜¼µìóσñ▒Φ┤Ñ:
+  L142: [LLM Vision] Ark σ¢╛τëçΦ╜¼µìóσñ▒Φ┤Ñ:
+  L194: [LLM Vision] Φ╜¼µìóµ£¼σ£░σ¢╛τëçΣ╕║ Base64
+  L196: [LLM Vision] Φ╜¼µìóµ£¼σ£░σ¢╛τëçσñ▒Φ┤Ñ:
+  L240: [LLM Vision] Γ¥î σåàσ«╣σ«ëσà¿µúÇµ╡ïσñ▒Φ┤Ñ - Google AI Studio µïÆτ╗¥σñäτÉåµ¡ñσåàσ«╣
+  L241: SENSITIVE_CONTENT: σ¢╛τëçµêûPromptσîàσÉ½µòÅµäƒΣ┐íµü»,N/Aµ│òσñäτÉå
+  L244: [LLM Vision] Φ░âτö¿σñ▒Φ┤Ñ (${attempt}/${maxRetries + 1}): ${errorMessage}
+  L250: LLM Vision Φ░âτö¿σñ▒Φ┤Ñ
+
+--- lib\media-process.ts (1 strings) ---
+  L22: N/Aµ│òΦºúµ₧É data: URL
+
+--- lib\modes.ts (2 strings) ---
+  L17: σ░ÅΦ»┤µÄ¿µûç
+  L18: Σ╗Äσ░ÅΦ»┤τöƒµêÉµÄ¿σ╣┐τƒ¡ΦºåΘóæ
+
+--- lib\novel-promotion\script-to-storyboard\orchestrator.ts (1 strings) ---
+  L306: πÇÉScriptµá╝σ╝ÅπÇæ\n${JSON.stringify(screenplay, null, 2)}
+
+--- lib\novel-promotion\stages\video-stage-runtime\useVideoDownloadAll.ts (7 strings) ---
+  L51: [Σ╕ïΦ╜╜ΦºåΘóæ] ΦÄ╖σÅûΦºåΘóæURLσêùΦí¿...
+  L64: [Σ╕ïΦ╜╜ΦºåΘóæ] σà▒ ${videos.length} Σ╕¬ΦºåΘóæ∩╝îσ╝ÇσºïΣ╕ïΦ╜╜...
+  L70: [Σ╕ïΦ╜╜ΦºåΘóæ] Σ╕ïΦ╜╜ ${index + 1}/${videos.length}: ${video.fileName}
+  L77: [Σ╕ïΦ╜╜ΦºåΘóæ] Σ╕ïΦ╜╜σñ▒Φ┤Ñ: ${video.fileName}
+  L81: [Σ╕ïΦ╜╜ΦºåΘóæ] τöƒµêÉ ZIP µûçΣ╗╢...
+  L91: [Σ╕ïΦ╜╜ΦºåΘóæ] σ«îµêÉ!
+  L93: [Σ╕ïΦ╜╜ΦºåΘóæ] ΘöÖΦ»»:
+
+--- lib\novel-promotion\stages\video-stage-runtime\useVideoPromptState.ts (1 strings) ---
+  L138: Σ┐¥σ¡ÿΦºåΘóæPromptσñ▒Φ┤Ñ:
+
+--- lib\novel-promotion\story-to-script\orchestrator.ts (9 strings) ---
+  L424: µÜéN/Aσ╖▓µ£ëCharacter
+  L436: σ╝Çσºïµ¡ÑΘ¬ñ1∩╝ÜCharacter/Scene analysis∩╝êσ╣╢Φíî∩╝ë
+  L505: σ╝Çσºïµ¡ÑΘ¬ñ2∩╝ÜClip segmentation∩╝êµ£ÇσñÜΘçìΦ»ò1µ¼í∩╝ë
+  L514: µÜéNo charactersΣ╗ïτ╗ì
+  L541: Clip segmentationτ╗ôµ₧£Σ╕║τ⌐║
+  L585: ClipΦ╛╣τòîσî╣ΘàìµêÉσèƒ
+  L596: ClipΦ╛╣τòîσî╣Θàìσñ▒Φ┤Ñ
+  L609: σ╝Çσºïµ¡ÑΘ¬ñ3∩╝Üσ»╣µ»ÅΣ╕¬ClipσüÜScriptΦ╜¼µìó∩╝êσ╣╢Φíî∩╝ë
+  L625: µÜéNo charactersΣ╗ïτ╗ì
+
+--- lib\query\hooks\run-stream\run-stream-view.ts (1 strings) ---
+  L40: πÇÉΘöÖΦ»»πÇæ\n${runState.errorMessage}
+
+--- lib\query\hooks\run-stream\state-machine.ts (4 strings) ---
+  L392: πÇÉµÇ¥ΦÇâΦ┐çτ¿ïπÇæ\n${step.reasoningOutput}\n\nπÇÉµ£Çτ╗êτ╗ôµ₧£πÇæ\n${step.textOutput}
+  L394: πÇÉµÇ¥ΦÇâΦ┐çτ¿ïπÇæ\n${step.reasoningOutput}
+  L395: πÇÉµ£Çτ╗êτ╗ôµ₧£πÇæ\n${step.textOutput}
+  L396: πÇÉΘöÖΦ»»πÇæ\n${step.errorMessage}
+
+--- lib\query\hooks\useProjectAssets.ts (1 strings) ---
+  L187: [σê╖µû░Asset] σÉîµù╢σê╖µû░ projectAssets / projectData / tasks τ╝ôσ¡ÿ
+
+--- lib\query\mutations\asset-hub-creation-mutations.ts (3 strings) ---
+  L44: σê¢σ╗║σñ▒Φ┤Ñ
+  L60: Σ╕èΣ╝áσñ▒Φ┤Ñ
+  L120: σê¢σ╗║Characterσñ▒Φ┤Ñ
+
+--- lib\query\mutations\asset-hub-update-mutations.ts (2 strings) ---
+  L33: µ¢┤µû░σ¢╛τëçµáçτ¡╛σñ▒Φ┤Ñ:
+  L62: µ¢┤µû░σ¢╛τëçµáçτ¡╛σñ▒Φ┤Ñ:
+
+--- lib\query\mutations\asset-hub-voice-mutations.ts (3 strings) ---
+  L74: Σ╕èΣ╝áΘƒ│Θóæσñ▒Φ┤Ñ
+  L89: Σ┐¥σ¡ÿσñ▒Φ┤Ñ
+  L115: Σ╕èΣ╝áσñ▒Φ┤Ñ
+
+--- lib\query\mutations\character-base-mutations.ts (1 strings) ---
+  L379: µ¢┤µû░σ¢╛τëçµáçτ¡╛σñ▒Φ┤Ñ:
+
+--- lib\query\mutations\character-profile-mutations.ts (4 strings) ---
+  L104: Σ╕èΣ╝áσñ▒Φ┤Ñ
+  L210: τí«Φ«ñΘÇëµï⌐σñ▒Φ┤Ñ
+  L237: τí«Φ«ñσñ▒Φ┤Ñ
+  L269: µë╣ΘçÅτí«Φ«ñσñ▒Φ┤Ñ
+
+--- lib\query\mutations\character-voice-mutations.ts (2 strings) ---
+  L48: µ¢┤µû░Voiceσñ▒Φ┤Ñ
+  L80: Σ┐¥σ¡ÿσñ▒Φ┤Ñ
+
+--- lib\query\mutations\location-management-mutations.ts (2 strings) ---
+  L123: µ¢┤µû░σ¢╛τëçµáçτ¡╛σñ▒Φ┤Ñ:
+  L267: τí«Φ«ñΘÇëµï⌐σñ▒Φ┤Ñ
+
+--- lib\query\mutations\storyboard-panel-mutations.ts (16 strings) ---
+  L27: Σ╜ÖΘó¥Σ╕ìΦ╢│∩╝îΦ»╖σààσÇ╝σÉÄτ╗ºτ╗¡Σ╜┐τö¿
+  L28: µòÅµäƒ
+  L29: PromptσîàσÉ½µòÅµäƒσåàσ«╣
+  L33: API ΘàìΘó¥Φ╢àΘÖÉ∩╝îΦ»╖τ¡ëσ╛à ${retryAfter} τºÆσÉÄΘçìΦ»ò
+  L35: Θçìµû░τöƒµêÉσñ▒Φ┤Ñ
+  L85: Σ┐«µö╣σñ▒Φ┤Ñ
+  L105: Σ╕ïΦ╜╜σñ▒Φ┤Ñ
+  L128: Σ┐¥σ¡ÿσñ▒Φ┤Ñ
+  L148: µ╖╗σèáσñ▒Φ┤Ñ
+  L166: σêáΘÖñσñ▒Φ┤Ñ
+  L185: σêáΘÖñσñ▒Φ┤Ñ
+  L227: µ╖╗σèáσñ▒Φ┤Ñ
+  L247: τº╗σè¿σñ▒Φ┤Ñ
+  L267: Insert storyboard panelσñ▒Φ┤Ñ
+  L300: τöƒµêÉVariantσñ▒Φ┤Ñ
+  L322: µ╕àΘÖñStoryboardΘöÖΦ»»σñ▒Φ┤Ñ
+
+--- lib\query\mutations\storyboard-prompt-mutations.ts (3 strings) ---
+  L60: Analysisσñ▒Φ┤Ñ
+  L100: Σ┐¥σ¡ÿµæäσ╜▒ΦºäσêÖσñ▒Φ┤Ñ
+  L123: Σ┐¥σ¡ÿµ╝öµèÇµîçσ»╝σñ▒Φ┤Ñ
+
+--- lib\query\mutations\task-mutations.ts (1 strings) ---
+  L19: σà│Θù¡ΘöÖΦ»»σñ▒Φ┤Ñ
+
+--- lib\query\mutations\useEpisodeMutations.ts (5 strings) ---
+  L25: ΦÄ╖σÅûEpisodeσñ▒Φ┤Ñ
+  L42: σêåσë▓σñ▒Φ┤Ñ
+  L78: σêåσë▓σñ▒Φ┤Ñ
+  L105: Σ┐¥σ¡ÿEpisodeσñ▒Φ┤Ñ
+  L254: Σ╕ïΦ╜╜σñ▒Φ┤Ñ
+
+--- lib\query\mutations\useVideoMutations.ts (2 strings) ---
+  L21: ΦÄ╖σÅûΦºåΘóæσêùΦí¿σñ▒Φ┤Ñ
+  L43: Σ┐¥σ¡ÿΘô╛µÄÑτè╢µÇüσñ▒Φ┤Ñ
+
+--- lib\query\mutations\useVoiceMutations.ts (3 strings) ---
+  L83: ΦÄ╖σÅûDialogueσñ▒Φ┤Ñ
+  L88: ΦÄ╖σÅûCharacterVoiceσñ▒Φ┤Ñ
+  L93: ΦÄ╖σÅûΦ»┤Φ»¥Σ║║σñ▒Φ┤Ñ
+
+--- lib\qwen-voice-design.ts (10 strings) ---
+  L52: Φ»╖Θàìτ╜«Θÿ┐ΘçîτÖ╛τé╝ API Key
+  L73: [VoiceDesign] Φ»╖µ▒éΣ╜ô:
+  L102: SoundΦ«╛Φ«í API Φ░âτö¿σñ▒Φ┤Ñ
+  L109: τ╜æτ╗£Φ»╖µ▒éσñ▒Φ┤Ñ
+  L112: τ╜æτ╗£Φ»╖µ▒éσñ▒Φ┤Ñ
+  L122: SoundPromptΣ╕ìΦâ╜Σ╕║τ⌐║
+  L126: SoundPromptΣ╕ìΦâ╜Φ╢àΦ┐ç500Σ╕¬σ¡ùτ¼ª
+  L137: ΘóäΦºêµûçµ£¼Σ╕ìΦâ╜Σ╕║τ⌐║
+  L141: ΘóäΦºêµûçµ£¼Φç│σ░æΘ£ÇΦªü5Σ╕¬σ¡ùτ¼ª
+  L145: ΘóäΦºêµûçµ£¼Σ╕ìΦâ╜Φ╢àΦ┐ç200Σ╕¬σ¡ùτ¼ª
+
+--- lib\storyboard-phases.ts (35 strings) ---
+  L133: ΦºäσêÆStoryboard
+  L134: Φ«╛Φ«íµæäσ╜▒
+  L135: Φ«╛Φ«íµ╝öµèÇ
+  L136: ΦíÑσààτ╗åΦèé
+  L238: Phase ${phase}: JSONµá╝σ╝ÅΘöÖΦ»» clip ${clipId}
+  L245: Phase ${phase}: Φ┐öσ¢₧τ⌐║µò░µì« clip ${clipId}
+  L250: Phase ${phase}: µò░µì«τ╗ôµ₧äΘöÖΦ»» clip ${clipId}
+  L268: [Phase 1] Clip ${clipId}: σ╝Çσºïσƒ║τíÇStoryboardΦºäσêÆ...
+  L295: [Phase 1] Clip ${clipId}: ScriptJSONΦºúµ₧Éσñ▒Φ┤Ñ
+  L308: πÇÉScriptµá╝σ╝ÅπÇæ\n${JSON.stringify(screenplay, null, 2)}
+  L334: StoryboardΦºäσêÆ
+  L342: Phase 1: N/Aσôìσ║ö clip ${clipId}
+  L352: [Phase 1] Clip ${clipId}: σà▒ ${planPanels.length} Σ╕¬Storyboard∩╝îσà╢Σ╕¡ ${validPanelCoun
+  L355: Phase 1: Φ┐öσ¢₧σà¿Θâ¿Σ╕║τ⌐║Storyboard clip ${clipId}
+  L361: [Phase 1] Clip ${clipId}: µ£ëStoryboardmissingsource_text∩╝îσ░¥Φ»òΘçìΦ»ò...
+  L369: [Phase 1] Clip ${clipId}: τ¼¼${attempt}µ¼íσ░¥Φ»òσñ▒Φ┤Ñ: ${message}
+  L385: [Phase 1] Clip ${clipId}: τöƒµêÉ ${planPanels.length} Σ╕¬σƒ║τíÇStoryboard
+  L403: [Phase 2] Clip ${clipId}: σ╝ÇσºïτöƒµêÉµæäσ╜▒ΦºäσêÖ...
+  L437: µæäσ╜▒ΦºäσêÖ
+  L445: Phase 2: N/Aσôìσ║ö clip ${clipId}
+  L450: [Phase 2] Clip ${clipId}: µêÉσèƒτöƒµêÉ ${photographyRules.length} Σ╕¬ShotτÜäµæäσ╜▒ΦºäσêÖ
+  L468: [Phase 2] Clip ${clipId}: τ¼¼${attempt}µ¼íσ░¥Φ»òσñ▒Φ┤Ñ: ${message}
+  L490: [Phase 2-Acting] Clip ${clipId}: σ╝ÇσºïτöƒµêÉµ╝öµèÇµîçσ»╝...
+  L491: [Phase 2-Acting] planPanels µò░ΘçÅ: ${planPanels.length}
+  L523: µ╝öµèÇµîçσ»╝
+  L531: Phase 2-Acting: N/Aσôìσ║ö clip ${clipId}
+  L536: [Phase 2-Acting] Clip ${clipId}: µêÉσèƒτöƒµêÉ ${actingDirections.length} Σ╕¬ShotτÜäµ╝öµèÇµîçσ»╝
+  L554: [Phase 2-Acting] Clip ${clipId}: τ¼¼${attempt}µ¼íσ░¥Φ»òσñ▒Φ┤Ñ: ${message}
+  L576: [Phase 3] Clip ${clipId}: σ╝ÇσºïΦíÑσààShotτ╗åΦèé...
+  L616: Shotτ╗åσîû
+  L624: Phase 3: N/Aσôìσ║ö clip ${clipId}
+  L645: [Phase 3] Clip ${clipId}: Φ┐çµ╗ñτ⌐║Storyboard ${beforeFilterCount} -> ${finalPanels.le
+  L648: Phase 3: Φ┐çµ╗ñσÉÄN/Aµ£ëµòêStoryboard clip ${clipId}
+  L669: [Phase 3] Clip ${clipId}: τ¼¼${attempt}µ¼íσ░¥Φ»òσñ▒Φ┤Ñ: ${message}
+  L674: [Phase 3] Clip ${clipId}: σ«îµêÉ ${finalPanels.length} Σ╕¬Shotτ╗åΦèé
+
+--- lib\task\error-message.ts (1 strings) ---
+  L34: Σ╗╗σèíσ╖▓σÅûµ╢ê
+
+--- lib\task\reconcile.ts (2 strings) ---
+  L138: Σ╗╗σèíσ╖▓Φç¬σè¿µüóσñì
+  L247: Σ╗╗σèíΦ╢àµù╢σ╖▓τ╗êµ¡ó
+
+--- lib\user-api\llm-test-connection.ts (11 strings) ---
+  L30: missingσ┐àΦªüσÅéµò░ provider
+  L41: Σ╕ìµö»µîüτÜäµ╕áΘüô: ${provider}
+  L48: missingσ┐àΦªüσÅéµò░ apiKey
+  L56: Φç¬σ«ÜΣ╣ëµ╕áΘüôΘ£ÇΦªüµÅÉΣ╛¢ baseUrl
+  L68: Google AI Φ«ñΦ»üσñ▒Φ┤Ñ: ${error}
+  L88: 1+1τ¡ëΣ║Äσçá∩╝ƒσÅ¬σ¢₧τ¡öµò░σ¡ù
+  L115: openrouter Φ┐₧µÄÑµêÉσèƒ
+  L119: google Φ┐₧µÄÑµêÉσèƒ
+  L127: anthropic Φ┐₧µÄÑµêÉσèƒ
+  L134: openai Φ┐₧µÄÑµêÉσèƒ
+  L142: custom Φ┐₧µÄÑµêÉσèƒ
+
+--- lib\voice\generate-voice-line.ts (2 strings) ---
+  L173: Φ»╖σàêΣ╕║Φ»ÑσÅæΦ¿ÇΣ║║SettingsσÅéΦÇâΘƒ│Θóæ
+  L191: N/Aµ│òΦºúµ₧ÉσÅéΦÇâΘƒ│ΘóæΦ╖»σ╛ä: ${referenceAudioUrl}
+
+--- lib\workers\handlers\analyze-global-parse.ts (5 strings) ---
+  L72: µÜéN/Aσ╖▓µ£ëCharacter
+  L75: σê½σÉì∩╝Ü${c.aliases.join(
+  L75: σê½σÉì∩╝ÜN/A
+  L76: Σ╗ïτ╗ì∩╝Ü${c.introduction}
+  L76: Σ╗ïτ╗ì∩╝ÜµÜéN/A
+
+--- lib\workers\handlers\analyze-global.ts (1 strings) ---
+  L95: σà▒ ${chunks.length} Σ╕¬Chunk
+
+--- lib\workers\handlers\character-profile.ts (1 strings) ---
+  L197: σà▒ ${unconfirmedCharacters.length} Σ╕¬Character
+
+--- lib\workers\handlers\episode-split.ts (1 strings) ---
+  L169: Parsing episode split results∩╝êΘçìΦ»ò ${attempt - 1}∩╝ë
+
+--- lib\workers\handlers\screenplay-convert.ts (2 strings) ---
+  L106: ClipScriptΦ╜¼µìó ${stepIndex}/${total}
+  L250: σ«îµêÉ ${successCount}/${total} Σ╕¬Clip
+
+--- lib\workers\handlers\shot-ai-prompt-shot.ts (1 strings) ---
+  L34: ${modifyInstruction}\n\nσ╝òτö¿τÜäAssetDescription∩╝Ü${assetDescriptions}
+
+--- lib\workers\text.worker.ts (1 strings) ---
+  L476: ${character.name}: N/AAppearanceΣ┐íµü»
+

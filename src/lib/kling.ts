@@ -124,7 +124,7 @@ export async function generateLipSync(
         : null
     _ulogError('[LipSync Async] 错误:', error)
     let errorDetails =
-      typeof errorObject?.message === 'string' ? errorObject.message : '未知错误'
+      typeof errorObject?.message === 'string' ? errorObject.message : 'Unknown错误'
     const body = (errorObject?.body && typeof errorObject.body === 'object')
       ? (errorObject.body as { detail?: unknown })
       : null

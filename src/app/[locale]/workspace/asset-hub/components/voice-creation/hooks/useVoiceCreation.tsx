@@ -14,7 +14,7 @@ export interface VoiceCreationModalShellProps {
     folderId: string | null
     onClose: () => void
     onSuccess: () => void
-    /** 预填充的音色名称（如发言人名字） */
+    /** 预填充的Voice名称（如发言人名字） */
     initialVoiceName?: string
 }
 
@@ -26,7 +26,7 @@ interface GeneratedVoice {
 
 type CreationMode = 'design' | 'upload'
 
-// 声音风格预设
+// Sound风格预设
 const VOICE_PRESET_KEYS = [
     'maleBroadcaster',
     'gentleFemale',
@@ -83,7 +83,7 @@ export function useVoiceCreation({ isOpen, folderId, onClose, onSuccess, initial
     const saveDesignedMutation = useSaveDesignedAssetHubVoice()
     const uploadVoiceMutation = useUploadAssetHubVoice()
 
-    // 生成音色
+    // 生成Voice
     const handleGenerate = async () => {
         if (!voicePrompt.trim()) {
             setError(tv('pleaseSelectStyle'))
@@ -139,9 +139,9 @@ export function useVoiceCreation({ isOpen, folderId, onClose, onSuccess, initial
         }
     }
 
-    // 播放音色（支持暂停切换）
+    // 播放Voice（支持暂停切换）
     const handlePlayVoice = (index: number) => {
-        // 点击正在播放的音色 → 暂停
+        // 点击正在播放的Voice → 暂停
         if (playingIndex === index && audioRef.current) {
             audioRef.current.pause()
             setPlayingIndex(null)
@@ -159,7 +159,7 @@ export function useVoiceCreation({ isOpen, folderId, onClose, onSuccess, initial
         void audio.play()
     }
 
-    // 保存音色到音色库（设计模式）
+    // 保存Voice到Voice库（设计模式）
     const handleSaveDesigned = async () => {
         if (selectedIndex === null || !generatedVoices[selectedIndex]) return
         if (!voiceName.trim()) {

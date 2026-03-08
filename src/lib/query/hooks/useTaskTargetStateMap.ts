@@ -169,7 +169,7 @@ function logMergeDecision(params: {
   })
 }
 
-/** 将数组分成固定大小的块 */
+/** 将数组分成Fixed大小的块 */
 function chunkArray<T>(arr: T[], size: number): T[][] {
   const chunks: T[][] = []
   for (let i = 0; i < arr.length; i += size) {

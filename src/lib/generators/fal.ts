@@ -2,11 +2,11 @@ import { createScopedLogger, logError as _ulogError } from '@/lib/logging/core'
 /**
  * FAL 生成器（统一图像 + 视频）
  * 
- * 图像模型：
+ * 图像Model：
  * - Banana Pro (2K/4K) - fal-ai/nano-banana-pro       (modelId: 'banana')
  * - Banana 2  (1K/2K/4K) - fal-ai/nano-banana-2       (modelId: 'banana-2')
  * 
- * 视频模型：
+ * 视频Model：
  * - Wan 2.6 (fal-wan25) - wan/v2.6/image-to-video
  * - Veo 3.1 (fal-veo31) - fal-ai/veo3.1/fast/image-to-video
  * - Sora 2 (fal-sora2) - fal-ai/sora-2/image-to-video  
@@ -27,7 +27,7 @@ import { submitFalTask } from '@/lib/async-submit'
 import { imageUrlToBase64 } from '@/lib/cos'
 
 // ============================================================
-// 图像模型端点映射（modelId → FAL 端点前缀）
+// 图像Model端点映射（modelId → FAL 端点前缀）
 // ============================================================
 
 const FAL_IMAGE_ENDPOINTS: Record<string, { base: string; edit: string }> = {
@@ -36,7 +36,7 @@ const FAL_IMAGE_ENDPOINTS: Record<string, { base: string; edit: string }> = {
 }
 
 // ============================================================
-// 视频模型端点映射
+// 视频Model端点映射
 // ============================================================
 
 const FAL_VIDEO_ENDPOINTS: Record<string, string> = {
@@ -89,7 +89,7 @@ export class FalImageGenerator extends BaseImageGenerator {
             throw new Error(`FAL_IMAGE_OPTION_VALUE_UNSUPPORTED: resolution=${resolution}`)
         }
 
-        // 根据 modelId 和是否有参考图片选择端点
+        // 根据 modelId 和是否有Reference Image片选择端点
         const hasReferenceImages = referenceImages.length > 0
         const endpointConfig = FAL_IMAGE_ENDPOINTS[optModelId] || FAL_IMAGE_ENDPOINTS['banana']
         const endpoint = hasReferenceImages ? endpointConfig.edit : endpointConfig.base
@@ -124,7 +124,7 @@ export class FalImageGenerator extends BaseImageGenerator {
         }
 
         if (hasReferenceImages) {
-            // 🔥 转换参考图片为Data URL（适配内网/本地环境）
+            // 🔥 转换Reference Image片为Data URL（适配内网/本地环境）
             const dataUrls = await Promise.all(
                 referenceImages.map(async (url: string) => {
                     // 如果已经是data URL，直接返回
@@ -234,7 +234,7 @@ export class FalVideoGenerator extends BaseVideoGenerator {
         const vLogger = createScopedLogger({ module: 'worker.fal-video', action: 'fal_video_generate' })
         vLogger.info({ message: 'FAL video generation request', details: { modelId, endpoint } })
 
-        // 根据模型构建不同的请求体
+        // 根据Model构建不同的请求体
         let input: Record<string, unknown>
 
         switch (modelId) {
@@ -299,7 +299,7 @@ export class FalVideoGenerator extends BaseVideoGenerator {
                 externalId: `FAL:VIDEO:${endpoint}:${requestId}`  // 🔥 标准格式
             }
         } catch (error: unknown) {
-            const message = error instanceof Error ? error.message : '未知错误'
+            const message = error instanceof Error ? error.message : 'Unknown错误'
             _ulogError(`[FAL Video] 提交失败:`, message)
             throw new Error(`FAL 视频任务提交失败: ${message}`)
         }

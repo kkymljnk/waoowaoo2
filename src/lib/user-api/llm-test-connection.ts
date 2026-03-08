@@ -27,7 +27,7 @@ function normalizeProvider(payload: TestConnectionPayload): SupportedProvider {
   const provider = typeof payload.provider === 'string' ? payload.provider.trim().toLowerCase() : ''
   if (!provider) {
     if (typeof payload.baseUrl === 'string' && payload.baseUrl.trim()) return 'custom'
-    throw new ApiError('INVALID_PARAMS', { message: '缺少必要参数 provider' })
+    throw new ApiError('INVALID_PARAMS', { message: 'missing必要参数 provider' })
   }
 
   switch (provider) {
@@ -45,7 +45,7 @@ function normalizeProvider(payload: TestConnectionPayload): SupportedProvider {
 function requireApiKey(payload: TestConnectionPayload): string {
   const apiKey = typeof payload.apiKey === 'string' ? payload.apiKey.trim() : ''
   if (!apiKey) {
-    throw new ApiError('INVALID_PARAMS', { message: '缺少必要参数 apiKey' })
+    throw new ApiError('INVALID_PARAMS', { message: 'missing必要参数 apiKey' })
   }
   return apiKey
 }

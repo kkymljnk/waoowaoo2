@@ -64,7 +64,7 @@ export async function chatCompletionStream(
   const streamStep = resolveStreamStepMeta(options)
   emitStreamStage(callbacks, streamStep, 'submit')
   if (!model) {
-    const error = new Error('ANALYSIS_MODEL_NOT_CONFIGURED: 请先在设置页面配置分析模型')
+    const error = new Error('ANALYSIS_MODEL_NOT_CONFIGURED: Please configure the analysis model in settings first')
     callbacks?.onError?.(error, streamStep)
     throw error
   }
@@ -361,7 +361,7 @@ export async function chatCompletionStream(
           model: aiOpenAI.chat(resolvedModelId),
           system: getSystemPrompt(messages),
           messages: getConversationMessages(messages),
-          // 推理模型不支持 temperature，仅在非推理模式下传递
+          // 推理Model不支持 temperature，仅在非推理模式下传递
           ...(useReasoning ? {} : { temperature: options.temperature ?? 0.7 }),
           maxRetries: options.maxRetries ?? 2,
           ...(aiSdkProviderOptions ? { providerOptions: aiSdkProviderOptions } : {}),
@@ -378,7 +378,7 @@ export async function chatCompletionStream(
         const streamErrorChunks: unknown[] = []
         // 记录 finishReason
         let streamFinishReason: string | undefined
-        // 记录所有未知类型 chunk 的原始内容（诊断 AI SDK 未解析的响应）
+        // 记录所有Unknown类型 chunk 的原始内容（诊断 AI SDK 未解析的响应）
         const unknownChunkSamples: unknown[] = []
         for await (const chunk of withStreamChunkTimeout(aiStreamResult.fullStream as AsyncIterable<AISdkStreamChunk>)) {
           const chunkType = chunk?.type || 'unknown'
@@ -491,7 +491,7 @@ export async function chatCompletionStream(
 
         let usage = await Promise.resolve(aiStreamResult.usage).catch(() => null)
 
-        // 显式回退：仅当“强制推理参数”模式返回空文本时，重试一次无推理 provider options 请求。
+        // 显式回退：仅当“强制推理参数”模式返回空文本时，重试一次N/A推理 provider options 请求。
         if (!finalText && aiSdkProviderOptions) {
           llmLogger.warn({
             audit: false,
@@ -585,7 +585,7 @@ export async function chatCompletionStream(
               // HTTP 响应状态（诊断 API 层面是否正常返回）
               httpStatus: sdkResponseStatus,
               httpHeaders: sdkResponseHeaders,
-              // 未被 AI SDK 识别的 chunk 原始内容（可能是模型返回了特殊格式）
+              // 未被 AI SDK 识别的 chunk 原始内容（可能是Model返回了特殊格式）
               unknownChunks: unknownChunkSamples.length > 0 ? unknownChunkSamples : undefined,
               streamedReasoningLength: finalReasoning.length,
             },
@@ -651,7 +651,7 @@ export async function chatCompletionStream(
       const stream = await client.chat.completions.create({
         model: resolvedModelId,
         messages,
-        // OpenRouter 推理模型不支持 temperature
+        // OpenRouter 推理Model不支持 temperature
         ...(isOpenRouterReasoning ? {} : { temperature: options.temperature ?? 0.7 }),
         stream: true,
         ...extraParams,
@@ -758,7 +758,7 @@ export async function chatCompletionStream(
     // (consistent with chat-completion.ts)
     const errMsg = error instanceof Error ? error.message : String(error)
     if (errMsg.includes('PROHIBITED_CONTENT') || errMsg.includes('request_body_blocked')) {
-      const sensitiveError = new Error('SENSITIVE_CONTENT: 内容包含敏感信息,无法处理。请修改内容后重试')
+      const sensitiveError = new Error('SENSITIVE_CONTENT: 内容包含敏感信息,N/A法处理。请修改内容后重试')
       callbacks?.onError?.(sensitiveError, streamStep)
       throw sensitiveError
     }

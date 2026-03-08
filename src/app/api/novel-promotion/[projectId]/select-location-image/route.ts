@@ -6,7 +6,7 @@ import { requireProjectAuthLight, isErrorResponse } from '@/lib/api-auth'
 import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
- * POST - 选择场景图片
+ * POST - 选择Scene图片
  * 直接更新独立的 LocationImage 表
  */
 export const POST = apiHandler(async (
@@ -25,7 +25,7 @@ export const POST = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 获取场景和所有图片
+  // 获取Scene和所有图片
   const location = await prisma.novelPromotionLocation.findUnique({
     where: { id: locationId },
     include: { images: { orderBy: { imageIndex: 'asc' } } }
@@ -61,13 +61,13 @@ export const POST = apiHandler(async (
       where: { id: locationId },
       data: { selectedImageId: updated.id }
     })
-    _ulogInfo(`✓ 场景 ${location.name}: 选择了索引 ${selectedIndex}`)
+    _ulogInfo(`✓ Scene ${location.name}: 选择了索引 ${selectedIndex}`)
   } else {
     await prisma.novelPromotionLocation.update({
       where: { id: locationId },
       data: { selectedImageId: null }
     })
-    _ulogInfo(`✓ 场景 ${location.name}: 取消选择`)
+    _ulogInfo(`✓ Scene ${location.name}: 取消选择`)
   }
 
   return NextResponse.json({

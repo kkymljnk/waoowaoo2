@@ -1,8 +1,8 @@
 'use client'
 
 /**
- * 角色档案编辑对话框
- * 允许用户编辑角色档案的各项属性
+ * CharacterProfile编辑对话框
+ * 允许用户编辑CharacterProfile的各项属性
  */
 
 import { useTranslations } from 'next-intl'
@@ -117,7 +117,7 @@ export default function CharacterProfileDialog({
 
                 {/* 表单内容 */}
                 <div className="p-6 space-y-4">
-                    {/* 角色层级 */}
+                    {/* Character层级 */}
                     <div>
                         <label className="block text-sm font-medium text-[var(--glass-text-secondary)] mb-2">{t('characterProfile.importanceLevel')}</label>
                         <select
@@ -133,7 +133,7 @@ export default function CharacterProfileDialog({
                         </select>
                     </div>
 
-                    {/* 角色原型 */}
+                    {/* Character原型 */}
                     <div>
                         <label className="block text-sm font-medium text-[var(--glass-text-secondary)] mb-2">{t('characterProfile.characterArchetype')}</label>
                         <input

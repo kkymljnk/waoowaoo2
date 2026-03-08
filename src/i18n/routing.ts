@@ -6,10 +6,10 @@ export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
 export const routing = defineRouting({
-    // 支持的所有语言
+    // Supported languages
     locales,
 
-    // 默认语言
+    // Default language
     defaultLocale,
 
     // URL 路径策略: 按需显示语言前缀

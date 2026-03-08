@@ -7,7 +7,7 @@ import { requireProjectAuthLight, isErrorResponse } from '@/lib/api-auth'
 import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
- * POST - 确认场景选择并删除未选中的候选图片
+ * POST - 确认Scene选择并删除未选中的候选图片
  * Body: { locationId }
  * 
  * 工作流程：
@@ -32,7 +32,7 @@ export const POST = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 获取场景及其图片
+  // 获取Scene及其图片
   const location = await prisma.novelPromotionLocation.findUnique({
     where: { id: locationId },
     include: { images: { orderBy: { imageIndex: 'asc' } } }
@@ -45,7 +45,7 @@ export const POST = apiHandler(async (
   const images = location.images || []
 
   if (images.length <= 1) {
-    // 已经只有一张图片，无需操作
+    // 已经只有一张图片，N/A需操作
     return NextResponse.json({
       success: true,
       message: '已确认选择',
@@ -101,7 +101,7 @@ export const POST = apiHandler(async (
     })
   })
 
-  _ulogInfo(`✓ 场景确认选择: ${location.name}`)
+  _ulogInfo(`✓ Scene确认选择: ${location.name}`)
   _ulogInfo(`✓ 删除了 ${deletedImages.length} 张未选中的图片`)
 
   return NextResponse.json({

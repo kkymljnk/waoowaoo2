@@ -116,7 +116,7 @@ export const POST = apiHandler(async (
 
   const signedUrl = getSignedUrl(finalImageKey, 7 * 24 * 3600)
 
-  // 更新 Panel：设置新图片，清空候选列表
+  // 更新 Panel：Settings新图片，清空候选列表
   await prisma.novelPromotionPanel.update({
     where: { id: panelId },
     data: {

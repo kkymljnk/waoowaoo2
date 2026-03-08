@@ -38,7 +38,7 @@ export function useCandidateSystem<TId extends string = string>() {
             next.set(id, {
                 originalUrl,
                 candidates: candidates.filter(c => c && !c.startsWith('PENDING:')), // 过滤 PENDING 任务
-                selectedIndex: 0, // 默认选中第一张候选
+                selectedIndex: 0, // Default选中第一张候选
                 previousUrl
             })
             return next

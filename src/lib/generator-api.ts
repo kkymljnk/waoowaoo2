@@ -4,7 +4,7 @@ import { logInfo as _ulogInfo } from '@/lib/logging/core'
  * 
  * 支持：
  * - 严格使用 model_key（provider::modelId）
- * - 用户自定义模型的动态路由（仅通过配置中心）
+ * - 用户自定义Model的动态路由（仅通过配置中心）
  * - 统一错误处理
  */
 
@@ -16,8 +16,8 @@ import { resolveModelSelection } from './api-config'
  * 生成图片（简化版）
  * 
  * @param userId 用户 ID
- * @param modelKey 模型唯一键（provider::modelId）
- * @param prompt 提示词
+ * @param modelKey Model唯一键（provider::modelId）
+ * @param prompt Prompt
  * @param options 生成选项
  */
 export async function generateImage(
@@ -56,7 +56,7 @@ export async function generateImage(
  * 生成视频（增强版）
  * 
  * @param userId 用户 ID
- * @param modelKey 模型唯一键（provider::modelId）
+ * @param modelKey Model唯一键（provider::modelId）
  * @param imageUrl 输入图片 URL
  * @param options 生成选项
  */

@@ -44,7 +44,7 @@ export const GET = apiHandler(async (
   let episodes: EpisodeData[] = []
 
   if (episodeId) {
-    // 只获取指定剧集的数据
+    // 只获取指定Episode的数据
     const episode = await prisma.novelPromotionEpisode.findUnique({
       where: { id: episodeId },
       include: {
@@ -63,7 +63,7 @@ export const GET = apiHandler(async (
       episodes = [episode]
     }
   } else {
-    // 获取所有剧集的数据
+    // 获取所有Episode的数据
     const npData = await prisma.novelPromotionProject.findFirst({
       where: { projectId },
       include: {
@@ -116,7 +116,7 @@ export const GET = apiHandler(async (
     for (const panel of panels) {
       if (panel.imageUrl) {
         images.push({
-          description: panel.description || `镜头`,
+          description: panel.description || `Shot`,
           imageUrl: panel.imageUrl,
           clipIndex: clipIndex >= 0 ? clipIndex : 999,
           panelIndex: panel.panelIndex || 0
@@ -223,7 +223,7 @@ export const GET = apiHandler(async (
           imageData = Buffer.from(arrayBuffer)
         }
 
-        // 文件名使用描述，清理非法字符
+        // 文件名使用Description，清理非法字符
         const safeDesc = image.description.slice(0, 50).replace(/[\\/:*?"<>|]/g, '_')
         const fileName = `${String(image.index).padStart(3, '0')}_${safeDesc}.${extension}`
         archive.append(imageData, { name: fileName })

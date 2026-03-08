@@ -5,7 +5,7 @@ import { normalizeAnyError } from '@/lib/errors/normalize'
 
 /**
  * 检查错误是否是由于页面卸载/刷新导致的 fetch 中止
- * 用于避免在页面刷新时显示无意义的错误提示
+ * 用于避免在页面刷新时显示N/A意义的错误提示
  */
 export function isAbortError(error: unknown): boolean {
     if (!error) return false

@@ -291,7 +291,7 @@ export async function requireProjectAuth<T extends ProjectAuthIncludes = Project
 
 /**
  * 仅验证 Session，不检查项目权限
- * 适用于用户级 API（如资产库）
+ * 适用于用户级 API（如Asset Library）
  * 
  * @example
  * ```typescript

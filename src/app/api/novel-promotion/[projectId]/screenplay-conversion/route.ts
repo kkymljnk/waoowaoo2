@@ -6,7 +6,7 @@ import { maybeSubmitLLMTask } from '@/lib/llm-observe/route-task'
 
 /**
  * POST /api/novel-promotion/[projectId]/screenplay-conversion
- * 将 clips 转换为结构化剧本
+ * 将 clips 转换为结构化Script
  */
 export const POST = apiHandler(async (
   request: NextRequest,

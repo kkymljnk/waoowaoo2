@@ -1,5 +1,5 @@
 /**
- * 分镜相关的类型守卫和工具类型
+ * Storyboard相关的类型守卫和工具类型
  * 解决 (storyboard as any).panels 类型断言问题
  */
 

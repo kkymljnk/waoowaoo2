@@ -11,7 +11,7 @@ function toObject(value: unknown): Record<string, unknown> {
     return value as Record<string, unknown>
 }
 
-// 获取用户所有场景（支持 folderId 筛选）
+// 获取用户所有Scene（支持 folderId 筛选）
 export const GET = apiHandler(async (request: NextRequest) => {
     // 🔐 统一权限验证
     const authResult = await requireUserAuth()
@@ -41,7 +41,7 @@ export const GET = apiHandler(async (request: NextRequest) => {
     return NextResponse.json({ locations: signedLocations })
 })
 
-// 新建场景
+// 新建Scene
 export const POST = apiHandler(async (request: NextRequest) => {
     // 🔐 统一权限验证
     const authResult = await requireUserAuth()

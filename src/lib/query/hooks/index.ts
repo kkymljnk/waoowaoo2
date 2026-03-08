@@ -5,7 +5,7 @@
  * import { useProjectAssets, useGenerateProjectCharacterImage } from '@/lib/query/hooks'
  */
 
-// 中心资产库
+// 中心Asset Library
 export {
     useGlobalCharacters,
     useGlobalLocations,
@@ -55,7 +55,7 @@ export {
     useCreateAssetHubCharacter,
 } from '../mutations/useAssetHubMutations'
 
-// 项目资产
+// 项目Asset
 export {
     useProjectAssets,
     useProjectCharacters,
@@ -154,7 +154,7 @@ export type {
     LocationImage,
 } from '@/types/project'
 
-// 分镜
+// Storyboard
 export {
     useStoryboards,
     useRegeneratePanelImage,

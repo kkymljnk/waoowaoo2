@@ -3,8 +3,8 @@ import { logInfo as _ulogInfo, logWarn as _ulogWarn } from '@/lib/logging/core'
  * 🎯 集中式视频分辨率适配器
  * 
  * 职责：
- * - 将用户的通用分辨率配置（720p/1080p/4K等）转换为各模型支持的特定格式
- * - 集中管理所有模型的分辨率映射规则
+ * - 将用户的通用分辨率配置（720p/1080p/4K等）转换为各Model支持的特定格式
+ * - 集中管理所有Model的分辨率映射规则
  * - 简化维护，一目了然
  * 
  * 使用示例：
@@ -25,7 +25,7 @@ export type VideoProvider = 'minimax' | 'fal' | 'ark' | 'vidu'
 // ============================================================
 
 /**
- * 各模型的分辨率适配规则
+ * 各Model的分辨率适配规则
  * key: provider名称
  * value: 适配函数
  */
@@ -51,7 +51,7 @@ const RESOLUTION_ADAPTERS: Record<VideoProvider, (input: string) => string> = {
     },
 
     /**
-     * FAL 模型
+     * FAL Model
      * 支持：720p, 1080p, 1440p, 4K
      * 
      * FAL直接支持标准分辨率，不需要转换，只做格式统一
@@ -64,11 +64,11 @@ const RESOLUTION_ADAPTERS: Record<VideoProvider, (input: string) => string> = {
         if (normalized.includes('1440') || normalized.includes('2k')) return '1440p'
         if (normalized.includes('4k')) return '4K'
 
-        return '1080p' // 默认1080p
+        return '1080p' // Default1080p
     },
 
     /**
-     * Ark 模型 (Seedance等)
+     * Ark Model (Seedance等)
      * 支持：720p, 1080p
      * 
      * 映射规则：
@@ -79,11 +79,11 @@ const RESOLUTION_ADAPTERS: Record<VideoProvider, (input: string) => string> = {
         const normalized = input.toLowerCase()
 
         if (normalized.includes('720')) return '720p'
-        return '1080p' // 默认和高于1080p的都映射到1080p
+        return '1080p' // Default和高于1080p的都映射到1080p
     },
 
     /**
-     * Vidu 模型（示例，根据实际情况调整）
+     * Vidu Model（示例，根据实际情况调整）
      * 支持：720p, 1080p, 2K
      * 
      * 映射规则：
@@ -98,7 +98,7 @@ const RESOLUTION_ADAPTERS: Record<VideoProvider, (input: string) => string> = {
         if (normalized.includes('1440') || normalized.includes('2k') || normalized.includes('4k')) {
             return '2K'
         }
-        return '1080p' // 默认1080p
+        return '1080p' // Default1080p
     }
 }
 
@@ -109,9 +109,9 @@ const RESOLUTION_ADAPTERS: Record<VideoProvider, (input: string) => string> = {
 /**
  * 适配视频分辨率
  * 
- * @param provider - 模型提供商
+ * @param provider - Model提供商
  * @param inputResolution - 用户配置的分辨率（如 '720p', '1080p', '4K'）
- * @returns 适配后的分辨率（符合该模型的规格）
+ * @returns 适配后的分辨率（符合该Model的规格）
  * 
  * @example
  * adaptVideoResolution('minimax', '720p')  // 返回: '768P'
@@ -125,7 +125,7 @@ export function adaptVideoResolution(
     const adapter = RESOLUTION_ADAPTERS[provider as VideoProvider]
 
     if (!adapter) {
-        _ulogWarn(`[分辨率适配] 未知provider: ${provider}，使用原始值: ${inputResolution}`)
+        _ulogWarn(`[分辨率适配] Unknownprovider: ${provider}，使用原始值: ${inputResolution}`)
         return inputResolution
     }
 
@@ -135,9 +135,9 @@ export function adaptVideoResolution(
 }
 
 /**
- * 获取模型支持的分辨率列表（用于UI展示）
+ * 获取Model支持的分辨率列表（用于UI展示）
  * 
- * @param provider - 模型提供商
+ * @param provider - Model提供商
  * @returns 支持的分辨率列表
  */
 export function getSupportedResolutions(provider: string): string[] {
@@ -154,7 +154,7 @@ export function getSupportedResolutions(provider: string): string[] {
 /**
  * 检查分辨率是否被支持（避免不必要的适配）
  * 
- * @param provider - 模型提供商
+ * @param provider - Model提供商
  * @param resolution - 分辨率
  * @returns 是否直接支持
  */

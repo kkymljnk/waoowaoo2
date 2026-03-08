@@ -121,7 +121,7 @@ export async function queryFalStatus(endpoint: string, requestId: string, apiKey
         // 🔥 尝试获取完整结果
         // 优先使用返回的 response_url，如果没有则构建 URL
         // 注意：获取结果必须使用完整的原始端点（包括 /edit 等路径），而不是 baseEndpoint
-        // 否则 FAL 会把请求当作新任务处理，导致 422 错误（缺少 image_urls 等必需参数）
+        // 否则 FAL 会把请求当作新任务处理，导致 422 错误（missing image_urls 等必需参数）
         const resultUrl = data.response_url || `https://queue.fal.run/${endpoint}/requests/${requestId}`
         _ulogInfo(`[FAL Status] 任务已完成，获取结果: ${resultUrl}`)
 
@@ -157,7 +157,7 @@ export async function queryFalStatus(endpoint: string, requestId: string, apiKey
             // 如果是 422 错误，可能是内容审核未通过或结果已过期
             if (resultResponse.status === 422) {
                 // 尝试解析具体错误类型
-                let errorMessage = '无法获取结果'
+                let errorMessage = 'N/A法获取结果'
                 try {
                     const errorJson = JSON.parse(errorText)
                     const errorType = errorJson.detail?.[0]?.type
@@ -177,14 +177,14 @@ export async function queryFalStatus(endpoint: string, requestId: string, apiKey
                 }
             }
 
-            // 🔥 500 下游服务错误，标记为失败，避免无限重试
+            // 🔥 500 下游服务错误，标记为失败，避免N/A限重试
             if (resultResponse.status === 500) {
                 // 尝试解析错误详情
                 let errorDetail = '下游服务错误'
                 try {
                     const errorJson = JSON.parse(errorText)
                     if (errorJson.detail?.[0]?.type === 'downstream_service_error') {
-                        errorDetail = 'FAL 下游服务错误：上游模型处理失败'
+                        errorDetail = 'FAL 下游服务错误：上游Model处理失败'
                     }
                 } catch { }
 

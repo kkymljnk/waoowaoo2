@@ -6,7 +6,7 @@ import { TASK_TYPE } from '@/lib/task/types'
 import { maybeSubmitLLMTask } from '@/lib/llm-observe/route-task'
 
 /**
- * 资产中心 - AI 修改角色形象描述（任务化）
+ * Asset中心 - AI 修改CharacterAppearanceDescription（任务化）
  * POST /api/asset-hub/ai-modify-character
  * body: { characterId, appearanceIndex, currentDescription, modifyInstruction }
  */

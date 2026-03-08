@@ -38,7 +38,7 @@ export interface GenerateResult {
 export interface ImageGenerateParams {
     userId: string
     prompt: string
-    referenceImages?: string[]  // 参考图片 URLs 或 base64
+    referenceImages?: string[]  // Reference Image片 URLs 或 base64
     options?: GenerateOptions
 }
 
@@ -56,7 +56,7 @@ export interface ImageGenerator {
 export interface VideoGenerateParams {
     userId: string
     imageUrl: string           // 起始图片
-    prompt?: string            // 提示词（可选）
+    prompt?: string            // Prompt（可选）
     options?: GenerateOptions
 }
 
@@ -74,7 +74,7 @@ export interface VideoGenerator {
 export interface AudioGenerateParams {
     userId: string
     text: string              // 文本内容
-    voice?: string            // 音色
+    voice?: string            // Voice
     rate?: number             // 语速
     options?: GenerateOptions
 }

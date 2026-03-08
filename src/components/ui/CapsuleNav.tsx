@@ -162,7 +162,7 @@ export function CapsuleNav({ items, activeId, onItemClick, projectId, episodeId 
 }
 
 /**
- * EpisodeSelector - 剧集选择器
+ * EpisodeSelector - Episode选择器
  */
 interface Episode {
     id: string

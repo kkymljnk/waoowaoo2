@@ -51,7 +51,7 @@ export default function VoicePickerDialog({ isOpen, onClose, onSelect }: VoicePi
     useEffect(() => {
         if (!isOpen) return
         refetchVoices().catch((error) => {
-            _ulogError('加载音色失败:', error)
+            _ulogError('加载Voice失败:', error)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen])
@@ -154,7 +154,7 @@ export default function VoicePickerDialog({ isOpen, onClose, onSelect }: VoicePi
                                             </div>
                                         )}
 
-                                        {/* 音色信息 */}
+                                        {/* Voice信息 */}
                                         <div className="flex items-center gap-3">
                                             <div className="w-10 h-10 rounded-full glass-surface-soft flex items-center justify-center flex-shrink-0">
                                                 <AppIcon name="mic" className="w-5 h-5 text-[var(--glass-tone-info-fg)]" />

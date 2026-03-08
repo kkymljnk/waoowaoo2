@@ -175,7 +175,7 @@ export default function GlobalAssetPicker({
     const [isPlayingAudio, setIsPlayingAudio] = useState(false)
     const audioRef = useRef<HTMLAudioElement | null>(null)
 
-    // 提取稳定的 refetch 引用，避免 useEffect 无限循环
+    // 提取稳定的 refetch 引用，避免 useEffect N/A限循环
     const refetchCharacters = charactersQuery.refetch
     const refetchLocations = locationsQuery.refetch
     const refetchVoices = voicesQuery.refetch
@@ -292,7 +292,7 @@ export default function GlobalAssetPicker({
                     </div>
                 </div>
 
-                {/* 资产列表 */}
+                {/* Asset列表 */}
                 <div className="flex-1 overflow-y-auto p-4">
                     {isLoading ? (
                         <div className="flex items-center justify-center h-40">
@@ -412,7 +412,7 @@ export default function GlobalAssetPicker({
                                     )
                                 })
                             ) : (
-                                // 音色列表渲染 - 与资产中心 VoiceCard 风格统一
+                                // Voice列表渲染 - 与Asset中心 VoiceCard 风格统一
                                 filteredVoices.map((voice) => {
                                     const genderIcon = voice.gender === 'male' ? 'M' : voice.gender === 'female' ? 'F' : ''
                                     const isVoicePlaying = previewAudio === voice.customVoiceUrl && isPlayingAudio
@@ -432,7 +432,7 @@ export default function GlobalAssetPicker({
                                                 </div>
                                             )}
 
-                                            {/* 音色图标区域 - 与 VoiceCard 统一 */}
+                                            {/* Voice图标区域 - 与 VoiceCard 统一 */}
                                             <div className="relative bg-[var(--glass-bg-muted)] p-6 flex items-center justify-center">
                                                 <div className="w-16 h-16 rounded-full glass-surface-soft flex items-center justify-center">
                                                     <MicrophoneIcon className="w-8 h-8 text-[var(--glass-tone-info-fg)]" />

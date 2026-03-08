@@ -19,7 +19,7 @@ export interface BaseProject {
 }
 
 // ============================================
-// 通用资产类型
+// 通用Asset类型
 // ============================================
 
 export interface MediaRef {
@@ -33,15 +33,15 @@ export interface MediaRef {
   durationMs: number | null
 }
 
-// 角色形象（独立表）
+// CharacterAppearance（独立表）
 // 🔥 V6.5: characterId 改为可选以兼容 useProjectAssets 返回的数据
 export interface CharacterAppearance {
   id: string
   characterId?: string            // 可选，API 响应可能不包含
-  appearanceIndex: number           // 形象序号：0, 1, 2...（0 = 主形象）
-  changeReason: string              // "初始形象"、"落水湿身"
+  appearanceIndex: number           // Appearance序号：0, 1, 2...（0 = 主Appearance）
+  changeReason: string              // "Initial appearance"、"Fell into water"
   description: string | null
-  descriptions: string[] | null     // 3个描述变体
+  descriptions: string[] | null     // 3个DescriptionVariant
   imageUrl: string | null           // 选中的图片
   media?: MediaRef | null
   imageUrls: string[]               // 候选图片数组
@@ -50,8 +50,8 @@ export interface CharacterAppearance {
   previousMedia?: MediaRef | null
   previousImageUrls: string[]         // 上一次的图片数组（用于撤回）
   previousImageMedias?: MediaRef[]
-  previousDescription: string | null  // 上一次的描述（用于撤回）
-  previousDescriptions: string[] | null  // 上一次的描述数组（用于撤回）
+  previousDescription: string | null  // 上一次的Description（用于撤回）
+  previousDescriptions: string[] | null  // 上一次的Description数组（用于撤回）
   selectedIndex: number | null      // 用户选中的图片索引
   // 任务态字段（由 tasks + hook 派生，不再依赖数据库持久化）
   imageTaskRunning?: boolean
@@ -59,25 +59,25 @@ export interface CharacterAppearance {
   lastError?: { code: string; message: string } | null  // 结构化错误（来自 task target state）
 }
 
-// 角色
+// Character
 // 🔥 V6.5: aliases 改为可选数组以兼容 useProjectAssets
 export interface Character {
   id: string
   name: string
   aliases?: string[] | null         // 可选，别名数组
-  introduction?: string | null      // 角色介绍（叙述视角、称呼映射等）
+  introduction?: string | null      // Character介绍（叙述视角、称呼映射等）
   appearances: CharacterAppearance[]  // 独立表关联
-  // 配音音色设置
-  voiceType?: 'custom' | 'qwen-designed' | 'uploaded' | null  // 音色类型
-  voiceId?: string | null                 // 音色 ID 或业务标识
+  // DubbingVoiceSettings
+  voiceType?: 'custom' | 'qwen-designed' | 'uploaded' | null  // Voice类型
+  voiceId?: string | null                 // Voice ID 或业务标识
   customVoiceUrl?: string | null          // 自定义上传的参考音频URL
   media?: MediaRef | null
-  // 角色档案（两阶段生成）
-  profileData?: string | null             // JSON格式的角色档案
-  profileConfirmed?: boolean             // 档案是否已确认
+  // CharacterProfile（两阶段生成）
+  profileData?: string | null             // JSON格式的CharacterProfile
+  profileConfirmed?: boolean             // Profile是否已确认
 }
 
-// 场景图片（独立表）
+// Scene图片（独立表）
 // 🔥 V6.5: locationId 改为可选以兼容 useProjectAssets
 export interface LocationImage {
   id: string
@@ -88,7 +88,7 @@ export interface LocationImage {
   media?: MediaRef | null
   previousImageUrl: string | null // 上一次的图片URL（用于撤回）
   previousMedia?: MediaRef | null
-  previousDescription: string | null  // 上一次的描述（用于撤回）
+  previousDescription: string | null  // 上一次的Description（用于撤回）
   isSelected: boolean
   // 任务态字段（由 tasks + hook 派生，不再依赖数据库持久化）
   imageTaskRunning?: boolean
@@ -96,11 +96,11 @@ export interface LocationImage {
   lastError?: { code: string; message: string } | null  // 结构化错误（来自 task target state）
 }
 
-// 场景
+// Scene
 export interface Location {
   id: string
   name: string
-  summary: string | null            // 场景简要描述（用途/人物关联）
+  summary: string | null            // Scene简要Description（用途/人物关联）
   selectedImageId?: string | null   // 选中的图片ID（单一真源）
   images: LocationImage[]           // 独立表关联
 }
@@ -147,7 +147,7 @@ export interface NovelPromotionClip {
   location: string | null
   characters: string | null
   content: string
-  screenplay?: string | null  // 剧本JSON（Phase 0输出）
+  screenplay?: string | null  // ScriptJSON（Phase 0输出）
 }
 
 export interface NovelPromotionPanel {
@@ -180,7 +180,7 @@ export interface NovelPromotionPanel {
   sketchImageMedia?: MediaRef | null
   previousImageUrl?: string | null
   previousImageMedia?: MediaRef | null
-  photographyRules: string | null  // 单镜头摄影规则JSON
+  photographyRules: string | null  // 单Shot摄影规则JSON
   actingNotes: string | null        // 演技指导数据JSON
   // 任务态字段（由 tasks + hook 派生，不再依赖数据库持久化）
   imageTaskRunning?: boolean

@@ -7,9 +7,9 @@ import { useCreateProjectPanelVariant, useRefreshEpisodeData } from '@/lib/query
 import { NovelPromotionStoryboard, NovelPromotionPanel } from '@/types/project'
 
 /**
- * usePanelVariant - 镜头变体操作 Hook
+ * usePanelVariant - Shot variant操作 Hook
  * 
- * 管理镜头变体相关的状态和操作
+ * 管理Shot variant相关的状态和操作
  * 🔥 使用乐观更新：点击后立即插入占位 panel，不等待 API 响应
  */
 
@@ -46,23 +46,23 @@ export function usePanelVariant({ projectId, episodeId, setLocalStoryboards }: U
     // 🔥 使用 React Query 刷新 - 刷新 episodeData（包含 storyboards 和 panels）
     const onRefresh = useRefreshEpisodeData(projectId, episodeId)
     const createPanelVariantMutation = useCreateProjectPanelVariant(projectId)
-    // 变体模态框状态
+    // Variant模态框状态
     const [variantModalState, setVariantModalState] = useState<VariantModalState | null>(null)
 
-    // 正在提交变体任务的 Panel ID
+    // 正在提交Variant任务的 Panel ID
     const [submittingVariantPanelId, setSubmittingVariantPanelId] = useState<string | null>(null)
 
-    // 打开变体模态框
+    // 打开Variant模态框
     const openVariantModal = useCallback((panel: VariantModalState) => {
         setVariantModalState(panel)
     }, [])
 
-    // 关闭变体模态框
+    // 关闭Variant模态框
     const closeVariantModal = useCallback(() => {
         setVariantModalState(null)
     }, [])
 
-    // 执行变体生成
+    // 执行Variant生成
     const generatePanelVariant = useCallback(async (
         sourcePanelId: string,
         storyboardId: string,
@@ -145,7 +145,7 @@ export function usePanelVariant({ projectId, episodeId, setLocalStoryboards }: U
                 includeLocationAsset: options.includeLocationAsset,
             })
 
-            // API 成功：Panel 已在服务端创建（无图片），用真实 panelId 替换临时 ID
+            // API 成功：Panel 已在服务端创建（N/A图片），用真实 panelId 替换临时 ID
             // 这样 task state 监控能正确匹配到这个 panel
             const realPanelId = data?.panelId
             _ulogInfo('[usePanelVariant] ✅ API 成功，realPanelId:', realPanelId)
@@ -171,21 +171,21 @@ export function usePanelVariant({ projectId, episodeId, setLocalStoryboards }: U
                 const panels = (sb.panels || []).filter((panel) => panel.id !== tempPanelId)
                 return { ...sb, panels }
             }))
-            _ulogError('[usePanelVariant] 生成变体失败:', error)
+            _ulogError('[usePanelVariant] 生成Variant失败:', error)
             throw error
         } finally {
             setSubmittingVariantPanelId(null)
         }
     }, [createPanelVariantMutation, onRefresh, setLocalStoryboards, t])
 
-    // 处理模态框中的变体选择
+    // 处理模态框中的Variant选择
     const handleVariantSelect = useCallback(async (
         variant: VariantData,
         options: VariantOptions
     ) => {
         if (!variantModalState) return
 
-        // 在原 panel 之后插入变体
+        // 在原 panel 之后插入Variant
         await generatePanelVariant(
             variantModalState.panelId,
             variantModalState.storyboardId,

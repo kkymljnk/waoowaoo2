@@ -191,7 +191,7 @@ export function useVoiceStageRuntime({
     deleteVoiceLineMutation,
   })
 
-  // ─── 内联音色绑定弹窗状态 ───────────────────────────
+  // ─── 内联Voice绑定弹窗状态 ───────────────────────────
   const [inlineBindingSpeaker, setInlineBindingSpeaker] = useState<string | null>(null)
 
   const handleOpenInlineBinding = useCallback((speaker: string) => {
@@ -203,15 +203,15 @@ export function useVoiceStageRuntime({
   }, [])
 
   /**
-   * 判断发言人是否有匹配的项目角色
-   * 有匹配角色 → 跳转资产中心；无匹配 → 打开内联绑定弹窗
+   * 判断发言人是否有匹配的项目Character
+   * 有匹配Character → 跳转Asset中心；N/A匹配 → 打开内联绑定弹窗
    */
   const hasSpeakerCharacter = useCallback((speaker: string): boolean => {
     return !!matchCharacterBySpeaker(speaker)
   }, [matchCharacterBySpeaker])
 
   /**
-   * 内联绑定完成后的回调：将音色信息写入 episode.speakerVoices
+   * 内联绑定完成后的回调：将Voice信息写入 episode.speakerVoices
    */
   const handleInlineVoiceBound = useCallback(async (
     speaker: string,
@@ -300,7 +300,7 @@ export function useVoiceStageRuntime({
         />
       </VoiceControlPanel>
 
-      {/* 内联音色绑定弹窗 */}
+      {/* 内联Voice绑定弹窗 */}
       <SpeakerVoiceBindingDialog
         isOpen={!!inlineBindingSpeaker}
         speaker={inlineBindingSpeaker ?? ''}

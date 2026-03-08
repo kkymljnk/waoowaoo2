@@ -48,14 +48,14 @@ async function getNodeModules(): Promise<NodeModules | null> {
     nodeModulesCache = 'pending'
 
     try {
-        // 使用 new Function() 间接导入，绕过 Next.js 静态分析器的 Edge Runtime 检查。
+        // 使用 new Function() 间接导入，绕过 Next.js 静态Analysis器的 Edge Runtime 检查。
         // 运行时行为与直接 import() 完全一致，但打包器不会静态追踪这些模块。
         const dynamicImport = new Function('m', 'return import(m)') as (m: string) => Promise<unknown>
         const [fs, path] = await Promise.all([
             dynamicImport('node:fs'),
             dynamicImport('node:path'),
         ]) as [typeof import('node:fs'), typeof import('node:path')]
-        // process.cwd() 同理，用 new Function 包裹避免静态分析追踪
+        // process.cwd() 同理，用 new Function 包裹避免静态Analysis追踪
         const getCwd = new Function('return process.cwd()') as () => string
         const resolved: NodeModules = { fs, path, cwd: getCwd() }
         nodeModulesCache = resolved

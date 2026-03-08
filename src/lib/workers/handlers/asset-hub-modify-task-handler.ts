@@ -110,7 +110,7 @@ export async function handleAssetHubModifyTask(job: Job<TaskJobData>) {
     const normalizedExtras = await normalizeReferenceImagesForGeneration(extraReferenceInputs)
     const referenceImages = Array.from(new Set([requiredReference, ...normalizedExtras]))
 
-    const prompt = `请根据以下指令修改图片，保持人物核心特征一致：\n${payload.modifyPrompt || ''}`
+    const prompt = `Please modify the image according to the following instructions while maintaining core character features:\n${payload.modifyPrompt || ''}`
     const source = await resolveImageSourceFromGeneration(job, {
       userId,
       modelId: editModel,
@@ -122,7 +122,7 @@ export async function handleAssetHubModifyTask(job: Job<TaskJobData>) {
       },
     })
 
-    const label = `${character.name} - ${appearance.changeReason || '形象'}`
+    const label = `${character.name} - ${appearance.changeReason || 'Appearance'}`
     const labeled = await withLabelBar(source, label)
     const cosKey = await uploadImageSourceToCos(labeled, 'global-character-modify', appearance.id)
 
@@ -132,7 +132,7 @@ export async function handleAssetHubModifyTask(job: Job<TaskJobData>) {
     const selectedIndex = appearance.selectedIndex
     const shouldUpdateMain = selectedIndex === targetImageIndex || selectedIndex === null || imageUrls.length === 1
 
-    // 如果有参考图，尝试用 AI 分析参考图更新描述词（静默完成，不影响改图主流程）
+    // 如果有Reference Image，尝试用 AI AnalysisReference Image更新Description词（静默完成，不影响改图主流程）
     let extractedDescription: string | undefined
     if (normalizedExtras.length > 0) {
       try {
@@ -148,7 +148,7 @@ export async function handleAssetHubModifyTask(job: Job<TaskJobData>) {
           extractedDescription = completion.text || undefined
         }
       } catch (err) {
-        logger.warn({ message: '资产库参考图描述提取失败', details: { error: String(err) } })
+        logger.warn({ message: 'Asset library reference image description extraction failed', details: { error: String(err) } })
       }
     }
 
@@ -193,7 +193,7 @@ export async function handleAssetHubModifyTask(job: Job<TaskJobData>) {
     const normalizedExtras = await normalizeReferenceImagesForGeneration(extraReferenceInputs)
     const referenceImages = Array.from(new Set([requiredReference, ...normalizedExtras]))
 
-    const prompt = `请根据以下指令修改场景图片，保持整体风格一致：\n${payload.modifyPrompt || ''}`
+    const prompt = `Please modify the scene image according to the following instructions while maintaining consistent style:\n${payload.modifyPrompt || ''}`
     const source = await resolveImageSourceFromGeneration(job, {
       userId,
       modelId: editModel,

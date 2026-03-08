@@ -37,7 +37,7 @@ function isThoughtPart(part: GoogleTextPart): boolean {
 
 /**
  * Google Gemini API 返回空响应错误（但不是内容安全拒绝）
- * 通常是模型内部超时或某些边缘输入触发的问题，可以重试
+ * 通常是Model内部超时或某些边缘输入触发的问题，可以重试
  */
 export class GoogleEmptyResponseError extends Error {
     constructor(finishReason?: unknown) {
@@ -67,7 +67,7 @@ export function extractGoogleParts(response: unknown, throwOnEmpty = false): { t
         }
     }
 
-    // 如果有 candidates 但 text 为空，说明模型返回了空响应
+    // 如果有 candidates 但 text 为空，说明Model返回了空响应
     // 只在 throwOnEmpty=true 时检查（用于非流式的最终响应），避免在流式 chunk 间误抛
     if (throwOnEmpty && candidates.length > 0 && !text) {
         const finishReason = firstCandidate?.finishReason

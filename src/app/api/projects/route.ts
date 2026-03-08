@@ -20,7 +20,7 @@ export const GET = apiHandler(async (request: NextRequest) => {
   // 构建查询条件
   const where: Record<string, unknown> = { userId: session.user.id }
 
-  // 如果有搜索关键词，搜索名称和描述
+  // 如果有搜索关键词，搜索名称和Description
   if (search.trim()) {
     where.OR = [
       { name: { contains: search.trim(), mode: 'insensitive' } },
@@ -41,7 +41,7 @@ export const GET = apiHandler(async (request: NextRequest) => {
   ])
 
   // 在应用层重新排序：
-  // 1. 新创建但未访问过的项目（无 lastAccessedAt）按创建时间降序排在最前
+  // 1. 新创建但未访问过的项目（N/A lastAccessedAt）按创建时间降序排在最前
   // 2. 访问过的项目按访问时间降序
   const projects = [...allProjects].sort((a, b) => {
     // 两个都没有访问时间，按创建时间降序（新创建的排前面）
@@ -188,7 +188,7 @@ export const POST = apiHandler(async (request: NextRequest) => {
     where: { userId: session.user.id }
   })
 
-  // 创建基础项目（mode 固定为 novel-promotion）
+  // 创建基础项目（mode Fixed为 novel-promotion）
   const project = await prisma.project.create({
     data: {
       name: name.trim(),
@@ -198,10 +198,10 @@ export const POST = apiHandler(async (request: NextRequest) => {
     }
   })
 
-  // 创建 novel-promotion 数据表，使用用户偏好作为默认值
-  // 注意：不再自动创建默认剧集，由用户在选择界面决定：
-  // - 手动创作 → 创建第一个空白剧集
-  // - 智能导入 → AI 分析后批量创建剧集
+  // 创建 novel-promotion 数据表，使用用户偏好作为Default值
+  // 注意：不再自动创建DefaultEpisode，由用户在选择界面决定：
+  // - 手动创作 → 创建第一个空白Episode
+  // - 智能导入 → AI Analysis后批量创建Episode
   // 🔥 artStylePrompt 通过实时查询获取，不再存储到数据库
   await prisma.novelPromotionProject.create({
     data: {

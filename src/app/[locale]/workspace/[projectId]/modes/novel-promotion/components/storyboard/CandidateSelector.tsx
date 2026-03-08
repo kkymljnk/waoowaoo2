@@ -41,7 +41,7 @@ export default function CandidateSelector({
     })
     : null
 
-  // 根据比例计算缩略图尺寸（固定宽度 120px）
+  // 根据比例计算缩略图尺寸（Fixed宽度 120px）
   const [w, h] = videoRatio.split(':').map(Number)
   const thumbWidth = 120
   const thumbHeight = Math.round(thumbWidth * h / w)

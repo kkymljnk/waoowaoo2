@@ -2,7 +2,7 @@
 import type { ModelCapabilities } from '@/lib/model-config-contract'
 import type { VideoPricingTier } from '@/lib/model-pricing/video-tier'
 
-// 用户视频模型选项
+// 用户视频Model选项
 export interface VideoModelOption {
   value: string
   label: string
@@ -39,7 +39,7 @@ export interface Panel {
   characters?: string | null
   location?: string | null
   textSegment?: string | null
-  srtSegment?: string | null  // SRT 原文片段
+  srtSegment?: string | null  // SRT 原文Clip
   duration?: number | null
   imagePrompt?: string | null
   imageUrl?: string | null  // 图片URL
@@ -96,7 +96,7 @@ export interface VideoPanel {
   lipSyncErrorMessage?: string  // 口型同步错误消息
 }
 
-// 匹配的配音信息
+// 匹配的Dubbing信息
 export interface MatchedVoiceLine {
   id: string
   lineIndex: number

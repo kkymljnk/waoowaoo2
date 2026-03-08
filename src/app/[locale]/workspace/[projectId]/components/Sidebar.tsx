@@ -83,7 +83,7 @@ export default function Sidebar({
         }
     }, [isDragging])
 
-    // 创建剧集
+    // 创建Episode
     const handleCreate = async () => {
         if (!newEpisodeName.trim()) return
         try {
@@ -91,11 +91,11 @@ export default function Sidebar({
             setNewEpisodeName('')
             setIsCreating(false)
         } catch (err) {
-            _ulogError('创建剧集失败:', err)
+            _ulogError('创建Episode失败:', err)
         }
     }
 
-    // 重命名剧集
+    // 重命名Episode
     const handleRename = async (id: string) => {
         if (!editingName.trim()) return
         try {
@@ -107,7 +107,7 @@ export default function Sidebar({
         }
     }
 
-    // 删除剧集
+    // 删除Episode
     const handleDelete = async (id: string) => {
         try {
             await onEpisodeDelete(id)
@@ -119,7 +119,7 @@ export default function Sidebar({
 
     return (
         <>
-            {/* 触发条 - 固定在左侧，可拖动 */}
+            {/* 触发条 - Fixed在左侧，可拖动 */}
             <div
                 className="fixed left-0 z-50"
                 style={{ top: position.y }}
@@ -185,7 +185,7 @@ export default function Sidebar({
                             </div>
                         </div>
 
-                        {/* 全局资产入口 */}
+                        {/* Global Asset入口 */}
                         <div className="px-3 py-2 border-b border-[var(--glass-stroke-base)]">
                             <button
                                 onClick={() => {
@@ -202,7 +202,7 @@ export default function Sidebar({
                             </button>
                         </div>
 
-                        {/* 剧集列表 */}
+                        {/* Episode列表 */}
                         <div className="flex-1 overflow-y-auto p-3 space-y-1">
                             {episodes.length === 0 ? (
                                 <div className="text-center py-6 text-[var(--glass-text-tertiary)] text-sm">
@@ -303,7 +303,7 @@ export default function Sidebar({
                             )}
                         </div>
 
-                        {/* 添加剧集 */}
+                        {/* 添加Episode */}
                         <div className="p-3 border-t border-[var(--glass-stroke-base)] bg-[var(--glass-bg-surface-strong)]">
                             {isCreating ? (
                                 <div className="space-y-2">

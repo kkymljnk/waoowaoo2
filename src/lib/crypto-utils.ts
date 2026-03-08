@@ -11,7 +11,7 @@ import crypto from 'crypto'
 const ALGORITHM = 'aes-256-gcm'
 const IV_LENGTH = 16
 const KEY_LENGTH = 32
-const SALT = 'waoowaoo-api-key-salt-v1' // 固定盐值
+const SALT = 'waoowaoo-api-key-salt-v1' // Fixed盐值
 
 type ApiKeyObject = Record<string, unknown>
 
@@ -21,15 +21,15 @@ function isApiKeyObject(value: unknown): value is ApiKeyObject {
 
 /**
  * 从环境变量派生加密密钥
- * 优先使用 API_ENCRYPTION_KEY（开源版本固定值）
+ * 优先使用 API_ENCRYPTION_KEY（开源版本Fixed值）
  * 后备使用 NEXTAUTH_SECRET
  */
 function deriveEncryptionKey(): Buffer {
-    // 优先使用专用的加密密钥（开源版本建议使用固定值）
+    // 优先使用专用的加密密钥（开源版本建议使用Fixed值）
     const secret = process.env.API_ENCRYPTION_KEY || process.env.NEXTAUTH_SECRET
 
     if (!secret) {
-        throw new Error('API_ENCRYPTION_KEY 或 NEXTAUTH_SECRET 未配置，无法加密 API Key')
+        throw new Error('API_ENCRYPTION_KEY 或 NEXTAUTH_SECRET 未配置，N/A法加密 API Key')
     }
 
     // 使用 PBKDF2 派生 32 字节密钥

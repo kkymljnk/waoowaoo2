@@ -54,7 +54,7 @@ interface ArkImageGenerationRequest {
     size?: string  // 支持 '1K' | '2K' | '4K' 或具体像素值如 '2560x1440'
     aspect_ratio?: string  // 宽高比如 '3:2', '16:9', '1:1'
     watermark?: boolean
-    image?: string[]  // 图生图时的参考图片
+    image?: string[]  // 图生图时的Reference Image片
     sequential_image_generation?: 'enabled' | 'disabled'
     stream?: boolean
 }
@@ -377,7 +377,7 @@ export async function arkImageGeneration(
 
     const url = `${ARK_BASE_URL}/images/generations`
 
-    _ulogInfo(`${logPrefix} 开始图片生成请求, 模型: ${request.model}`)
+    _ulogInfo(`${logPrefix} 开始图片生成请求, Model: ${request.model}`)
     _ulogInfo(`${logPrefix} 请求参数:`, JSON.stringify({
         model: request.model,
         size: request.size,
@@ -404,7 +404,7 @@ export async function arkImageGeneration(
 
     if (!response.ok) {
         const errorText = await response.text()
-        throw new Error(`${logPrefix} 图片生成失败: ${response.status} - ${errorText}`)
+        throw new Error(`${logPrefix} Image generation failed: ${response.status} - ${errorText}`)
     }
 
     const data = await response.json()
@@ -438,7 +438,7 @@ export async function arkCreateVideoTask(
 
     const url = `${ARK_BASE_URL}/contents/generations/tasks`
 
-    _ulogInfo(`${logPrefix} 创建视频任务, 模型: ${request.model}`)
+    _ulogInfo(`${logPrefix} 创建视频任务, Model: ${request.model}`)
 
     const response = await fetchWithRetry(
         url,

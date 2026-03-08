@@ -1,7 +1,7 @@
 import { logInfo as _ulogInfo } from '@/lib/logging/core'
 /**
- * 标识符分集 API
- * 根据检测到的分集标记直接切割文本，不调用 AI
+ * 标识符Episode Split API
+ * 根据检测到的Episode Split标记直接切割文本，不调用 AI
  */
 
 import { NextRequest, NextResponse } from 'next/server'
@@ -48,7 +48,7 @@ export const POST = apiHandler(async (
 
     const projectName = project.project?.name || projectId
 
-    // 执行分集标记检测
+    // 执行Episode Split标记检测
     const markerResult = detectEpisodeMarkers(content)
 
     if (!markerResult.hasMarkers || markerResult.matches.length < 2) {
@@ -63,7 +63,7 @@ export const POST = apiHandler(async (
         'EPISODE_SPLIT_BY_MARKERS',
         userId,
         username,
-        `标识符分集完成 - ${episodes.length} 集，标记类型: ${markerResult.markerType}`,
+        `标识符Episode Split完成 - ${episodes.length} 集，标记类型: ${markerResult.markerType}`,
         {
             markerType: markerResult.markerType,
             confidence: markerResult.confidence,

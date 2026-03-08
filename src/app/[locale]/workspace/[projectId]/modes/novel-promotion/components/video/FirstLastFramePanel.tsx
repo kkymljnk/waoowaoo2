@@ -88,7 +88,7 @@ export default function FirstLastFramePanel({
   const currentPrompt = customPrompt || defaultPrompt
   const hasCustomPrompt = customPrompt !== ''
 
-  // 根据视频比例设置 aspect ratio（支持任意比例）
+  // 根据视频比例Settings aspect ratio（支持任意比例）
   const cssAspectRatio = videoRatio.replace(':', '/')
 
   return (
@@ -135,7 +135,7 @@ export default function FirstLastFramePanel({
             <span className="absolute bottom-1 left-1 bg-[var(--glass-tone-warning-fg)] text-white text-[10px] px-1 rounded">{t("firstLastFrame.lastFrame")}</span>
           </div>
         </div>
-        {/* 首尾帧提示词编辑 */}
+        {/* 首尾帧Prompt编辑 */}
         <div className="mt-2">
           <div className="flex items-center justify-between mb-1">
             <span className="text-xs text-[var(--glass-tone-info-fg)] font-medium">{t("firstLastFrame.customPrompt")}</span>

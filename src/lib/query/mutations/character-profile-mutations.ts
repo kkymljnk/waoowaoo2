@@ -31,7 +31,7 @@ export function useUpdateProjectCharacterIntroduction(projectId: string) {
 }
 
 /**
- * AI 修改项目角色形象描述
+ * AI 修改项目CharacterAppearanceDescription
  */
 
 export function useAiModifyProjectAppearanceDescription(projectId: string) {
@@ -67,7 +67,7 @@ export function useAiModifyProjectAppearanceDescription(projectId: string) {
 }
 
 /**
- * AI 修改项目场景描述
+ * AI 修改项目SceneDescription
  */
 
 export function useAiCreateProjectCharacter(projectId: string) {
@@ -108,7 +108,7 @@ export function useUploadProjectTempMedia() {
 }
 
 /**
- * 参考图提取角色描述（项目）
+ * Reference Image提取CharacterDescription（项目）
  */
 
 export function useExtractProjectReferenceCharacterDescription(projectId: string) {
@@ -132,7 +132,7 @@ export function useExtractProjectReferenceCharacterDescription(projectId: string
 }
 
 /**
- * 创建项目角色
+ * 创建项目Character
  */
 
 export function useCreateProjectCharacter(projectId: string) {
@@ -163,7 +163,7 @@ export function useCreateProjectCharacter(projectId: string) {
 }
 
 /**
- * 为项目角色添加子形象
+ * 为项目Character添加子Appearance
  */
 
 export function useCreateProjectCharacterAppearance(projectId: string) {
@@ -191,7 +191,7 @@ export function useCreateProjectCharacterAppearance(projectId: string) {
 }
 
 /**
- * 全局资产分析（项目）
+ * Global AssetAnalysis（项目）
  */
 
 export function useConfirmProjectCharacterSelection(projectId: string) {
@@ -214,7 +214,7 @@ export function useConfirmProjectCharacterSelection(projectId: string) {
 }
 
 /**
- * 确认场景候选图片选择
+ * 确认Scene候选图片选择
  */
 
 export function useConfirmProjectCharacterProfile(projectId: string) {
@@ -253,7 +253,7 @@ export function useConfirmProjectCharacterProfile(projectId: string) {
 }
 
 /**
- * 批量确认角色档案
+ * 批量确认CharacterProfile
  */
 
 export function useBatchConfirmProjectCharacterProfiles(projectId: string) {

@@ -2,8 +2,8 @@
 import { logError as _ulogError } from '@/lib/logging/core'
 
 /**
- * 资产中心 - 场景编辑弹窗
- * 与项目级资产库的 LocationEditModal 保持一致
+ * Asset中心 - Scene编辑弹窗
+ * 与项目级Asset Library的 LocationEditModal 保持一致
  */
 
 import { useState } from 'react'
@@ -67,7 +67,7 @@ export function LocationEditModal({
         })
         : null
 
-    // AI 修改描述
+    // AI 修改Description
     const handleAiModify = async () => {
         if (!aiModifyInstruction.trim()) return
 
@@ -143,7 +143,7 @@ export function LocationEditModal({
             // 后台执行保存和生成
             ; (async () => {
                 try {
-                    // 保存名字和描述
+                    // 保存名字和Description
                     if (nameToSave !== locationName) {
                         await updateName.mutateAsync({ locationId, name: nameToSave })
                     }
@@ -175,7 +175,7 @@ export function LocationEditModal({
                         </button>
                     </div>
 
-                    {/* 场景名字编辑 */}
+                    {/* Scene名字编辑 */}
                     <div className="space-y-2">
                         <label className="glass-field-label block">
                             {t('location.name')}
@@ -241,7 +241,7 @@ export function LocationEditModal({
                         </p>
                     </div>
 
-                    {/* 描述编辑 */}
+                    {/* Description编辑 */}
                     <div className="space-y-2">
                         <label className="glass-field-label block">
                             {t('location.description')}

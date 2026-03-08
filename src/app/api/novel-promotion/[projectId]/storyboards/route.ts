@@ -6,7 +6,7 @@ import { attachMediaFieldsToProject } from '@/lib/media/attach'
 
 /**
  * GET /api/novel-promotion/[projectId]/storyboards
- * 获取剧集的分镜数据（用于测试页面）
+ * 获取Episode的Storyboard数据（用于测试页面）
  */
 export const GET = apiHandler(async (
     request: NextRequest,
@@ -25,7 +25,7 @@ export const GET = apiHandler(async (
         throw new ApiError('INVALID_PARAMS')
     }
 
-    // 获取剧集的分镜数据
+    // 获取Episode的Storyboard数据
     const storyboards = await prisma.novelPromotionStoryboard.findMany({
         where: { episodeId },
         include: {

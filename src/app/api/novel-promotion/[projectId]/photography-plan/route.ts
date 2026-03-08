@@ -6,7 +6,7 @@ import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
  * PUT /api/novel-promotion/[projectId]/photography-plan
- * 更新分镜组的摄影方案
+ * 更新Storyboard组的摄影方案
  */
 export const PUT = apiHandler(async (
     request: NextRequest,

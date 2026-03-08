@@ -48,7 +48,7 @@ export default function EmotionSettingsPanel({
 
     return (
         <div className="px-4 py-3 bg-[var(--glass-tone-info-bg)] space-y-3">
-            {/* 情绪提示词 */}
+            {/* 情绪Prompt */}
             <div>
                 <label className="block text-xs text-[var(--glass-tone-info-fg)] mb-1.5 font-medium">
                     {t("emotionPrompt")} <span className="text-[var(--glass-text-tertiary)] font-normal">{t("emotionPromptTip")}</span>

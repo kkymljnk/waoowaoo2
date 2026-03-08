@@ -64,8 +64,8 @@ export async function chatCompletion(
   }
 
   if (!model) {
-    _ulogError('[LLM] 模型未配置，调用栈:', new Error().stack)
-    throw new Error('ANALYSIS_MODEL_NOT_CONFIGURED: 请先在设置页面配置分析模型')
+    _ulogError('[LLM] Model未配置，调用栈:', new Error().stack)
+    throw new Error('ANALYSIS_MODEL_NOT_CONFIGURED: Please configure the analysis model in settings first')
   }
 
   const selection = await resolveLlmRuntimeModel(userId, model)
@@ -238,7 +238,7 @@ export async function chatCompletion(
           apiKey: config.apiKey,
           name: providerName,
         })
-        // 只有原生 OpenAI 推理模型才支持 forceReasoning/reasoningEffort
+        // 只有原生 OpenAI 推理Model才支持 forceReasoning/reasoningEffort
         // gemini-compatible 等 OAI-compat 提供商传这些参数会导致空响应
         const isNativeOpenAIReasoning = shouldUseOpenAIReasoningProviderOptions({
           providerKey,
@@ -257,7 +257,7 @@ export async function chatCompletion(
           model: aiOpenAI.chat(resolvedModelId),
           system: getSystemPrompt(messages),
           messages: getConversationMessages(messages) as ModelMessage[],
-          // 推理模型不支持 temperature，仅在非推理模式下传递
+          // 推理Model不支持 temperature，仅在非推理模式下传递
           ...(reasoning ? {} : { temperature }),
           maxRetries,
           ...(aiSdkProviderOptions ? { providerOptions: aiSdkProviderOptions } : {}),
@@ -365,7 +365,7 @@ export async function chatCompletion(
       const errorBody = toRecord(toRecord(error)?.error) || toRecord(error)
       if (errorBody?.message === 'PROHIBITED_CONTENT' || errorBody?.code === 502) {
         _ulogError('[LLM] ❌ 内容安全检测失败 - Google AI Studio 拒绝处理此内容')
-        throw new Error('SENSITIVE_CONTENT: 内容包含敏感信息,无法处理。请修改内容后重试')
+        throw new Error('SENSITIVE_CONTENT: 内容包含敏感信息,N/A法处理。请修改内容后重试')
       }
 
       // Google Gemini 返回空响应时，视为可重试错误（不抛出，继续重试循环）

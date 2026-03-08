@@ -5,7 +5,7 @@ import { TASK_TYPE } from '@/lib/task/types'
 import { maybeSubmitLLMTask } from '@/lib/llm-observe/route-task'
 
 /**
- * AI 分集 API（任务化）
+ * AI Episode Split API（任务化）
  */
 export const POST = apiHandler(async (
   request: NextRequest,

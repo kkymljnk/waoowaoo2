@@ -153,8 +153,8 @@ export function getCOSClient() {
 /**
  * 上传文件到存储（COS或本地文件系统）
  * @param buffer 文件Buffer
- * @param key 文件路径（例如：images/character-xxx.png）
- * @param maxRetries 最大重试次数，默认3次
+ * @param key 文件路径（For example:images/character-xxx.png）
+ * @param maxRetries 最大重试次数，Default3次
  * @returns 存储Key
  */
 export async function uploadToCOS(buffer: Buffer, key: string, maxRetries: number = COS_MAX_RETRIES): Promise<string> {
@@ -189,7 +189,7 @@ export async function uploadToCOS(buffer: Buffer, key: string, maxRetries: numbe
             Region: REGION,
             Key: key,
             Body: buffer,
-            // 不设置ACL，保持私有（默认）
+            // 不SettingsACL，保持私有（Default）
           },
           (err) => {
             if (err) {
@@ -238,7 +238,7 @@ export async function uploadToCOS(buffer: Buffer, key: string, maxRetries: numbe
 
 /**
  * 删除存储对象（COS或本地文件）
- * @param key 存储Key（例如：images/xxx.png）
+ * @param key 存储Key（For example:images/xxx.png）
  */
 export async function deleteCOSObject(key: string): Promise<void> {
   // ==================== 本地存储模式 ====================
@@ -285,7 +285,7 @@ export async function deleteCOSObject(key: string): Promise<void> {
 export async function deleteCOSObjects(keys: string[]): Promise<{ success: number; failed: number }> {
   if (keys.length === 0) return { success: 0, failed: 0 }
 
-  // 过滤掉空值和无效的 key
+  // 过滤掉空值和N/A效的 key
   const validKeys = keys.filter(key => key && typeof key === 'string' && key.trim().length > 0)
   if (validKeys.length === 0) return { success: 0, failed: 0 }
 
@@ -394,7 +394,7 @@ export function extractCOSKey(urlOrKey: string | null | undefined): string | nul
  * 从URL下载图片并上传到COS（带压缩、超时和重试）
  * @param imageUrl 原始图片URL
  * @param key 文件路径
- * @param maxRetries 最大重试次数，默认3次
+ * @param maxRetries 最大重试次数，Default3次
  * @returns COS Key
  */
 export async function downloadAndUploadToCOS(imageUrl: string, key: string, maxRetries: number = COS_MAX_RETRIES): Promise<string> {
@@ -409,7 +409,7 @@ export async function downloadAndUploadToCOS(imageUrl: string, key: string, maxR
 
       const sharp = (await import('sharp')).default
 
-      // 使用 AbortController 设置超时（60秒）
+      // 使用 AbortController Settings超时（60秒）
       const controller = new AbortController()
       const timeoutId = setTimeout(() => controller.abort(), COS_TIMEOUT_MS)
 
@@ -489,7 +489,7 @@ export async function downloadAndUploadToCOS(imageUrl: string, key: string, maxR
  * 下载视频并上传到COS（不进行压缩处理，带重试机制）
  * @param videoUrl 视频URL
  * @param key 文件路径
- * @param maxRetries 最大重试次数，默认3次
+ * @param maxRetries 最大重试次数，Default3次
  * @returns COS Key
  */
 export async function downloadAndUploadVideoToCOS(
@@ -505,7 +505,7 @@ export async function downloadAndUploadVideoToCOS(
     try {
       _ulogInfo(`[视频下载] 第 ${attempt}/${maxRetries} 次尝试下载: ${videoUrl.substring(0, 100)}...`)
 
-      // 使用 AbortController 设置超时（5分钟）
+      // 使用 AbortController Settings超时（5分钟）
       const controller = new AbortController()
       const timeoutId = setTimeout(() => controller.abort(), 5 * 60 * 1000)
 
@@ -525,7 +525,7 @@ export async function downloadAndUploadVideoToCOS(
 
       // 获取内容长度用于进度显示
       const contentLength = response.headers.get('content-length')
-      _ulogInfo(`[视频下载] 响应状态: ${response.status}, 内容大小: ${contentLength ? (parseInt(contentLength) / 1024 / 1024).toFixed(2) + 'MB' : '未知'}`)
+      _ulogInfo(`[视频下载] 响应状态: ${response.status}, 内容大小: ${contentLength ? (parseInt(contentLength) / 1024 / 1024).toFixed(2) + 'MB' : 'Unknown'}`)
 
       const arrayBuffer = await response.arrayBuffer()
       const buffer = Buffer.from(arrayBuffer)
@@ -575,15 +575,15 @@ export async function downloadAndUploadVideoToCOS(
   const lastErrorInfo = lastError ? extractErrorInfo(lastError) : null
   const errorMessage = lastErrorInfo
     ? `视频下载失败 (重试${maxRetries}次后): ${lastErrorInfo.name || 'Error'} - ${lastErrorInfo.message}${lastErrorInfo.cause ? ` (原因: ${lastErrorInfo.cause})` : ''}`
-    : `视频下载失败 (重试${maxRetries}次后): 未知错误`
+    : `视频下载失败 (重试${maxRetries}次后): Unknown错误`
 
   throw new Error(errorMessage)
 }
 
 /**
  * 生成唯一的文件名
- * @param prefix 前缀（例如：character, location, shot）
- * @param ext 扩展名（例如：png, jpg）
+ * @param prefix 前缀（For example:character, location, shot）
+ * @param ext 扩展名（For example:png, jpg）
  * @returns 唯一文件名
  */
 export function generateUniqueKey(prefix: string, ext: string = 'png'): string {
@@ -594,8 +594,8 @@ export function generateUniqueKey(prefix: string, ext: string = 'png'): string {
 
 /**
  * 生成文件访问URL（COS签名URL或本地API路径）
- * @param key 文件Key（例如：images/xxx.png）
- * @param expires 兼容旧调用，实际统一固定为24小时
+ * @param key 文件Key（For example:images/xxx.png）
+ * @param expires 兼容旧调用，实际统一Fixed为24小时
  * @returns 可访问的URL
  */
 export function getSignedUrl(key: string, _expires: number = SIGNED_URL_EXPIRES_SECONDS): string {
@@ -607,7 +607,7 @@ export function getSignedUrl(key: string, _expires: number = SIGNED_URL_EXPIRES_
   }
 
   // ==================== COS云存储模式 ====================
-  // 统一固定为24小时，忽略外部传入的 expires 值
+  // 统一Fixed为24小时，忽略外部传入的 expires 值
   const url = cos!.getObjectUrl({
     Bucket: BUCKET,
     Region: REGION,
@@ -676,7 +676,7 @@ export function addSignedUrlsToCharacter(character: CharacterLike) {
   return {
     ...character,
     appearances,
-    // 处理自定义音色的音频URL
+    // 处理自定义Voice的音频URL
     customVoiceUrl: character.customVoiceUrl ? cosKeyToSignedUrl(character.customVoiceUrl) : null
   }
 }
@@ -774,7 +774,7 @@ export function addSignedUrlsToStoryboard(storyboard: StoryboardLike) {
       return {
         ...dbPanel,
         imageUrl: finalImageUrl,
-        // 两步分镜流程：黑白线稿URL
+        // 两步Storyboard流程：黑白线稿URL
         sketchImageUrl: cosKeyToSignedUrl(dbPanel.sketchImageUrl),
         videoUrl: dbPanel.videoUrl && !dbPanel.videoUrl.startsWith('http')
           ? getSignedUrl(dbPanel.videoUrl, 7200)
@@ -790,7 +790,7 @@ export function addSignedUrlsToStoryboard(storyboard: StoryboardLike) {
     })
   }
 
-  // 计算整组分镜的历史版本数量
+  // 计算整组Storyboard的历史版本数量
   let historyCount = 0
   if (storyboard.imageHistory) {
     try {
@@ -824,7 +824,7 @@ export function addSignedUrlsToProject(project: ProjectLike) {
 
 /**
  * 将COS Key或URL转换为Base64格式
- * @param keyOrUrl COS Key（例如：images/xxx.png）或完整URL
+ * @param keyOrUrl COS Key（For example:images/xxx.png）或完整URL
  * @returns Base64格式字符串（data:image/png;base64,...）
  */
 export async function imageUrlToBase64(keyOrUrl: string): Promise<string> {

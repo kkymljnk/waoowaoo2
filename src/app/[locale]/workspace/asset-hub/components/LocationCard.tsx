@@ -166,7 +166,7 @@ export function LocationCard({ location, onImageClick, onImageEdit, onEdit }: Lo
     )
   }
 
-  // 删除场景
+  // 删除Scene
   const handleDelete = () => {
     deleteLocation.mutate(location.id, {
       onSettled: () => setShowDeleteConfirm(false)

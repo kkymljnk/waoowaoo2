@@ -246,7 +246,7 @@ export function AssetGrid({
                 </div>
             ) : (
                 <div className="space-y-8">
-                    {/* 角色区块 */}
+                    {/* Character区块 */}
                     {(filter === 'all' || filter === 'character') && characters.length > 0 && (
                         <section>
                             <h2 className="text-sm font-semibold text-[var(--glass-text-primary)] mb-3 flex items-center gap-2">
@@ -270,7 +270,7 @@ export function AssetGrid({
                         </section>
                     )}
 
-                    {/* 场景区块 */}
+                    {/* Scene区块 */}
                     {(filter === 'all' || filter === 'location') && locations.length > 0 && (
                         <section>
                             <h2 className="text-sm font-semibold text-[var(--glass-text-primary)] mb-3 flex items-center gap-2">
@@ -292,7 +292,7 @@ export function AssetGrid({
                         </section>
                     )}
 
-                    {/* 音色区块 */}
+                    {/* Voice区块 */}
                     {(filter === 'all' || filter === 'voice') && voices.length > 0 && (
                         <section>
                             <h2 className="text-sm font-semibold text-[var(--glass-text-primary)] mb-3 flex items-center gap-2">

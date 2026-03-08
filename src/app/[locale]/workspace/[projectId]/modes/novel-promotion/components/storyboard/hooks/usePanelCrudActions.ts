@@ -209,7 +209,7 @@ export function usePanelCrudActions({
       })
       await onRefresh()
     } catch (error: unknown) {
-      _ulogError('添加分镜失败:', error)
+      _ulogError('添加Storyboard失败:', error)
       alert(
         t('messages.addPanelFailed', {
           error: getErrorMessage(error, t('common.unknownError')),

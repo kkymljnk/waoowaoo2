@@ -6,9 +6,9 @@ interface SpeakerVoiceStatusProps {
     speakerStats: Record<string, number>
     getSpeakerVoiceUrl: (speaker: string) => string | null
     onOpenAssetLibrary: (speaker: string) => void
-    /** 内联绑定回调：当发言人不在资产库中时调用 */
+    /** 内联绑定回调：当发言人不在Asset Library中时调用 */
     onOpenInlineBinding?: (speaker: string) => void
-    /** 判断发言人是否有匹配的项目角色 */
+    /** 判断发言人是否有匹配的项目Character */
     hasSpeakerCharacter?: (speaker: string) => boolean
     embedded?: boolean
 }
@@ -27,9 +27,9 @@ export default function SpeakerVoiceStatus({
     if (speakers.length === 0) return null
 
     /**
-     * 点击"音色设置"按钮的处理逻辑：
-     * - 有匹配的项目角色 → 跳转资产中心（现有行为）
-     * - 无匹配的项目角色 → 打开内联绑定弹窗
+     * 点击"VoiceSettings"按钮的处理逻辑：
+     * - 有匹配的项目Character → 跳转Asset中心（现有行为）
+     * - N/A匹配的项目Character → 打开内联绑定弹窗
      */
     const handleVoiceSettings = (speaker: string) => {
         const hasCharacter = hasSpeakerCharacter ? hasSpeakerCharacter(speaker) : true
@@ -68,7 +68,7 @@ export default function SpeakerVoiceStatus({
                                     }`}>
                                     {hasVoice ? t("speakerVoice.configuredStatus") : t("speakerVoice.pendingStatus")}
                                 </span>
-                                {/* 无匹配角色时显示内联标记 */}
+                                {/* N/A匹配Character时显示内联标记 */}
                                 {!hasCharacter && !hasVoice && (
                                     <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[var(--glass-tone-info-bg)] text-[var(--glass-tone-info-fg)]">
                                         {t("speakerVoice.inlineLabel")}
@@ -113,7 +113,7 @@ export default function SpeakerVoiceStatus({
                             <span className={`text-xs px-2 py-1 rounded-full ${hasVoice ? 'bg-[var(--glass-tone-success-bg)] text-[var(--glass-tone-success-fg)]' : 'bg-[var(--glass-tone-warning-bg)] text-[var(--glass-tone-warning-fg)]'}`}>
                                 {hasVoice ? t("speakerVoice.configuredStatus") : t("speakerVoice.pendingStatus")}
                             </span>
-                            {/* 无匹配角色时显示内联标记 */}
+                            {/* N/A匹配Character时显示内联标记 */}
                             {!hasCharacter && !hasVoice && (
                                 <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[var(--glass-tone-info-bg)] text-[var(--glass-tone-info-fg)]">
                                     {t("speakerVoice.inlineLabel")}

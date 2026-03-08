@@ -3,8 +3,8 @@ import { logInfo as _ulogInfo } from '@/lib/logging/core'
 import { useTranslations } from 'next-intl'
 
 /**
- * LocationSection - 场景资产区块组件
- * 从 AssetsStage.tsx 提取，负责场景列表的展示和操作
+ * LocationSection - SceneAsset区块组件
+ * 从 AssetsStage.tsx 提取，负责Scene列表的展示和操作
  * 
  * 🔥 V6.5 重构：内部直接订阅 useProjectAssets，消除 props drilling
  */
@@ -32,7 +32,7 @@ interface LocationSectionProps {
     onUndo: (locationId: string) => void
     onImageClick: (imageUrl: string) => void
     onImageEdit: (locationId: string, imageIndex: number, locationName: string) => void
-    onCopyFromGlobal: (locationId: string) => void  // 🆕 从资产中心复制
+    onCopyFromGlobal: (locationId: string) => void  // 🆕 从Asset中心复制
 }
 
 export default function LocationSection({
@@ -103,7 +103,7 @@ export default function LocationSection({
                                 _ulogInfo('[LocationSection] 调用单张重新生成, imageIndex:', imageIndex)
                                 onRegenerateSingle(location.id, imageIndex)
                             }
-                            // 多图或无图：重新生成整组
+                            // 多图或N/A图：重新生成整组
                             else {
                                 _ulogInfo('[LocationSection] 调用整组重新生成')
                                 onRegenerateGroup(location.id)

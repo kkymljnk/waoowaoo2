@@ -59,7 +59,7 @@ interface BatchVideoGenerationParams {
 // ============ 查询 Hooks ============
 
 /**
- * 获取分镜数据
+ * 获取Storyboard数据
  */
 export function useStoryboards(episodeId: string | null) {
     return useQuery({
@@ -78,7 +78,7 @@ export function useStoryboards(episodeId: string | null) {
 // ============ Mutation Hooks ============
 
 /**
- * 重新生成分镜图片
+ * 重新生成Storyboard图片
  */
 export function useRegeneratePanelImage(projectId: string | null, episodeId: string | null) {
     const queryClient = useQueryClient()
@@ -110,7 +110,7 @@ export function useRegeneratePanelImage(projectId: string | null, episodeId: str
 }
 
 /**
- * 修改分镜图片
+ * 修改Storyboard图片
  */
 export function useModifyPanelImage(projectId: string | null, episodeId: string | null) {
     const queryClient = useQueryClient()
@@ -282,7 +282,7 @@ export function useBatchGenerateVideos(projectId: string | null, episodeId: stri
 }
 
 /**
- * 选择分镜候选图
+ * 选择Storyboard候选图
  */
 export function useSelectPanelCandidate(episodeId: string | null) {
     const queryClient = useQueryClient()
@@ -309,7 +309,7 @@ export function useSelectPanelCandidate(episodeId: string | null) {
 }
 
 /**
- * 刷新分镜数据
+ * 刷新Storyboard数据
  */
 export function useRefreshStoryboards(episodeId: string | null) {
     const queryClient = useQueryClient()

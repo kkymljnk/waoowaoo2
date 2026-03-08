@@ -106,7 +106,7 @@ export function useGenerateProjectLocationImage(projectId: string) {
 }
 
 /**
- * 上传项目场景图片
+ * 上传项目Scene图片
  */
 
 export function useUploadProjectLocationImage(projectId: string) {
@@ -140,7 +140,7 @@ export function useUploadProjectLocationImage(projectId: string) {
 }
 
 /**
- * 修改项目角色图片
+ * 修改项目Character图片
  */
 
 export function useModifyProjectLocationImage(projectId: string) {
@@ -187,7 +187,7 @@ export function useModifyProjectLocationImage(projectId: string) {
 }
 
 /**
- * 重新生成角色组图片
+ * 重新生成Character组图片
  */
 
 export function useRegenerateLocationGroup(projectId: string) {
@@ -226,7 +226,7 @@ export function useRegenerateLocationGroup(projectId: string) {
 }
 
 /**
- * 重新生成单张场景图片
+ * 重新生成单张Scene图片
  */
 
 export function useRegenerateSingleLocationImage(projectId: string) {
@@ -266,7 +266,7 @@ export function useRegenerateSingleLocationImage(projectId: string) {
 }
 
 /**
- * 选择项目场景图片
+ * 选择项目Scene图片
  */
 
 export function useSelectProjectLocationImage(projectId: string) {
@@ -336,7 +336,7 @@ export function useSelectProjectLocationImage(projectId: string) {
 }
 
 /**
- * 撤回项目场景图片
+ * 撤回项目Scene图片
  */
 
 export function useUndoProjectLocationImage(projectId: string) {

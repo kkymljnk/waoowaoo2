@@ -216,7 +216,7 @@ export function useProviders(): UseProvidersReturn {
             }))
             setProviders([...allProviders, ...customProviders])
 
-            // 合并预设和已保存的模型
+            // 合并预设和已保存的Model
             const savedModelsRaw = data.models || []
             const savedModelsNormalized = savedModelsRaw.map((m: CustomModel) => ({
                 ...m,
@@ -258,7 +258,7 @@ export function useProviders(): UseProvidersReturn {
 
             setModels([...allModels, ...customModels])
 
-            // 加载默认模型配置
+            // 加载DefaultModel配置
             if (data.defaultModels) {
                 setDefaultModels(data.defaultModels)
             }
@@ -272,7 +272,7 @@ export function useProviders(): UseProvidersReturn {
         } finally {
             setLoading(false)
             if (loadedSuccessfully) {
-                // 延迟设置 initialized，确保所有状态更新完成后才开始监听
+                // 延迟Settings initialized，确保所有状态更新完成后才开始监听
                 setTimeout(() => {
                     initializedRef.current = true
                 }, 100)
@@ -293,7 +293,7 @@ export function useProviders(): UseProvidersReturn {
             saveTimeoutRef.current = null
         }
         if (optimistic) {
-            // 与项目设置一致：立刻显示已保存，不等网络返回
+            // 与项目Settings一致：立刻显示已保存，不等网络返回
             setSaveStatus('saved')
             setTimeout(() => setSaveStatus('idle'), 3000)
         } else {
@@ -327,10 +327,10 @@ export function useProviders(): UseProvidersReturn {
             _ulogError('保存失败:', error)
             setSaveStatus('error')
         }
-    }, []) // 无依赖，所有值均从 ref 读取
+    }, []) // N/A依赖，所有值均从 ref 读取
 
-    // 默认模型操作：选中即立刻显示已保存（与项目设置一致）
-    // capabilityFieldsToDefault：切换模型时自动将第一个 option 写入 capabilityDefaults（只填未配置字段）
+    // DefaultModel操作：选中即立刻显示已保存（与项目Settings一致）
+    // capabilityFieldsToDefault：切换Model时自动将第一个 option 写入 capabilityDefaults（只填未配置字段）
     const updateDefaultModel = useCallback((
         field: string,
         modelKey: string,
@@ -413,7 +413,7 @@ export function useProviders(): UseProvidersReturn {
 
             const providerKey = getProviderKey(provider.id)
             if (providerKey === 'gemini-compatible') {
-                // 保存后直接 refetch：后端注入带完整 capabilities 的 Google 预设模型（disabled）
+                // 保存后直接 refetch：后端注入带完整 capabilities 的 Google 预设Model（disabled）
                 void performSave(undefined, true).then(() => void fetchConfig())
             } else {
                 void performSave(undefined, true)
@@ -478,7 +478,7 @@ export function useProviders(): UseProvidersReturn {
         })
     }, [performSave])
 
-    // 模型操作
+    // Model操作
     const toggleModel = useCallback((modelKey: string, providerId?: string) => {
         if (isPresetComingSoonModelKey(modelKey)) {
             return
@@ -537,7 +537,7 @@ export function useProviders(): UseProvidersReturn {
                 },
             ]
             latestModelsRef.current = next
-            void performSave(undefined, true) // 添加模型：立刻保存
+            void performSave(undefined, true) // 添加Model：立刻保存
             return next
         })
     }, [performSave])
@@ -569,7 +569,7 @@ export function useProviders(): UseProvidersReturn {
                     return nextDefaults
                 })
                 latestModelsRef.current = nextModels
-                void performSave(undefined, true) // 删除模型：立刻保存
+                void performSave(undefined, true) // 删除Model：立刻保存
                 return nextModels
             })
         }

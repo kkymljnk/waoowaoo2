@@ -29,7 +29,7 @@ function getErrorMessage(error: unknown): string {
         const candidate = (error as { message?: unknown }).message
         if (typeof candidate === 'string') return candidate
     }
-    return '未知错误'
+    return 'Unknown错误'
 }
 
 export class GoogleGeminiImageGenerator extends BaseImageGenerator {
@@ -74,7 +74,7 @@ export class GoogleGeminiImageGenerator extends BaseImageGenerator {
         // 构建内容数组
         const contentParts: ContentPart[] = []
 
-        // 添加参考图片（最多 14 张）
+        // 添加Reference Image片（最多 14 张）
         for (let i = 0; i < Math.min(referenceImages.length, 14); i++) {
             const imageData = referenceImages[i]
 
@@ -103,7 +103,7 @@ export class GoogleGeminiImageGenerator extends BaseImageGenerator {
                         contentParts.push({ inlineData: { mimeType, data } })
                     }
                 } catch (e) {
-                    _ulogWarn(`下载参考图片 ${i + 1} 失败:`, e)
+                    _ulogWarn(`下载Reference Image片 ${i + 1} 失败:`, e)
                 }
             } else {
                 // 纯 base64

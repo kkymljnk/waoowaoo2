@@ -14,7 +14,7 @@ function parseReferenceImages(body: Record<string, unknown>): string[] {
 }
 
 /**
- * 项目级 - 参考图转角色（任务化）
+ * 项目级 - Reference Image转Character（任务化）
  */
 export const POST = apiHandler(async (
   request: NextRequest,

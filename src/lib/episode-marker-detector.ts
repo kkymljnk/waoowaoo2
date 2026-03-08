@@ -1,6 +1,6 @@
 /**
- * 分集标记检测器
- * 用于检测文本中是否存在明确的分集标记，支持预分割
+ * Episode Split标记检测器
+ * 用于检测文本中是否存在明确的Episode Split标记，支持预分割
  */
 
 import { countWords } from './word-count'
@@ -115,11 +115,11 @@ const DETECTION_PATTERNS: DetectionPattern[] = [
         extractNumber: (match) => chineseToNumber(match[1]),
         extractTitle: (match) => match[2]?.trim() || ''
     },
-    // 4. 场景编号 X-Y【场景】 - 只取第一个数字作为集数
+    // 4. Scene编号 X-Y【Scene】 - 只取第一个数字作为集数
     {
         regex: /^(\d+)-\d+[【\[](.*?)[】\]]/gm,
         typeKey: 'scene',
-        typeName: 'X-Y【场景】',
+        typeName: 'X-Y【Scene】',
         extractNumber: (match) => parseInt(match[1], 10),
         extractTitle: (match) => match[2]?.trim() || ''
     },
@@ -139,7 +139,7 @@ const DETECTION_PATTERNS: DetectionPattern[] = [
         extractNumber: (match) => parseInt(match[1], 10),
         extractTitle: (match) => match[2]?.trim().slice(0, 20) || ''
     },
-    // 5.6 纯数字后直接跟中文（无分隔符）如 "1太子带回" - 需要数字在行首或段首
+    // 5.6 纯数字后直接跟中文（N/A分隔符）如 "1太子带回" - 需要数字在行首或段首
     {
         regex: /(?:^|\n\n)(\d+)([\u4e00-\u9fa5])/gm,
         typeKey: 'numberedDirect',
@@ -183,7 +183,7 @@ const DETECTION_PATTERNS: DetectionPattern[] = [
 ]
 
 /**
- * 检测文本中的分集标记
+ * 检测文本中的Episode Split标记
  */
 export function detectEpisodeMarkers(content: string): EpisodeMarkerResult {
     const result: EpisodeMarkerResult = {
@@ -208,11 +208,11 @@ export function detectEpisodeMarkers(content: string): EpisodeMarkerResult {
         while ((match = regex.exec(content)) !== null) {
             const episodeNumber = pattern.extractNumber(match)
 
-            // 场景编号特殊处理：同一集只记录第一次出现
+            // Scene编号特殊处理：同一集只记录第一次出现
             if (pattern.typeKey === 'scene') {
                 const existingMatch = matches.find(m => m.episodeNumber === episodeNumber)
                 if (existingMatch) {
-                    continue // 跳过同一集的后续场景
+                    continue // 跳过同一集的后续Scene
                 }
             }
 
@@ -288,7 +288,7 @@ export function detectEpisodeMarkers(content: string): EpisodeMarkerResult {
         const episodeContent = content.slice(startIndex, endIndex)
         const wordCount = countWords(episodeContent)
 
-        // 标题固定使用"第 X 集"格式
+        // 标题Fixed使用"第 X 集"格式
         const title = `第 ${match.episodeNumber} 集`
 
         // 生成预览：从数字前缀后开始取内容（只跳过如 "1." 这样的前缀，不跳过整行）
@@ -334,7 +334,7 @@ export function splitByMarkers(content: string, markerResult: EpisodeMarkerResul
         return {
             number: split.number,
             title: split.title || `第 ${split.number} 集`,
-            summary: '', // 标识符分集不生成摘要
+            summary: '', // 标识符Episode Split不生成摘要
             content: episodeContent,
             wordCount: countWords(episodeContent)
         }

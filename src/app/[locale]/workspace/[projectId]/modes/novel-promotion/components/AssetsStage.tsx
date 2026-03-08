@@ -2,15 +2,15 @@
 
 import { useTranslations } from 'next-intl'
 /**
- * 资产确认阶段 - 小说推文模式专用
- * 包含TTS生成和资产分析
+ * Asset确认阶段 - 小说推文模式专用
+ * 包含TTS生成和AssetAnalysis
  * 
  * 重构说明 v2:
- * - 角色和场景操作函数已提取到 hooks/useCharacterActions 和 hooks/useLocationActions
+ * - Character和Scene操作函数已提取到 hooks/useCharacterActions 和 hooks/useLocationActions
  * - 批量生成逻辑已提取到 hooks/useBatchGeneration
- * - TTS/音色逻辑已提取到 hooks/useTTSGeneration
+ * - TTS/Voice逻辑已提取到 hooks/useTTSGeneration
  * - 弹窗状态已提取到 hooks/useAssetModals
- * - 档案管理已提取到 hooks/useProfileManagement
+ * - Profile管理已提取到 hooks/useProfileManagement
  * - UI已拆分为 CharacterSection, LocationSection, AssetToolbar, AssetModals 组件
  */
 
@@ -49,7 +49,7 @@ interface AssetsStageProps {
   isAnalyzingAssets: boolean
   focusCharacterId?: string | null
   focusCharacterRequestId?: number
-  // 🔥 通过 props 触发全局分析（避免 URL 参数竞态条件）
+  // 🔥 通过 props 触发全局Analysis（避免 URL 参数竞态条件）
   triggerGlobalAnalyze?: boolean
   onGlobalAnalyzeComplete?: () => void
 }
@@ -80,13 +80,13 @@ export default function AssetsStage({
     if (type === 'character' && appearanceId) {
       await generateCharacterImage.mutateAsync({ characterId: id, appearanceId })
     } else if (type === 'location') {
-      // 场景生成默认使用 imageIndex: 0
+      // Scene生成Default使用 imageIndex: 0
       await generateLocationImage.mutateAsync({ locationId: id, imageIndex: 0 })
     }
   }, [generateCharacterImage, generateLocationImage])
 
   const t = useTranslations('assets')
-  // 计算资产总数
+  // 计算Asset总数
   const totalAppearances = characters.reduce((sum, char) => sum + (char.appearances?.length || 0), 0)
   const totalLocations = locations.length
   const totalAssets = totalAppearances + totalLocations
@@ -95,7 +95,7 @@ export default function AssetsStage({
   const [previewImage, setPreviewImage] = useState<string | null>(null)
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'warning' | 'error' } | null>(null)
 
-  // 辅助：获取角色形象
+  // 辅助：获取CharacterAppearance
   const getAppearances = (character: Character): CharacterAppearance[] => {
     return character.appearances || []
   }
@@ -150,7 +150,7 @@ export default function AssetsStage({
     showToast,
   })
 
-  // 角色操作
+  // Character操作
   const {
     handleDeleteCharacter,
     handleDeleteAppearance,
@@ -163,7 +163,7 @@ export default function AssetsStage({
     showToast
   })
 
-  // 场景操作
+  // Scene操作
   const {
     handleDeleteLocation,
     handleSelectLocationImage,
@@ -175,7 +175,7 @@ export default function AssetsStage({
     showToast
   })
 
-  // TTS/音色
+  // TTS/Voice
   const {
     voiceDesignCharacter,
     handleVoiceChange,
@@ -209,7 +209,7 @@ export default function AssetsStage({
   } = useAssetModals({
     projectId
   })
-  // 档案管理
+  // Profile管理
   const {
     unconfirmedCharacters,
     isConfirmingCharacter,
@@ -268,7 +268,7 @@ export default function AssetsStage({
         globalAnalyzingTip={t('toolbar.globalAnalyzingTip')}
       />
 
-      {/* 资产工具栏 */}
+      {/* Asset工具栏 */}
       <AssetToolbar
         projectId={projectId}
         totalAssets={totalAssets}
@@ -299,7 +299,7 @@ export default function AssetsStage({
         onDeleteProfile={handleDeleteProfile}
       />
 
-      {/* 角色资产区块 */}
+      {/* CharacterAsset区块 */}
       <CharacterSection
         projectId={projectId}
         focusCharacterId={focusCharacterId}
@@ -326,7 +326,7 @@ export default function AssetsStage({
         getAppearances={getAppearances}
       />
 
-      {/* 场景资产区块 */}
+      {/* SceneAsset区块 */}
       <LocationSection
         projectId={projectId}
         activeTaskKeys={activeTaskKeys}

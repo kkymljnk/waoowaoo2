@@ -4,8 +4,8 @@ import { useTranslations } from 'next-intl'
 import TaskStatusInline from '@/components/task/TaskStatusInline'
 import { resolveTaskPresentationState } from '@/lib/task/presentation'
 /**
- * 角色档案卡片组件
- * 展示角色档案摘要，点击可编辑
+ * CharacterProfile卡片组件
+ * 展示CharacterProfile摘要，点击可编辑
  */
 
 import { CharacterProfileData } from '@/types/character-profile'
@@ -102,7 +102,7 @@ export default function CharacterProfileCard({
                 )}
             </div>
 
-            {/* 档案摘要 */}
+            {/* Profile摘要 */}
             <div className="space-y-1.5 mb-3">
                 <div className="flex items-center gap-2 text-sm">
                     <span className="text-[var(--glass-text-tertiary)] w-16">{t('characterProfile.summary.gender')}</span>

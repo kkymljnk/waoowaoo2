@@ -87,7 +87,7 @@ function isRunningPhase(phase: string | null | undefined) {
 // ============ 查询 Hooks ============
 
 /**
- * 获取中心资产库角色列表
+ * 获取中心Asset LibraryCharacter列表
  */
 export function useGlobalCharacters(folderId?: string | null) {
     const charactersQuery = useQuery({
@@ -183,7 +183,7 @@ export function useGlobalCharacters(folderId?: string | null) {
 }
 
 /**
- * 获取中心资产库场景列表
+ * 获取中心Asset LibraryScene列表
  */
 export function useGlobalLocations(folderId?: string | null) {
     const locationsQuery = useQuery({
@@ -263,7 +263,7 @@ export function useGlobalLocations(folderId?: string | null) {
 }
 
 /**
- * 获取中心资产库音色列表
+ * 获取中心Asset LibraryVoice列表
  */
 export function useGlobalVoices(folderId?: string | null) {
     return useQuery({
@@ -280,7 +280,7 @@ export function useGlobalVoices(folderId?: string | null) {
 }
 
 /**
- * 获取中心资产库文件夹列表
+ * 获取中心Asset Library文件夹列表
  */
 export function useGlobalFolders() {
     return useQuery({
@@ -371,7 +371,7 @@ export function useDeleteFolder() {
 }
 
 /**
- * 刷新所有中心资产库数据
+ * 刷新所有中心Asset Library数据
  */
 export function useRefreshGlobalAssets() {
     const queryClient = useQueryClient()

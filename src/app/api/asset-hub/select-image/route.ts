@@ -69,7 +69,7 @@ export const POST = apiHandler(async (request: NextRequest) => {
             throw new ApiError('NOT_FOUND')
         }
 
-        // 如果是确认选择，将 selectedIndex 对应的图片设置为 imageUrl
+        // 如果是确认选择，将 selectedIndex 对应的图片Settings为 imageUrl
         if (confirm && appearance.selectedIndex !== null) {
             const imageUrls = decodeImageUrlsFromDb(appearance.imageUrls, 'globalCharacterAppearance.imageUrls')
             const selectedUrl = imageUrls[appearance.selectedIndex]

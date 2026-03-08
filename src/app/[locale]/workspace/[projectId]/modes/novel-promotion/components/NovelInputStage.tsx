@@ -2,7 +2,7 @@
 
 /**
  * 小说推文模式 - 故事输入阶段 (Story View)
- * V3.2 UI: 极简版，专注剧本输入，资产管理移至资产库
+ * V3.2 UI: 极简版，专注Script输入，Asset管理移至Asset Library
  */
 
 import { useTranslations } from 'next-intl'
@@ -165,7 +165,7 @@ function StyleSelector({
 interface NovelInputStageProps {
   // 核心数据
   novelText: string
-  // 当前剧集名称
+  // 当前Episode名称
   episodeName?: string
   // 回调函数
   onNovelTextChange: (value: string) => void
@@ -211,7 +211,7 @@ export default function NovelInputStage({
   return (
     <div className="max-w-5xl mx-auto space-y-5">
 
-      {/* 当前编辑剧集提示 - 顶部居中醒目显示 */}
+      {/* 当前编辑Episode提示 - 顶部居中醒目显示 */}
       {episodeName && (
         <div className="text-center py-1">
           <div className="text-lg font-semibold text-[var(--glass-text-primary)]">
@@ -231,24 +231,24 @@ export default function NovelInputStage({
             </span>
           </div>
 
-          {/* 剧本输入框 */}
+          {/* Script输入框 */}
           <textarea
             value={novelText}
             onChange={(e) => onNovelTextChange(e.target.value)}
-            placeholder={`请输入您的剧本或小说内容...
+            placeholder={`Enter your script or novel content...
 
-AI 将根据您的文本智能分析：
-• 自动识别场景切换
-• 提取角色对话和动作
-• 生成分镜脚本
+AI will intelligently analyze your text:
+• Automatically identify scene transitions
+• Extract character dialogues and actions
+• Generate storyboard script
 
-例如：
-清晨，阳光透过窗帘洒进房间。小明揉着惺忪的睡眼从床上坐起，看了一眼床头的闹钟——已经八点了！他猛地跳下床，手忙脚乱地开始穿衣服...`}
+For example:
+Early morning, sunlight filtered through the curtains into the room. Xiao Ming rubbed his sleepy eyes and sat up in bed, glancing at the alarm clock on the nightstand — it was already eight! He jumped out of bed and frantically started getting dressed...`}
             className="glass-textarea-base custom-scrollbar h-80 px-4 py-3 text-base resize-none placeholder:text-[var(--glass-text-tertiary)]"
             disabled={isSubmittingTask || isSwitchingStage}
           />
 
-          {/* 资产库引导提示 */}
+          {/* Asset Library引导提示 */}
           <div className="mt-5 p-4 glass-surface-soft">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 glass-surface-soft rounded-xl flex items-center justify-center flex-shrink-0">

@@ -6,7 +6,7 @@ import { resolveTaskPresentationState } from '@/lib/task/presentation'
 import { AppIcon } from '@/components/ui/icons'
 
 /**
- * AssetToolbar - 资产管理工具栏组件
+ * AssetToolbar - Asset管理工具栏组件
  * 从 AssetsStage.tsx 提取，负责批量操作和刷新按钮
  */
 
@@ -59,7 +59,7 @@ export default function AssetToolbar({
                     <span className="text-sm text-[var(--glass-text-tertiary)]">
                         {t("toolbar.assetCount", { total: totalAssets, appearances: totalAppearances, locations: totalLocations })}
                     </span>
-                    {/* 全局资产分析按钮 */}
+                    {/* Global AssetAnalysis按钮 */}
                     {onGlobalAnalyze && (
                         <button
                             onClick={onGlobalAnalyze}

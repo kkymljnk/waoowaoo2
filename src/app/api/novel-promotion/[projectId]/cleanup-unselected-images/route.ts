@@ -9,7 +9,7 @@ import { apiHandler } from '@/lib/api-errors'
 
 /**
  * POST - 清理未选中的图片
- * 在用户确认资产进入下一步时调用
+ * 在用户确认Asset进入下一步时调用
  */
 export const POST = apiHandler(async (
   request: NextRequest,
@@ -24,7 +24,7 @@ export const POST = apiHandler(async (
 
   let deletedCount = 0
 
-  // 1. 清理角色形象的未选中图片
+  // 1. 清理CharacterAppearance的未选中图片
   const appearances = await prisma.characterAppearance.findMany({
     where: { character: { novelPromotionProjectId: novelData.id } },
     include: { character: true }
@@ -64,7 +64,7 @@ export const POST = apiHandler(async (
     } catch { }
   }
 
-  // 2. 清理场景的未选中图片
+  // 2. 清理Scene的未选中图片
   const locations = await prisma.novelPromotionLocation.findMany({
     where: { novelPromotionProjectId: novelData.id },
     include: { images: true }

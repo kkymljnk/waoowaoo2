@@ -132,7 +132,7 @@ function getTxIcon(tx: Transaction): LucideIcon {
   return iconRegistry.bolt
 }
 
-/** 根据 billingMeta 的 unit 字段生成人类可读的用量描述 */
+/** 根据 billingMeta 的 unit 字段生成人类可读的用量Description */
 function formatBillingDetail(
   meta: Transaction['billingMeta'],
   translate: (key: string, values?: Record<string, unknown>) => string,

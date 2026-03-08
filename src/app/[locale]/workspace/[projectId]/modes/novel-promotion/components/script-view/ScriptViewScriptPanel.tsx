@@ -43,7 +43,7 @@ function parseScreenplay(value: string | null | undefined): ScreenplayData | nul
     if (!Array.isArray(scenes)) return null
     return parsed as ScreenplayData
   } catch (error) {
-    _ulogWarn('解析剧本JSON失败:', error)
+    _ulogWarn('解析ScriptJSON失败:', error)
     return null
   }
 }
@@ -198,7 +198,7 @@ export default function ScriptViewScriptPanel({
                     <div className="space-y-3">
                       {screenplay.scenes.map((scene, sceneIdx: number) => (
                         <div key={sceneIdx}>
-                          {/* 场景头信息 */}
+                          {/* Scene头信息 */}
                           <div className="flex items-center gap-1.5 text-xs mb-2 flex-wrap">
                             <span className="font-bold text-[var(--glass-tone-info-fg)] bg-[var(--glass-tone-info-bg)] px-2 py-0.5 rounded">
                               {tScript('screenplay.scene', { number: scene.scene_number })}
@@ -229,7 +229,7 @@ export default function ScriptViewScriptPanel({
                             </span>
                           </div>
 
-                          {/* 场景描述 */}
+                          {/* SceneDescription */}
                           {scene.description && (
                             <div className="text-xs text-[var(--glass-text-secondary)] bg-[var(--glass-bg-muted)] border-l-2 border-[var(--glass-stroke-base)] px-2 py-1 rounded mb-2">
                               <EditableText

@@ -176,7 +176,7 @@ export default function ScriptViewAssetsPanel({
       }
     })
 
-    // 用当前右侧面板实际展示的“已选角色/形象”做兜底，确保编辑弹层能正确显示选中态
+    // 用当前右侧面板实际展示的“已选Character/Appearance”做兜底，确保编辑弹层能正确显示选中态
     activeCharIds.forEach((characterId) => {
       const character = characters.find((item) => item.id === characterId)
       if (!character) return
@@ -433,7 +433,7 @@ export default function ScriptViewAssetsPanel({
               <div className="mt-3 flex-1 min-h-0 space-y-4 overflow-y-auto pr-1 custom-scrollbar">
                 {isAllClipsMode && (
                   <div className="rounded-lg border border-[var(--glass-stroke-base)] bg-[var(--glass-bg-muted)]/40 p-2 text-[11px] text-[var(--glass-text-tertiary)]">
-                    当前为“全部片段”视图，文案要求仅在单片段视图可编辑
+                    当前为“全部Clip”视图，文案要求仅在单Clip视图可编辑
                   </div>
                 )}
                 {characters.map((c) => {
@@ -586,7 +586,7 @@ export default function ScriptViewAssetsPanel({
               <div className="mt-3 flex-1 min-h-0 overflow-y-auto pr-1 custom-scrollbar">
                 {isAllClipsMode && (
                   <div className="mb-3 rounded-lg border border-[var(--glass-stroke-base)] bg-[var(--glass-bg-muted)]/40 p-2 text-[11px] text-[var(--glass-text-tertiary)]">
-                    当前为“全部片段”视图，场景文案要求仅在单片段视图可编辑
+                    当前为“全部Clip”视图，Scene文案要求仅在单Clip视图可编辑
                   </div>
                 )}
                 <div className="grid grid-cols-2 gap-2">

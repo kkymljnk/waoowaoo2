@@ -1,8 +1,8 @@
 'use client'
 
 /**
- * 音色设置组件 - 从 CharacterCard 提取
- * 支持上传自定义音频和 AI 声音设计
+ * VoiceSettings组件 - 从 CharacterCard 提取
+ * 支持上传自定义音频和 AI Sound设计
  */
 
 import { useRef, useState } from 'react'
@@ -18,7 +18,7 @@ interface VoiceSettingsProps {
     projectId?: string  // 可选，Asset Hub 不需要
     onVoiceChange?: (characterId: string, customVoiceUrl?: string) => void
     onVoiceDesign?: (characterId: string, characterName: string) => void
-    onVoiceSelect?: (characterId: string) => void  // 从音色库选择
+    onVoiceSelect?: (characterId: string) => void  // 从Voice库选择
     compact?: boolean  // 紧凑模式（单图卡片用）
 }
 
@@ -43,7 +43,7 @@ export default function VoiceSettings({
 
     const hasCustomVoice = !!customVoiceUrl
 
-    // 预览音色（播放/暂停自定义音频）
+    // 预览Voice（播放/暂停自定义音频）
     const handlePreviewVoice = async () => {
         if (!customVoiceUrl) return
 

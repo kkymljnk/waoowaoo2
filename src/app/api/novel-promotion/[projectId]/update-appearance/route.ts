@@ -40,7 +40,7 @@ export const POST = apiHandler(async (
     descriptions = [appearance.description || '']
   }
 
-  // 更新指定索引的描述
+  // 更新指定索引的Description
   if (descriptionIndex !== undefined && descriptionIndex !== null) {
     descriptions[descriptionIndex] = trimmedDescription
   } else {

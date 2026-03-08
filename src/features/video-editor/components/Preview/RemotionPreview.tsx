@@ -99,7 +99,7 @@ export const RemotionPreview: React.FC<RemotionPreviewProps> = ({
         }
     }, [onPlayingChange])
 
-    // 如果没有片段，显示占位
+    // 如果没有Clip，显示占位
     if (project.timeline.length === 0) {
         return (
             <div style={{

@@ -236,7 +236,7 @@ export function VideoEditorStage({
                                 </p>
                             </div>
 
-                            {/* 转场设置 */}
+                            {/* 转场Settings */}
                             <div>
                                 <h4 style={{ margin: '0 0 8px 0', fontSize: '13px', color: 'var(--glass-text-secondary)' }}>
                                     {t('editor.right.transitionLabel')}

@@ -22,7 +22,7 @@ export async function updateImageLabel(
     imageUrl: string,
     newLabelText: string,
     options?: {
-        /** 是否生成新的 key（默认覆盖原 key） */
+        /** 是否生成新的 key（Default覆盖原 key） */
         generateNewKey?: boolean
         /** 新 key 的前缀（仅当 generateNewKey=true 时有效） */
         keyPrefix?: string
@@ -32,7 +32,7 @@ export async function updateImageLabel(
 
     const originalKey = await resolveStorageKeyFromMediaValue(imageUrl)
     if (!originalKey) {
-        throw new Error(`无法归一化媒体 key: ${imageUrl}`)
+        throw new Error(`N/A法归一化媒体 key: ${imageUrl}`)
     }
     const signedUrl = getSignedUrl(originalKey, 3600)
 
@@ -78,8 +78,8 @@ export async function updateImageLabel(
 }
 
 /**
- * 批量更新角色形象的标签
- * 用于从资产中心复制角色到项目时更新标签
+ * 批量更新CharacterAppearance的标签
+ * 用于从Asset中心复制Character到项目时更新标签
  */
 export async function updateCharacterAppearanceLabels(
     appearances: Array<{
@@ -110,7 +110,7 @@ export async function updateCharacterAppearanceLabels(
                 imageUrls.map(async (url) => {
                     if (!url) return ''
                     try {
-                        // 生成新的 key，避免覆盖资产中心的原图
+                        // 生成新的 key，避免覆盖Asset中心的原图
                         return await updateImageLabel(url, newLabelText, {
                             generateNewKey: true,
                             keyPrefix: `project-char-copy`
@@ -137,8 +137,8 @@ export async function updateCharacterAppearanceLabels(
 }
 
 /**
- * 批量更新场景图片的标签
- * 用于从资产中心复制场景到项目时更新标签
+ * 批量更新Scene图片的标签
+ * 用于从Asset中心复制Scene到项目时更新标签
  */
 export async function updateLocationImageLabels(
     images: Array<{
@@ -155,7 +155,7 @@ export async function updateLocationImageLabels(
         }
 
         try {
-            // 生成新的 key，避免覆盖资产中心的原图
+            // 生成新的 key，避免覆盖Asset中心的原图
             const newImageUrl = await updateImageLabel(image.imageUrl, locationName, {
                 generateNewKey: true,
                 keyPrefix: `project-loc-copy`

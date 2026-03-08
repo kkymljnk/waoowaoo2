@@ -2,10 +2,10 @@ import createMiddleware from 'next-intl/middleware';
 import { locales, defaultLocale } from '@/i18n';
 
 export default createMiddleware({
-    // 支持的所有语言
+    // Supported languages
     locales,
 
-    // 默认语言
+    // Default language
     defaultLocale,
 
     // URL 路径策略: 始终显示语言前缀

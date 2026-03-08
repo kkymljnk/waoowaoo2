@@ -55,7 +55,7 @@ export function useVoiceLines(episodeId: string | null) {
 }
 
 /**
- * 获取项目剧集配音与镜头匹配数据
+ * 获取项目EpisodeDubbing与Shot匹配数据
  */
 export function useMatchedVoiceLines(projectId: string | null, episodeId: string | null) {
     return useQuery({

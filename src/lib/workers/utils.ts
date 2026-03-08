@@ -472,7 +472,7 @@ export async function resolveLipSyncVideoSource(
 
 /**
  * 裁掉图片顶部的黑边标签区域，返回纯净内容的 base64 data URL
- * 用于改图前去除旧黑边，避免 AI 参考图携带黑边导致叠加
+ * 用于改图前去除旧黑边，避免 AI Reference Image携带黑边导致叠加
  */
 export async function stripLabelBar(imageSource: string): Promise<string> {
   const response = await fetch(toFetchableUrl(imageSource))

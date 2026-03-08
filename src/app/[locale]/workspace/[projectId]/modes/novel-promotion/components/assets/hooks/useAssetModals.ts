@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * useAssetModals - 资产编辑弹窗状态管理
+ * useAssetModals - Asset编辑弹窗状态管理
  * 从 AssetsStage.tsx 提取
  * 
  * 🔥 V6.5 重构：直接订阅 useProjectAssets，消除 props drilling
@@ -18,7 +18,7 @@ interface EditingAppearance {
     appearanceId: string  // UUID
     description: string
     descriptionIndex?: number
-    introduction?: string | null  // 角色介绍
+    introduction?: string | null  // Character介绍
 }
 
 interface EditingLocation {
@@ -52,14 +52,14 @@ export function useAssetModals({
     const characters = assets?.characters ?? []
     const locations = assets?.locations ?? []
 
-    // 获取形象列表（内置实现）
+    // 获取Appearance列表（内置实现）
     const getAppearances = useCallback((character: Character): CharacterAppearance[] => {
         return character.appearances || []
     }, [])
 
-    // 角色编辑弹窗
+    // Character编辑弹窗
     const [editingAppearance, setEditingAppearance] = useState<EditingAppearance | null>(null)
-    // 场景编辑弹窗
+    // Scene编辑弹窗
     const [editingLocation, setEditingLocation] = useState<EditingLocation | null>(null)
     // 新增弹窗
     const [showAddCharacter, setShowAddCharacter] = useState(false)
@@ -67,10 +67,10 @@ export function useAssetModals({
     // 图片编辑弹窗
     const [imageEditModal, setImageEditModal] = useState<ImageEditModal | null>(null)
     const [characterImageEditModal, setCharacterImageEditModal] = useState<CharacterImageEditModal | null>(null)
-    // 全局资产设定弹窗
+    // Global Asset设定弹窗
     const [showAssetSettingModal, setShowAssetSettingModal] = useState(false)
 
-    // 编辑特定描述索引的角色形象
+    // 编辑特定Description索引的CharacterAppearance
     const handleEditCharacterDescription = (characterId: string, appearanceIndex: number, descriptionIndex: number) => {
         const character = characters.find(c => c.id === characterId)
         if (!character) return
@@ -90,7 +90,7 @@ export function useAssetModals({
         })
     }
 
-    // 编辑特定描述索引的场景
+    // 编辑特定Description索引的Scene
     const handleEditLocationDescription = (locationId: string, imageIndex: number) => {
         const location = locations.find(l => l.id === locationId)
         if (!location) return
@@ -105,7 +105,7 @@ export function useAssetModals({
         })
     }
 
-    // 编辑角色形象
+    // 编辑CharacterAppearance
     const handleEditAppearance = (characterId: string, characterName: string, appearance: CharacterAppearance, introduction?: string | null) => {
         setEditingAppearance({
             characterId,
@@ -116,7 +116,7 @@ export function useAssetModals({
         })
     }
 
-    // 编辑场景
+    // 编辑Scene
     const handleEditLocation = (location: Location) => {
         const firstImage = location.images?.[0]
         setEditingLocation({
@@ -126,7 +126,7 @@ export function useAssetModals({
         })
     }
 
-    // 打开场景图片编辑弹窗
+    // 打开Scene图片编辑弹窗
     const handleOpenLocationImageEdit = (locationId: string, imageIndex: number) => {
         const location = locations.find(l => l.id === locationId)
         if (!location) return

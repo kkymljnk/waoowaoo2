@@ -60,7 +60,7 @@ export const DELETE = apiHandler(async (
         throw new ApiError('FORBIDDEN')
     }
 
-    // 删除前，将文件夹内的资产移动到根目录（folderId = null）
+    // 删除前，将文件夹内的Asset移动到根目录（folderId = null）
     await prisma.globalCharacter.updateMany({
         where: { folderId },
         data: { folderId: null }

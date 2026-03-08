@@ -5,8 +5,8 @@ import { apiHandler } from '@/lib/api-errors'
 import { attachMediaFieldsToProject } from '@/lib/media/attach'
 
 /**
- * GET - 获取项目资产（角色 + 场景）
- * 🔥 V6.5: 为 useProjectAssets hook 提供统一的资产数据接口
+ * GET - 获取项目Asset（Character + Scene）
+ * 🔥 V6.5: 为 useProjectAssets hook 提供统一的Asset数据接口
  */
 export const GET = apiHandler(async (
     request: NextRequest,
@@ -18,7 +18,7 @@ export const GET = apiHandler(async (
     const authResult = await requireProjectAuthLight(projectId)
     if (isErrorResponse(authResult)) return authResult
 
-    // 获取项目的角色和场景数据
+    // 获取项目的Character和Scene数据
     const novelData = await prisma.novelPromotionProject.findUnique({
         where: { projectId },
         include: {
@@ -45,7 +45,7 @@ export const GET = apiHandler(async (
         return NextResponse.json({ characters: [], locations: [] })
     }
 
-    // 为资产添加稳定媒体 URL（并保留兼容字段）
+    // 为Asset添加稳定媒体 URL（并保留兼容字段）
     const withSignedUrls = await attachMediaFieldsToProject(novelData)
 
     return NextResponse.json({

@@ -117,7 +117,7 @@ export function useCreateAssetHubCharacter() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
-      }, '创建角色失败'),
+      }, '创建Character失败'),
     onSuccess: invalidateCharacters,
   })
 }

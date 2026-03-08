@@ -12,10 +12,10 @@ export function getCompletionParts(completion: OpenAI.Chat.Completions.ChatCompl
 } {
   if (!completion || !completion.choices || completion.choices.length === 0) {
     _ulogError(
-      '[LLM] ❌ 返回无效响应 - 完整对象:',
+      '[LLM] ❌ 返回N/A效响应 - 完整对象:',
       JSON.stringify(completion, null, 2).substring(0, 2000),
     )
-    throw new Error('LLM 返回无效响应')
+    throw new Error('LLM 返回N/A效响应')
   }
 
   const message = completion.choices[0]?.message

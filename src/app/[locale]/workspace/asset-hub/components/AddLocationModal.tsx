@@ -54,7 +54,7 @@ export function AddLocationModal({ folderId, onClose, onSuccess }: AddLocationMo
         })
         : null
 
-    // AI 设计描述
+    // AI 设计Description
     const handleAiDesign = async () => {
         if (!aiInstruction.trim()) return
 
@@ -80,7 +80,7 @@ export function AddLocationModal({ folderId, onClose, onSuccess }: AddLocationMo
             })
             onSuccess()
         } catch (error) {
-            _ulogError('创建场景失败:', error)
+            _ulogError('创建Scene失败:', error)
         }
     }
 
@@ -143,7 +143,7 @@ export function AddLocationModal({ folderId, onClose, onSuccess }: AddLocationMo
                             </p>
                         </div>
 
-                        {/* 场景名称 */}
+                        {/* Scene名称 */}
                         <div className="space-y-2">
                             <label className="glass-field-label block">
                                 {t('modal.locationNameLabel')}
@@ -180,7 +180,7 @@ export function AddLocationModal({ folderId, onClose, onSuccess }: AddLocationMo
                             </div>
                         </div>
 
-                        {/* 场景描述 */}
+                        {/* SceneDescription */}
                         <div className="space-y-2">
                             <label className="glass-field-label block">
                                 {t('modal.locationSummaryLabel')}

@@ -98,7 +98,7 @@ export function LocationCreationModal({
         return () => document.removeEventListener('keydown', handleKeyDown)
     }, [onClose, isSubmitting, isAiDesigning])
 
-    // AI 设计描述
+    // AI 设计Description
     const handleAiDesign = async () => {
         if (!aiInstruction.trim()) return
 
@@ -201,7 +201,7 @@ export function LocationCreationModal({
                     </div>
 
                     <div className="space-y-5">
-                        {/* 场景名称 */}
+                        {/* Scene名称 */}
                         <div className="space-y-2">
                             <label className="glass-field-label block">
                                 {t('location.name')} <span className="text-[var(--glass-tone-danger-fg)]">*</span>
@@ -279,7 +279,7 @@ export function LocationCreationModal({
                             </p>
                         </div>
 
-                        {/* 场景描述 */}
+                        {/* SceneDescription */}
                         <div className="space-y-2">
                             <label className="glass-field-label block">
                                 {t('location.description')} <span className="text-[var(--glass-tone-danger-fg)]">*</span>
@@ -295,7 +295,7 @@ export function LocationCreationModal({
                     </div>
                 </div>
 
-                {/* 固定底部按钮区 */}
+                {/* Fixed底部按钮区 */}
                 <div className="flex gap-3 justify-end p-4 border-t border-[var(--glass-stroke-base)] bg-[var(--glass-bg-surface-strong)] rounded-b-xl flex-shrink-0">
                     <button
                         onClick={onClose}

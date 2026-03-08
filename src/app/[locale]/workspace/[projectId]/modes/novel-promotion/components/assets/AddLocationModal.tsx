@@ -75,7 +75,7 @@ export default function AddLocationModal({
     })
     : null
 
-  // AI 设计描述
+  // AI 设计Description
   const handleAiDesign = async () => {
     if (!aiInstruction.trim()) return
 
@@ -142,7 +142,7 @@ export default function AddLocationModal({
           </div>
 
           <div className="space-y-5">
-            {/* 场景名称 */}
+            {/* Scene名称 */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-[var(--glass-text-secondary)]">
                 {t('location.name')} <span className="text-[var(--glass-tone-danger-fg)]">*</span>
@@ -220,7 +220,7 @@ export default function AddLocationModal({
               </p>
             </div>
 
-            {/* 场景描述 */}
+            {/* SceneDescription */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-[var(--glass-text-secondary)]">
                 {t('location.description')} <span className="text-[var(--glass-tone-danger-fg)]">*</span>

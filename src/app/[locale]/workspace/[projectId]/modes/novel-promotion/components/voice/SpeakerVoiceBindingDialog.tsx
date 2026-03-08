@@ -19,9 +19,9 @@ interface SpeakerVoiceBindingDialogProps {
 }
 
 /**
- * 内联音色绑定弹窗
- * 用于不在资产库中的角色/发言人在配音阶段直接绑定音色
- * 提供三种绑定方式：从音色库选择、上传音频、AI设计音色（Tab 切换）
+ * 内联Voice绑定弹窗
+ * 用于不在Asset Library中的Character/发言人在Dubbing阶段直接绑定Voice
+ * 提供三种绑定方式：从Voice库选择、上传音频、AI设计Voice（Tab 切换）
  */
 export default function SpeakerVoiceBindingDialog({
     isOpen,
@@ -40,7 +40,7 @@ export default function SpeakerVoiceBindingDialog({
         onClose()
     }, [onClose])
 
-    // 从音色库选择后的回调
+    // 从Voice库选择后的回调
     const handleVoiceSelected = useCallback((voice: {
         id: string
         customVoiceUrl: string | null
@@ -54,9 +54,9 @@ export default function SpeakerVoiceBindingDialog({
         onClose()
     }, [speaker, onBound, onClose])
 
-    // AI 设计音色或上传音频后的回调
+    // AI 设计Voice或上传音频后的回调
     const handleCreationSuccess = useCallback(() => {
-        // 创建成功后切换到选择模式，让用户从音色库选取刚创建的音色
+        // 创建成功后切换到选择模式，让用户从Voice库选取刚创建的Voice
         setActiveTab('select')
         setSubDialogOpen(true)
     }, [])
@@ -73,7 +73,7 @@ export default function SpeakerVoiceBindingDialog({
     if (!isOpen) return null
     if (typeof document === 'undefined') return null
 
-    // 音色库选择 — 直接渲染 VoicePickerDialog
+    // Voice库选择 — 直接渲染 VoicePickerDialog
     if (activeTab === 'select' && subDialogOpen) {
         return (
             <VoicePickerDialog
@@ -118,7 +118,7 @@ export default function SpeakerVoiceBindingDialog({
                     </button>
                 </div>
 
-                {/* 描述 */}
+                {/* Description */}
                 <div className="px-5 pt-4 pb-2">
                     <p className="text-sm text-[var(--glass-text-secondary)]">
                         {t('description')}
@@ -163,7 +163,7 @@ export default function SpeakerVoiceBindingDialog({
                     })()}
                 </div>
 
-                {/* Tab 内容区 — 显示描述和进入按钮 */}
+                {/* Tab 内容区 — 显示Description和进入按钮 */}
                 <div className="p-5">
                     <div className="text-center py-6">
                         <div className={`w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-3 ${activeTab === 'select' ? 'bg-[var(--glass-tone-info-bg)]'

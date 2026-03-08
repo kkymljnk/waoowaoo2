@@ -40,7 +40,7 @@ interface UploadAssetImageDb {
 
 /**
  * POST /api/novel-promotion/[projectId]/upload-asset-image
- * 上传用户自定义图片作为角色或场景资产
+ * 上传用户自定义图片作为Character或SceneAsset
  */
 export const POST = apiHandler(async (
   request: NextRequest,
@@ -100,7 +100,7 @@ export const POST = apiHandler(async (
 
   // 更新数据库
   if (type === 'character' && appearanceId !== null) {
-    // 更新角色形象图片 - 使用 UUID 直接查询
+    // 更新CharacterAppearance图片 - 使用 UUID 直接查询
     const appearance = await db.characterAppearance.findUnique({
       where: { id: appearanceId }
     })
@@ -151,7 +151,7 @@ export const POST = apiHandler(async (
     })
 
   } else if (type === 'location') {
-    // 更新场景图片
+    // 更新Scene图片
     const location = await db.novelPromotionLocation.findUnique({
       where: { id },
       include: { images: { orderBy: { imageIndex: 'asc' } } }

@@ -31,7 +31,7 @@ export function useAnalyzeProjectGlobalAssets(projectId: string) {
 }
 
 /**
- * 从资产中心复制到项目资产
+ * 从Asset中心复制到项目Asset
  */
 
 export function useCopyProjectAssetFromGlobal(projectId: string) {
@@ -60,7 +60,7 @@ export function useCopyProjectAssetFromGlobal(projectId: string) {
 }
 
 /**
- * AI 修改镜头提示词（项目）
+ * AI 修改ShotPrompt（项目）
  */
 
 export function useUpdateProjectConfig(projectId: string) {
@@ -107,7 +107,7 @@ export function useUpdateProjectConfig(projectId: string) {
 }
 
 /**
- * 分析项目资产（异步任务）
+ * Analysis项目Asset（异步任务）
  */
 
 export function useAnalyzeProjectAssets(projectId: string) {
@@ -136,7 +136,7 @@ export function useAnalyzeProjectAssets(projectId: string) {
 }
 
 /**
- * 获取下游分镜统计（用于重建确认）
+ * 获取下游Storyboard统计（用于重建确认）
  */
 
 export function useGetProjectStoryboardStats(projectId: string) {

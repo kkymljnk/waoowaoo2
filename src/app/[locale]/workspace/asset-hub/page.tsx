@@ -68,11 +68,11 @@ export default function AssetHubPage() {
         hasExistingVoice: boolean
     } | null>(null)
 
-    // 音色库弹窗状态
+    // Voice库弹窗状态
     const [showAddVoice, setShowAddVoice] = useState(false)
     const [voicePickerCharacterId, setVoicePickerCharacterId] = useState<string | null>(null)
 
-    // 编辑角色弹窗状态
+    // 编辑Character弹窗状态
     const [characterEditModal, setCharacterEditModal] = useState<{
         characterId: string
         characterName: string
@@ -82,7 +82,7 @@ export default function AssetHubPage() {
         description: string
     } | null>(null)
 
-    // 编辑场景弹窗状态
+    // 编辑Scene弹窗状态
     const [locationEditModal, setLocationEditModal] = useState<{
         locationId: string
         locationName: string
@@ -183,7 +183,7 @@ export default function AssetHubPage() {
         }
     }
 
-    // 打开 AI 声音设计对话框
+    // 打开 AI Sound设计对话框
     const handleOpenVoiceDesign = (characterId: string, characterName: string) => {
         const character = characters.find(c => c.id === characterId)
         setVoiceDesignCharacter({
@@ -193,7 +193,7 @@ export default function AssetHubPage() {
         })
     }
 
-    // 保存 AI 设计的声音
+    // 保存 AI 设计的Sound
     const handleVoiceDesignSave = async (voiceId: string, audioBase64: string) => {
         if (!voiceDesignCharacter) return
 
@@ -220,12 +220,12 @@ export default function AssetHubPage() {
                 )
             }
         } catch (error) {
-            _ulogError('保存声音失败:', error)
+            _ulogError('保存Sound失败:', error)
             alert(t('saveVoiceFailed'))
         }
     }
 
-    // 打开角色编辑弹窗
+    // 打开Character编辑弹窗
     const handleOpenCharacterEdit = (character: unknown, appearance: unknown) => {
         const typedCharacter = character as GlobalCharacter
         const typedAppearance = appearance as GlobalCharacter['appearances'][0]
@@ -239,7 +239,7 @@ export default function AssetHubPage() {
         })
     }
 
-    // 打开场景编辑弹窗
+    // 打开Scene编辑弹窗
     const handleOpenLocationEdit = (location: unknown, imageIndex: number) => {
         const typedLocation = location as {
             id: string
@@ -257,7 +257,7 @@ export default function AssetHubPage() {
         })
     }
 
-    // 角色编辑后触发生成
+    // Character编辑后触发生成
     const handleCharacterEditGenerate = async () => {
         if (!characterEditModal) return
 
@@ -277,7 +277,7 @@ export default function AssetHubPage() {
         }
     }
 
-    // 场景编辑后触发生成
+    // Scene编辑后触发生成
     const handleLocationEditGenerate = async () => {
         if (!locationEditModal) return
 
@@ -296,7 +296,7 @@ export default function AssetHubPage() {
         }
     }
 
-    // 从音色库选择后绑定到角色
+    // 从Voice库选择后绑定到Character
     const handleVoiceSelect = async (voice: { id: string; customVoiceUrl: string | null }) => {
         if (!voicePickerCharacterId) return
 
@@ -322,7 +322,7 @@ export default function AssetHubPage() {
                 )
             }
         } catch (error) {
-            _ulogError('绑定音色失败:', error)
+            _ulogError('绑定Voice失败:', error)
             alert(t('bindVoiceFailed'))
         }
     }
@@ -360,7 +360,7 @@ export default function AssetHubPage() {
                         onDeleteFolder={handleDeleteFolder}
                     />
 
-                    {/* 右侧资产网格 */}
+                    {/* 右侧Asset网格 */}
                     <AssetGrid
                         characters={characters}
                         locations={locations}
@@ -380,7 +380,7 @@ export default function AssetHubPage() {
                 </div>
             </div>
 
-            {/* 新建角色弹窗 */}
+            {/* 新建Character弹窗 */}
             {showAddCharacter && (
                 <CharacterCreationModal
                     mode="asset-hub"
@@ -393,7 +393,7 @@ export default function AssetHubPage() {
                 />
             )}
 
-            {/* 新建场景弹窗 */}
+            {/* 新建Scene弹窗 */}
             {showAddLocation && (
                 <LocationCreationModal
                     mode="asset-hub"
@@ -442,7 +442,7 @@ export default function AssetHubPage() {
                 />
             )}
 
-            {/* AI 声音设计对话框 */}
+            {/* AI Sound设计对话框 */}
             {voiceDesignCharacter && (
                 <VoiceDesignDialog
                     isOpen={!!voiceDesignCharacter}
@@ -453,7 +453,7 @@ export default function AssetHubPage() {
                 />
             )}
 
-            {/* 角色编辑弹窗 */}
+            {/* Character编辑弹窗 */}
             {characterEditModal && (
                 <CharacterEditModal
                     mode="asset-hub"
@@ -468,7 +468,7 @@ export default function AssetHubPage() {
                 />
             )}
 
-            {/* 场景编辑弹窗 */}
+            {/* Scene编辑弹窗 */}
             {locationEditModal && (
                 <LocationEditModal
                     mode="asset-hub"
@@ -482,7 +482,7 @@ export default function AssetHubPage() {
                 />
             )}
 
-            {/* 新建音色弹窗 */}
+            {/* 新建Voice弹窗 */}
             {showAddVoice && (
                 <VoiceCreationModal
                     isOpen={showAddVoice}
@@ -495,7 +495,7 @@ export default function AssetHubPage() {
                 />
             )}
 
-            {/* 从音色库选择弹窗 */}
+            {/* 从Voice库选择弹窗 */}
             {voicePickerCharacterId && (
                 <VoicePickerDialog
                     isOpen={!!voicePickerCharacterId}

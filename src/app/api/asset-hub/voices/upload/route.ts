@@ -6,7 +6,7 @@ import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
  * POST /api/asset-hub/voices/upload
- * 上传音频文件到音色库
+ * 上传音频文件到Voice库
  */
 export const POST = apiHandler(async (request: NextRequest) => {
     // 🔐 统一权限验证
@@ -54,7 +54,7 @@ export const POST = apiHandler(async (request: NextRequest) => {
     const key = generateUniqueKey(`voices/${session.user.id}/${Date.now()}`, audioExt)
     const cosUrl = await uploadToCOS(buffer, key)
 
-    // 创建音色记录
+    // 创建Voice记录
     const voice = await prisma.globalVoice.create({
         data: {
             userId: session.user.id,

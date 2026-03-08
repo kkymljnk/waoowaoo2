@@ -6,7 +6,7 @@ import { maybeSubmitLLMTask } from '@/lib/llm-observe/route-task'
 
 /**
  * POST /api/novel-promotion/[projectId]/clips
- * 生成 clips（第二步：片段切分）
+ * 生成 clips（第二步：Clip segmentation）
  */
 export const POST = apiHandler(async (
   request: NextRequest,

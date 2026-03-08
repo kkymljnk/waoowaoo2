@@ -10,7 +10,7 @@ import {
 } from './mutation-shared'
 
 /**
- * 获取项目剧集列表
+ * 获取项目Episode列表
  */
 export function useListProjectEpisodes(projectId: string) {
   return useMutation({
@@ -22,12 +22,12 @@ export function useListProjectEpisodes(projectId: string) {
           description?: string
           novelText?: string
         }>
-      }>(`/api/novel-promotion/${projectId}/episodes`, { method: 'GET' }, '获取剧集失败'),
+      }>(`/api/novel-promotion/${projectId}/episodes`, { method: 'GET' }, '获取Episode失败'),
   })
 }
 
 /**
- * AI 智能分割剧集
+ * AI 智能分割Episode
  */
 export function useSplitProjectEpisodes(projectId: string) {
   return useMutation({
@@ -55,7 +55,7 @@ export function useSplitProjectEpisodes(projectId: string) {
 }
 
 /**
- * 使用章节标记分割剧集
+ * 使用章节标记分割Episode
  */
 export function useSplitProjectEpisodesByMarkers(projectId: string) {
   return useMutation({
@@ -81,7 +81,7 @@ export function useSplitProjectEpisodesByMarkers(projectId: string) {
 }
 
 /**
- * 批量保存项目剧集
+ * 批量保存项目Episode
  */
 export function useSaveProjectEpisodesBatch(projectId: string) {
   return useMutation({
@@ -102,13 +102,13 @@ export function useSaveProjectEpisodesBatch(projectId: string) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
         },
-        '保存剧集失败',
+        '保存Episode失败',
       ),
   })
 }
 
 /**
- * 更新剧集字段
+ * 更新Episode字段
  */
 export function useUpdateProjectEpisodeField(projectId: string) {
   const queryClient = useQueryClient()

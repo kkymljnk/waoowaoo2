@@ -46,7 +46,7 @@ export function useRefreshProjectData(projectId: string | null) {
     }
 }
 
-// ============ 剧集数据 Hook ============
+// ============ Episode数据 Hook ============
 
 export interface Episode {
     id: string
@@ -58,7 +58,7 @@ export interface Episode {
     media?: MediaRef | null
     srtContent?: string | null
     createdAt: string
-    // 剧集详情数据
+    // Episode详情数据
     voiceLines?: VoiceLine[]
     storyboardData?: StoryboardData
 }
@@ -77,7 +77,7 @@ interface StoryboardData {
 }
 
 /**
- * 获取剧集详情
+ * 获取Episode详情
  */
 export function useEpisodeData(projectId: string | null, episodeId: string | null) {
     return useQuery({
@@ -98,7 +98,7 @@ export function useEpisodeData(projectId: string | null, episodeId: string | nul
 }
 
 /**
- * 获取项目的剧集列表（从项目数据中提取）
+ * 获取项目的Episode列表（从项目数据中提取）
  */
 export function useEpisodes(projectId: string | null) {
     const { data: project } = useProjectData(projectId)
@@ -108,7 +108,7 @@ export function useEpisodes(projectId: string | null) {
 }
 
 /**
- * 刷新剧集数据
+ * 刷新Episode数据
  */
 export function useRefreshEpisodeData(projectId: string | null, episodeId: string | null) {
     const queryClient = useQueryClient()
@@ -123,7 +123,7 @@ export function useRefreshEpisodeData(projectId: string | null, episodeId: strin
 }
 
 /**
- * 刷新所有相关数据（项目 + 当前剧集）
+ * 刷新所有相关数据（项目 + 当前Episode）
  */
 export function useRefreshAll(projectId: string | null, episodeId: string | null) {
     const queryClient = useQueryClient()

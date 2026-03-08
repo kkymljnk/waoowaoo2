@@ -1169,8 +1169,8 @@ export const GET = apiHandler(async () => {
   const pricingDisplay = buildPricingDisplayMap()
   const pricedModels = models.map((model) => withDisplayPricing(model, pricingDisplay))
 
-  // 对每个 gemini-compatible provider，注入尚未保存过的 Google preset 模型（disabled，带完整 capabilities）
-  // gemini-compatible 本质就是改了 baseURL 和 key，模型和能力与 Google 官方完全一致
+  // 对每个 gemini-compatible provider，注入尚未保存过的 Google preset Model（disabled，带完整 capabilities）
+  // gemini-compatible 本质就是改了 baseURL 和 key，Model和能力与 Google 官方完全一致
   const GEMINI_COMPATIBLE_PRESETS: { type: UnifiedModelType; modelId: string; name: string }[] = [
     { type: 'llm', modelId: 'gemini-3.1-pro-preview', name: 'Gemini 3.1 Pro' },
     { type: 'llm', modelId: 'gemini-3-pro-preview', name: 'Gemini 3 Pro' },

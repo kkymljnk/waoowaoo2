@@ -7,7 +7,7 @@ import { attachMediaFieldsToProject } from '@/lib/media/attach'
 
 /**
  * 统一的项目数据加载API
- * 返回项目基础信息、全局配置、全局资产和剧集列表
+ * 返回项目基础信息、全局配置、Global Asset和Episode列表
  */
 export const GET = apiHandler(async (
   request: NextRequest,
@@ -45,11 +45,11 @@ export const GET = apiHandler(async (
   const novelPromotionData = await prisma.novelPromotionProject.findUnique({
     where: { projectId },
     include: {
-      // 剧集列表（基础信息）- 首页必需
+      // Episode列表（基础信息）- 首页必需
       episodes: {
         orderBy: { episodeNumber: 'asc' }
       },
-      // ⚡ 角色和场景数据 - 资产显示必需
+      // ⚡ Character和Scene数据 - Asset显示必需
       characters: {
         include: {
           appearances: true

@@ -3,7 +3,7 @@ import { queryKeys } from '../keys'
 import { invalidateQueryTemplates, requestJsonWithError } from './mutation-shared'
 
 /**
- * 获取剧集可下载视频列表（项目）
+ * 获取Episode可下载视频列表（项目）
  */
 export function useListProjectEpisodeVideoUrls(projectId: string) {
   return useMutation({
@@ -46,7 +46,7 @@ export function useUpdateProjectPanelLink(projectId: string) {
 }
 
 /**
- * 更新 Panel 视频提示词
+ * 更新 Panel 视频Prompt
  */
 export function useUpdateProjectPanelVideoPrompt(projectId: string) {
   const queryClient = useQueryClient()

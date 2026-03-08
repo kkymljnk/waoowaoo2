@@ -69,7 +69,7 @@ async function withVoiceLineMedia<T extends Record<string, unknown>>(line: T) {
 
 /**
  * GET /api/novel-promotion/[projectId]/voice-lines?episodeId=xxx
- * 获取剧集的台词列表
+ * 获取Episode的Dialogue列表
  */
 export const GET = apiHandler(async (
   request: NextRequest,
@@ -114,7 +114,7 @@ export const GET = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 获取台词列表（包含匹配的 Panel 信息）
+  // 获取Dialogue列表（包含匹配的 Panel 信息）
   const voiceLines = await prisma.novelPromotionVoiceLine.findMany({
     where: { episodeId },
     orderBy: { lineIndex: 'asc' },
@@ -147,7 +147,7 @@ export const GET = apiHandler(async (
 
 /**
  * POST /api/novel-promotion/[projectId]/voice-lines
- * 新增单条台词
+ * 新增单条Dialogue
  * Body: { episodeId, content, speaker, matchedPanelId?: string | null }
  */
 export const POST = apiHandler(async (
@@ -233,9 +233,9 @@ export const POST = apiHandler(async (
 
 /**
  * PATCH /api/novel-promotion/[projectId]/voice-lines
- * 更新台词设置（内容、发言人、情绪设置、音频URL）
+ * 更新DialogueSettings（内容、发言人、情绪Settings、音频URL）
  * Body: { lineId, content, speaker, emotionPrompt, emotionStrength, audioUrl } 
- *    或 { speaker, episodeId, voicePresetId } (批量更新同一发言人的音色)
+ *    或 { speaker, episodeId, voicePresetId } (批量更新同一发言人的Voice)
  */
 export const PATCH = apiHandler(async (
   request: NextRequest,
@@ -319,7 +319,7 @@ export const PATCH = apiHandler(async (
     })
   }
 
-  // 批量更新同一发言人（仅支持更新音色）
+  // 批量更新同一发言人（仅支持更新Voice）
   if (speaker && episodeId) {
     const result = await prisma.novelPromotionVoiceLine.updateMany({
       where: {
@@ -341,7 +341,7 @@ export const PATCH = apiHandler(async (
 
 /**
  * DELETE /api/novel-promotion/[projectId]/voice-lines?lineId=xxx
- * 删除单条台词
+ * 删除单条Dialogue
  */
 export const DELETE = apiHandler(async (
   request: NextRequest,
@@ -360,7 +360,7 @@ export const DELETE = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 获取要删除的台词
+  // 获取要删除的Dialogue
   const lineToDelete = await prisma.novelPromotionVoiceLine.findUnique({
     where: { id: lineId }
   })
@@ -369,18 +369,18 @@ export const DELETE = apiHandler(async (
     throw new ApiError('NOT_FOUND')
   }
 
-  // 删除台词
+  // 删除Dialogue
   await prisma.novelPromotionVoiceLine.delete({
     where: { id: lineId }
   })
 
-  // 重新排序剩余台词的 lineIndex
+  // 重新排序剩余Dialogue的 lineIndex
   const remainingLines = await prisma.novelPromotionVoiceLine.findMany({
     where: { episodeId: lineToDelete.episodeId },
     orderBy: { lineIndex: 'asc' }
   })
 
-  // 更新每条台词的 lineIndex
+  // 更新每条Dialogue的 lineIndex
   for (let i = 0; i < remainingLines.length; i++) {
     if (remainingLines[i].lineIndex !== i + 1) {
       await prisma.novelPromotionVoiceLine.update({

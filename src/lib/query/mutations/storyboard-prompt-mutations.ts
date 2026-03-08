@@ -44,7 +44,7 @@ export function useAiModifyProjectShotPrompt(projectId: string) {
 }
 
 /**
- * 设计音色（项目）
+ * 设计Voice（项目）
  */
 
 export function useAnalyzeProjectShotVariants(projectId: string) {
@@ -57,7 +57,7 @@ export function useAnalyzeProjectShotVariants(projectId: string) {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload),
                 },
-                '分析失败',
+                'Analysis失败',
             )
             return await resolveTaskResponse<{
                 success: boolean
@@ -103,7 +103,7 @@ export function useUpdateProjectPhotographyPlan(projectId: string) {
 }
 
 /**
- * 更新镜头演技指导（项目）
+ * 更新Shot演技指导（项目）
  */
 
 export function useUpdateProjectPanelActingNotes(projectId: string) {
@@ -126,7 +126,7 @@ export function useUpdateProjectPanelActingNotes(projectId: string) {
 }
 
 /**
- * 选择/取消镜头候选图（项目）
+ * 选择/取消Shot候选图（项目）
  */
 
 export function useSelectProjectPanelCandidate(projectId: string) {

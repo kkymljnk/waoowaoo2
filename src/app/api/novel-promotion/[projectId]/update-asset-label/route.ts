@@ -11,7 +11,7 @@ import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
  * POST /api/novel-promotion/[projectId]/update-asset-label
- * 更新资产图片上的黑边标识符（修改名字后调用）
+ * 更新Asset图片上的黑边标识符（修改名字后调用）
  */
 export const POST = apiHandler(async (
   request: NextRequest,
@@ -31,14 +31,14 @@ export const POST = apiHandler(async (
   // type: 'character' | 'location'
   // id: characterId 或 locationId
   // newName: 新名字
-  // appearanceIndex: 角色形象索引（仅角色需要）
+  // appearanceIndex: CharacterAppearance索引（仅Character需要）
 
   if (!type || !id || !newName) {
     throw new ApiError('INVALID_PARAMS')
   }
 
   if (type === 'character') {
-    // 获取角色的所有形象
+    // 获取Character的所有Appearance
     const character = await prisma.novelPromotionCharacter.findUnique({
       where: { id: id },
       include: { appearances: true }
@@ -48,9 +48,9 @@ export const POST = apiHandler(async (
       throw new ApiError('NOT_FOUND')
     }
 
-    // 更新每个形象的图片标签
+    // 更新每个Appearance的图片标签
     const updatePromises = character.appearances.map(async (appearance) => {
-      // 如果指定了 appearanceIndex，只更新该形象
+      // 如果指定了 appearanceIndex，只更新该Appearance
       if (appearanceIndex !== undefined && appearance.appearanceIndex !== appearanceIndex) {
         return null
       }
@@ -95,7 +95,7 @@ export const POST = apiHandler(async (
     return NextResponse.json({ success: true, results: results.filter(r => r !== null) })
 
   } else if (type === 'location') {
-    // 获取场景
+    // 获取Scene
     const location = await prisma.novelPromotionLocation.findUnique({
       where: { id: id },
       include: { images: true }
@@ -143,7 +143,7 @@ export const POST = apiHandler(async (
 async function updateImageLabel(imageUrl: string, newLabelText: string): Promise<string> {
   const originalKey = await resolveStorageKeyFromMediaValue(imageUrl)
   if (!originalKey) {
-    throw new Error(`无法归一化媒体 key: ${imageUrl}`)
+    throw new Error(`N/A法归一化媒体 key: ${imageUrl}`)
   }
   const signedUrl = getSignedUrl(originalKey, 3600)
 

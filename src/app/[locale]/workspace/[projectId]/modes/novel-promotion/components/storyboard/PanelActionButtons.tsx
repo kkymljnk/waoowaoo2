@@ -5,15 +5,15 @@ import { AppIcon } from '@/components/ui/icons'
 /**
  * PanelActionButtons - 面板间操作按钮组
  * 包含两个按钮：
- * - + 插入分镜（原有功能）
- * - 镜头变体（新功能）
+ * - + Insert storyboard panel（原有功能）
+ * - Shot variant（新功能）
  */
 
 interface PanelActionButtonsProps {
     onInsertPanel: () => void
     onVariant: () => void
     disabled?: boolean
-    hasImage: boolean // 原镜头是否有图片（没图片不能做变体）
+    hasImage: boolean // 原Shot是否有图片（没图片不能做Variant）
 }
 
 export default function PanelActionButtons({
@@ -40,7 +40,7 @@ export default function PanelActionButtons({
 
     return (
         <div className="flex flex-col items-center gap-1">
-            {/* 插入分镜按钮 */}
+            {/* Insert storyboard panel按钮 */}
             <button
                 onClick={onInsertPanel}
                 disabled={disabled}
@@ -65,7 +65,7 @@ export default function PanelActionButtons({
                 </span>
             </button>
 
-            {/* 镜头变体按钮 */}
+            {/* Shot variant按钮 */}
             <button
                 onClick={onVariant}
                 disabled={disabled || !hasImage}

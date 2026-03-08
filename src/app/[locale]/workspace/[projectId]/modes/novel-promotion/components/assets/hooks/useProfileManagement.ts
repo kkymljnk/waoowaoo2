@@ -1,6 +1,6 @@
 /**
- * 角色档案管理 Hook
- * 处理未确认档案的显示和确认逻辑
+ * CharacterProfile管理 Hook
+ * 处理未确认Profile的显示和确认逻辑
  * 
  * 🔥 V6.5 重构：直接订阅 useProjectAssets，消除 props drilling
  */
@@ -38,7 +38,7 @@ export function useProfileManagement({
     const confirmCharacterProfileMutation = useConfirmProjectCharacterProfile(projectId)
     const batchConfirmProfilesMutation = useBatchConfirmProjectCharacterProfiles(projectId)
 
-    // 🔥 修复：使用 Set 支持同时确认多个角色
+    // 🔥 修复：使用 Set 支持同时确认多个Character
     const [confirmingCharacterIds, setConfirmingCharacterIds] = useState<Set<string>>(new Set())
     const [deletingCharacterId, setDeletingCharacterId] = useState<string | null>(null)
     const [batchConfirming, setBatchConfirming] = useState(false)
@@ -48,7 +48,7 @@ export function useProfileManagement({
         profileData: CharacterProfileData
     } | null>(null)
 
-    // 获取未确认的角色
+    // 获取未确认的Character
     const unconfirmedCharacters = useMemo(() =>
         characters.filter(char => char.profileData && !char.profileConfirmed),
         [characters]
@@ -68,7 +68,7 @@ export function useProfileManagement({
         setEditingProfile({ characterId, characterName, profileData })
     }, [characters, showToast, t])
 
-    // 确认单个角色
+    // 确认单个Character
     const handleConfirmProfile = useCallback(async (
         characterId: string,
         updatedProfileData?: CharacterProfileData
@@ -98,7 +98,7 @@ export function useProfileManagement({
         }
     }, [confirmCharacterProfileMutation, refreshAssets, showToast, t])
 
-    // 批量确认所有角色
+    // 批量确认所有Character
     const handleBatchConfirm = useCallback(async () => {
         if (unconfirmedCharacters.length === 0) {
             showToast?.(t('characterProfile.noPendingCharacters'), 'warning')
@@ -123,7 +123,7 @@ export function useProfileManagement({
         }
     }, [batchConfirmProfilesMutation, refreshAssets, showToast, t, unconfirmedCharacters.length])
 
-    // 删除角色档案（同时删除角色）
+    // 删除CharacterProfile（同时删除Character）
     const handleDeleteProfile = useCallback(async (characterId: string) => {
         if (!confirm(t('characterProfile.deleteConfirm'))) {
             return

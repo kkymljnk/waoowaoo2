@@ -1,28 +1,28 @@
 import { logInfo as _ulogInfo } from '@/lib/logging/core'
 /**
- * 阿里云 qwen-voice-design 声音设计 API 集成
+ * 阿里云 qwen-voice-design Sound设计 API 集成
  * 
  * 使用方式：
- * 1. 调用 createVoiceDesign() 创建自定义声音
+ * 1. 调用 createVoiceDesign() 创建自定义Sound
  * 2. 获取返回的 voice ID，可用于后续的 TTS 调用
  */
 
 export interface VoiceDesignInput {
-    /** 声音提示词，描述想要的声音特征 */
+    /** SoundPrompt，Description想要的Sound特征 */
     voicePrompt: string
     /** 预览文本，用于生成预览音频 */
     previewText: string
-    /** 可选的声音名称 */
+    /** 可选的Sound名称 */
     preferredName?: string
-    /** 语言，默认 zh */
+    /** 语言，Default zh */
     language?: 'zh' | 'en'
 }
 
 export interface VoiceDesignResult {
     success: boolean
-    /** 生成的声音 ID，可用于后续 TTS 调用 */
+    /** 生成的Sound ID，可用于后续 TTS 调用 */
     voiceId?: string
-    /** 目标模型 */
+    /** 目标Model */
     targetModel?: string
     /** 预览音频 base64 */
     audioBase64?: string
@@ -41,8 +41,8 @@ export interface VoiceDesignResult {
 }
 
 /**
- * 调用阿里云 qwen-voice-design API 创建自定义声音
- * @param input 声音设计输入
+ * 调用阿里云 qwen-voice-design API 创建自定义Sound
+ * @param input Sound设计输入
  * @param apiKey 阿里百炼 API Key
  */
 export async function createVoiceDesign(input: VoiceDesignInput, apiKey: string): Promise<VoiceDesignResult> {
@@ -99,7 +99,7 @@ export async function createVoiceDesign(input: VoiceDesignInput, apiKey: string)
         } else {
             return {
                 success: false,
-                error: data.message || '声音设计 API 调用失败',
+                error: data.message || 'Sound设计 API 调用失败',
                 errorCode: data.code,
                 requestId: data.request_id
             }
@@ -115,15 +115,15 @@ export async function createVoiceDesign(input: VoiceDesignInput, apiKey: string)
 }
 
 /**
- * 验证声音提示词是否有效
+ * 验证SoundPrompt是否有效
  */
 export function validateVoicePrompt(voicePrompt: string): { valid: boolean; error?: string } {
     if (!voicePrompt || voicePrompt.trim().length === 0) {
-        return { valid: false, error: '声音提示词不能为空' }
+        return { valid: false, error: 'SoundPrompt不能为空' }
     }
 
     if (voicePrompt.length > 500) {
-        return { valid: false, error: '声音提示词不能超过500个字符' }
+        return { valid: false, error: 'SoundPrompt不能超过500个字符' }
     }
 
     return { valid: true }

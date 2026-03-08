@@ -8,7 +8,7 @@ import { attachMediaFieldsToProject } from '@/lib/media/attach'
 import { resolveMediaRefFromLegacyValue } from '@/lib/media/service'
 
 /**
- * GET - 获取单个剧集的完整数据
+ * GET - 获取单个Episode的完整数据
  */
 export const GET = apiHandler(async (
   request: NextRequest,
@@ -20,7 +20,7 @@ export const GET = apiHandler(async (
   const authResult = await requireProjectAuthLight(projectId)
   if (isErrorResponse(authResult)) return authResult
 
-  // 获取剧集及其关联数据
+  // 获取Episode及其关联数据
   const episode = await prisma.novelPromotionEpisode.findUnique({
     where: { id: episodeId },
     include: {
@@ -47,7 +47,7 @@ export const GET = apiHandler(async (
     throw new ApiError('NOT_FOUND')
   }
 
-  // 更新最后编辑的剧集ID（异步，不阻塞响应）
+  // 更新最后编辑的EpisodeID（异步，不阻塞响应）
   prisma.novelPromotionProject.update({
     where: { projectId },
     data: { lastEpisodeId: episodeId }
@@ -60,7 +60,7 @@ export const GET = apiHandler(async (
 })
 
 /**
- * PATCH - 更新剧集信息
+ * PATCH - 更新Episode信息
  */
 export const PATCH = apiHandler(async (
   request: NextRequest,
@@ -95,7 +95,7 @@ export const PATCH = apiHandler(async (
 })
 
 /**
- * DELETE - 删除剧集
+ * DELETE - 删除Episode
  */
 export const DELETE = apiHandler(async (
   request: NextRequest,
@@ -107,18 +107,18 @@ export const DELETE = apiHandler(async (
   const authResult = await requireProjectAuthLight(projectId)
   if (isErrorResponse(authResult)) return authResult
 
-  // 删除剧集（关联数据会级联删除）
+  // 删除Episode（关联数据会级联删除）
   await prisma.novelPromotionEpisode.delete({
     where: { id: episodeId }
   })
 
-  // 如果删除的是最后编辑的剧集，更新 lastEpisodeId
+  // 如果删除的是最后编辑的Episode，更新 lastEpisodeId
   const novelPromotionProject = await prisma.novelPromotionProject.findUnique({
     where: { projectId }
   })
 
   if (novelPromotionProject?.lastEpisodeId === episodeId) {
-    // 找到另一个剧集作为默认
+    // 找到另一个Episode作为Default
     const anotherEpisode = await prisma.novelPromotionEpisode.findFirst({
       where: { novelPromotionProjectId: novelPromotionProject.id },
       orderBy: { episodeNumber: 'asc' }

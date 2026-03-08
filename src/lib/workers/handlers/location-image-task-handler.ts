@@ -56,7 +56,7 @@ export async function handleLocationImageTask(job: Job<TaskJobData>) {
   })
 
   let locationImages: LocationImageRecord[] = []
-  // 用于存储 locationId -> name 的映射，避免 images 子集缺少 location 关联
+  // 用于存储 locationId -> name 的映射，避免 images 子集missing location 关联
   const locationNameMap: Record<string, string> = {}
 
   if (maybeLocationImage) {
@@ -117,8 +117,8 @@ export async function handleLocationImageTask(job: Job<TaskJobData>) {
 
   for (let i = 0; i < locationImages.length; i++) {
     const item = locationImages[i]
-    // 优先用映射表中的名字，回退到 item.location?.name，最后才用默认值
-    const name = locationNameMap[item.locationId] || item.location?.name || '场景'
+    // 优先用映射表中的名字，回退到 item.location?.name，最后才用Default值
+    const name = locationNameMap[item.locationId] || item.location?.name || 'Scene'
     const promptBody = item.description || ''
     if (!promptBody) continue
 

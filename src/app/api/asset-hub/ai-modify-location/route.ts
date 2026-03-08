@@ -6,7 +6,7 @@ import { TASK_TYPE } from '@/lib/task/types'
 import { maybeSubmitLLMTask } from '@/lib/llm-observe/route-task'
 
 /**
- * 资产中心 - AI 修改场景描述（任务化）
+ * Asset中心 - AI 修改SceneDescription（任务化）
  * POST /api/asset-hub/ai-modify-location
  * body: { locationId, imageIndex, currentDescription, modifyInstruction }
  */

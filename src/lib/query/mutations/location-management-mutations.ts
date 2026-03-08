@@ -92,7 +92,7 @@ export function useDeleteProjectLocation(projectId: string) {
 }
 
 /**
- * 更新项目场景名字
+ * 更新项目Scene名字
  */
 
 export function useUpdateProjectLocationName(projectId: string) {
@@ -130,7 +130,7 @@ export function useUpdateProjectLocationName(projectId: string) {
 }
 
 /**
- * 更新项目角色形象描述
+ * 更新项目CharacterAppearanceDescription
  */
 
 export function useUpdateProjectLocationDescription(projectId: string) {
@@ -163,7 +163,7 @@ export function useUpdateProjectLocationDescription(projectId: string) {
 }
 
 /**
- * 更新项目角色介绍
+ * 更新项目Character介绍
  */
 
 export function useAiModifyProjectLocationDescription(projectId: string) {
@@ -199,7 +199,7 @@ export function useAiModifyProjectLocationDescription(projectId: string) {
 }
 
 /**
- * AI 设计项目场景描述
+ * AI 设计项目SceneDescription
  */
 
 export function useAiCreateProjectLocation(projectId: string) {
@@ -220,7 +220,7 @@ export function useAiCreateProjectLocation(projectId: string) {
 }
 
 /**
- * 创建项目场景
+ * 创建项目Scene
  */
 
 export function useCreateProjectLocation(projectId: string) {
@@ -248,7 +248,7 @@ export function useCreateProjectLocation(projectId: string) {
 }
 
 /**
- * AI 设计项目角色文案
+ * AI 设计项目Character文案
  */
 
 export function useConfirmProjectLocationSelection(projectId: string) {
@@ -271,7 +271,7 @@ export function useConfirmProjectLocationSelection(projectId: string) {
 }
 
 /**
- * 确认角色档案并触发描述生成
+ * 确认CharacterProfile并触发Description生成
  */
 
 export function useBatchGenerateLocationImages(projectId: string) {

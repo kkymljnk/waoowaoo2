@@ -185,14 +185,14 @@ export function CharacterCard({ character, onImageClick, onImageEdit, onVoiceDes
         )
     }
 
-    // 删除角色
+    // 删除Character
     const handleDelete = () => {
         deleteCharacter.mutate(character.id, {
             onSettled: () => setShowDeleteConfirm(false)
         })
     }
 
-    // 删除子形象
+    // 删除子Appearance
     const handleDeleteAppearance = () => {
         deleteAppearance.mutate(
             { characterId: character.id, appearanceIndex: appearance.appearanceIndex },
@@ -203,7 +203,7 @@ export function CharacterCard({ character, onImageClick, onImageEdit, onVoiceDes
         )
     }
 
-    // 上传音色
+    // 上传Voice
     const handleUploadVoice = () => {
         const file = voiceInputRef.current?.files?.[0]
         if (!file) return
@@ -319,7 +319,7 @@ export function CharacterCard({ character, onImageClick, onImageEdit, onVoiceDes
                     </div>
                 )}
 
-                {/* 音色设置 */}
+                {/* VoiceSettings */}
                 <VoiceSettings
                     characterId={character.id}
                     characterName={character.name}
@@ -433,12 +433,12 @@ export function CharacterCard({ character, onImageClick, onImageEdit, onVoiceDes
                     </div>
                 </div>
 
-                {/* 形象切换 */}
+                {/* Appearance切换 */}
                 {appearanceCount > 1 && (
                     <div className="flex gap-1 mt-2 overflow-x-auto">
                         {character.appearances.map((app, index) => (
                             <button key={app.id} onClick={() => setActiveAppearance(index)} className={`glass-btn-base px-2 py-0.5 text-xs rounded-full whitespace-nowrap ${index === activeAppearance ? 'glass-btn-primary' : 'glass-btn-soft text-[var(--glass-text-secondary)]'}`}>
-                                {app.changeReason || `形象 ${app.appearanceIndex}`}
+                                {app.changeReason || `Appearance ${app.appearanceIndex}`}
                             </button>
                         ))}
                     </div>
@@ -446,7 +446,7 @@ export function CharacterCard({ character, onImageClick, onImageEdit, onVoiceDes
 
                 {appearance?.description && <p className="mt-2 text-xs text-[var(--glass-text-secondary)] line-clamp-2">{appearance.description}</p>}
 
-                {/* 音色设置 */}
+                {/* VoiceSettings */}
                 <VoiceSettings
                     characterId={character.id}
                     characterName={character.name}

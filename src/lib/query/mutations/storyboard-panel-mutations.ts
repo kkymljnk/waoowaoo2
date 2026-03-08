@@ -26,7 +26,7 @@ export function useRegenerateProjectPanelImage(projectId: string) {
                 const error = await res.json().catch(() => ({}))
                 if (res.status === 402) throw new Error('余额不足，请充值后继续使用')
                 if (res.status === 400 && String(error?.error || '').includes('敏感')) {
-                    throw new Error(resolveTaskErrorMessage(error, '提示词包含敏感内容'))
+                    throw new Error(resolveTaskErrorMessage(error, 'Prompt包含敏感内容'))
                 }
                 if (res.status === 429 || error?.code === 'RATE_LIMIT') {
                     const retryAfter = error?.retryAfter || 60
@@ -58,7 +58,7 @@ export function useRegenerateProjectPanelImage(projectId: string) {
 }
 
 /**
- * 修改镜头图片（storyboard）
+ * 修改Shot图片（storyboard）
  */
 
 export function useModifyProjectStoryboardImage(projectId: string) {
@@ -91,7 +91,7 @@ export function useModifyProjectStoryboardImage(projectId: string) {
 }
 
 /**
- * 下载剧集全部图片（zip）
+ * 下载Episode全部图片（zip）
  */
 
 export function useDownloadProjectImages(projectId: string) {
@@ -110,7 +110,7 @@ export function useDownloadProjectImages(projectId: string) {
 }
 
 /**
- * 更新分镜 panel
+ * 更新Storyboard panel
  */
 
 export function useUpdateProjectPanel(projectId: string) {
@@ -134,7 +134,7 @@ export function useUpdateProjectPanel(projectId: string) {
 }
 
 /**
- * 选择/取消镜头候选图（项目）
+ * 选择/取消Shot候选图（项目）
  */
 
 export function useCreateProjectPanel(projectId: string) {
@@ -192,7 +192,7 @@ export function useDeleteProjectStoryboardGroup(projectId: string) {
 }
 
 /**
- * 异步重生成文字分镜
+ * 异步重生成文字Storyboard
  */
 
 export function useRegenerateProjectStoryboardText(projectId: string) {
@@ -264,7 +264,7 @@ export function useInsertProjectPanel(projectId: string) {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
-            }, '插入分镜失败')
+            }, 'Insert storyboard panel失败')
         },
         onSettled: () => {
             invalidateQueryTemplates(queryClient, [queryKeys.projectAssets.all(projectId)])
@@ -273,7 +273,7 @@ export function useInsertProjectPanel(projectId: string) {
 }
 
 /**
- * 生成镜头变体（异步）
+ * 生成Shot variant（异步）
  */
 
 export function useCreateProjectPanelVariant(projectId: string) {
@@ -297,7 +297,7 @@ export function useCreateProjectPanelVariant(projectId: string) {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
-            }, '生成变体失败')
+            }, '生成Variant失败')
         },
         onSettled: () => {
             invalidateQueryTemplates(queryClient, [queryKeys.projectAssets.all(projectId)])
@@ -319,7 +319,7 @@ export function useClearProjectStoryboardError(projectId: string) {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ storyboardId }),
                 },
-                '清除分镜错误失败',
+                '清除Storyboard错误失败',
             ),
         onSettled: () => {
             invalidateQueryTemplates(queryClient, [queryKeys.projectAssets.all(projectId)])

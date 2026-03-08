@@ -26,7 +26,7 @@ interface AssetHubCharacterVoiceDb {
 
 /**
  * POST /api/asset-hub/character-voice
- * 上传自定义音色音频
+ * 上传自定义Voice音频
  */
 export const POST = apiHandler(async (request: NextRequest) => {
     const db = prisma as unknown as AssetHubCharacterVoiceDb
@@ -37,7 +37,7 @@ export const POST = apiHandler(async (request: NextRequest) => {
 
     const contentType = request.headers.get('content-type') || ''
 
-    // 处理 JSON 请求（AI 声音设计）
+    // 处理 JSON 请求（AI Sound设计）
     if (contentType.includes('application/json')) {
         const body = (await request.json()) as CharacterVoiceJsonBody
         const { characterId, voiceDesign } = body
@@ -51,7 +51,7 @@ export const POST = apiHandler(async (request: NextRequest) => {
             throw new ApiError('INVALID_PARAMS')
         }
 
-        // 验证角色属于用户
+        // 验证Character属于用户
         const character = await db.globalCharacter.findFirst({
             where: { id: characterId, userId: session.user.id }
         })
@@ -89,7 +89,7 @@ export const POST = apiHandler(async (request: NextRequest) => {
         throw new ApiError('INVALID_PARAMS')
     }
 
-    // 验证角色属于用户
+    // 验证Character属于用户
     const character = await db.globalCharacter.findFirst({
         where: { id: characterId, userId: session.user.id }
     })
@@ -128,7 +128,7 @@ export const POST = apiHandler(async (request: NextRequest) => {
 
 /**
  * PATCH /api/asset-hub/character-voice
- * 更新角色音色设置
+ * 更新CharacterVoiceSettings
  */
 export const PATCH = apiHandler(async (request: NextRequest) => {
     const db = prisma as unknown as AssetHubCharacterVoiceDb
@@ -144,7 +144,7 @@ export const PATCH = apiHandler(async (request: NextRequest) => {
         throw new ApiError('INVALID_PARAMS')
     }
 
-    // 验证角色属于用户
+    // 验证Character属于用户
     const character = await db.globalCharacter.findFirst({
         where: { id: characterId, userId: session.user.id }
     })

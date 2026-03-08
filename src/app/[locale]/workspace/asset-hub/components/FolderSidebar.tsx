@@ -59,7 +59,7 @@ export function FolderSidebar({
                 </div>
 
                 <div className="space-y-1">
-                    {/* 所有资产 */}
+                    {/* 所有Asset */}
                     <button
                         onClick={() => onSelectFolder(null)}
                         className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-sm transition-colors ${selectedFolderId === null

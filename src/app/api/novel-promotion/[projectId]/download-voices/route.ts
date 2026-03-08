@@ -20,7 +20,7 @@ export const GET = apiHandler(async (
   if (isErrorResponse(authResult)) return authResult
   const { project } = authResult
 
-  // 获取配音台词
+  // 获取DubbingDialogue
   const whereClause: Record<string, unknown> = {
     audioUrl: { not: null }
   }
@@ -28,7 +28,7 @@ export const GET = apiHandler(async (
   if (episodeId) {
     whereClause.episodeId = episodeId
   } else {
-    // 如果没有指定 episodeId，获取该项目所有剧集的配音
+    // 如果没有指定 episodeId，获取该项目所有Episode的Dubbing
     const npData = await prisma.novelPromotionProject.findFirst({
       where: { projectId },
       include: { episodes: { select: { id: true } } }
@@ -41,7 +41,7 @@ export const GET = apiHandler(async (
   const voiceLines = await prisma.novelPromotionVoiceLine.findMany({
     where: whereClause,
     orderBy: [
-      { lineIndex: 'asc' }  // 按台词序号排序（绝对顺序）
+      { lineIndex: 'asc' }  // 按Dialogue序号排序（绝对顺序）
     ]
   })
 
@@ -118,7 +118,7 @@ export const GET = apiHandler(async (
         // 清理发言人名称中的非法字符
         const safeSpeaker = line.speaker.replace(/[\\/:*?"<>|]/g, '_')
 
-        // 截取台词内容前15字作为文件名的一部分
+        // 截取Dialogue内容前15字作为文件名的一部分
         const safeContent = line.content.slice(0, 15).replace(/[\\/:*?"<>|]/g, '_').replace(/\s+/g, '_')
 
         // 确定文件扩展名

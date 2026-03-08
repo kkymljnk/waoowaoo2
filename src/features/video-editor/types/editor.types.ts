@@ -30,7 +30,7 @@ export interface EditorConfig {
 }
 
 /**
- * 视频片段 - 时间轴核心单元
+ * 视频Clip - 时间轴核心单元
  */
 export interface VideoClip {
     id: string
@@ -46,7 +46,7 @@ export interface VideoClip {
     // 附属内容 - 跟随视频移动
     attachment?: ClipAttachment
 
-    // 转场 (与下一个片段的过渡)
+    // 转场 (与下一个Clip的过渡)
     transition?: ClipTransition
 
     // AI 元数据 (用于回溯)
@@ -54,7 +54,7 @@ export interface VideoClip {
 }
 
 /**
- * 片段附属内容 (配音 + 字幕)
+ * Clip附属内容 (Dubbing + 字幕)
  */
 export interface ClipAttachment {
     audio?: {
@@ -77,7 +77,7 @@ export interface ClipTransition {
 }
 
 /**
- * 片段元数据
+ * Clip元数据
  */
 export interface ClipMetadata {
     panelId: string
@@ -86,7 +86,7 @@ export interface ClipMetadata {
 }
 
 /**
- * BGM 片段 - 独立轨道
+ * BGM Clip - 独立轨道
  */
 export interface BgmClip {
     id: string

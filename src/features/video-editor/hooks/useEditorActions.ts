@@ -31,15 +31,15 @@ export function createProjectFromPanels(
     // 过滤出有视频的面板
     const videoPanels = panels.filter(p => p.videoUrl)
 
-    // 创建视频片段
+    // 创建视频Clip
     const timeline: VideoClip[] = videoPanels.map((panel, index) => {
-        // 查找匹配的配音（简单匹配：按索引）
+        // 查找匹配的Dubbing（简单匹配：按索引）
         const matchedVoice = voiceLines?.[index]
 
         return {
             id: `clip_${panel.id || panel.storyboardId}_${panel.panelIndex ?? index}`,
             src: panel.videoUrl!,
-            durationInFrames: Math.round((panel.duration || 3) * 30), // 默认 3 秒，30fps
+            durationInFrames: Math.round((panel.duration || 3) * 30), // Default 3 秒，30fps
             attachment: {
                 audio: matchedVoice?.audioUrl ? {
                     src: matchedVoice.audioUrl,

@@ -6,7 +6,7 @@ import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
  * POST /api/novel-promotion/[projectId]/storyboard-group
- * 添加一组新的分镜（创建 Clip + Storyboard + 初始 Panel）
+ * 添加一组新的Storyboard（创建 Clip + Storyboard + 初始 Panel）
  */
 export const POST = apiHandler(async (
   request: NextRequest,
@@ -25,7 +25,7 @@ export const POST = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 获取剧集和现有 clips
+  // 获取Episode和现有 clips
   const episode = await prisma.novelPromotionEpisode.findUnique({
     where: { id: episodeId },
     include: {
@@ -47,15 +47,15 @@ export const POST = apiHandler(async (
     // 没有现有 clips，使用当前时间
     newCreatedAt = new Date()
   } else if (insertAt === 0) {
-    // 插入到开头，设置为第一个 clip 之前的时间
+    // 插入到开头，Settings为第一个 clip 之前的时间
     const firstClip = existingClips[0]
     newCreatedAt = new Date(firstClip.createdAt.getTime() - 1000) // 减1秒
   } else if (insertAt >= existingClips.length) {
-    // 插入到结尾，设置为最后一个 clip 之后的时间
+    // 插入到结尾，Settings为最后一个 clip 之后的时间
     const lastClip = existingClips[existingClips.length - 1]
     newCreatedAt = new Date(lastClip.createdAt.getTime() + 1000) // 加1秒
   } else {
-    // 插入到中间，设置为前后两个 clip 时间的中间值
+    // 插入到中间，Settings为前后两个 clip 时间的中间值
     const prevClip = existingClips[insertAt - 1]
     const nextClip = existingClips[insertAt]
     const midTime = (prevClip.createdAt.getTime() + nextClip.createdAt.getTime()) / 2
@@ -68,7 +68,7 @@ export const POST = apiHandler(async (
     const newClip = await tx.novelPromotionClip.create({
       data: {
         episodeId,
-        summary: '手动添加的分镜组',
+        summary: '手动添加的Storyboard组',
         content: '',
         location: null,
         characters: null,
@@ -91,9 +91,9 @@ export const POST = apiHandler(async (
         storyboardId: newStoryboard.id,
         panelIndex: 0,
         panelNumber: 1,
-        shotType: '中景',
-        cameraMove: '固定',
-        description: '新镜头描述',
+        shotType: 'Medium shot',
+        cameraMove: 'Fixed',
+        description: '新ShotDescription',
         characters: '[]'
       }
     })
@@ -101,7 +101,7 @@ export const POST = apiHandler(async (
     return { clip: newClip, storyboard: newStoryboard, panel: newPanel }
   })
 
-  _ulogInfo(`[添加分镜组] episodeId=${episodeId}, clipId=${result.clip.id}, storyboardId=${result.storyboard.id}, insertAt=${insertAt}`)
+  _ulogInfo(`[添加Storyboard组] episodeId=${episodeId}, clipId=${result.clip.id}, storyboardId=${result.storyboard.id}, insertAt=${insertAt}`)
 
   return NextResponse.json({
     success: true,
@@ -113,7 +113,7 @@ export const POST = apiHandler(async (
 
 /**
  * PUT /api/novel-promotion/[projectId]/storyboard-group
- * 调整分镜组顺序（通过修改 clip 的 createdAt）
+ * 调整Storyboard组顺序（通过修改 clip 的 createdAt）
  */
 export const PUT = apiHandler(async (
   request: NextRequest,
@@ -132,7 +132,7 @@ export const PUT = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 获取剧集和所有 clips（按 createdAt 排序）
+  // 获取Episode和所有 clips（按 createdAt 排序）
   const episode = await prisma.novelPromotionEpisode.findUnique({
     where: { id: episodeId },
     include: {
@@ -187,14 +187,14 @@ export const PUT = apiHandler(async (
     })
   })
 
-  _ulogInfo(`[移动分镜组] clipId=${clipId}, direction=${direction}, ${currentIndex} -> ${targetIndex}`)
+  _ulogInfo(`[移动Storyboard组] clipId=${clipId}, direction=${direction}, ${currentIndex} -> ${targetIndex}`)
 
   return NextResponse.json({ success: true })
 })
 
 /**
  * DELETE /api/novel-promotion/[projectId]/storyboard-group
- * 删除整个分镜组（Clip + Storyboard + 所有 Panels）
+ * 删除整个Storyboard组（Clip + Storyboard + 所有 Panels）
  */
 export const DELETE = apiHandler(async (
   request: NextRequest,
@@ -246,7 +246,7 @@ export const DELETE = apiHandler(async (
     }
   })
 
-  _ulogInfo(`[删除分镜组] storyboardId=${storyboardId}, clipId=${storyboard.clipId}, panelCount=${storyboard.panels.length}`)
+  _ulogInfo(`[删除Storyboard组] storyboardId=${storyboardId}, clipId=${storyboard.clipId}, panelCount=${storyboard.panels.length}`)
 
   return NextResponse.json({ success: true })
 })

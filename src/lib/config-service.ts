@@ -1,7 +1,7 @@
 /**
  * 统一配置服务
  *
- * 所有 API 通过此服务获取模型配置，确保数据源一致性。
+ * 所有 API 通过此服务获取Model配置，确保数据源一致性。
  *
  * 优先级：项目配置 > 用户偏好 > null
  */
@@ -19,7 +19,7 @@ import { resolveGenerationOptionsForModel } from '@/lib/model-capabilities/looku
 export type ParsedModelKey = { provider: string, modelId: string }
 
 /**
- * 解析模型复合 Key（严格模式，仅接受 provider::modelId）
+ * 解析Model复合 Key（严格模式，仅接受 provider::modelId）
  */
 export function parseModelKey(key: string | null | undefined): ParsedModelKey | null {
   const parsed = parseModelKeyStrict(key)
@@ -46,7 +46,7 @@ export function extractModelId(key: string | null | undefined): string | null {
 }
 
 /**
- * 从模型字段中提取标准 modelKey（provider::modelId）
+ * 从Model字段中提取标准 modelKey（provider::modelId）
  */
 export function extractModelKey(key: string | null | undefined): string | null {
   const parsed = parseModelKey(key)
@@ -117,7 +117,7 @@ export interface UserModelConfig {
 }
 
 /**
- * 获取项目级模型配置
+ * 获取项目级Model配置
  */
 export async function getProjectModelConfig(
   projectId: string,
@@ -143,7 +143,7 @@ export async function getProjectModelConfig(
 }
 
 /**
- * 获取用户级模型配置（无项目时使用）
+ * 获取用户级Model配置（N/A项目时使用）
  */
 export async function getUserModelConfig(userId: string): Promise<UserModelConfig> {
   const userPref = await prisma.userPreference.findUnique({
@@ -210,7 +210,7 @@ export async function resolveProjectModelCapabilityGenerationOptions(input: {
 }
 
 /**
- * 检查必需的模型配置是否存在
+ * 检查必需的Model配置是否存在
  */
 export function checkRequiredModels(
   config: Partial<ProjectModelConfig | UserModelConfig>,
@@ -220,12 +220,12 @@ export function checkRequiredModels(
   const configValues = config as Record<string, unknown>
 
   const fieldNames: Record<string, string> = {
-    analysisModel: 'AI分析模型',
-    characterModel: '角色图像模型',
-    locationModel: '场景图像模型',
-    storyboardModel: '分镜图像模型',
-    editModel: '修图/编辑模型',
-    videoModel: '视频模型',
+    analysisModel: 'AIAnalysisModel',
+    characterModel: 'Character图像Model',
+    locationModel: 'Scene图像Model',
+    storyboardModel: 'Storyboard图像Model',
+    editModel: '修图/编辑Model',
+    videoModel: '视频Model',
   }
 
   for (const field of requiredFields) {
@@ -243,15 +243,15 @@ export function checkRequiredModels(
 export function getMissingConfigError(missingFields: string[]): string {
   if (missingFields.length === 0) return ''
   if (missingFields.length === 1) {
-    return `请先在项目设置中配置"${missingFields[0]}"`
+    return `请先在项目Settings中配置"${missingFields[0]}"`
   }
-  return `请先在项目设置中配置以下模型：${missingFields.join('、')}`
+  return `请先在项目Settings中配置以下Model：${missingFields.join('、')}`
 }
 
 /**
  * 为图片类任务统一构建 billingPayload（项目级，async）
  *
- * 生图和修图统一使用严格模式：用户必须已在项目设置中配置好 resolution。
+ * 生图和修图统一使用严格模式：用户必须已在项目Settings中配置好 resolution。
  * resolution 会同时注入到 billingPayload.generationOptions（计费用）
  * 和 task payload（worker 读取后传给 API 的 imageSize 参数）。
  */
@@ -287,7 +287,7 @@ export async function buildImageBillingPayload(input: {
 /**
  * 为图片类任务统一构建 billingPayload（用户级，sync）
  *
- * 适用于 asset-hub 等无 projectId 场景，使用已取出的 userModelConfig。
+ * 适用于 asset-hub 等N/A projectId Scene，使用已取出的 userModelConfig。
  */
 export function buildImageBillingPayloadFromUserConfig(input: {
   userModelConfig: UserModelConfig

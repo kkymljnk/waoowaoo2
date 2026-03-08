@@ -11,7 +11,7 @@ import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
  * POST /api/asset-hub/update-asset-label
- * 更新资产中心图片上的黑边标识符（修改名字后调用）
+ * 更新Asset中心图片上的黑边标识符（修改名字后调用）
  */
 export const POST = apiHandler(async (request: NextRequest) => {
     await initializeFonts()
@@ -120,7 +120,7 @@ export const POST = apiHandler(async (request: NextRequest) => {
 async function updateImageLabel(imageUrl: string, newLabelText: string): Promise<string> {
     const originalKey = await resolveStorageKeyFromMediaValue(imageUrl)
     if (!originalKey) {
-        throw new Error(`无法归一化媒体 key: ${imageUrl}`)
+        throw new Error(`N/A法归一化媒体 key: ${imageUrl}`)
     }
     const signedUrl = getSignedUrl(originalKey, 3600)
 

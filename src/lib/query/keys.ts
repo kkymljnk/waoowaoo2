@@ -3,7 +3,7 @@
  * 所有缓存 key 在此集中管理，避免不一致
  */
 export const queryKeys = {
-    // ============ 中心资产库（Asset Hub）============
+    // ============ 中心Asset Library（Asset Hub）============
     globalAssets: {
         all: () => ['global-assets'] as const,
         characters: (folderId?: string | null) =>
@@ -15,7 +15,7 @@ export const queryKeys = {
         folders: () => ['global-assets', 'folders'] as const,
     },
 
-    // ============ 项目资产 ============
+    // ============ 项目Asset ============
     projectAssets: {
         all: (projectId: string) => ['project-assets', projectId] as const,
         characters: (projectId: string) => ['project-assets', projectId, 'characters'] as const,
@@ -23,7 +23,7 @@ export const queryKeys = {
         detail: (projectId: string) => ['project-assets', projectId, 'detail'] as const,
     },
 
-    // ============ 分镜（Storyboard）============
+    // ============ Storyboard（Storyboard）============
     storyboards: {
         all: (episodeId: string) => ['storyboards', episodeId] as const,
         panels: (episodeId: string) => ['storyboards', episodeId, 'panels'] as const,
@@ -44,7 +44,7 @@ export const queryKeys = {
             ['voice-lines', projectId, episodeId, 'matched'] as const,
     },
 
-    // ============ 用户模型 ============
+    // ============ 用户Model ============
     userModels: {
         all: () => ['user-models'] as const,
     },
@@ -82,7 +82,7 @@ export const queryKeys = {
     projectData: (projectId: string) => ['project-data', projectId] as const,
 
     /**
-     * 剧集详情数据
+     * Episode详情数据
      */
     episodeData: (projectId: string, episodeId: string) =>
         ['episode-data', projectId, episodeId] as const,

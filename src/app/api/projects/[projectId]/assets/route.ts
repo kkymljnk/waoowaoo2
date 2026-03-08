@@ -5,8 +5,8 @@ import { apiHandler, ApiError } from '@/lib/api-errors'
 import { attachMediaFieldsToProject } from '@/lib/media/attach'
 
 /**
- * ⚡ 延迟加载 API - 获取项目的 characters 和 locations 资产
- * 用于资产管理页面，避免首次加载时的性能开销
+ * ⚡ 延迟加载 API - 获取项目的 characters 和 locations Asset
+ * 用于Asset管理页面，避免首次加载时的性能开销
  */
 export const GET = apiHandler(async (
     request: NextRequest,

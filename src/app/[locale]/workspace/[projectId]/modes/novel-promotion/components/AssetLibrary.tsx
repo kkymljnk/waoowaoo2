@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * 资产库 - 全局浮动按钮,打开后显示完整的资产管理界面
+ * Asset Library - 全局浮动按钮,打开后显示完整的Asset管理界面
  * 复用AssetsStage组件,保持功能完全一致
  * 
  * 🔥 V6.5 重构：删除 characters/locations props，AssetsStage 现在内部直接订阅

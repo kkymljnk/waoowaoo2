@@ -7,7 +7,7 @@ import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
  * PATCH /api/novel-promotion/[projectId]/character-voice
- * 更新角色的配音音色设置
+ * 更新Character的DubbingVoiceSettings
  * Body: { characterId, voiceType, voiceId, customVoiceUrl }
  */
 export const PATCH = apiHandler(async (
@@ -27,7 +27,7 @@ export const PATCH = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 更新角色音色设置
+  // 更新CharacterVoiceSettings
   const character = await prisma.novelPromotionCharacter.update({
     where: { id: characterId },
     data: {
@@ -42,9 +42,9 @@ export const PATCH = apiHandler(async (
 
 /**
  * POST /api/novel-promotion/[projectId]/character-voice
- * 上传自定义音色音频 或 保存 AI 设计的声音
+ * 上传自定义Voice音频 或 保存 AI 设计的Sound
  * FormData: { characterId, file } - 文件上传
- * JSON: { characterId, voiceDesign: { voiceId, audioBase64 } } - AI 声音设计
+ * JSON: { characterId, voiceDesign: { voiceId, audioBase64 } } - AI Sound设计
  */
 export const POST = apiHandler(async (
   request: NextRequest,
@@ -58,7 +58,7 @@ export const POST = apiHandler(async (
 
   const contentType = request.headers.get('content-type') || ''
 
-  // 处理 JSON 请求（AI 声音设计）
+  // 处理 JSON 请求（AI Sound设计）
   if (contentType.includes('application/json')) {
     const body = await request.json()
     const { characterId, voiceDesign } = body
@@ -79,7 +79,7 @@ export const POST = apiHandler(async (
     const key = generateUniqueKey(`voice/custom/${projectId}/${characterId}`, 'wav')
     const cosUrl = await uploadToCOS(audioBuffer, key)
 
-    // 更新角色音色设置
+    // 更新CharacterVoiceSettings
     const character = await prisma.novelPromotionCharacter.update({
       where: { id: characterId },
       data: {
@@ -130,7 +130,7 @@ export const POST = apiHandler(async (
   const key = generateUniqueKey(`voice/custom/${projectId}/${characterId}`, ext)
   const audioUrl = await uploadToCOS(buffer, key)
 
-  // 更新角色音色设置为自定义
+  // 更新CharacterVoiceSettings为自定义
   const character = await prisma.novelPromotionCharacter.update({
     where: { id: characterId },
     data: {

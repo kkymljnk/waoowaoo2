@@ -33,7 +33,7 @@ export const POST = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 获取形象记录 - 使用 UUID 直接查询
+  // 获取Appearance记录 - 使用 UUID 直接查询
   const appearance = await prisma.characterAppearance.findUnique({
     where: { id: appearanceId },
     include: { character: true }
@@ -52,7 +52,7 @@ export const POST = apiHandler(async (
   const imageUrls = decodeImageUrlsFromDb(appearance.imageUrls, 'characterAppearance.imageUrls')
 
   if (imageUrls.length <= 1) {
-    // 已经只有一张图片，无需操作
+    // 已经只有一张图片，N/A需操作
     return NextResponse.json({
       success: true,
       message: '已确认选择',
@@ -83,7 +83,7 @@ export const POST = apiHandler(async (
     }
   }
 
-  // 同样处理 descriptions，只保留选中的描述
+  // 同样处理 descriptions，只保留选中的Description
   let descriptions: string[] = []
   if (appearance.descriptions) {
     try {

@@ -25,7 +25,7 @@ function getErrorMessage(error: unknown): string {
         const candidate = (error as { message?: unknown }).message
         if (typeof candidate === 'string') return candidate
     }
-    return '未知错误'
+    return 'Unknown错误'
 }
 
 export class GeminiCompatibleImageGenerator extends BaseImageGenerator {
@@ -34,7 +34,7 @@ export class GeminiCompatibleImageGenerator extends BaseImageGenerator {
 
     constructor(modelId?: string, providerId?: string) {
         super()
-        // 默认使用 nano-banana-fast 模型
+        // Default使用 nano-banana-fast Model
         this.modelId = modelId || 'nano-banana-fast'
         this.providerId = providerId
     }
@@ -78,7 +78,7 @@ export class GeminiCompatibleImageGenerator extends BaseImageGenerator {
         // 构建内容数组
         const contentParts: ContentPart[] = []
 
-        // 添加参考图片（最多 14 张）
+        // 添加Reference Image片（最多 14 张）
         for (let i = 0; i < Math.min(referenceImages.length, 14); i++) {
             const imageData = referenceImages[i]
 
@@ -107,7 +107,7 @@ export class GeminiCompatibleImageGenerator extends BaseImageGenerator {
                         contentParts.push({ inlineData: { mimeType, data } })
                     }
                 } catch (e) {
-                    _ulogWarn(`下载参考图片 ${i + 1} 失败:`, e)
+                    _ulogWarn(`下载Reference Image片 ${i + 1} 失败:`, e)
                 }
             } else {
                 // 纯 base64
@@ -130,7 +130,7 @@ export class GeminiCompatibleImageGenerator extends BaseImageGenerator {
 
         const ctx = getLogContext()
 
-        logErrorCtx(ctx, `[GeminiCompatible] 🔍 使用模型: ${this.modelId}, baseUrl: ${config.baseUrl}`)
+        logErrorCtx(ctx, `[GeminiCompatible] 🔍 使用Model: ${this.modelId}, baseUrl: ${config.baseUrl}`)
 
         // 🔥 请求参数调试日志
         const imagePartsSummary = contentParts
@@ -150,7 +150,7 @@ export class GeminiCompatibleImageGenerator extends BaseImageGenerator {
         }))
 
         try {
-            // 调用 API（使用用户配置的模型名称）
+            // 调用 API（使用用户配置的Model名称）
             const response = await ai.models.generateContent({
                 model: this.modelId,
                 contents: [{ parts: contentParts }],
@@ -198,7 +198,7 @@ export class GeminiCompatibleImageGenerator extends BaseImageGenerator {
             const textParts = parts.filter((part) => typeof part?.text === 'string')
             if (textParts.length > 0) {
                 _ulogWarn(`[GeminiCompatible] 代理返回了文本而非图片: ${textParts[0].text?.substring(0, 100)}...`)
-                throw new Error('代理服务返回了文本而非图片，请检查模型配置')
+                throw new Error('代理服务返回了文本而非图片，请检查Model配置')
             }
 
             // 🔥 详细日志：打印完整响应结构
@@ -244,7 +244,7 @@ export class GeminiCompatibleImageGenerator extends BaseImageGenerator {
                 lowerMessage.includes('sensitive') || lowerMessage.includes('blocked') ||
                 lowerMessage.includes('policy_violation') || lowerMessage.includes('prohibited') ||
                 lowerMessage.includes('moderation') || lowerMessage.includes('harm')) {
-                throw new Error('图片内容可能涉及敏感信息，请修改描述后重试')
+                throw new Error('图片内容可能涉及敏感信息，请修改Description后重试')
             }
 
             // 2. 余额/配额不足
@@ -255,12 +255,12 @@ export class GeminiCompatibleImageGenerator extends BaseImageGenerator {
 
             // 3. 认证错误
             if (lowerMessage.includes('401') || lowerMessage.includes('unauthorized')) {
-                throw new Error('API Key 无效，请检查配置')
+                throw new Error('API Key N/A效，请检查配置')
             }
 
-            // 4. 模型不存在
+            // 4. Model不存在
             if (lowerMessage.includes('404') || lowerMessage.includes('not found')) {
-                throw new Error(`模型 ${this.modelId} 不存在于服务端`)
+                throw new Error(`Model ${this.modelId} 不存在于服务端`)
             }
 
             // 5. 网络错误
@@ -272,10 +272,10 @@ export class GeminiCompatibleImageGenerator extends BaseImageGenerator {
             // 6. Gemini 空响应（代理将其包装为 429，但实际是内容生成失败/被过滤）
             if (lowerMessage.includes('empty_response') || lowerMessage.includes('empty response') ||
                 lowerMessage.includes('no meaningful content')) {
-                throw new Error('Gemini 未返回有效图片，内容可能被过滤或生成失败，请修改描述后重试')
+                throw new Error('Gemini 未返回有效图片，内容可能被过滤或生成失败，请修改Description后重试')
             }
 
-            // 7. 429 限流（排除了已被上面捕获的 empty_response 和 safety 场景）
+            // 7. 429 限流（排除了已被上面捕获的 empty_response 和 safety Scene）
             if (statusCode === 429 || lowerMessage.includes('rate') || lowerMessage.includes('too many request')) {
                 throw new Error('API 请求频率超限，请稍后重试')
             }

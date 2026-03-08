@@ -225,7 +225,7 @@ export async function queryGoogleVideoStatus(operationName: string, apiKey: stri
         if (typeof raiFilteredCount === 'number' && raiFilteredCount > 0) {
             const reasons = Array.isArray(raiFilteredReasons)
                 ? raiFilteredReasons.join(', ')
-                : '未知原因'
+                : 'Unknown原因'
             logInternal('Veo', 'ERROR', `${logPrefix} 视频被 RAI 安全策略过滤`, {
                 operationName,
                 raiFilteredCount,
@@ -252,15 +252,15 @@ export async function queryGoogleVideoStatus(operationName: string, apiKey: stri
             }
 
             // video 对象存在但没有 uri，打印完整结构以便调试
-            logInternal('Veo', 'ERROR', `${logPrefix} generatedVideos[0] 存在但无 video.uri`, {
+            logInternal('Veo', 'ERROR', `${logPrefix} generatedVideos[0] 存在但N/A video.uri`, {
                 operationName,
                 firstVideo: JSON.stringify(first, null, 2),
             })
-            return { status: 'failed', error: 'Veo 视频对象存在但缺少 URI' }
+            return { status: 'failed', error: 'Veo 视频对象存在但missing URI' }
         }
 
         // generatedVideos 为空或不存在，打印完整 response 以便诊断
-        logInternal('Veo', 'ERROR', `${logPrefix} 无 generatedVideos`, {
+        logInternal('Veo', 'ERROR', `${logPrefix} N/A generatedVideos`, {
             operationName,
             responseKeys: Object.keys(responseRecord),
             fullResponse: JSON.stringify(responseRecord, null, 2).substring(0, 2000),

@@ -45,14 +45,14 @@ export function useUpdateProjectCharacterVoiceSettings(projectId: string) {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ characterId, voiceType, voiceId, customVoiceUrl }),
-            }, '更新音色失败')
+            }, '更新Voice失败')
         },
         onSettled: invalidateProjectAssets,
     })
 }
 
 /**
- * 保存 AI 设计音色到角色
+ * 保存 AI 设计Voice到Character
  */
 
 export function useSaveProjectDesignedVoice(projectId: string) {

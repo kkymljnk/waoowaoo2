@@ -51,7 +51,7 @@ export function VoiceCard({ voice, onSelect, isSelected = false, selectionMode =
         setIsPlaying(true)
     }
 
-    // 删除音色
+    // 删除Voice
     const handleDelete = () => {
         deleteVoice.mutate(voice.id, {
             onSettled: () => setShowDeleteConfirm(false)
@@ -81,7 +81,7 @@ export function VoiceCard({ voice, onSelect, isSelected = false, selectionMode =
                 </div>
             )}
 
-            {/* 音色图标区域 */}
+            {/* Voice图标区域 */}
             <div className="relative bg-[var(--glass-bg-muted)] p-6 flex items-center justify-center">
                 <div className="w-16 h-16 rounded-full glass-surface-soft flex items-center justify-center">
                     <AppIcon name="mic" className="w-8 h-8 text-[var(--glass-tone-info-fg)]" />

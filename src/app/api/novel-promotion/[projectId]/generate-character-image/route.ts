@@ -12,7 +12,7 @@ function toObject(value: unknown): Record<string, unknown> {
 
 /**
  * POST /api/novel-promotion/[projectId]/generate-character-image
- * 专门用于后台触发角色图片生成的简化 API
+ * 专门用于后台触发Character图片生成的简化 API
  * 内部调用 generate-image API
  */
 export const POST = apiHandler(async (
@@ -52,11 +52,11 @@ export const POST = apiHandler(async (
         targetAppearanceId = firstAppearance.id
     }
 
-    // 如果设置了 artStyle，需要更新到 novelPromotionProject 中（供 generate-image 使用）
+    // 如果Settings了 artStyle，需要更新到 novelPromotionProject 中（供 generate-image 使用）
     if (artStyle) {
         const novelData = await prisma.novelPromotionProject.findUnique({ where: { projectId } })
         if (novelData) {
-            // 将风格转换为提示词
+            // 将风格转换为Prompt
             const ART_STYLES = [
                 { value: 'american-comic', prompt: '美式漫画风格' },
                 { value: 'chinese-comic', prompt: '精致国漫风格' },

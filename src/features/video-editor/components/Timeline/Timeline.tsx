@@ -214,7 +214,7 @@ export const Timeline: React.FC<TimelineProps> = ({
                 </DndContext>
             </div>
 
-            {/* 配音轨道 (显示附属音频) */}
+            {/* Dubbing轨道 (显示附属音频) */}
             <div style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -279,7 +279,7 @@ export const Timeline: React.FC<TimelineProps> = ({
 }
 
 /**
- * 可拖拽的片段组件
+ * 可拖拽的Clip组件
  */
 interface SortableClipProps {
     clip: VideoClip

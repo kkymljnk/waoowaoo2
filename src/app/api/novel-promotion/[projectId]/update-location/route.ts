@@ -21,7 +21,7 @@ export const POST = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 更新场景描述（移除可能存在的系统后缀，后缀只在生成图片时添加）
+  // 更新SceneDescription（移除可能存在的系统后缀，后缀只在生成图片时添加）
   const cleanDescription = removeLocationPromptSuffix(newDescription.trim())
 
   // 更新 LocationImage 表中对应的记录

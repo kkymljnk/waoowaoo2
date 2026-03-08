@@ -42,7 +42,7 @@ interface AssetHubUploadDb {
 
 /**
  * POST /api/asset-hub/upload-image
- * 上传用户自定义图片作为角色或场景资产
+ * 上传用户自定义图片作为Character或SceneAsset
  */
 export const POST = apiHandler(async (request: NextRequest) => {
     await initializeFonts()

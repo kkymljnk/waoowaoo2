@@ -4,7 +4,7 @@ import { MediaImageWithLoading } from '@/components/media/MediaImageWithLoading'
 
 /**
  * 图片编辑弹窗 - 统一的 AI 修图组件
- * 支持角色和场景图片的 AI 编辑
+ * 支持Character和Scene图片的 AI 编辑
  */
 
 import { useState, useRef } from 'react'

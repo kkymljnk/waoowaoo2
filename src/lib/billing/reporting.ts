@@ -72,7 +72,7 @@ export function buildBillingMeta(params: {
   if (params.metadata?.inputTokens) meta.inputTokens = params.metadata.inputTokens
   if (params.metadata?.outputTokens) meta.outputTokens = params.metadata.outputTokens
 
-  // 实际使用的模型列表（复合模型场景）
+  // 实际使用的Model列表（复合ModelScene）
   if (Array.isArray(params.metadata?.actualModels) && (params.metadata.actualModels as unknown[]).length > 0) {
     meta.actualModels = params.metadata.actualModels
   }
@@ -132,7 +132,7 @@ export async function recordUsageCostOnly(
     },
   })
 
-  _ulogInfo(`[计费] ${params.action} - ${params.model} - ¥${params.cost.toFixed(4)} (已记录${hasProject ? '' : '，无项目归属'})`)
+  _ulogInfo(`[计费] ${params.action} - ${params.model} - ¥${params.cost.toFixed(4)} (已记录${hasProject ? '' : '，N/A项目归属'})`)
 }
 
 export async function getProjectTotalCost(projectId: string): Promise<number> {

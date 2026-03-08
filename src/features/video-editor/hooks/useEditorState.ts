@@ -33,7 +33,7 @@ export function useEditorState({ episodeId, initialProject }: UseEditorStateProp
     const [isDirty, setIsDirty] = useState(false)
 
     // ========================================
-    // 时间轴片段操作
+    // 时间轴Clip操作
     // ========================================
 
     const addClip = useCallback((clip: Omit<VideoClip, 'id'>) => {

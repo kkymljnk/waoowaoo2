@@ -10,7 +10,7 @@ interface TransitionWrapperProps {
 
 /**
  * 转场效果包装器
- * 为片段添加进入/退出动画
+ * 为Clip添加进入/退出动画
  */
 export const TransitionWrapper: React.FC<TransitionWrapperProps> = ({
     type,

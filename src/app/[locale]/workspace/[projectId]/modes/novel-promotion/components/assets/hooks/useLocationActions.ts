@@ -3,8 +3,8 @@ import { logInfo as _ulogInfo, logError as _ulogError } from '@/lib/logging/core
 import { useTranslations } from 'next-intl'
 
 /**
- * useLocationActions - 场景资产操作 Hook
- * 从 AssetsStage 提取，负责场景的 CRUD 和图片生成操作
+ * useLocationActions - SceneAsset操作 Hook
+ * 从 AssetsStage 提取，负责Scene的 CRUD 和图片生成操作
  * 
  * 🔥 V6.5 重构：直接订阅 useProjectAssets，消除 props drilling
  */
@@ -56,7 +56,7 @@ export function useLocationActions({
     const confirmLocationSelectionMutation = useConfirmProjectLocationSelection(projectId)
     const updateLocationDescriptionMutation = useUpdateProjectLocationDescription(projectId)
 
-    // 删除场景
+    // 删除Scene
     const handleDeleteLocation = useCallback(async (locationId: string) => {
         if (!confirm(t('location.deleteConfirm'))) return
         try {
@@ -68,7 +68,7 @@ export function useLocationActions({
         }
     }, [deleteLocationMutation, t])
 
-    // 处理场景图片选择
+    // 处理Scene图片选择
     const handleSelectLocationImage = useCallback(async (locationId: string, imageIndex: number | null) => {
         try {
             await selectLocationImageMutation.mutateAsync({ locationId, imageIndex })
@@ -95,7 +95,7 @@ export function useLocationActions({
         }
     }, [confirmLocationSelectionMutation, showToast, t])
 
-    // 单张重新生成场景图片 - 🔥 V6.7: 使用mutation hook
+    // 单张重新生成Scene图片 - 🔥 V6.7: 使用mutation hook
     const handleRegenerateSingleLocation = useCallback((locationId: string, imageIndex: number) => {
         regenerateSingleImage.mutate(
             { locationId, imageIndex },
@@ -109,7 +109,7 @@ export function useLocationActions({
         )
     }, [regenerateSingleImage, t])
 
-    // 整组重新生成场景图片 - 🔥 V6.7: 使用mutation hook
+    // 整组重新生成Scene图片 - 🔥 V6.7: 使用mutation hook
     const handleRegenerateLocationGroup = useCallback((locationId: string) => {
         regenerateGroup.mutate(
             { locationId },
@@ -123,7 +123,7 @@ export function useLocationActions({
         )
     }, [regenerateGroup, t])
 
-    // 更新场景描述 - 🔥 保存到服务器
+    // 更新SceneDescription - 🔥 保存到服务器
     const handleUpdateLocationDescription = useCallback(async (
         locationId: string,
         newDescription: string
@@ -136,7 +136,7 @@ export function useLocationActions({
             refreshAssets()
         } catch (error: unknown) {
             if (!isAbortError(error)) {
-                _ulogError('更新描述失败:', getErrorMessage(error, t('common.unknownError')))
+                _ulogError('更新Description失败:', getErrorMessage(error, t('common.unknownError')))
             }
         }
     }, [refreshAssets, updateLocationDescriptionMutation, t])

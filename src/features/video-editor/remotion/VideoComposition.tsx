@@ -92,7 +92,7 @@ const BgmRenderer: React.FC<BgmRendererProps> = ({ bgm }) => {
 }
 
 /**
- * 单个片段渲染器 - 支持转场效果
+ * 单个Clip渲染器 - 支持转场效果
  */
 interface ClipRendererProps {
     clip: VideoClip & { startFrame: number; endFrame: number }
@@ -118,7 +118,7 @@ const ClipRenderer: React.FC<ClipRendererProps> = ({
     let transform = 'none'
 
     if (transitionType !== 'none' && transitionDuration > 0) {
-        // 出场转场效果 (在片段末尾)
+        // 出场转场效果 (在Clip末尾)
         if (!isLastClip && frame > clipDuration - transitionDuration) {
             const exitProgress = interpolate(
                 frame,
@@ -138,7 +138,7 @@ const ClipRenderer: React.FC<ClipRendererProps> = ({
             }
         }
 
-        // 入场转场效果 (在片段开头)
+        // 入场转场效果 (在Clip开头)
         if (frame < transitionDuration) {
             const enterProgress = interpolate(
                 frame,
@@ -172,7 +172,7 @@ const ClipRenderer: React.FC<ClipRendererProps> = ({
                 }}
             />
 
-            {/* 附属配音 */}
+            {/* 附属Dubbing */}
             {clip.attachment?.audio && (
                 <Audio
                     src={clip.attachment.audio.src}

@@ -2,12 +2,12 @@
 
 /**
  * ModelCapabilityDropdown - 方案 A 经典分区式
- * 自定义下拉组件：上半区选模型，分割线，下半区配参数
- * 触发器显示模型名 + provider + 参数摘要
+ * 自定义下拉组件：上半区选Model，分割线，下半区配参数
+ * 触发器显示Model名 + provider + 参数摘要
  *
  * 用于：
  *  - 项目配置中心 (ConfigEditModal / SettingsModal)
- *  - 系统级设置中心 (ApiConfigTabContainer)
+ *  - 系统级Settings中心 (ApiConfigTabContainer)
  */
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'

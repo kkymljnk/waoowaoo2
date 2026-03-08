@@ -7,7 +7,7 @@ import { requireProjectAuthLight, isErrorResponse } from '@/lib/api-auth'
 import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
- * POST - 选择角色形象的图片
+ * POST - 选择CharacterAppearance的图片
  * 直接更新独立的 CharacterAppearance 表
  */
 export const POST = apiHandler(async (
@@ -48,7 +48,7 @@ export const POST = apiHandler(async (
 
   const selectedImageKey = selectedIndex !== null ? imageUrls[selectedIndex] : null
 
-  // 直接更新独立记录（无并发风险）
+  // 直接更新独立记录（N/A并发风险）
   await prisma.characterAppearance.update({
     where: { id: appearance.id },
     data: {
@@ -58,9 +58,9 @@ export const POST = apiHandler(async (
   })
 
   if (selectedIndex !== null) {
-    _ulogInfo(`✓ 角色 ${appearance.character.name} 形象 ${appearanceId}: 选择了索引 ${selectedIndex}`)
+    _ulogInfo(`✓ Character ${appearance.character.name} Appearance ${appearanceId}: 选择了索引 ${selectedIndex}`)
   } else {
-    _ulogInfo(`✓ 角色 ${appearance.character.name} 形象 ${appearanceId}: 取消选择`)
+    _ulogInfo(`✓ Character ${appearance.character.name} Appearance ${appearanceId}: 取消选择`)
   }
 
   const signedUrl = selectedImageKey ? getSignedUrl(selectedImageKey, 7 * 24 * 3600) : null

@@ -4,7 +4,7 @@ import { requireProjectAuth, isErrorResponse } from '@/lib/api-auth'
 import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
- * GET - 获取项目的所有剧集
+ * GET - 获取项目的所有Episode
  */
 export const GET = apiHandler(async (
   request: NextRequest,
@@ -26,7 +26,7 @@ export const GET = apiHandler(async (
 })
 
 /**
- * POST - 创建新剧集
+ * POST - 创建新Episode
  */
 export const POST = apiHandler(async (
   request: NextRequest,
@@ -46,14 +46,14 @@ export const POST = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 获取下一个剧集编号
+  // 获取下一个Episode编号
   const lastEpisode = await prisma.novelPromotionEpisode.findFirst({
     where: { novelPromotionProjectId: novelData.id },
     orderBy: { episodeNumber: 'desc' }
   })
   const nextEpisodeNumber = (lastEpisode?.episodeNumber || 0) + 1
 
-  // 创建剧集
+  // 创建Episode
   const episode = await prisma.novelPromotionEpisode.create({
     data: {
       novelPromotionProjectId: novelData.id,
@@ -63,7 +63,7 @@ export const POST = apiHandler(async (
     }
   })
 
-  // 更新最后编辑的剧集ID
+  // 更新最后编辑的EpisodeID
   await prisma.novelPromotionProject.update({
     where: { id: novelData.id },
     data: { lastEpisodeId: episode.id }

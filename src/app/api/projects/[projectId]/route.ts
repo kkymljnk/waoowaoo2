@@ -100,19 +100,19 @@ async function collectProjectCOSKeys(projectId: string): Promise<string[]> {
   const novelPromotion = await prisma.novelPromotionProject.findUnique({
     where: { projectId },
     include: {
-      // 角色及其形象图片
+      // Character及其Appearance图片
       characters: {
         include: {
           appearances: true
         }
       },
-      // 场景及其图片
+      // Scene及其图片
       locations: {
         include: {
           images: true
         }
       },
-      // 剧集（包含音频、分镜等）
+      // Episode（包含音频、Storyboard等）
       episodes: {
         include: {
           storyboards: {
@@ -127,7 +127,7 @@ async function collectProjectCOSKeys(projectId: string): Promise<string[]> {
 
   if (!novelPromotion) return keys
 
-  // 1. 收集角色形象图片
+  // 1. 收集CharacterAppearance图片
   for (const character of novelPromotion.characters) {
     for (const appearance of character.appearances) {
       const key = await resolveStorageKeyFromMediaValue(appearance.imageUrl)
@@ -135,7 +135,7 @@ async function collectProjectCOSKeys(projectId: string): Promise<string[]> {
     }
   }
 
-  // 2. 收集场景图片
+  // 2. 收集Scene图片
   for (const location of novelPromotion.locations) {
     for (const image of location.images) {
       const key = await resolveStorageKeyFromMediaValue(image.imageUrl)
@@ -143,15 +143,15 @@ async function collectProjectCOSKeys(projectId: string): Promise<string[]> {
     }
   }
 
-  // 3. 收集剧集相关文件
+  // 3. 收集Episode相关文件
   for (const episode of novelPromotion.episodes) {
     // 音频文件
     const audioKey = await resolveStorageKeyFromMediaValue(episode.audioUrl)
     if (audioKey) keys.push(audioKey)
 
-    // 分镜图片
+    // Storyboard图片
     for (const storyboard of episode.storyboards) {
-      // 分镜整体图
+      // Storyboard整体图
       const sbKey = await resolveStorageKeyFromMediaValue(storyboard.storyboardImageUrl)
       if (sbKey) keys.push(sbKey)
 

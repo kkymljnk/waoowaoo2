@@ -146,7 +146,7 @@ export function useGenerateProjectCharacterImage(projectId: string) {
 }
 
 /**
- * 上传项目角色图片
+ * 上传项目Character图片
  */
 
 export function useUploadProjectCharacterImage(projectId: string) {
@@ -182,7 +182,7 @@ export function useUploadProjectCharacterImage(projectId: string) {
 }
 
 /**
- * 选择项目角色图片
+ * 选择项目Character图片
  */
 
 export function useSelectProjectCharacterImage(projectId: string) {
@@ -254,7 +254,7 @@ export function useSelectProjectCharacterImage(projectId: string) {
 }
 
 /**
- * 撤回项目角色图片
+ * 撤回项目Character图片
  */
 
 export function useUndoProjectCharacterImage(projectId: string) {
@@ -279,7 +279,7 @@ export function useUndoProjectCharacterImage(projectId: string) {
 }
 
 /**
- * 删除项目角色
+ * 删除项目Character
  */
 
 export function useDeleteProjectCharacter(projectId: string) {
@@ -327,7 +327,7 @@ export function useDeleteProjectCharacter(projectId: string) {
 }
 
 /**
- * 删除项目角色形象
+ * 删除项目CharacterAppearance
  */
 
 export function useDeleteProjectAppearance(projectId: string) {
@@ -348,7 +348,7 @@ export function useDeleteProjectAppearance(projectId: string) {
 }
 
 /**
- * 更新项目角色名字
+ * 更新项目Character名字
  */
 
 export function useUpdateProjectCharacterName(projectId: string) {

@@ -25,7 +25,7 @@ export function DefaultModelSection({
 }: DefaultModelSectionProps) {
     const t = useTranslations('apiConfig')
 
-    // 只显示已启用的模型
+    // 只显示已启用的Model
     const enabledModels = models.filter(m => m.enabled)
 
     if (enabledModels.length === 0) {

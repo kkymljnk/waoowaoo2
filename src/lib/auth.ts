@@ -10,7 +10,7 @@ export const authOptions: any = {
   // 🔥 允许从任意 Host 访问（解决局域网访问问题）
   trustHost: true,
   // 🔥 根据 URL 协议决定是否使用 Secure Cookie
-  // 局域网 HTTP 访问时需要关闭，否则 Cookie 无法设置
+  // 局域网 HTTP 访问时需要关闭，否则 Cookie N/A法Settings
   useSecureCookies: (process.env.NEXTAUTH_URL || '').startsWith('https://'),
   providers: [
     CredentialsProvider({

@@ -43,7 +43,7 @@ interface GeminiBatchClient {
  * 使用 ai.batches.create() 方法提交批量任务
  * 
  * @param apiKey Google AI API Key
- * @param prompt 图片生成提示词
+ * @param prompt 图片生成Prompt
  * @param options 生成选项
  * @returns 返回 batchName（如 batches/xxx）用于后续查询
  */
@@ -70,7 +70,7 @@ export async function submitGeminiBatch(
     // 构建 content parts
     const contentParts: UnknownRecord[] = []
 
-    // 添加参考图片（最多 14 张）
+    // 添加Reference Image片（最多 14 张）
     const referenceImages = options?.referenceImages || []
     for (let i = 0; i < Math.min(referenceImages.length, 14); i++) {
       const imageData = referenceImages[i]
@@ -100,7 +100,7 @@ export async function submitGeminiBatch(
             contentParts.push({ inlineData: { mimeType, data } })
           }
         } catch (e: unknown) {
-          logInternal('GeminiBatch', 'WARN', `下载参考图片 ${i + 1} 失败`, { error: getErrorMessage(e) })
+          logInternal('GeminiBatch', 'WARN', `下载Reference Image片 ${i + 1} 失败`, { error: getErrorMessage(e) })
         }
       } else {
         // 纯 base64

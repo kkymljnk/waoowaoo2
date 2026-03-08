@@ -4,9 +4,9 @@ import { Project } from '@/types/project'
 
 /**
  * 刷新范围
- * - all: 刷新项目数据 + 资产数据
+ * - all: 刷新项目数据 + Asset数据
  * - project: 只刷新项目数据
- * - assets: 只刷新资产数据
+ * - assets: 只刷新Asset数据
  */
 export type RefreshScope = 'all' | 'project' | 'assets'
 
@@ -21,8 +21,8 @@ export type RefreshMode = 'full' | 'silent'
  * 刷新选项
  */
 export interface RefreshOptions {
-  scope?: RefreshScope    // 默认 'all'
-  mode?: RefreshMode      // 默认 'silent'
+  scope?: RefreshScope    // Default 'all'
+  mode?: RefreshMode      // Default 'silent'
 }
 
 /**
@@ -43,13 +43,13 @@ export function useProject(projectId: string) {
   /**
    * 🔥 统一刷新函数
    * 
-   * @param options.scope - 刷新范围：'all' | 'project' | 'assets'，默认 'all'
-   * @param options.mode - 刷新模式：'full' | 'silent'，默认 'silent'
+   * @param options.scope - 刷新范围：'all' | 'project' | 'assets'，Default 'all'
+   * @param options.mode - 刷新模式：'full' | 'silent'，Default 'silent'
    * 
    * 调用示例：
    * - refresh()                        → 静默刷新全部（最常用）
-   * - refresh({ scope: 'assets' })     → 只刷新资产
-   * - refresh({ scope: 'project' })    → 只刷新项目（不刷资产）
+   * - refresh({ scope: 'assets' })     → 只刷新Asset
+   * - refresh({ scope: 'project' })    → 只刷新项目（不刷Asset）
    * - refresh({ mode: 'full' })        → 完整刷新带 loading
    */
   const refresh = useCallback(async (options: RefreshOptions = {}) => {
@@ -61,7 +61,7 @@ export function useProject(projectId: string) {
       setError(null)
     }
 
-    // 资产刷新时显示 assetsLoading
+    // Asset刷新时显示 assetsLoading
     if (scope === 'assets') {
       setAssetsLoading(true)
     }
@@ -77,13 +77,13 @@ export function useProject(projectId: string) {
         const data = await res.json()
         setProject(data.project)
 
-        // 完整刷新时重置资产加载状态
+        // 完整刷新时重置Asset加载状态
         if (mode === 'full') {
           setAssetsLoaded(false)
         }
       }
 
-      // 刷新资产数据
+      // 刷新Asset数据
       if (scope === 'all' || scope === 'assets') {
         const res = await fetch(`/api/projects/${projectId}/assets`)
         if (res.ok) {
@@ -107,7 +107,7 @@ export function useProject(projectId: string) {
       if (mode === 'full') {
         setError(getErrorMessage(err))
       }
-      // 静默刷新不设置错误状态，避免干扰用户
+      // 静默刷新不Settings错误状态，避免干扰用户
     } finally {
       if (mode === 'full') {
         setLoading(false)

@@ -33,7 +33,7 @@ export const POST = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 在 API route 中同步创建 panel（无图片），确保新 panel 立即存在于数据库，
+  // 在 API route 中同步创建 panel（N/A图片），确保新 panel 立即存在于数据库，
   // 避免乐观更新与 worker 之间的状态真空期
   const sourcePanel = await prisma.novelPromotionPanel.findUnique({ where: { id: sourcePanelId } })
   if (!sourcePanel) {

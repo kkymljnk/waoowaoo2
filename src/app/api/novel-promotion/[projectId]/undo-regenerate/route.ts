@@ -93,7 +93,7 @@ export const POST = apiHandler(async (
     if (type === 'character') {
         // 🔒 验证 appearanceId 是有效的 UUID
         if (!appearanceId || !isValidUUID(appearanceId)) {
-            _ulogError(`[undo-regenerate] 收到无效的 appearanceId: ${appearanceId} (类型: ${typeof appearanceId})`)
+            _ulogError(`[undo-regenerate] 收到N/A效的 appearanceId: ${appearanceId} (类型: ${typeof appearanceId})`)
             throw new ApiError('INVALID_PARAMS')
         }
         return await undoCharacterRegenerate(db, appearanceId)
@@ -107,7 +107,7 @@ export const POST = apiHandler(async (
 })
 
 async function undoCharacterRegenerate(db: UndoRegenerateDb, appearanceId: string) {
-    // 使用 UUID 直接查询形象
+    // 使用 UUID 直接查询Appearance
     const appearance = await db.characterAppearance.findUnique({
         where: { id: appearanceId },
         include: { character: true }
@@ -148,7 +148,7 @@ async function undoCharacterRegenerate(db: UndoRegenerateDb, appearanceId: strin
                 previousImageUrl: null,
                 previousImageUrls: encodeImageUrls([]),
                 selectedIndex: null,
-                // 🔥 同时恢复描述词
+                // 🔥 同时恢复Description词
                 description: appearance.previousDescription ?? appearance.description,
                 descriptions: appearance.previousDescriptions ?? appearance.descriptions,
                 previousDescription: null,
@@ -159,12 +159,12 @@ async function undoCharacterRegenerate(db: UndoRegenerateDb, appearanceId: strin
 
     return NextResponse.json({
         success: true,
-        message: '已撤回到上一版本（图片和描述词）'
+        message: '已撤回到上一版本（图片和Description词）'
     })
 }
 
 async function undoLocationRegenerate(db: UndoRegenerateDb, locationId: string) {
-    // 获取场景和图片
+    // 获取Scene和图片
     const location = await db.novelPromotionLocation.findUnique({
         where: { id: locationId },
         include: { images: { orderBy: { imageIndex: 'asc' } } }
@@ -191,13 +191,13 @@ async function undoLocationRegenerate(db: UndoRegenerateDb, locationId: string) 
                         if (storageKey) await deleteCOSObject(storageKey)
                     } catch { }
                 }
-                // 恢复上一版本（图片 + 描述词）
+                // 恢复上一版本（图片 + Description词）
                 await tx.locationImage.update({
                     where: { id: img.id },
                     data: {
                         imageUrl: img.previousImageUrl,
                         previousImageUrl: null,
-                        // 🔥 同时恢复描述词
+                        // 🔥 同时恢复Description词
                         description: img.previousDescription ?? img.description,
                         previousDescription: null
                     }
@@ -208,15 +208,15 @@ async function undoLocationRegenerate(db: UndoRegenerateDb, locationId: string) 
 
     return NextResponse.json({
         success: true,
-        message: '已撤回到上一版本（图片和描述词）'
+        message: '已撤回到上一版本（图片和Description词）'
     })
 }
 
 /**
- * 撤回 Panel 镜头图片到上一版本
+ * 撤回 Panel Shot图片到上一版本
  */
 async function undoPanelRegenerate(db: UndoRegenerateDb, panelId: string) {
-    // 获取镜头
+    // 获取Shot
     const panel = await db.novelPromotionPanel.findUnique({
         where: { id: panelId }
     })
@@ -250,6 +250,6 @@ async function undoPanelRegenerate(db: UndoRegenerateDb, panelId: string) {
 
     return NextResponse.json({
         success: true,
-        message: '镜头图片已撤回到上一版本'
+        message: 'Shot图片已撤回到上一版本'
     })
 }

@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma'
 import { requireUserAuth, isErrorResponse } from '@/lib/api-auth'
 import { ApiError, apiHandler } from '@/lib/api-errors'
 
-// 删除音色
+// 删除Voice
 export const DELETE = apiHandler(async (
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
@@ -34,7 +34,7 @@ export const DELETE = apiHandler(async (
     return NextResponse.json({ success: true })
 })
 
-// 更新音色
+// 更新Voice
 export const PATCH = apiHandler(async (
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }

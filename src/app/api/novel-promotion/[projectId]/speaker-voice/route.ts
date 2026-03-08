@@ -13,7 +13,7 @@ interface SpeakerVoiceConfig {
 
 /**
  * GET /api/novel-promotion/[projectId]/speaker-voice?episodeId=xxx
- * 获取剧集的发言人音色配置
+ * 获取Episode的发言人Voice配置
  */
 export const GET = apiHandler(async (
   request: NextRequest,
@@ -31,7 +31,7 @@ export const GET = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 获取剧集
+  // 获取Episode
   const episode = await prisma.novelPromotionEpisode.findUnique({
     where: { id: episodeId }
   })
@@ -40,7 +40,7 @@ export const GET = apiHandler(async (
     throw new ApiError('NOT_FOUND')
   }
 
-  // 解析发言人音色
+  // 解析发言人Voice
   let speakerVoices: Record<string, SpeakerVoiceConfig> = {}
   if (episode.speakerVoices) {
     try {
@@ -61,8 +61,8 @@ export const GET = apiHandler(async (
 
 /**
  * PATCH /api/novel-promotion/[projectId]/speaker-voice
- * 为指定发言人直接设置音色（写入 episode.speakerVoices JSON）
- * 用于不在资产库中的角色在配音阶段内联绑定音色
+ * 为指定发言人直接SettingsVoice（写入 episode.speakerVoices JSON）
+ * 用于不在Asset Library中的Character在Dubbing阶段内联绑定Voice
  */
 export const PATCH = apiHandler(async (
   request: NextRequest,
@@ -117,7 +117,7 @@ export const PATCH = apiHandler(async (
   }
 
   // 将前端传来的 audioUrl（可能是 /m/m_xxx 媒体路由）还原为原始 storageKey
-  // 保证与资产库角色的 customVoiceUrl 格式一致，Worker 端能正确处理
+  // 保证与Asset LibraryCharacter的 customVoiceUrl 格式一致，Worker 端能正确处理
   const resolvedStorageKey = await resolveStorageKeyFromMediaValue(audioUrl)
   const audioUrlToStore = resolvedStorageKey || audioUrl
 

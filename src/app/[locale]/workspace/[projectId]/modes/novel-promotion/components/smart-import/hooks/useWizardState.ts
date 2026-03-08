@@ -54,7 +54,7 @@ export function useWizardState({ projectId, importStatus, onImportComplete, t }:
         setStage('preview')
       }
     } catch (err) {
-      _ulogError('[SmartImport] 加载已保存剧集失败:', err)
+      _ulogError('[SmartImport] 加载已保存Episode失败:', err)
     }
   }, [listProjectEpisodesMutation, t])
 
@@ -91,7 +91,7 @@ export function useWizardState({ projectId, importStatus, onImportComplete, t }:
         _ulogWarn('[SmartImport] 自动保存失败，继续显示预览')
       }
       if (saveSucceeded) {
-        _ulogInfo('[SmartImport] 剧集已自动保存到数据库，状态：pending')
+        _ulogInfo('[SmartImport] Episode已自动保存到数据库，状态：pending')
       }
 
       setStage('preview')
@@ -127,7 +127,7 @@ export function useWizardState({ projectId, importStatus, onImportComplete, t }:
       return
     }
 
-    _ulogInfo('[SmartImport] 未检测到标记，将使用 AI 分析')
+    _ulogInfo('[SmartImport] 未检测到标记，将使用 AI Analysis')
     await performAISplit()
   }, [performAISplit, projectId, rawContent, t])
 
@@ -159,7 +159,7 @@ export function useWizardState({ projectId, importStatus, onImportComplete, t }:
         _ulogWarn('[SmartImport] 标记分割保存失败，继续显示预览')
       }
       if (saveSucceeded) {
-        _ulogInfo('[SmartImport] 标记分割剧集已保存')
+        _ulogInfo('[SmartImport] 标记分割Episode已保存')
       }
 
       setStage('preview')
@@ -241,7 +241,7 @@ export function useWizardState({ projectId, importStatus, onImportComplete, t }:
         triggerGlobalAnalysis,
       })
 
-      _ulogInfo('[SmartImport] 剧集已保存到数据库，状态：completed, 触发全局分析:', triggerGlobalAnalysis)
+      _ulogInfo('[SmartImport] Episode已保存到数据库，状态：completed, 触发全局Analysis:', triggerGlobalAnalysis)
       onImportComplete(episodes, triggerGlobalAnalysis)
     } catch (err: unknown) {
       _ulogError('[SmartImport] 保存失败:', err)

@@ -14,7 +14,7 @@ function toObject(value: unknown): Record<string, unknown> {
     return value as Record<string, unknown>
 }
 
-// 获取用户所有角色（支持 folderId 筛选）
+// 获取用户所有Character（支持 folderId 筛选）
 export const GET = apiHandler(async (request: NextRequest) => {
     // 🔐 统一权限验证
     const authResult = await requireUserAuth()
@@ -44,7 +44,7 @@ export const GET = apiHandler(async (request: NextRequest) => {
     return NextResponse.json({ characters: signedCharacters })
 })
 
-// 新建角色
+// 新建Character
 export const POST = apiHandler(async (request: NextRequest) => {
     // 🔐 统一权限验证
     const authResult = await requireUserAuth()
@@ -96,13 +96,13 @@ export const POST = apiHandler(async (request: NextRequest) => {
         }
     })
 
-    const descText = description?.trim() || `${name.trim()} 的角色设定`
+    const descText = description?.trim() || `${name.trim()} 的Character设定`
     const imageMedia = await resolveMediaRefFromLegacyValue(initialImageUrl || null)
     const appearance = await prisma.globalCharacterAppearance.create({
         data: {
             characterId: character.id,
             appearanceIndex: PRIMARY_APPEARANCE_INDEX,
-            changeReason: '初始形象',
+            changeReason: 'Initial appearance',
             description: descText,
             descriptions: JSON.stringify([descText]),
             imageUrl: initialImageUrl || null,

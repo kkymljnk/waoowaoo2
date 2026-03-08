@@ -161,9 +161,9 @@ export function parsePanelCharacterReferences(value: string | null | undefined):
 }
 
 /**
- * 按角色名查找角色（支持别名匹配）
+ * 按Character名查找Character（支持别名匹配）
  * 优先级：1. 精确全名匹配  2. 按 '/' 拆分后别名精确匹配
- * 例：引用名 "顾娘子" 可匹配角色 "顾娘子/顾盼之"
+ * 例：引用名 "顾娘子" 可匹配Character "顾娘子/顾盼之"
  */
 export function findCharacterByName<T extends { name: string }>(characters: T[], referenceName: string): T | undefined {
   const refLower = referenceName.toLowerCase().trim()

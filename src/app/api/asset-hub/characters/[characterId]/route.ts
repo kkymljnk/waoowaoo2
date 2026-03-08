@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma'
 import { requireUserAuth, isErrorResponse } from '@/lib/api-auth'
 import { ApiError, apiHandler } from '@/lib/api-errors'
 
-// 获取单个角色
+// 获取单个Character
 export const GET = apiHandler(async (
     request: NextRequest,
     context: { params: Promise<{ characterId: string }> }
@@ -27,7 +27,7 @@ export const GET = apiHandler(async (
     return NextResponse.json({ character })
 })
 
-// 更新角色
+// 更新Character
 export const PATCH = apiHandler(async (
     request: NextRequest,
     context: { params: Promise<{ characterId: string }> }
@@ -80,7 +80,7 @@ export const PATCH = apiHandler(async (
     return NextResponse.json({ success: true, character: updatedCharacter })
 })
 
-// 删除角色
+// 删除Character
 export const DELETE = apiHandler(async (
     request: NextRequest,
     context: { params: Promise<{ characterId: string }> }

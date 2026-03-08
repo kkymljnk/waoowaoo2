@@ -13,11 +13,11 @@ export function migrateProjectData(data: unknown): VideoEditorProject {
 
     switch (version) {
         case '1.0':
-            // 当前最新版本，无需迁移
+            // 当前最新版本，N/A需迁移
             return project as unknown as VideoEditorProject
 
         default:
-            // 未知版本或无版本，尝试作为 1.0 处理
+            // Unknown版本或N/A版本，尝试作为 1.0 处理
             _ulogWarn(`Unknown schema version: ${version}, treating as 1.0`)
             return {
                 ...project,

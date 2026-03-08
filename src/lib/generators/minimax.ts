@@ -2,7 +2,7 @@ import { logInfo as _ulogInfo, logError as _ulogError } from '@/lib/logging/core
 /**
  * MiniMax (海螺) 视频生成器
  * 
- * 支持模型：
+ * 支持Model：
  * 视频：MiniMax-Hailuo-2.3, MiniMax-Hailuo-2.3-Fast, MiniMax-Hailuo-02, T2V-01, T2V-01-Director
  */
 
@@ -292,14 +292,14 @@ export class MinimaxVideoGenerator extends BaseVideoGenerator {
 
             // 检查响应
             if (data.base_resp?.status_code !== 0) {
-                const errMsg = data.base_resp?.status_msg || '未知错误'
+                const errMsg = data.base_resp?.status_msg || 'Unknown错误'
                 _ulogError(`${logPrefix} 任务提交失败:`, errMsg)
                 throw new Error(`MiniMax: ${errMsg}`)
             }
 
             const taskId = data.task_id
             if (!taskId) {
-                _ulogError(`${logPrefix} 响应中缺少 task_id:`, data)
+                _ulogError(`${logPrefix} 响应中missing task_id:`, data)
                 throw new Error('MiniMax未返回task_id')
             }
 

@@ -3,7 +3,7 @@ import { logError as _ulogError } from '@/lib/logging/core'
 import { useTranslations } from 'next-intl'
 
 /**
- * useTTSGeneration - TTS 和音色相关逻辑
+ * useTTSGeneration - TTS 和Voice相关逻辑
  * 从 AssetsStage.tsx 提取
  * 
  * 🔥 V6.5 重构：直接订阅 useProjectAssets，消除 props drilling
@@ -51,7 +51,7 @@ export function useTTSGeneration({
 
     const [voiceDesignCharacter, setVoiceDesignCharacter] = useState<VoiceDesignCharacter | null>(null)
 
-    // 音色变更回调 - 🔥 保存到服务器而不是本地更新
+    // Voice变更回调 - 🔥 保存到服务器而不是本地更新
     const handleVoiceChange = async (characterId: string, voiceType: string, voiceId: string, customVoiceUrl?: string) => {
         try {
             await updateVoiceSettingsMutation.mutateAsync({
@@ -64,11 +64,11 @@ export function useTTSGeneration({
             // 🔥 刷新缓存
             refreshAssets()
         } catch (error: unknown) {
-            _ulogError('更新音色失败:', getErrorMessage(error, t('common.unknownError')))
+            _ulogError('更新Voice失败:', getErrorMessage(error, t('common.unknownError')))
         }
     }
 
-    // 打开 AI 声音设计对话框
+    // 打开 AI Sound设计对话框
     const handleOpenVoiceDesign = (characterId: string, characterName: string) => {
         const character = characters.find(c => c.id === characterId)
         setVoiceDesignCharacter({
@@ -78,7 +78,7 @@ export function useTTSGeneration({
         })
     }
 
-    // 保存 AI 设计的声音
+    // 保存 AI 设计的Sound
     const handleVoiceDesignSave = async (voiceId: string, audioBase64: string) => {
         if (!voiceDesignCharacter) return
 
@@ -97,7 +97,7 @@ export function useTTSGeneration({
         }
     }
 
-    // 关闭声音设计对话框
+    // 关闭Sound设计对话框
     const handleCloseVoiceDesign = () => {
         setVoiceDesignCharacter(null)
     }

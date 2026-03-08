@@ -71,7 +71,7 @@ export default function EmbeddedVoiceToolbar({
                     {t("embedded.linesStats", { total: totalLines, audio: linesWithAudio })}
                 </div>
 
-                {/* 重新分析按钮 */}
+                {/* 重新Analysis按钮 */}
                 <button
                     onClick={onAnalyze}
                     disabled={analyzing}

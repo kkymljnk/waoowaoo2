@@ -5,7 +5,7 @@ import { apiHandler, ApiError } from '@/lib/api-errors'
 
 /**
  * GET /api/novel-promotion/[projectId]/editor
- * 获取剧集的编辑器项目数据
+ * 获取Episode的编辑器项目数据
  */
 export const GET = apiHandler(async (
     request: NextRequest,
@@ -63,7 +63,7 @@ export const PUT = apiHandler(async (
         throw new ApiError('INVALID_PARAMS')
     }
 
-    // 验证剧集存在
+    // 验证Episode存在
     const episode = await prisma.novelPromotionEpisode.findFirst({
         where: {
             id: episodeId,

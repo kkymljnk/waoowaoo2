@@ -161,7 +161,7 @@ async function createVideoViaFetchFallback(
 }
 
 /**
- * 判断是否为端点不支持的错误（404/405/500 无 body 等）
+ * 判断是否为端点不支持的错误（404/405/500 N/A body 等）
  */
 function isEndpointUnsupportedError(error: unknown): boolean {
   if (!(error instanceof Error)) return false

@@ -2,8 +2,8 @@
  * API 配置读取器（配置中心严格模式）
  *
  * 规则：
- * 1) 模型唯一键必须是 provider::modelId
- * 2) 禁止 provider 猜测、静态映射、默认降级
+ * 1) Model唯一键必须是 provider::modelId
+ * 2) 禁止 provider 猜测、静态映射、Default降级
  * 3) 运行时只从配置中心读取 provider 与密钥
  */
 
@@ -225,7 +225,7 @@ function findModelByKey(models: CustomModel[], modelKey: string): CustomModel | 
 }
 
 /**
- * 提取提供商主键（用于多实例场景，如 gemini-compatible:uuid）
+ * 提取提供商主键（用于多实例Scene，如 gemini-compatible:uuid）
  */
 export function getProviderKey(providerId?: string): string {
   if (!providerId) return ''
@@ -234,7 +234,7 @@ export function getProviderKey(providerId?: string): string {
 }
 
 /**
- * 统一模型选择解析（严格模式）
+ * 统一Model选择解析（严格模式）
  */
 export async function resolveModelSelection(
   userId: string,
@@ -279,7 +279,7 @@ async function resolveSingleModelSelection(
 }
 
 /**
- * 统一模型选择解析（允许显式 model_key；未传时仅允许单模型）
+ * 统一Model选择解析（允许显式 model_key；未传时仅允许单Model）
  */
 export async function resolveModelSelectionOrSingle(
   userId: string,
@@ -299,7 +299,7 @@ export async function resolveModelSelectionOrSingle(
  * 返回 provider 的完整连接信息（apiKey 已解密）。
  * baseUrl 和 apiMode 为可选——不同 provider 需求不同，由调用方自行校验。
  *
- * ⚠️ 调用方必须先通过 resolveModelSelection 校验模型归属，
+ * ⚠️ 调用方必须先通过 resolveModelSelection 校验Model归属，
  * 再使用 selection.provider 调用本函数，禁止直接传入未校验的 providerId。
  */
 export interface ProviderConfig {
@@ -328,7 +328,7 @@ export async function getProviderConfig(userId: string, providerId: string): Pro
 }
 
 /**
- * 获取用户自定义模型列表
+ * 获取用户自定义Model列表
  */
 export async function getUserModels(userId: string): Promise<CustomModel[]> {
   const { models } = await readUserConfig(userId)
@@ -336,7 +336,7 @@ export async function getUserModels(userId: string): Promise<CustomModel[]> {
 }
 
 /**
- * 获取模型关联 provider
+ * 获取Model关联 provider
  */
 export async function getModelProvider(userId: string, model: string): Promise<string | null> {
   const { models } = await readUserConfig(userId)
@@ -345,7 +345,7 @@ export async function getModelProvider(userId: string, model: string): Promise<s
 }
 
 /**
- * 获取指定类型模型列表
+ * 获取指定类型Model列表
  */
 export async function getModelsByType(userId: string, type: ModelMediaType): Promise<CustomModel[]> {
   const models = await getUserModels(userId)
@@ -353,7 +353,7 @@ export async function getModelsByType(userId: string, type: ModelMediaType): Pro
 }
 
 /**
- * 解析模型 ID（严格从 model_key 提取）
+ * 解析Model ID（严格从 model_key 提取）
  */
 export async function resolveModelId(userId: string, model: string): Promise<string> {
   const selection = await resolveModelSelection(userId, model, 'llm')
@@ -361,7 +361,7 @@ export async function resolveModelId(userId: string, model: string): Promise<str
 }
 
 /**
- * 获取模型价格
+ * 获取Model价格
  */
 export async function getModelPrice(userId: string, model: string): Promise<number> {
   const { models } = await readUserConfig(userId)
@@ -373,7 +373,7 @@ export async function getModelPrice(userId: string, model: string): Promise<numb
 }
 
 /**
- * 根据音频模型键获取音频 API Key（未传模型时要求仅存在单一音频模型）
+ * 根据音频Model键获取音频 API Key（未传Model时要求仅存在单一音频Model）
  */
 export async function getAudioApiKey(userId: string, model?: string | null): Promise<string> {
   const selection = await resolveModelSelectionOrSingle(userId, model, 'audio')
@@ -381,7 +381,7 @@ export async function getAudioApiKey(userId: string, model?: string | null): Pro
 }
 
 /**
- * 根据口型同步模型键获取 API Key（未传模型时要求仅存在单一 lipsync 模型）
+ * 根据口型同步Model键获取 API Key（未传Model时要求仅存在单一 lipsync Model）
  */
 export async function getLipSyncApiKey(userId: string, model?: string | null): Promise<string> {
   const selection = await resolveModelSelectionOrSingle(userId, model, 'lipsync')

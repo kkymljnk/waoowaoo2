@@ -63,8 +63,8 @@ export async function chatCompletionWithVision(
   }
 
   if (!model) {
-    _ulogError('[LLM Vision] 模型未配置，调用栈:', new Error().stack)
-    throw new Error('ANALYSIS_MODEL_NOT_CONFIGURED: 请先在设置页面配置分析模型')
+    _ulogError('[LLM Vision] Model未配置，调用栈:', new Error().stack)
+    throw new Error('ANALYSIS_MODEL_NOT_CONFIGURED: Please configure the analysis model in settings first')
   }
 
   const selection = await resolveLlmRuntimeModel(userId, model)
@@ -238,7 +238,7 @@ export async function chatCompletionWithVision(
       const errorBody = getErrorBody(error)
       if (errorBody?.message === 'PROHIBITED_CONTENT' || errorBody?.code === 502) {
         _ulogError('[LLM Vision] ❌ 内容安全检测失败 - Google AI Studio 拒绝处理此内容')
-        throw new Error('SENSITIVE_CONTENT: 图片或提示词包含敏感信息,无法处理')
+        throw new Error('SENSITIVE_CONTENT: 图片或Prompt包含敏感信息,N/A法处理')
       }
 
       _ulogWarn(`[LLM Vision] 调用失败 (${attempt}/${maxRetries + 1}): ${errorMessage}`)

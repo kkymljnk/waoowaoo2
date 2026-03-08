@@ -31,7 +31,7 @@ export interface AIDesignResult {
 
 /**
  * AI 设计通用函数
- * 根据用户指令生成角色或场景的 prompt 描述
+ * 根据用户指令生成Character或Scene的 prompt Description
  */
 export async function aiDesign(options: AIDesignOptions): Promise<AIDesignResult> {
     const {
@@ -47,14 +47,14 @@ export async function aiDesign(options: AIDesignOptions): Promise<AIDesignResult
     if (!userInstruction?.trim()) {
         return {
             success: false,
-            error: assetType === 'character' ? '请输入人物设计需求' : '请输入场景设计需求'
+            error: assetType === 'character' ? '请输入人物设计需求' : '请输入Scene设计需求'
         }
     }
 
     if (!analysisModel) {
         return {
             success: false,
-            error: '请先在用户配置中设置分析模型'
+            error: 'Please configure the analysis model in user settings first'
         }
     }
 
@@ -70,7 +70,7 @@ export async function aiDesign(options: AIDesignOptions): Promise<AIDesignResult
             },
         })
     } catch {
-        _ulogError('[AI Design] 提示词加载失败')
+        _ulogError('[AI Design] Prompt加载失败')
         return { success: false, error: '系统配置错误' }
     }
 
@@ -88,7 +88,7 @@ export async function aiDesign(options: AIDesignOptions): Promise<AIDesignResult
             action,
             meta: {
                 stepId: action,
-                stepTitle: assetType === 'character' ? '角色设计' : '场景设计',
+                stepTitle: assetType === 'character' ? 'Character设计' : 'Scene设计',
                 stepIndex: 1,
                 stepTotal: 1,
             },
@@ -130,7 +130,7 @@ export async function aiDesign(options: AIDesignOptions): Promise<AIDesignResult
     }
 
     if (!parsedResponse.prompt) {
-        return { success: false, error: 'AI返回缺少prompt字段' }
+        return { success: false, error: 'AI返回missingprompt字段' }
     }
 
     return {

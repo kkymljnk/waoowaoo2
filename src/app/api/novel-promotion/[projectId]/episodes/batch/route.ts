@@ -1,5 +1,5 @@
 /**
- * 批量创建剧集 API
+ * 批量创建Episode API
  */
 
 import { NextRequest, NextResponse } from 'next/server'
@@ -37,14 +37,14 @@ export const POST = apiHandler(async (
         throw new ApiError('NOT_FOUND')
     }
 
-    // 如果需要清空现有剧集
+    // 如果需要清空现有Episode
     if (clearExisting) {
         await prisma.novelPromotionEpisode.deleteMany({
             where: { novelPromotionProjectId: project.id }
         })
     }
 
-    // 如果剧集数组为空，只更新 importStatus
+    // 如果Episode数组为空，只更新 importStatus
     if (episodes.length === 0) {
         if (importStatus) {
             await prisma.novelPromotionProject.update({
@@ -55,11 +55,11 @@ export const POST = apiHandler(async (
         return NextResponse.json({
             success: true,
             episodes: [],
-            message: '已清空剧集'
+            message: '已清空Episode'
         })
     }
 
-    // 获取当前最大剧集编号
+    // 获取当前最大Episode编号
     const lastEpisode = await prisma.novelPromotionEpisode.findFirst({
         where: { novelPromotionProjectId: project.id },
         orderBy: { episodeNumber: 'desc' }
@@ -67,7 +67,7 @@ export const POST = apiHandler(async (
 
     const startNumber = clearExisting ? 1 : (lastEpisode?.episodeNumber || 0) + 1
 
-    // 批量创建剧集
+    // 批量创建Episode
     const createdEpisodes = await prisma.$transaction(
         (episodes as BatchEpisode[]).map((ep, idx) =>
             prisma.novelPromotionEpisode.create({

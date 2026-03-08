@@ -62,7 +62,7 @@ export function sliceSRT(srtText: string, start: number, end: number): string {
 }
 
 /**
- * 计算SRT片段的总时长（秒）
+ * 计算SRTClip的总时长（秒）
  * @param srtText SRT文本
  * @returns 总时长（秒）
  */
@@ -81,7 +81,7 @@ export function calculateSRTDuration(srtText: string): number {
 
 /**
  * 将SRT时间格式转换为秒
- * @param timeStr 时间字符串（例如：00:00:02,500）
+ * @param timeStr 时间字符串（For example:00:00:02,500）
  * @returns 秒数
  */
 function timeToSeconds(timeStr: string): number {

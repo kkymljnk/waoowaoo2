@@ -5,7 +5,7 @@ import { logInfo as _ulogInfo, logError as _ulogError } from '@/lib/logging/core
  * 
  * 🔥 统一格式：PROVIDER:TYPE:REQUEST_ID
  * 
- * 例如：
+ * For example:
  * - FAL:VIDEO:fal-ai/wan/v2.6:abc123
  * - FAL:IMAGE:fal-ai/nano-banana-pro:def456
  * - ARK:VIDEO:task_789
@@ -54,12 +54,12 @@ export function parseExternalId(externalId: string): {
 
         if (parts[1] === 'VIDEO' || parts[1] === 'IMAGE') {
             if (parts.length < 4) {
-                throw new Error(`无效 FAL externalId: "${externalId}"，应为 FAL:TYPE:endpoint:requestId`)
+                throw new Error(`N/A效 FAL externalId: "${externalId}"，应为 FAL:TYPE:endpoint:requestId`)
             }
             const endpoint = parts.slice(2, -1).join(':')
             const requestId = parts[parts.length - 1]
             if (!endpoint || !requestId) {
-                throw new Error(`无效 FAL externalId: "${externalId}"，缺少 endpoint 或 requestId`)
+                throw new Error(`N/A效 FAL externalId: "${externalId}"，missing endpoint 或 requestId`)
             }
             return {
                 provider: 'FAL',
@@ -68,7 +68,7 @@ export function parseExternalId(externalId: string): {
                 requestId,
             }
         }
-        throw new Error(`无效 FAL externalId: "${externalId}"，TYPE 仅支持 VIDEO/IMAGE`)
+        throw new Error(`N/A效 FAL externalId: "${externalId}"，TYPE 仅支持 VIDEO/IMAGE`)
     }
 
     if (externalId.startsWith('ARK:')) {
@@ -76,7 +76,7 @@ export function parseExternalId(externalId: string): {
         const type = parts[1]
         const requestId = parts.slice(2).join(':')
         if ((type !== 'VIDEO' && type !== 'IMAGE') || !requestId) {
-            throw new Error(`无效 ARK externalId: "${externalId}"，应为 ARK:TYPE:requestId`)
+            throw new Error(`N/A效 ARK externalId: "${externalId}"，应为 ARK:TYPE:requestId`)
         }
         return {
             provider: 'ARK',
@@ -90,7 +90,7 @@ export function parseExternalId(externalId: string): {
         const type = parts[1]
         const requestId = parts.slice(2).join(':')
         if (type !== 'BATCH' || !requestId) {
-            throw new Error(`无效 GEMINI externalId: "${externalId}"，应为 GEMINI:BATCH:batchName`)
+            throw new Error(`N/A效 GEMINI externalId: "${externalId}"，应为 GEMINI:BATCH:batchName`)
         }
         return {
             provider: 'GEMINI',
@@ -104,7 +104,7 @@ export function parseExternalId(externalId: string): {
         const type = parts[1]
         const requestId = parts.slice(2).join(':')
         if (type !== 'VIDEO' || !requestId) {
-            throw new Error(`无效 GOOGLE externalId: "${externalId}"，应为 GOOGLE:VIDEO:operationName`)
+            throw new Error(`N/A效 GOOGLE externalId: "${externalId}"，应为 GOOGLE:VIDEO:operationName`)
         }
         return {
             provider: 'GOOGLE',
@@ -118,7 +118,7 @@ export function parseExternalId(externalId: string): {
         const type = parts[1]
         const requestId = parts.slice(2).join(':')
         if ((type !== 'VIDEO' && type !== 'IMAGE') || !requestId) {
-            throw new Error(`无效 MINIMAX externalId: "${externalId}"，应为 MINIMAX:TYPE:taskId`)
+            throw new Error(`N/A效 MINIMAX externalId: "${externalId}"，应为 MINIMAX:TYPE:taskId`)
         }
         return {
             provider: 'MINIMAX',
@@ -132,7 +132,7 @@ export function parseExternalId(externalId: string): {
         const type = parts[1]
         const requestId = parts.slice(2).join(':')
         if ((type !== 'VIDEO' && type !== 'IMAGE') || !requestId) {
-            throw new Error(`无效 VIDU externalId: "${externalId}"，应为 VIDU:TYPE:taskId`)
+            throw new Error(`N/A效 VIDU externalId: "${externalId}"，应为 VIDU:TYPE:taskId`)
         }
         return {
             provider: 'VIDU',
@@ -147,7 +147,7 @@ export function parseExternalId(externalId: string): {
         const providerToken = parts[2]
         const requestId = parts.slice(3).join(':')
         if (type !== 'VIDEO' || !providerToken || !requestId) {
-            throw new Error(`无效 OPENAI externalId: "${externalId}"，应为 OPENAI:VIDEO:providerToken:videoId`)
+            throw new Error(`N/A效 OPENAI externalId: "${externalId}"，应为 OPENAI:VIDEO:providerToken:videoId`)
         }
         return {
             provider: 'OPENAI',
@@ -158,7 +158,7 @@ export function parseExternalId(externalId: string): {
     }
 
     throw new Error(
-        `无法识别的 externalId 格式: "${externalId}". ` +
+        `N/A法识别的 externalId 格式: "${externalId}". ` +
         `支持的格式: FAL:TYPE:endpoint:requestId, ARK:TYPE:requestId, GEMINI:BATCH:batchName, GOOGLE:VIDEO:operationName, MINIMAX:TYPE:taskId, VIDU:TYPE:taskId, OPENAI:VIDEO:providerToken:videoId`
     )
 }
@@ -172,7 +172,7 @@ export async function pollAsyncTask(
     userId: string
 ): Promise<PollResult> {
     if (!userId) {
-        throw new Error('缺少用户ID，无法获取 API Key')
+        throw new Error('missing用户ID，N/A法获取 API Key')
     }
 
     const parsed = parseExternalId(externalId)
@@ -194,8 +194,8 @@ export async function pollAsyncTask(
         case 'OPENAI':
             return await pollOpenAIVideoTask(parsed.requestId, userId, parsed.providerToken)
         default:
-            // 🔥 移除 fallback：未知 provider 直接抛出错误
-            throw new Error(`未知的 Provider: ${parsed.provider}`)
+            // 🔥 移除 fallback：Unknown provider 直接抛出错误
+            throw new Error(`Unknown的 Provider: ${parsed.provider}`)
     }
 }
 
@@ -400,7 +400,7 @@ async function queryMinimaxTaskStatus(
 
         // 检查响应
         if (data.base_resp?.status_code !== 0) {
-            const errMsg = data.base_resp?.status_msg || '未知错误'
+            const errMsg = data.base_resp?.status_msg || 'Unknown错误'
             _ulogError(`${logPrefix} task_id=${taskId} 错误:`, errMsg)
             return {
                 status: 'failed',
@@ -413,7 +413,7 @@ async function queryMinimaxTaskStatus(
         if (status === 'Success') {
             const fileId = data.file_id
             if (!fileId) {
-                _ulogError(`${logPrefix} task_id=${taskId} 成功但无file_id`)
+                _ulogError(`${logPrefix} task_id=${taskId} 成功但N/Afile_id`)
                 return {
                     status: 'failed',
                     error: '任务完成但未返回视频'
@@ -442,10 +442,10 @@ async function queryMinimaxTaskStatus(
                 const downloadUrl = fileData.file?.download_url
 
                 if (!downloadUrl) {
-                    _ulogError(`${logPrefix} 文件检索成功但无download_url:`, fileData)
+                    _ulogError(`${logPrefix} 文件检索成功但N/Adownload_url:`, fileData)
                     return {
                         status: 'failed',
-                        error: '无法获取视频下载链接'
+                        error: 'N/A法获取视频下载链接'
                     }
                 }
 
@@ -548,7 +548,7 @@ async function queryViduTaskStatus(
             // 🔥 任务成功，从 creations 数组中获取视频URL
             const creations = data.creations
             if (!creations || creations.length === 0) {
-                _ulogError(`${logPrefix} task_id=${taskId} 成功但无生成物`)
+                _ulogError(`${logPrefix} task_id=${taskId} 成功但N/A生成物`)
                 return {
                     status: 'failed',
                     error: 'Vidu: 任务完成但未返回视频'
@@ -557,7 +557,7 @@ async function queryViduTaskStatus(
 
             const videoUrl = creations[0].url
             if (!videoUrl) {
-                _ulogError(`${logPrefix} task_id=${taskId} 成功但生成物无URL`)
+                _ulogError(`${logPrefix} task_id=${taskId} 成功但生成物N/AURL`)
                 return {
                     status: 'failed',
                     error: 'Vidu: 任务完成但未返回视频URL'

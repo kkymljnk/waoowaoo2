@@ -5,7 +5,7 @@
 
 /**
  * 获取应用 baseUrl
- * 用于内部 API 调用、webhook 回调等场景
+ * 用于内部 API 调用、webhook 回调等Scene
  */
 export function getBaseUrl(): string {
     return process.env.NEXTAUTH_URL || 'http://localhost:3000'

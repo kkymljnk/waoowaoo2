@@ -1,7 +1,7 @@
 /**
- * 主形象的 appearanceIndex 值。
- * 所有判断主/子形象的逻辑必须引用此常量，禁止硬编码数字。
- * 子形象的 appearanceIndex 从 PRIMARY_APPEARANCE_INDEX + 1 开始递增。
+ * 主Appearance的 appearanceIndex 值。
+ * 所有判断主/子Appearance的逻辑必须引用此常量，禁止硬编码数字。
+ * 子Appearance的 appearanceIndex 从 PRIMARY_APPEARANCE_INDEX + 1 开始递增。
  */
 export const PRIMARY_APPEARANCE_INDEX = 0
 
@@ -42,7 +42,7 @@ export const IMAGE_MODELS = [
   { value: 'doubao-seedream-4-0-250828', label: 'Seedream 4.0' }
 ]
 
-// 图像模型选项（ 生成完整图片）
+// 图像Model选项（ 生成完整图片）
 export const IMAGE_MODEL_OPTIONS = [
   { value: 'banana', label: 'Banana Pro (FAL)' },
   { value: 'banana-2', label: 'Banana 2 (FAL)' },
@@ -61,7 +61,7 @@ export const BANANA_RESOLUTION_OPTIONS = [
   { value: '4K', label: '4K (HD, Slower)' }
 ]
 
-// 支持分辨率选择的 Banana 模型
+// 支持分辨率选择的 Banana Model
 export const BANANA_MODELS = ['banana', 'banana-2', 'gemini-3-pro-image-preview', 'gemini-3-pro-image-preview-batch']
 
 export const VIDEO_MODELS = [
@@ -81,7 +81,7 @@ export const VIDEO_MODELS = [
   { value: 'fal-ai/kling-video/v3/pro/image-to-video', label: 'Kling 3 Pro' }
 ]
 
-// SeeDream 批量模型列表（使用 GPU 空闲时间，成本降低50%）
+// SeeDream 批量Model列表（使用 GPU 空闲时间，成本降低50%）
 export const SEEDANCE_BATCH_MODELS = [
   'doubao-seedance-1-5-pro-251215-batch',
   'doubao-seedance-1-0-pro-250528-batch',
@@ -89,10 +89,10 @@ export const SEEDANCE_BATCH_MODELS = [
   'doubao-seedance-1-0-lite-i2v-250428-batch',
 ]
 
-// 支持生成音频的模型（仅 Seedance 1.5 Pro 支持，包含批量版本）
+// 支持生成音频的Model（仅 Seedance 1.5 Pro 支持，包含批量版本）
 export const AUDIO_SUPPORTED_MODELS = ['doubao-seedance-1-5-pro-251215', 'doubao-seedance-1-5-pro-251215-batch']
 
-// 首尾帧视频模型（能力权威来源是 standards/capabilities；此常量仅作静态兜底展示）
+// 首尾帧视频Model（能力权威来源是 standards/capabilities；此常量仅作静态兜底展示）
 export const FIRST_LAST_FRAME_MODELS = [
   { value: 'doubao-seedance-1-5-pro-251215', label: 'Seedance 1.5 Pro (首尾帧)' },
   { value: 'doubao-seedance-1-5-pro-251215-batch', label: 'Seedance 1.5 Pro (首尾帧/批量) 省50%' },
@@ -149,7 +149,7 @@ export const ART_STYLES = [
     value: 'realistic',
     label: 'Realistic',
     preview: 'Real',
-    promptZh: '真实电影级画面质感，真实现实场景，色彩饱满通透，画面干净精致，真实感',
+    promptZh: '真实电影级画面质感，真实现实Scene，色彩饱满通透，画面干净精致，真实感',
     promptEn: 'Realistic cinematic look, real-world scene fidelity, rich transparent colors, clean and refined image quality.'
   }
 ]
@@ -171,48 +171,48 @@ export function getArtStylePrompt(
   return locale === 'en' ? style.promptEn : style.promptZh
 }
 
-// 角色形象生成的系统后缀（始终添加到提示词末尾，不显示给用户）- 左侧面部特写+右侧三视图
-export const CHARACTER_PROMPT_SUFFIX = '角色设定图，画面分为左右两个区域：【左侧区域】占约1/3宽度，是角色的正面特写（如果是人类则展示完整正脸，如果是动物/生物则展示最具辨识度的正面形态）；【右侧区域】占约2/3宽度，是角色三视图横向排列（从左到右依次为：正面全身、侧面全身、背面全身），三视图高度一致。纯白色背景，无其他元素。'
+// CharacterAppearance生成的系统后缀（始终添加到Prompt末尾，不显示给用户）- 左侧面部特写+右侧Multi-view Image
+export const CHARACTER_PROMPT_SUFFIX = 'Character设定图，画面分为左右两个区域：【左侧区域】占约1/3宽度，是Character的正面特写（如果是人类则展示完整正脸，如果是动物/生物则展示最具辨识度的正面形态）；【右侧区域】占约2/3宽度，是CharacterMulti-view Image横向排列（从左到右依次为：正面全身、侧面全身、背面全身），Multi-view Image高度一致。纯白色背景，N/A其他元素。'
 
-// 场景图片生成的系统后缀（已禁用四视图，直接生成单张场景图）
+// Scene图片生成的系统后缀（已禁用四视图，直接生成单张Scene图）
 export const LOCATION_PROMPT_SUFFIX = ''
 
-// 角色图片生成比例（16:9横版，左侧面部特写+右侧全身）
+// Character图片生成比例（16:9横版，左侧面部特写+右侧全身）
 export const CHARACTER_IMAGE_RATIO = '16:9'
-// 角色图片尺寸（用于Seedream API）
+// Character图片尺寸（用于Seedream API）
 export const CHARACTER_IMAGE_SIZE = '3840x2160'  // 16:9 横版
-// 角色图片尺寸（用于Banana API）
+// Character图片尺寸（用于Banana API）
 export const CHARACTER_IMAGE_BANANA_RATIO = '3:2'
 
-// 场景图片生成比例（1:1 正方形单张场景）
+// Scene图片生成比例（1:1 正方形单张Scene）
 export const LOCATION_IMAGE_RATIO = '1:1'
-// 场景图片尺寸（用于Seedream API）- 4K
+// Scene图片尺寸（用于Seedream API）- 4K
 export const LOCATION_IMAGE_SIZE = '4096x4096'  // 1:1 正方形 4K
-// 场景图片尺寸（用于Banana API）
+// Scene图片尺寸（用于Banana API）
 export const LOCATION_IMAGE_BANANA_RATIO = '1:1'
 
-// 从提示词中移除角色系统后缀（用于显示给用户）
+// 从Prompt中移除Character系统后缀（用于显示给用户）
 export function removeCharacterPromptSuffix(prompt: string): string {
   if (!prompt) return ''
   return prompt.replace(CHARACTER_PROMPT_SUFFIX, '').trim()
 }
 
-// 添加角色系统后缀到提示词（用于生成图片）
+// 添加Character系统后缀到Prompt（用于生成图片）
 export function addCharacterPromptSuffix(prompt: string): string {
   if (!prompt) return CHARACTER_PROMPT_SUFFIX
   const cleanPrompt = removeCharacterPromptSuffix(prompt)
   return `${cleanPrompt}${cleanPrompt ? '，' : ''}${CHARACTER_PROMPT_SUFFIX}`
 }
 
-// 从提示词中移除场景系统后缀（用于显示给用户）
+// 从Prompt中移除Scene系统后缀（用于显示给用户）
 export function removeLocationPromptSuffix(prompt: string): string {
   if (!prompt) return ''
   return prompt.replace(LOCATION_PROMPT_SUFFIX, '').replace(/，$/, '').trim()
 }
 
-// 添加场景系统后缀到提示词（用于生成图片）
+// 添加Scene系统后缀到Prompt（用于生成图片）
 export function addLocationPromptSuffix(prompt: string): string {
-  // 后缀为空时直接返回原提示词
+  // 后缀为空时直接返回原Prompt
   if (!LOCATION_PROMPT_SUFFIX) return prompt || ''
   if (!prompt) return LOCATION_PROMPT_SUFFIX
   const cleanPrompt = removeLocationPromptSuffix(prompt)
@@ -220,18 +220,18 @@ export function addLocationPromptSuffix(prompt: string): string {
 }
 
 /**
- * 构建角色介绍字符串（用于发送给 AI，帮助理解"我"和称呼对应的角色）
- * @param characters - 角色列表，需要包含 name 和 introduction 字段
- * @returns 格式化的角色介绍字符串
+ * 构建Character介绍字符串（用于发送给 AI，帮助理解"我"和称呼对应的Character）
+ * @param characters - Character列表，需要包含 name 和 introduction 字段
+ * @returns 格式化的Character介绍字符串
  */
 export function buildCharactersIntroduction(characters: Array<{ name: string; introduction?: string | null }>): string {
-  if (!characters || characters.length === 0) return '暂无角色介绍'
+  if (!characters || characters.length === 0) return '暂No characters介绍'
 
   const introductions = characters
     .filter(c => c.introduction && c.introduction.trim())
     .map(c => `- ${c.name}：${c.introduction}`)
 
-  if (introductions.length === 0) return '暂无角色介绍'
+  if (introductions.length === 0) return '暂No characters介绍'
 
   return introductions.join('\n')
 }

@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma'
 import { requireUserAuth, isErrorResponse } from '@/lib/api-auth'
 import { ApiError, apiHandler } from '@/lib/api-errors'
 
-// 获取单个场景
+// 获取单个Scene
 export const GET = apiHandler(async (
     request: NextRequest,
     context: { params: Promise<{ locationId: string }> }
@@ -27,7 +27,7 @@ export const GET = apiHandler(async (
     return NextResponse.json({ location })
 })
 
-// 更新场景
+// 更新Scene
 export const PATCH = apiHandler(async (
     request: NextRequest,
     context: { params: Promise<{ locationId: string }> }
@@ -74,7 +74,7 @@ export const PATCH = apiHandler(async (
     return NextResponse.json({ success: true, location: updatedLocation })
 })
 
-// 删除场景
+// 删除Scene
 export const DELETE = apiHandler(async (
     request: NextRequest,
     context: { params: Promise<{ locationId: string }> }

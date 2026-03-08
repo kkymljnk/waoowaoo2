@@ -137,7 +137,7 @@ export default function VoiceLineCard({
                 #{line.lineIndex}
             </div>
 
-            {/* 状态标签+删除配音按钮 */}
+            {/* 状态标签+删除Dubbing按钮 */}
             {
                 line.audioUrl && (
                     <div className="absolute top-2 right-2 flex items-center gap-1">
@@ -155,7 +155,7 @@ export default function VoiceLineCard({
                 )
             }
 
-            {/* 中间：台词内容 */}
+            {/* 中间：Dialogue内容 */}
             <div className="px-4 py-3">
                 <div className="group">
                     <p className="text-sm text-[var(--glass-text-secondary)] line-clamp-3 leading-relaxed" title={line.content}>
@@ -190,7 +190,7 @@ export default function VoiceLineCard({
                 </div>
             </div>
 
-            {/* 情绪设置面板 */}
+            {/* 情绪Settings面板 */}
             {
                 hasVoice && (
                     <>

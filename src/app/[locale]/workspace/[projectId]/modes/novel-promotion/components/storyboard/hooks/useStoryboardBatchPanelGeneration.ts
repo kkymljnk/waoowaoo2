@@ -59,11 +59,11 @@ export function useStoryboardBatchPanelGeneration({
       })
 
       if (panelsToGenerate.length === 0) {
-        _ulogInfo('[批量生成] 没有需要生成的分镜图片')
+        _ulogInfo('[批量生成] 没有需要生成的Storyboard图片')
         return
       }
 
-      _ulogInfo(`[批量生成] 开始生成 ${panelsToGenerate.length} 个分镜图片`)
+      _ulogInfo(`[批量生成] 开始生成 ${panelsToGenerate.length} 个Storyboard图片`)
 
       const concurrencyLimit = 10
       const results: Array<PromiseSettledResult<unknown>> = []
@@ -100,7 +100,7 @@ export function useStoryboardBatchPanelGeneration({
           }),
         )
       } else if (succeeded > 0) {
-        _ulogInfo(`[批量生成] 全部成功生成 ${succeeded} 个分镜图片`)
+        _ulogInfo(`[批量生成] 全部成功生成 ${succeeded} 个Storyboard图片`)
       }
     } catch (error: unknown) {
       _ulogError('[批量生成] 发生意外错误:', error)

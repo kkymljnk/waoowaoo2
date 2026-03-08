@@ -11,7 +11,7 @@ function toObject(value: unknown): Record<string, unknown> {
   return value as Record<string, unknown>
 }
 
-// 删除场景（级联删除关联的图片记录）
+// 删除Scene（级联删除关联的图片记录）
 export const DELETE = apiHandler(async (
   request: NextRequest,
   context: { params: Promise<{ projectId: string }> }
@@ -29,7 +29,7 @@ export const DELETE = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 删除场景（LocationImage 会级联删除）
+  // 删除Scene（LocationImage 会级联删除）
   await prisma.novelPromotionLocation.delete({
     where: { id: locationId }
   })
@@ -37,7 +37,7 @@ export const DELETE = apiHandler(async (
   return NextResponse.json({ success: true })
 })
 
-// 新增场景
+// 新增Scene
 export const POST = apiHandler(async (
   request: NextRequest,
   context: { params: Promise<{ projectId: string }> }
@@ -76,7 +76,7 @@ export const POST = apiHandler(async (
     }
   }
 
-  // 创建场景
+  // 创建Scene
   const cleanDescription = removeLocationPromptSuffix(description.trim())
   const location = await prisma.novelPromotionLocation.create({
     data: {
@@ -118,7 +118,7 @@ export const POST = apiHandler(async (
     _ulogError('[Location API] 后台图片生成任务触发失败:', err)
   })
 
-  // 返回包含图片的场景数据
+  // 返回包含图片的Scene数据
   const locationWithImages = await prisma.novelPromotionLocation.findUnique({
     where: { id: location.id },
     include: { images: true }
@@ -127,7 +127,7 @@ export const POST = apiHandler(async (
   return NextResponse.json({ success: true, location: locationWithImages })
 })
 
-// 更新场景（名字或图片描述）
+// 更新Scene（名字或图片Description）
 export const PATCH = apiHandler(async (
   request: NextRequest,
   context: { params: Promise<{ projectId: string }> }
@@ -145,7 +145,7 @@ export const PATCH = apiHandler(async (
     throw new ApiError('INVALID_PARAMS')
   }
 
-  // 如果提供了 name 或 summary，更新场景信息
+  // 如果提供了 name 或 summary，更新Scene信息
   if (name !== undefined || body.summary !== undefined) {
     const updateData: { name?: string; summary?: string | null } = {}
     if (name !== undefined) updateData.name = name.trim()
@@ -158,7 +158,7 @@ export const PATCH = apiHandler(async (
     return NextResponse.json({ success: true, location })
   }
 
-  // 如果提供了 description 和 imageIndex，更新图片描述
+  // 如果提供了 description 和 imageIndex，更新图片Description
   if (imageIndex !== undefined && description) {
     const cleanDescription = removeLocationPromptSuffix(description.trim())
     const image = await prisma.locationImage.update({

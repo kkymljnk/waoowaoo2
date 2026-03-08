@@ -4,7 +4,7 @@ import { requireUserAuth, isErrorResponse } from '@/lib/api-auth'
 import { encodeImageUrls } from '@/lib/contracts/image-urls-contract'
 import { ApiError, apiHandler } from '@/lib/api-errors'
 
-// 更新形象描述
+// 更新AppearanceDescription
 export const PATCH = apiHandler(async (
     request: NextRequest,
     context: { params: Promise<{ characterId: string; appearanceIndex: string }> }
@@ -67,7 +67,7 @@ export const PATCH = apiHandler(async (
     return NextResponse.json({ success: true })
 })
 
-// 添加新形象
+// 添加新Appearance
 export const POST = apiHandler(async (
     request: NextRequest,
     context: { params: Promise<{ characterId: string; appearanceIndex: string }> }
@@ -102,7 +102,7 @@ export const POST = apiHandler(async (
         data: {
             characterId,
             appearanceIndex: newIndex,
-            changeReason: changeReason || '形象变化',
+            changeReason: changeReason || 'Appearance变化',
             description: description.trim(),
             descriptions: JSON.stringify([description.trim()]),
             imageUrls: encodeImageUrls([]),
@@ -112,7 +112,7 @@ export const POST = apiHandler(async (
     return NextResponse.json({ success: true, appearance })
 })
 
-// 删除形象
+// 删除Appearance
 export const DELETE = apiHandler(async (
     request: NextRequest,
     context: { params: Promise<{ characterId: string; appearanceIndex: string }> }

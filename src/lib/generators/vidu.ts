@@ -654,7 +654,7 @@ export class ViduVideoGenerator extends BaseVideoGenerator {
 
             const taskId = data.task_id
             if (!taskId) {
-                _ulogError(`${logPrefix} 响应中缺少 task_id:`, data)
+                _ulogError(`${logPrefix} 响应中missing task_id:`, data)
                 throw new Error('Vidu未返回task_id')
             }
 

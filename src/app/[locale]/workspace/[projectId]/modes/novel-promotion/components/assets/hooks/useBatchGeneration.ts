@@ -2,7 +2,7 @@
 import { logError as _ulogError } from '@/lib/logging/core'
 
 /**
- * useBatchGeneration - 批量生成资产图片
+ * useBatchGeneration - 批量生成Asset图片
  * 从 AssetsStage.tsx 提取
  * 
  * 🔥 V6.5 重构：直接订阅 useProjectAssets，消除 props drilling
@@ -60,7 +60,7 @@ export function useBatchGeneration({
     const [pendingRegenerationKeys, setPendingRegenerationKeys] = useState<Set<string>>(new Set())
     const [pendingRegenerationBaselines, setPendingRegenerationBaselines] = useState<Map<string, ManualRegenerationBaseline>>(new Map())
 
-    // 获取形象列表（内置实现，不再依赖外部传入）
+    // 获取Appearance列表（内置实现，不再依赖外部传入）
     const getAppearances = useCallback((character: Character): CharacterAppearance[] => {
         return character.appearances || []
     }, [])
@@ -132,7 +132,7 @@ export function useBatchGeneration({
         })
     }, [characters, locations, pendingRegenerationBaselines, pendingRegenerationKeys])
 
-    // 生成全部资产图片（仅缺失图片的）
+    // 生成全部Asset图片（仅缺失图片的）
     const handleGenerateAllImages = async () => {
         const tasks: Array<{
             type: 'character' | 'location'
@@ -142,7 +142,7 @@ export function useBatchGeneration({
             key: string
         }> = []
 
-        // 收集角色资产
+        // 收集CharacterAsset
         characters.forEach(char => {
             const appearances = getAppearances(char)
             appearances.forEach(app => {
@@ -158,7 +158,7 @@ export function useBatchGeneration({
             })
         })
 
-        // 收集场景资产
+        // 收集SceneAsset
         locations.forEach(loc => {
             const hasImage = loc.images?.some(img => img.imageUrl)
             if (!hasImage) {
@@ -225,7 +225,7 @@ export function useBatchGeneration({
         }
     }
 
-    // 重新生成全部资产图片（包含已有图片的）
+    // 重新生成全部Asset图片（包含已有图片的）
     const handleRegenerateAllImages = async () => {
         if (!confirm(t('toolbar.regenerateAllConfirm'))) return
 
@@ -313,7 +313,7 @@ export function useBatchGeneration({
         }
     }
 
-    // 清除单个本地兜底状态（仅用于提交失败场景）
+    // 清除单个本地兜底状态（仅用于提交失败Scene）
     const clearTransientTaskKey = useCallback((key: string) => {
         setPendingRegenerationKeys(prev => {
             const next = new Set(prev)
