@@ -659,6 +659,7 @@ export function createTextWorker() {
     QUEUE_NAME.TEXT,
     async (job) => await withTaskLifecycle(job, processTextTask),
     {
+      // @ts-expect-error ioredis version mismatch with bullmq
       connection: queueRedis,
       concurrency: Number.parseInt(process.env.QUEUE_CONCURRENCY_TEXT || '10', 10) || 10,
     },

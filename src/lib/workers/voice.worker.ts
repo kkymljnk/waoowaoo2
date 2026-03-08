@@ -56,6 +56,7 @@ export function createVoiceWorker() {
     QUEUE_NAME.VOICE,
     async (job) => await withTaskLifecycle(job, processVoiceTask),
     {
+      // @ts-expect-error ioredis version mismatch with bullmq
       connection: queueRedis,
       concurrency: Number.parseInt(process.env.QUEUE_CONCURRENCY_VOICE || '10', 10) || 10,
     },

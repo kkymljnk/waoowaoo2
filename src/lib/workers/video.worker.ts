@@ -292,6 +292,7 @@ export function createVideoWorker() {
     QUEUE_NAME.VIDEO,
     async (job) => await withTaskLifecycle(job, processVideoTask),
     {
+      // @ts-expect-error ioredis version mismatch with bullmq
       connection: queueRedis,
       concurrency: Number.parseInt(process.env.QUEUE_CONCURRENCY_VIDEO || '4', 10) || 4,
     },

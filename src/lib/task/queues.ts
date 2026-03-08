@@ -20,21 +20,25 @@ const defaultJobOptions: JobsOptions = {
 }
 
 export const imageQueue = new Queue<TaskJobData>(QUEUE_NAME.IMAGE, {
+  // @ts-expect-error ioredis version mismatch with bullmq
   connection: queueRedis,
   defaultJobOptions,
 })
 
 export const videoQueue = new Queue<TaskJobData>(QUEUE_NAME.VIDEO, {
+  // @ts-expect-error ioredis version mismatch with bullmq
   connection: queueRedis,
   defaultJobOptions,
 })
 
 export const voiceQueue = new Queue<TaskJobData>(QUEUE_NAME.VOICE, {
+  // @ts-expect-error ioredis version mismatch with bullmq
   connection: queueRedis,
   defaultJobOptions,
 })
 
 export const textQueue = new Queue<TaskJobData>(QUEUE_NAME.TEXT, {
+  // @ts-expect-error ioredis version mismatch with bullmq
   connection: queueRedis,
   defaultJobOptions,
 })
@@ -84,7 +88,8 @@ export async function addTaskJob(data: TaskJobData, opts?: JobsOptions) {
   const queueType = getQueueTypeByTaskType(data.type)
   const queue = getQueueByType(queueType)
   const priority = typeof opts?.priority === 'number' ? opts.priority : 0
-  return await queue.add(data.type, data, {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return await queue.add(data.type as any, data as any, {
     jobId: data.taskId,
     priority,
     ...(opts || {}),

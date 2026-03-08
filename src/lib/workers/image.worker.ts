@@ -50,6 +50,7 @@ export function createImageWorker() {
     QUEUE_NAME.IMAGE,
     async (job) => await withTaskLifecycle(job, processImageTask),
     {
+      // @ts-expect-error ioredis version mismatch with bullmq
       connection: queueRedis,
       concurrency: Number.parseInt(process.env.QUEUE_CONCURRENCY_IMAGE || '20', 10) || 20,
     },

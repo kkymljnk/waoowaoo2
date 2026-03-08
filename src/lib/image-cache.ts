@@ -1,8 +1,7 @@
 import { logInfo as _ulogInfo, logError as _ulogError } from '@/lib/logging/core'
 import { toFetchableUrl } from '@/lib/cos'
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const LRUCache: any = require('lru-cache')
+// @ts-expect-error lru-cache v6 has no proper type declarations for this import style
+import LRUCache from 'lru-cache'
 /**
  * 🔥 图片下载缓存系统
  * 
@@ -27,8 +26,7 @@ const MAX_CACHE_SIZE = 100          // 最多缓存 100 张图片
 const CLEANUP_INTERVAL_MS = 60 * 1000  // 每分钟清理一次
 
 // 全局缓存
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const imageCache: any = new LRUCache({
+const imageCache = new LRUCache<string, CacheEntry>({
     max: MAX_CACHE_SIZE,
     ttl: CACHE_TTL_MS,
     ttlAutopurge: true,
