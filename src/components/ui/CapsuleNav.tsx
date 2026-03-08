@@ -65,13 +65,13 @@ function NavItem({
     }
 
     return (
-        <div className="relative group">
+        <div className="relative group flex-shrink-0">
             <button
                 onClick={handleClick}
                 onAuxClick={handleAuxClick}
                 disabled={disabled}
                 className={`
-                    relative flex min-h-[52px] items-center gap-1 px-6 pt-3.5 pb-4 transition-all duration-300 ease-out
+                    relative flex min-h-[40px] sm:min-h-[52px] items-center gap-1 px-3 sm:px-6 pt-2.5 sm:pt-3.5 pb-3 sm:pb-4 transition-all duration-300 ease-out whitespace-nowrap
                     ${disabled
                         ? 'cursor-not-allowed'
                         : active
@@ -81,11 +81,11 @@ function NavItem({
                 `}
             >
                 {disabled ? (
-                    <span className="text-base font-medium text-[var(--glass-text-tertiary)] opacity-80">
+                    <span className="text-xs sm:text-base font-medium text-[var(--glass-text-tertiary)] opacity-80">
                         {label}
                     </span>
                 ) : (
-                    <span className="text-base font-semibold">{label}</span>
+                    <span className="text-xs sm:text-base font-semibold">{label}</span>
                 )}
                 {/* 底部指示条 */}
                 <span className={`absolute bottom-1.5 left-1/2 -translate-x-1/2 h-[3px] rounded-full transition-all duration-300 ease-out
@@ -133,9 +133,9 @@ export function CapsuleNav({ items, activeId, onItemClick, projectId, episodeId 
     }
 
     return (
-        <nav className="fixed top-20 left-1/2 -translate-x-1/2 z-50 animate-fadeInDown">
+        <nav className="relative mt-2 mx-auto w-fit sm:fixed sm:top-20 sm:left-1/2 sm:-translate-x-1/2 z-50 sm:animate-fadeInDown max-w-[calc(100vw-2rem)] overflow-x-auto scrollbar-hide">
             <div
-                className="flex rounded-full px-2 py-1"
+                className="flex rounded-full px-1 sm:px-2 py-1"
                 style={{
                     background: 'rgba(255,255,255,0.55)',
                     backdropFilter: 'blur(24px) saturate(1.6)',
@@ -215,7 +215,7 @@ export function EpisodeSelector({
     if (!currentEp) return null
 
     return (
-        <div className="fixed top-20 left-6 z-[60]" ref={menuRef}>
+        <div className="relative sm:fixed sm:top-20 sm:left-6 z-[60] mb-2 sm:mb-0" ref={menuRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="glass-btn-base glass-btn-secondary flex items-center gap-3 px-4 py-3 transition-all group"

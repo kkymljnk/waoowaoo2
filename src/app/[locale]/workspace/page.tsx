@@ -274,15 +274,15 @@ export default function WorkspacePage() {
             <p className="text-[var(--glass-text-secondary)]">{t('subtitle')}</p>
           </div>
 
-          {/* 搜索框 */}
-          <div className="flex gap-2">
+          {/* Search */}
+          <div className="flex flex-col sm:flex-row gap-2">
             <input
               type="text"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
               placeholder={t('searchPlaceholder')}
-              className="glass-input-base w-64 px-3 py-2"
+              className="glass-input-base w-full sm:w-64 px-3 py-2"
             />
             <button
               onClick={handleSearch}

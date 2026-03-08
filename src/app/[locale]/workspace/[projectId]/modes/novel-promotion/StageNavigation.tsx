@@ -49,7 +49,7 @@ export function StageNavigation({
   ]
 
   return (
-    <div className="flex items-center justify-center space-x-3 text-sm mt-6">
+    <div className="flex items-center justify-start md:justify-center overflow-x-auto scrollbar-hide space-x-2 sm:space-x-3 text-sm mt-4 sm:mt-6 px-2 sm:px-0 max-w-full">
       {stages.map((stage, index) => {
         const isEnabled = stage.enabled && !isDisabled
         const isCurrent = effectiveStage === stage.id

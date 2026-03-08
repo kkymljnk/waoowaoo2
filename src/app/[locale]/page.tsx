@@ -10,7 +10,7 @@ export default function Home() {
   const { data: session } = useSession()
 
   return (
-    <div className="glass-page min-h-screen overflow-hidden font-sans selection:bg-[var(--glass-tone-info-bg)]">
+    <div className="glass-page min-h-screen overflow-x-hidden font-sans selection:bg-[var(--glass-tone-info-bg)]">
       {/* Navbar */}
       <div className="relative z-50">
         <Navbar />
@@ -23,9 +23,9 @@ export default function Home() {
 
       <main className="relative z-10">
         <section className="relative min-h-screen flex items-center justify-center -mt-16 px-4">
-          <div className="container mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div className="text-left space-y-8 animate-slide-up" style={{ animationDuration: '0.8s' }}>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="container mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div className="text-left space-y-6 sm:space-y-8 animate-slide-up" style={{ animationDuration: '0.8s' }}>
+              <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 <span className="block text-[var(--glass-text-primary)]">
                   {t('title')}
                 </span>
